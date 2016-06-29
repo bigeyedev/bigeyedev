@@ -5,47 +5,70 @@
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
 }
 <div class="container" id="tablecon">
-    
-    <form action="Cart" method="post" id="form-validation">
+    @using (Html.BeginForm("Cart", "Home", FormMethod.Post, new { id = "form-validation" }))
+    {
         @Html.AntiForgeryToken()
-        @foreach (var item in Model.GroupBy(m=>m.brand))
+        @foreach (var item in Model.GroupBy(m => m.brand))
         {
-            if(item.Key.Contains("Pretty Doll"))
+            //inti brand logo
+            string Brand_Logo = null, Brand_Bg = null;
+            if (item.Key.Contains("Pretty Doll"))
             {
-
+                Brand_Logo = "http://www.sugar-eye.net/pic/logo_prettydoll.gif";
+                Brand_Bg = "#d4f9d9";
             }
             else if (item.Key.Contains("Sweety"))
             {
-
-            }else if (item.Key.Contains("Lollipop")){
-
+                Brand_Bg = "#dcf6f8";
+                Brand_Logo = "http://www.sugar-eye.net/pic/logo_sweety.gif";
             }
-            else if(item.Key.Contains("Eye Berry"))
+            else if (item.Key.Contains("Lollipop"))
             {
-
+                Brand_Logo = "http://www.sugar-eye.net/pic/logo_lollipop.gif";
+                Brand_Bg = "#ffffeb";
             }
-            else if(item.Key.Contains("Dream Color1"))
+            else if (item.Key.Contains("Eye Berry"))
+            {
+                Brand_Logo = "http://www.sugar-eye.net/pic/logo_eyeberry.gif";
+                Brand_Bg = "#fde9f2";
+            }
+            else if (item.Key.Contains("Dream Color1"))
             {
                 Brand_Logo = "http://www.sugar-eye.net/pic/logo_dreamcolor1.gif";
+                Brand_Bg = "#f2dbfb";
             }
             else if (item.Key.Contains("Kitty Kawaii"))
             {
                 Brand_Logo = "http://www.sugar-eye.net/pic/logo_kitty.gif";
+                Brand_Bg = "#fed5ef";
             }
-            else if(item.Key.Contains("Pretty Lens"))
+            else if (item.Key.Contains("Pretty Lens"))
             {
                 Brand_Logo = "http://www.sugar-eye.net/pic/logo_pretty.gif";
+                Brand_Bg = "#d9f0c3";
             }
             else if (item.Key.Contains("Beauty"))
             {
                 Brand_Logo = "http://www.sugar-eye.net/pic/logo_beauty.gif";
+                Brand_Bg = "#eef1f2";
             }
-            foreach (var modelItem in item)
-            {
 
-            }
+            //show brand logo
+            <img src="@Brand_Logo" alt="@item.Key" title="@item.Key" height="80" /><p></p>
+
+            //bind table
+            <table border="1" bordercolor="#cccccc" class="test2">
+                @foreach (var modelItem in item)
+                {
+                    <input type="hidden" value="@modelItem.id" name="[@i].id" />
+                    <input type="hidden" value="@modelItem.brand" name="[@i].brand" />
+                    <input type="hidden" value="@modelItem.model" name="[@i].model" />
+
+
+                }
+            </table>
         }
-
+    }
 
         <table class="table table-bordered" id="tb">
             @for(int i = 0; i < Model.Count; i++)

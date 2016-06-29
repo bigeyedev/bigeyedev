@@ -1,0 +1,164 @@
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\ApplicationInsights.config
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\csc.exe
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\vbc.exe
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\VBCSCompiler.exe
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\bigeyedev.dll.config
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\bigeyedev.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\bigeyedev.pdb
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Antlr3.Runtime.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\EntityFramework.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\EntityFramework.SqlServer.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.Web.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Newtonsoft.Json.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Owin.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Helpers.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Mvc.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Optimization.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Razor.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.WebPages.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\WebGrease.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.Web.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Helpers.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Mvc.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Optimization.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.Razor.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.WebPages.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Antlr3.Runtime.pdb
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Newtonsoft.Json.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\EntityFramework.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\EntityFramework.SqlServer.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\obj\Debug\bigeyedev.csprojResolveAssemblyReference.cache
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\obj\Debug\bigeyedev.dll
+C:\Users\Tommy\Documents\Visual Studio 2015\Projects\bigeyedev\bigeyedev\obj\Debug\bigeyedev.pdb
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\obj\Debug\bigeyedev.csprojResolveAssemblyReference.cache
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\obj\Debug\bigeyedev.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\obj\Debug\bigeyedev.pdb
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\ApplicationInsights.config
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\csc.exe
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\vbc.exe
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\VBCSCompiler.exe
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\bigeyedev.dll.config
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\bigeyedev.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\bigeyedev.pdb
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Antlr3.Runtime.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\EntityFramework.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\EntityFramework.SqlServer.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.Web.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.ApplicationInsights.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Newtonsoft.Json.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Owin.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Helpers.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Mvc.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Optimization.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Razor.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.WebPages.Deployment.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.WebPages.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.WebPages.Razor.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\WebGrease.dll
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.Web.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.ApplicationInsights.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Helpers.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Mvc.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Optimization.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.Razor.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.WebPages.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.WebPages.Deployment.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\System.Web.WebPages.Razor.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Antlr3.Runtime.pdb
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Newtonsoft.Json.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\EntityFramework.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\EntityFramework.SqlServer.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\boyya\Desktop\bigeyedev_original_sqlclient\bigeyedev\bin\Microsoft.Owin.Security.MicrosoftAccount.xml

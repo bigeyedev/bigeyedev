@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" />
+    <Property Name="datetime" Type="datetime" />
+    <Property Name="member_id" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="status_print" Type="int" />
+    <Property Name="have_fashion" Type="int" />
+    <Property Name="have_power" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="shop_name" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar(max)" />
+    <Property Name="district" Type="varchar" MaxLength="50" />
+    <Property Name="area" Type="varchar" MaxLength="50" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="zip" Type="varchar" MaxLength="10" />
+    <Property Name="mobile" Type="varchar" MaxLength="50" />
+    <Property Name="mobile2" Type="varchar" MaxLength="50" />
+    <Property Name="line_id" Type="varchar" MaxLength="50" />
+    <Property Name="line_display" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="note" Type="varchar" MaxLength="100" />
+    <Property Name="note2" Type="varchar" MaxLength="100" />
+    <Property Name="note3" Type="varchar" MaxLength="100" />
+    <Property Name="note4" Type="varchar" MaxLength="100" />
+    <Property Name="note5" Type="varchar" MaxLength="100" />
+    <Property Name="note_power" Type="varchar" MaxLength="150" />
+    <Property Name="note_power2" Type="varchar" MaxLength="150" />
+    <Property Name="note_power3" Type="varchar" MaxLength="150" />
+    <Property Name="fix_volume" Type="int" />
+    <Property Name="fix_power_volume" Type="int" />
+    <Property Name="eyeberry_sum_volume" Type="int" />
+    <Property Name="sweety_sum_volume" Type="int" />
+    <Property Name="lollipop_sum_volume" Type="int" />
+    <Property Name="prettydoll_sum_volume" Type="int" />
+    <Property Name="dream_sum_volume" Type="int" />
+    <Property Name="kitty_sum_volume" Type="int" />
+    <Property Name="pretty_sum_volume" Type="int" />
+    <Property Name="beauty_sum_volume" Type="int" />
+    <Property Name="all_sum_volume" Type="int" />
+    <Property Name="all_sum_power_volume" Type="int" />
+    <Property Name="total_volume" Type="int" />
+    <Property Name="user" Type="varchar" MaxLength="50" />
+    <Property Name="eyeberry_volume" Type="int" />
+    <Property Name="sweety_volume" Type="int" />
+    <Property Name="lollipop_volume" Type="int" />
+    <Property Name="prettydoll_volume" Type="int" />
+    <Property Name="dream_volume" Type="int" />
+    <Property Name="kitty_volume" Type="int" />
+    <Property Name="pretty_volume" Type="int" />
+    <Property Name="beauty_volume" Type="int" />
+    <Property Name="pay_bank" Type="varchar" MaxLength="50" />
+    <Property Name="pay_date" Type="varchar" MaxLength="50" />
+    <Property Name="pay_time" Type="varchar" MaxLength="50" />
+    <Property Name="pay_amount" Type="real" />
+    <Property Name="pay_finish" Type="int" />
+    <Property Name="eyeberry_price" Type="real" />
+    <Property Name="sweety_price" Type="real" />
+    <Property Name="lollipop_price" Type="real" />
+    <Property Name="prettydoll_price" Type="real" />
+    <Property Name="dream_price" Type="real" />
+    <Property Name="kitty_price" Type="real" />
+    <Property Name="pretty_price" Type="real" />
+    <Property Name="beauty_price" Type="real" />
+  </EntityType>
+  <EntityType Name="order_item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="model" Type="varchar" MaxLength="100" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="brand_order" Type="int" />
+    <Property Name="brand" Type="varchar" MaxLength="50" />
+    <Property Name="black" Type="int" />
+    <Property Name="choco" Type="int" />
+    <Property Name="gray" Type="int" />
+    <Property Name="brown" Type="int" />
+    <Property Name="blue" Type="int" />
+    <Property Name="green" Type="int" />
+    <Property Name="violet" Type="int" />
+    <Property Name="pink" Type="int" />
+    <Property Name="silver" Type="int" />
+    <Property Name="gold" Type="int" />
+    <Property Name="sky" Type="int" />
+    <Property Name="red" Type="int" />
+    <Property Name="near" Type="varchar(max)" />
+    <Property Name="price" Type="real" />
+    <Property Name="price_s" Type="real" />
+  </EntityType>
+  <EntityType Name="order_power_item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="group_brand" Type="int" />
+    <Property Name="brand_order" Type="int" />
+    <Property Name="brand" Type="varchar" MaxLength="50" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+    <Property Name="power" Type="int" />
+    <Property Name="model" Type="varchar" MaxLength="100" />
+    <Property Name="volume" Type="int" />
+    <Property Name="near" Type="varchar(max)" />
+    <Property Name="price" Type="real" />
+    <Property Name="price_s" Type="real" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="visible" Type="int" />
+    <Property Name="model" Type="varchar" MaxLength="50" />
+    <Property Name="image_url" Type="varchar" MaxLength="100" />
+    <Property Name="image_name" Type="varchar" MaxLength="100" />
+    <Property Name="same_image_sub_url" Type="varchar" MaxLength="100" />
+    <Property Name="len_name" Type="varchar" MaxLength="100" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="brand" Type="varchar" MaxLength="50" />
+    <Property Name="same_model" Type="varchar" MaxLength="50" />
+    <Property Name="same_model2" Type="varchar" MaxLength="50" />
+    <Property Name="speed_black" Type="int" />
+    <Property Name="speed_choco" Type="int" />
+    <Property Name="speed_gray" Type="int" />
+    <Property Name="speed_brown" Type="int" />
+    <Property Name="speed_blue" Type="int" />
+    <Property Name="speed_green" Type="int" />
+    <Property Name="speed_violet" Type="int" />
+    <Property Name="speed_pink" Type="int" />
+    <Property Name="speed_silver" Type="int" />
+    <Property Name="speed_gold" Type="int" />
+    <Property Name="speed_sky" Type="int" />
+    <Property Name="speed_red" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="power" Type="int" />
+    <Property Name="size" Type="int" />
+    <Property Name="style" Type="int" />
+    <Property Name="black" Type="int" />
+    <Property Name="choco" Type="int" />
+    <Property Name="gray" Type="int" />
+    <Property Name="brown" Type="int" />
+    <Property Name="blue" Type="int" />
+    <Property Name="green" Type="int" />
+    <Property Name="violet" Type="int" />
+    <Property Name="pink" Type="int" />
+    <Property Name="silver" Type="int" />
+    <Property Name="gold" Type="int" />
+    <Property Name="sky" Type="int" />
+    <Property Name="red" Type="int" />
+    <Property Name="near" Type="varchar(max)" />
+    <Property Name="des" Type="varchar(max)" />
+    <Property Name="des_s" Type="varchar(max)" />
+    <Property Name="date" Type="date" />
+    <Property Name="price" Type="real" />
+    <Property Name="price_s" Type="real" />
+    <Property Name="order_time" Type="int" />
+    <Property Name="order_black" Type="int" />
+    <Property Name="order_choco" Type="int" />
+    <Property Name="order_gray" Type="int" />
+    <Property Name="order_brown" Type="int" />
+    <Property Name="order_blue" Type="int" />
+    <Property Name="order_green" Type="int" />
+    <Property Name="order_violet" Type="int" />
+    <Property Name="order_pink" Type="int" />
+    <Property Name="order_silver" Type="int" />
+    <Property Name="order_gold" Type="int" />
+    <Property Name="order_sky" Type="int" />
+    <Property Name="order_red" Type="int" />
+    <Property Name="black_50" Type="int" />
+    <Property Name="black_75" Type="int" />
+    <Property Name="black_100" Type="int" />
+    <Property Name="black_125" Type="int" />
+    <Property Name="black_150" Type="int" />
+    <Property Name="black_175" Type="int" />
+    <Property Name="black_200" Type="int" />
+    <Property Name="black_225" Type="int" />
+    <Property Name="black_250" Type="int" />
+    <Property Name="black_275" Type="int" />
+    <Property Name="black_300" Type="int" />
+    <Property Name="black_325" Type="int" />
+    <Property Name="black_350" Type="int" />
+    <Property Name="black_375" Type="int" />
+    <Property Name="black_400" Type="int" />
+    <Property Name="black_425" Type="int" />
+    <Property Name="black_450" Type="int" />
+    <Property Name="black_475" Type="int" />
+    <Property Name="black_500" Type="int" />
+    <Property Name="black_550" Type="int" />
+    <Property Name="black_600" Type="int" />
+    <Property Name="black_650" Type="int" />
+    <Property Name="black_700" Type="int" />
+    <Property Name="black_750" Type="int" />
+    <Property Name="black_800" Type="int" />
+    <Property Name="black_850" Type="int" />
+    <Property Name="black_900" Type="int" />
+    <Property Name="black_950" Type="int" />
+    <Property Name="black_1000" Type="int" />
+    <Property Name="gray_50" Type="int" />
+    <Property Name="gray_75" Type="int" />
+    <Property Name="gray_100" Type="int" />
+    <Property Name="gray_125" Type="int" />
+    <Property Name="gray_150" Type="int" />
+    <Property Name="gray_175" Type="int" />
+    <Property Name="gray_200" Type="int" />
+    <Property Name="gray_225" Type="int" />
+    <Property Name="gray_250" Type="int" />
+    <Property Name="gray_275" Type="int" />
+    <Property Name="gray_300" Type="int" />
+    <Property Name="gray_325" Type="int" />
+    <Property Name="gray_350" Type="int" />
+    <Property Name="gray_375" Type="int" />
+    <Property Name="gray_400" Type="int" />
+    <Property Name="gray_425" Type="int" />
+    <Property Name="gray_450" Type="int" />
+    <Property Name="gray_475" Type="int" />
+    <Property Name="gray_500" Type="int" />
+    <Property Name="gray_550" Type="int" />
+    <Property Name="gray_600" Type="int" />
+    <Property Name="gray_650" Type="int" />
+    <Property Name="gray_700" Type="int" />
+    <Property Name="gray_750" Type="int" />
+    <Property Name="gray_800" Type="int" />
+    <Property Name="gray_850" Type="int" />
+    <Property Name="gray_900" Type="int" />
+    <Property Name="gray_950" Type="int" />
+    <Property Name="gray_1000" Type="int" />
+    <Property Name="brown_50" Type="int" />
+    <Property Name="brown_75" Type="int" />
+    <Property Name="brown_100" Type="int" />
+    <Property Name="brown_125" Type="int" />
+    <Property Name="brown_150" Type="int" />
+    <Property Name="brown_175" Type="int" />
+    <Property Name="brown_200" Type="int" />
+    <Property Name="brown_225" Type="int" />
+    <Property Name="brown_250" Type="int" />
+    <Property Name="brown_275" Type="int" />
+    <Property Name="brown_300" Type="int" />
+    <Property Name="brown_325" Type="int" />
+    <Property Name="brown_350" Type="int" />
+    <Property Name="brown_375" Type="int" />
+    <Property Name="brown_400" Type="int" />
+    <Property Name="brown_425" Type="int" />
+    <Property Name="brown_450" Type="int" />
+    <Property Name="brown_475" Type="int" />
+    <Property Name="brown_500" Type="int" />
+    <Property Name="brown_550" Type="int" />
+    <Property Name="brown_600" Type="int" />
+    <Property Name="brown_650" Type="int" />
+    <Property Name="brown_700" Type="int" />
+    <Property Name="brown_750" Type="int" />
+    <Property Name="brown_800" Type="int" />
+    <Property Name="brown_850" Type="int" />
+    <Property Name="brown_900" Type="int" />
+    <Property Name="brown_950" Type="int" />
+    <Property Name="brown_1000" Type="int" />
+    <Property Name="blue_50" Type="int" />
+    <Property Name="blue_75" Type="int" />
+    <Property Name="blue_100" Type="int" />
+    <Property Name="blue_125" Type="int" />
+    <Property Name="blue_150" Type="int" />
+    <Property Name="blue_175" Type="int" />
+    <Property Name="blue_200" Type="int" />
+    <Property Name="blue_225" Type="int" />
+    <Property Name="blue_250" Type="int" />
+    <Property Name="blue_275" Type="int" />
+    <Property Name="blue_300" Type="int" />
+    <Property Name="blue_325" Type="int" />
+    <Property Name="blue_350" Type="int" />
+    <Property Name="blue_375" Type="int" />
+    <Property Name="blue_400" Type="int" />
+    <Property Name="blue_425" Type="int" />
+    <Property Name="blue_450" Type="int" />
+    <Property Name="blue_475" Type="int" />
+    <Property Name="blue_500" Type="int" />
+    <Property Name="blue_550" Type="int" />
+    <Property Name="blue_600" Type="int" />
+    <Property Name="blue_650" Type="int" />
+    <Property Name="blue_700" Type="int" />
+    <Property Name="blue_750" Type="int" />
+    <Property Name="blue_800" Type="int" />
+    <Property Name="blue_850" Type="int" />
+    <Property Name="blue_900" Type="int" />
+    <Property Name="blue_950" Type="int" />
+    <Property Name="blue_1000" Type="int" />
+    <Property Name="green_50" Type="int" />
+    <Property Name="green_75" Type="int" />
+    <Property Name="green_100" Type="int" />
+    <Property Name="green_125" Type="int" />
+    <Property Name="green_150" Type="int" />
+    <Property Name="green_175" Type="int" />
+    <Property Name="green_200" Type="int" />
+    <Property Name="green_225" Type="int" />
+    <Property Name="green_250" Type="int" />
+    <Property Name="green_275" Type="int" />
+    <Property Name="green_300" Type="int" />
+    <Property Name="green_325" Type="int" />
+    <Property Name="green_350" Type="int" />
+    <Property Name="green_375" Type="int" />
+    <Property Name="green_400" Type="int" />
+    <Property Name="green_425" Type="int" />
+    <Property Name="green_450" Type="int" />
+    <Property Name="green_475" Type="int" />
+    <Property Name="green_500" Type="int" />
+    <Property Name="green_550" Type="int" />
+    <Property Name="green_600" Type="int" />
+    <Property Name="green_650" Type="int" />
+    <Property Name="green_700" Type="int" />
+    <Property Name="green_750" Type="int" />
+    <Property Name="green_800" Type="int" />
+    <Property Name="green_850" Type="int" />
+    <Property Name="green_900" Type="int" />
+    <Property Name="green_950" Type="int" />
+    <Property Name="green_1000" Type="int" />
+    <Property Name="violet_50" Type="int" />
+    <Property Name="violet_75" Type="int" />
+    <Property Name="violet_100" Type="int" />
+    <Property Name="violet_125" Type="int" />
+    <Property Name="violet_150" Type="int" />
+    <Property Name="violet_175" Type="int" />
+    <Property Name="violet_200" Type="int" />
+    <Property Name="violet_225" Type="int" />
+    <Property Name="violet_250" Type="int" />
+    <Property Name="violet_275" Type="int" />
+    <Property Name="violet_300" Type="int" />
+    <Property Name="violet_325" Type="int" />
+    <Property Name="violet_350" Type="int" />
+    <Property Name="violet_375" Type="int" />
+    <Property Name="violet_400" Type="int" />
+    <Property Name="violet_425" Type="int" />
+    <Property Name="violet_450" Type="int" />
+    <Property Name="violet_475" Type="int" />
+    <Property Name="violet_500" Type="int" />
+    <Property Name="violet_550" Type="int" />
+    <Property Name="violet_600" Type="int" />
+    <Property Name="violet_650" Type="int" />
+    <Property Name="violet_700" Type="int" />
+    <Property Name="violet_750" Type="int" />
+    <Property Name="violet_800" Type="int" />
+    <Property Name="violet_850" Type="int" />
+    <Property Name="violet_900" Type="int" />
+    <Property Name="violet_950" Type="int" />
+    <Property Name="violet_1000" Type="int" />
+    <Property Name="pink_50" Type="int" />
+    <Property Name="pink_75" Type="int" />
+    <Property Name="pink_100" Type="int" />
+    <Property Name="pink_125" Type="int" />
+    <Property Name="pink_150" Type="int" />
+    <Property Name="pink_175" Type="int" />
+    <Property Name="pink_200" Type="int" />
+    <Property Name="pink_225" Type="int" />
+    <Property Name="pink_250" Type="int" />
+    <Property Name="pink_275" Type="int" />
+    <Property Name="pink_300" Type="int" />
+    <Property Name="pink_325" Type="int" />
+    <Property Name="pink_350" Type="int" />
+    <Property Name="pink_375" Type="int" />
+    <Property Name="pink_400" Type="int" />
+    <Property Name="pink_425" Type="int" />
+    <Property Name="pink_450" Type="int" />
+    <Property Name="pink_475" Type="int" />
+    <Property Name="pink_500" Type="int" />
+    <Property Name="pink_550" Type="int" />
+    <Property Name="pink_600" Type="int" />
+    <Property Name="pink_650" Type="int" />
+    <Property Name="pink_700" Type="int" />
+    <Property Name="pink_750" Type="int" />
+    <Property Name="pink_800" Type="int" />
+    <Property Name="pink_850" Type="int" />
+    <Property Name="pink_900" Type="int" />
+    <Property Name="pink_950" Type="int" />
+    <Property Name="pink_1000" Type="int" />
+    <Property Name="choco_50" Type="int" />
+  </EntityType>
+  <EntityType Name="set_power_volume">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand" Type="varchar" MaxLength="50" />
+    <Property Name="power" Type="int" />
+    <Property Name="want_black" Type="int" />
+    <Property Name="want_choco" Type="int" />
+    <Property Name="want_gray" Type="int" />
+    <Property Name="want_brown" Type="int" />
+    <Property Name="want_blue" Type="int" />
+    <Property Name="want_green" Type="int" />
+    <Property Name="want_violet" Type="int" />
+    <Property Name="want_pink" Type="int" />
+    <Property Name="want_silver" Type="int" />
+    <Property Name="want_gold" Type="int" />
+    <Property Name="want_sky" Type="int" />
+    <Property Name="want_red" Type="int" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="nickname" Type="varchar" MaxLength="30" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="image" Type="varchar" MaxLength="200" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" />
+    <Property Name="gender" Type="varchar" MaxLength="10" />
+    <Property Name="birthday" Type="date" />
+    <Property Name="address" Type="varchar(max)" />
+    <Property Name="zip" Type="varchar" MaxLength="10" />
+    <Property Name="tel" Type="varchar" MaxLength="20" />
+    <Property Name="mobile" Type="varchar" MaxLength="20" />
+    <Property Name="line" Type="varchar" MaxLength="30" />
+    <Property Name="position" Type="varchar" MaxLength="50" />
+    <Property Name="contract" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="sugareyeModelStoreContainer">
+    <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="order_item" EntityType="Self.order_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="order_power_item" EntityType="Self.order_power_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="set_power_volume" EntityType="Self.set_power_volume" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
