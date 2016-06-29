@@ -4,11 +4,12 @@
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
 }
-<div class="container" id="tablecon">
+<div class="test" id="cont">
     @using (Html.BeginForm("Cart", "Home", FormMethod.Post, new { id = "form-validation" }))
     {
+        int ii = 0;
         @Html.AntiForgeryToken()
-        @foreach (var item in Model.GroupBy(m => m.brand))
+        foreach (var item in Model.GroupBy(m => m.brand))
         {
             //inti brand logo
             string Brand_Logo = null, Brand_Bg = null;
@@ -57,85 +58,75 @@
             <img src="@Brand_Logo" alt="@item.Key" title="@item.Key" height="80" /><p></p>
 
             //bind table
-            <table border="1" bordercolor="#cccccc" class="test2">
+            <table border="1" bordercolor="#cccccc" class="test2" id="table">
                 @foreach (var modelItem in item)
                 {
-                    <input type="hidden" value="@modelItem.id" name="[@i].id" />
-                    <input type="hidden" value="@modelItem.brand" name="[@i].brand" />
-                    <input type="hidden" value="@modelItem.model" name="[@i].model" />
+                    <input type="hidden" value="@modelItem.id" name="[@ii].id" />
+                    <input type="hidden" value="@modelItem.brand" name="[@ii].brand" />
+                    <input type="hidden" value="@modelItem.model" name="[@ii].model" />
+                    <tr>
+                        <td width="150" bgcolor="@Brand_Bg">
+                            <a href="http://www.sugar-eye.net/@modelItem.imageUrl.Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@modelItem.model - @modelItem.brand - @modelItem.near">
+                                &nbsp;@modelItem.model
+                            </a>
+                        </td>
+                        <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
+                            @if (modelItem.Black > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return numbersonly(this, event)", Name="["+ii+"].Black" } });
+                            }
+                            @if (modelItem.Choco > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Name= "[" + ii + "].Choco" } });
+                            }
+                            @if (modelItem.Gray > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return numbersonly(this, event)",Name= "[" + ii + "].Gray" } });
+                            }
+                            @if (modelItem.Brown > 0)
+                            {
+                                    @Html.EditorFor(m => modelItem.Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Brown" } });
+                            }
+                            @if (modelItem.Blue > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Blue" } });
+                            }
+                            @if (modelItem.Green > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Green" } });
+                            }
+                            @if (modelItem.Violet > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Violet" } });
+                            }
+                            @if (modelItem.Pink > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Pink" } });
+                            }
+                            @if (modelItem.Silver > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Silver" } });
+                            }
+                            @if (modelItem.Gold > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Gold" } });
+                            }
+                            @if (modelItem.Sky > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Sky" } });
+                            }
+                            @if (modelItem.Red > 0)
+                            {
+                                @Html.EditorFor(m => modelItem.Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Red" } });
+                            }
 
-
+                        </td>
+                    </tr>
+                    ii++;
                 }
             </table>
         }
+        <input type="submit" value="Order" class="btn btn-default" id="btnsub" />
     }
-
-        <table class="table table-bordered" id="tb">
-            @for(int i = 0; i < Model.Count; i++)
-            {
-                <tr>
-                    <input type="hidden" value="@Model[i].id" name="[@i].id" />
-                    <input type="hidden" value="@Model[i].brand" name="[@i].brand" />
-                    <input type="hidden" value="@Model[i].model" name="[@i].model" />
-                    <td>
-                        <a href="http://www.sugar-eye.net/@Model[i].imageUrl.Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@Model[i].model - @Model[i].brand - @Model[i].near">
-                            &nbsp;@Model[i].model
-                        </a>
-                    </td>
-                    <td >
-                        @if (Model[i].Black > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                        @if (Model[i].Choco > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)"} });
-                        }
-                        @if (Model[i].Gray > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return numbersonly(this, event)"} });
-                        }
-                        @if (Model[i].Brown > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return numbersonly(this, event)"} });
-                        }
-                        @if (Model[i].Blue > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return numbersonly(this, event)"} });
-                        }
-                        @if (Model[i].Green > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                        @if (Model[i].Violet > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                        @if (Model[i].Pink > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                        @if (Model[i].Silver > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                        @if (Model[i].Gold > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                        @if (Model[i].Sky > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                        @if (Model[i].Red > 0)
-                        {
-                            @Html.EditorFor(m => m[i].Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return numbersonly(this, event)" } });
-                        }
-                    </td>
-                </tr>
-            }
-        </table>
-        <input type="submit" value="Order" class="btn btn-default" />
-    </form>
 </div>
 
