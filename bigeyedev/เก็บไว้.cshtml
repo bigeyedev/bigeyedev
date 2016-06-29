@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+
+
+
+
+
+
+        <!--#include VIRTUAL="/config/conn.cshtml"-->
+
+    Html @Html.Raw(File.ReadAllText(Server.MapPath("~/config/conn.cshtml")))<br /><br />
+
+    RenderPage @RenderPage("~/config/conn.cshtml")<br /><br />
+
+                    <!--#include file="~/config/conn.cshtml" -->
+
+                <!--#include VIRTUAL="/config/conn.cshtml"-->
+
+        @Html.Include("foo.inc")
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>
