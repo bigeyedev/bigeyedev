@@ -362,6 +362,7 @@
     <Content Include="Views\Home\Fashion_Select.cshtml" />
     <Content Include="เก็บไว้.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Home\Address.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
