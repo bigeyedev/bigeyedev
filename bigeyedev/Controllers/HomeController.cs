@@ -23,12 +23,8 @@ namespace bigeyedev.Controllers
             return RedirectToAction("Fashion_Select");
         }
 
-
-        public async Task<ActionResult> Fashion_Select()
+        private async Task<List<stockBindingModel>> bindStock()
         {
-            ViewBag.Shop = "BigeyeInw";
-            ViewBag.Title = "Fashion Select";
-
             var model = await _db.products.Where(m => m.visible == 1 && (m.black > 0 || m.choco > 0 || m.gray > 0 || m.brown > 0 || m.blue > 0 || m.green > 0 || m.violet > 0 || m.pink > 0 || m.silver > 0 || m.gold > 0 || m.sky > 0 || m.red > 0)).Select(u => new stockBindingModel
             {
                 id = u.id,
@@ -49,6 +45,16 @@ namespace bigeyedev.Controllers
                 Red = u.red.Value,
                 near = u.near
             }).ToListAsync();
+
+            return (model);
+        }
+
+        public async Task<ActionResult> Fashion_Select()
+        {
+            ViewBag.Shop = "BigeyeInw";
+            ViewBag.Title = "Fashion Select";
+
+            
 
 
             return View(model);
