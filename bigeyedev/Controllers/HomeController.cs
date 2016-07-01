@@ -75,12 +75,16 @@ namespace bigeyedev.Controllers
             return View(model);
         }
 
+        public void bind()
+        {
 
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Fashion_Select(List<stockBindingModel> model)
         {
+            //addddddddddddddddddddddddddddddd
             if (model == null)
             {
                 return RedirectToAction("Fashion_Select");
