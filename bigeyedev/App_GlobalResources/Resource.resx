@@ -120,8 +120,12 @@
   <data name="head_des" xml:space="preserve">
     <value>Bigeye WholeSale</value>
   </data>
-  <data name="main_btn_order" xml:space="preserve">
+  <data name="main_btn_cart_to_db" xml:space="preserve">
+    <value>Order to System</value>
+  </data>
+  <data name="main_btn_order_to_cart" xml:space="preserve">
     <value>Order to Cart</value>
+    <comment>main_btn_order_to_cart</comment>
   </data>
   <data name="main_tab_dream" xml:space="preserve">
     <value>Dream</value>
@@ -200,5 +204,8 @@
   </data>
   <data name="menu_tracking" xml:space="preserve">
     <value>Tracking</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>

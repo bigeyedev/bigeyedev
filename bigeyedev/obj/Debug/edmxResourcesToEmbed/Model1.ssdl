@@ -1,117 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="order">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="bigeyedev_order">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
     <Property Name="order_id" Type="int" />
-    <Property Name="datetime" Type="datetime" />
     <Property Name="member_id" Type="int" />
+    <Property Name="bill_id" Type="int" />
+    <Property Name="shop_id" Type="int" />
+    <Property Name="user_id" Type="int" />
     <Property Name="status" Type="int" />
-    <Property Name="status_print" Type="int" />
+    <Property Name="status_print_fashion" Type="int" />
+    <Property Name="status_print_power" Type="int" />
+    <Property Name="status_print_other" Type="int" />
     <Property Name="have_fashion" Type="int" />
     <Property Name="have_power" Type="int" />
-    <Property Name="name" Type="varchar" MaxLength="50" />
-    <Property Name="shop_name" Type="varchar" MaxLength="50" />
-    <Property Name="address" Type="varchar(max)" />
-    <Property Name="district" Type="varchar" MaxLength="50" />
-    <Property Name="area" Type="varchar" MaxLength="50" />
-    <Property Name="province" Type="varchar" MaxLength="50" />
-    <Property Name="zip" Type="varchar" MaxLength="10" />
-    <Property Name="mobile" Type="varchar" MaxLength="50" />
-    <Property Name="mobile2" Type="varchar" MaxLength="50" />
-    <Property Name="line_id" Type="varchar" MaxLength="50" />
-    <Property Name="line_display" Type="varchar" MaxLength="50" />
-    <Property Name="email" Type="varchar" MaxLength="50" />
-    <Property Name="note" Type="varchar" MaxLength="100" />
-    <Property Name="note2" Type="varchar" MaxLength="100" />
-    <Property Name="note3" Type="varchar" MaxLength="100" />
-    <Property Name="note4" Type="varchar" MaxLength="100" />
-    <Property Name="note5" Type="varchar" MaxLength="100" />
-    <Property Name="note_power" Type="varchar" MaxLength="150" />
-    <Property Name="note_power2" Type="varchar" MaxLength="150" />
-    <Property Name="note_power3" Type="varchar" MaxLength="150" />
-    <Property Name="fix_volume" Type="int" />
-    <Property Name="fix_power_volume" Type="int" />
-    <Property Name="eyeberry_sum_volume" Type="int" />
-    <Property Name="sweety_sum_volume" Type="int" />
-    <Property Name="lollipop_sum_volume" Type="int" />
-    <Property Name="prettydoll_sum_volume" Type="int" />
-    <Property Name="dream_sum_volume" Type="int" />
-    <Property Name="kitty_sum_volume" Type="int" />
-    <Property Name="pretty_sum_volume" Type="int" />
-    <Property Name="beauty_sum_volume" Type="int" />
-    <Property Name="all_sum_volume" Type="int" />
-    <Property Name="all_sum_power_volume" Type="int" />
-    <Property Name="total_volume" Type="int" />
-    <Property Name="user" Type="varchar" MaxLength="50" />
-    <Property Name="eyeberry_volume" Type="int" />
-    <Property Name="sweety_volume" Type="int" />
-    <Property Name="lollipop_volume" Type="int" />
-    <Property Name="prettydoll_volume" Type="int" />
-    <Property Name="dream_volume" Type="int" />
-    <Property Name="kitty_volume" Type="int" />
-    <Property Name="pretty_volume" Type="int" />
-    <Property Name="beauty_volume" Type="int" />
+    <Property Name="have_other" Type="int" />
+    <Property Name="note_fashion1" Type="int" />
+    <Property Name="note_fashion2" Type="int" />
+    <Property Name="note_fashion3" Type="int" />
+    <Property Name="note_power1" Type="int" />
+    <Property Name="note_power2" Type="int" />
+    <Property Name="note_power3" Type="int" />
+    <Property Name="fix_volume_fashion" Type="int" />
+    <Property Name="fix_volume_power" Type="int" />
+    <Property Name="order_amount" Type="real" />
     <Property Name="pay_bank" Type="varchar" MaxLength="50" />
     <Property Name="pay_date" Type="varchar" MaxLength="50" />
     <Property Name="pay_time" Type="varchar" MaxLength="50" />
     <Property Name="pay_amount" Type="real" />
     <Property Name="pay_finish" Type="int" />
-    <Property Name="eyeberry_price" Type="real" />
-    <Property Name="sweety_price" Type="real" />
-    <Property Name="lollipop_price" Type="real" />
-    <Property Name="prettydoll_price" Type="real" />
-    <Property Name="dream_price" Type="real" />
-    <Property Name="kitty_price" Type="real" />
-    <Property Name="pretty_price" Type="real" />
-    <Property Name="beauty_price" Type="real" />
+    <Property Name="datetime" Type="datetime" />
   </EntityType>
-  <EntityType Name="order_item">
+  <EntityType Name="bigeyedev_shop">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="order_id" Type="int" />
-    <Property Name="product_id" Type="int" />
-    <Property Name="model" Type="varchar" MaxLength="100" />
-    <Property Name="type" Type="varchar" MaxLength="50" />
-    <Property Name="brand_order" Type="int" />
-    <Property Name="brand" Type="varchar" MaxLength="50" />
-    <Property Name="black" Type="int" />
-    <Property Name="choco" Type="int" />
-    <Property Name="gray" Type="int" />
-    <Property Name="brown" Type="int" />
-    <Property Name="blue" Type="int" />
-    <Property Name="green" Type="int" />
-    <Property Name="violet" Type="int" />
-    <Property Name="pink" Type="int" />
-    <Property Name="silver" Type="int" />
-    <Property Name="gold" Type="int" />
-    <Property Name="sky" Type="int" />
-    <Property Name="red" Type="int" />
-    <Property Name="near" Type="varchar(max)" />
-    <Property Name="price" Type="real" />
-    <Property Name="price_s" Type="real" />
-  </EntityType>
-  <EntityType Name="order_power_item">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="order_id" Type="int" />
-    <Property Name="product_id" Type="int" />
-    <Property Name="group_brand" Type="int" />
-    <Property Name="brand_order" Type="int" />
-    <Property Name="brand" Type="varchar" MaxLength="50" />
-    <Property Name="color" Type="varchar" MaxLength="50" />
-    <Property Name="power" Type="int" />
-    <Property Name="model" Type="varchar" MaxLength="100" />
-    <Property Name="volume" Type="int" />
-    <Property Name="near" Type="varchar(max)" />
-    <Property Name="price" Type="real" />
-    <Property Name="price_s" Type="real" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="shop_name" Type="varchar" MaxLength="50" />
+    <Property Name="promotion" Type="varchar(max)" />
+    <Property Name="logo_menu_url" Type="text" />
+    <Property Name="logo_top_url" Type="text" />
+    <Property Name="meta_des" Type="varchar(max)" />
+    <Property Name="meta_keyword" Type="varchar" MaxLength="200" />
+    <Property Name="website" Type="varchar" MaxLength="50" />
+    <Property Name="tel" Type="varchar" MaxLength="50" />
+    <Property Name="face_id" Type="varchar" MaxLength="50" />
+    <Property Name="face_qr_url" Type="text" />
+    <Property Name="face_url" Type="text" />
+    <Property Name="line_id" Type="varchar" MaxLength="50" />
+    <Property Name="line_qr_url" Type="text" />
+    <Property Name="line_url" Type="text" />
+    <Property Name="line_at_id" Type="varchar" MaxLength="50" />
+    <Property Name="insta_id" Type="varchar" MaxLength="50" />
+    <Property Name="insta_qr_url" Type="text" />
+    <Property Name="insta_url" Type="text" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="location_address" Type="text" />
+    <Property Name="location_url" Type="text" />
   </EntityType>
   <EntityType Name="product">
     <Key>
@@ -381,54 +331,40 @@
     <Property Name="pink_1000" Type="int" />
     <Property Name="choco_50" Type="int" />
   </EntityType>
-  <EntityType Name="set_power_volume">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="brand" Type="varchar" MaxLength="50" />
-    <Property Name="power" Type="int" />
-    <Property Name="want_black" Type="int" />
-    <Property Name="want_choco" Type="int" />
-    <Property Name="want_gray" Type="int" />
-    <Property Name="want_brown" Type="int" />
-    <Property Name="want_blue" Type="int" />
-    <Property Name="want_green" Type="int" />
-    <Property Name="want_violet" Type="int" />
-    <Property Name="want_pink" Type="int" />
-    <Property Name="want_silver" Type="int" />
-    <Property Name="want_gold" Type="int" />
-    <Property Name="want_sky" Type="int" />
-    <Property Name="want_red" Type="int" />
-  </EntityType>
-  <EntityType Name="user">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="userid" Type="int" />
-    <Property Name="nickname" Type="varchar" MaxLength="30" />
-    <Property Name="username" Type="varchar" MaxLength="50" />
-    <Property Name="password" Type="varchar" MaxLength="50" />
-    <Property Name="image" Type="varchar" MaxLength="200" />
-    <Property Name="firstname" Type="varchar" MaxLength="50" />
-    <Property Name="lastname" Type="varchar" MaxLength="50" />
-    <Property Name="gender" Type="varchar" MaxLength="10" />
-    <Property Name="birthday" Type="date" />
-    <Property Name="address" Type="varchar(max)" />
-    <Property Name="zip" Type="varchar" MaxLength="10" />
-    <Property Name="tel" Type="varchar" MaxLength="20" />
-    <Property Name="mobile" Type="varchar" MaxLength="20" />
-    <Property Name="line" Type="varchar" MaxLength="30" />
-    <Property Name="position" Type="varchar" MaxLength="50" />
-    <Property Name="contract" Type="varchar(max)" />
-  </EntityType>
   <EntityContainer Name="sugareyeModelStoreContainer">
-    <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="order_item" EntityType="Self.order_item" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="order_power_item" EntityType="Self.order_power_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="set_power_volume" EntityType="Self.set_power_volume" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [bigeyedev_order].[id] AS [id], 
+    [bigeyedev_order].[order_id] AS [order_id], 
+    [bigeyedev_order].[member_id] AS [member_id], 
+    [bigeyedev_order].[bill_id] AS [bill_id], 
+    [bigeyedev_order].[shop_id] AS [shop_id], 
+    [bigeyedev_order].[user_id] AS [user_id], 
+    [bigeyedev_order].[status] AS [status], 
+    [bigeyedev_order].[status_print_fashion] AS [status_print_fashion], 
+    [bigeyedev_order].[status_print_power] AS [status_print_power], 
+    [bigeyedev_order].[status_print_other] AS [status_print_other], 
+    [bigeyedev_order].[have_fashion] AS [have_fashion], 
+    [bigeyedev_order].[have_power] AS [have_power], 
+    [bigeyedev_order].[have_other] AS [have_other], 
+    [bigeyedev_order].[note_fashion1] AS [note_fashion1], 
+    [bigeyedev_order].[note_fashion2] AS [note_fashion2], 
+    [bigeyedev_order].[note_fashion3] AS [note_fashion3], 
+    [bigeyedev_order].[note_power1] AS [note_power1], 
+    [bigeyedev_order].[note_power2] AS [note_power2], 
+    [bigeyedev_order].[note_power3] AS [note_power3], 
+    [bigeyedev_order].[fix_volume_fashion] AS [fix_volume_fashion], 
+    [bigeyedev_order].[fix_volume_power] AS [fix_volume_power], 
+    [bigeyedev_order].[order_amount] AS [order_amount], 
+    [bigeyedev_order].[pay_bank] AS [pay_bank], 
+    [bigeyedev_order].[pay_date] AS [pay_date], 
+    [bigeyedev_order].[pay_time] AS [pay_time], 
+    [bigeyedev_order].[pay_amount] AS [pay_amount], 
+    [bigeyedev_order].[pay_finish] AS [pay_finish], 
+    [bigeyedev_order].[datetime] AS [datetime]
+    FROM [dbo].[bigeyedev_order] AS [bigeyedev_order]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

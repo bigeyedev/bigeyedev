@@ -1,123 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="sugareyeModelStoreContainer" CdmEntityContainer="sugareyeEntities">
-    <EntitySetMapping Name="orders">
-      <EntityTypeMapping TypeName="sugareyeModel.order">
-        <MappingFragment StoreEntitySet="order">
+    <EntitySetMapping Name="bigeyedev_shop">
+      <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_shop">
+        <MappingFragment StoreEntitySet="bigeyedev_shop">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="order_id" ColumnName="order_id" />
-          <ScalarProperty Name="datetime" ColumnName="datetime" />
-          <ScalarProperty Name="member_id" ColumnName="member_id" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="status_print" ColumnName="status_print" />
-          <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
-          <ScalarProperty Name="have_power" ColumnName="have_power" />
-          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
           <ScalarProperty Name="shop_name" ColumnName="shop_name" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="district" ColumnName="district" />
-          <ScalarProperty Name="area" ColumnName="area" />
-          <ScalarProperty Name="province" ColumnName="province" />
-          <ScalarProperty Name="zip" ColumnName="zip" />
-          <ScalarProperty Name="mobile" ColumnName="mobile" />
-          <ScalarProperty Name="mobile2" ColumnName="mobile2" />
+          <ScalarProperty Name="promotion" ColumnName="promotion" />
+          <ScalarProperty Name="logo_menu_url" ColumnName="logo_menu_url" />
+          <ScalarProperty Name="logo_top_url" ColumnName="logo_top_url" />
+          <ScalarProperty Name="meta_des" ColumnName="meta_des" />
+          <ScalarProperty Name="meta_keyword" ColumnName="meta_keyword" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="face_id" ColumnName="face_id" />
+          <ScalarProperty Name="face_qr_url" ColumnName="face_qr_url" />
+          <ScalarProperty Name="face_url" ColumnName="face_url" />
           <ScalarProperty Name="line_id" ColumnName="line_id" />
-          <ScalarProperty Name="line_display" ColumnName="line_display" />
+          <ScalarProperty Name="line_qr_url" ColumnName="line_qr_url" />
+          <ScalarProperty Name="line_url" ColumnName="line_url" />
+          <ScalarProperty Name="line_at_id" ColumnName="line_at_id" />
+          <ScalarProperty Name="insta_id" ColumnName="insta_id" />
+          <ScalarProperty Name="insta_qr_url" ColumnName="insta_qr_url" />
+          <ScalarProperty Name="insta_url" ColumnName="insta_url" />
           <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="note" ColumnName="note" />
-          <ScalarProperty Name="note2" ColumnName="note2" />
-          <ScalarProperty Name="note3" ColumnName="note3" />
-          <ScalarProperty Name="note4" ColumnName="note4" />
-          <ScalarProperty Name="note5" ColumnName="note5" />
-          <ScalarProperty Name="note_power" ColumnName="note_power" />
-          <ScalarProperty Name="note_power2" ColumnName="note_power2" />
-          <ScalarProperty Name="note_power3" ColumnName="note_power3" />
-          <ScalarProperty Name="fix_volume" ColumnName="fix_volume" />
-          <ScalarProperty Name="fix_power_volume" ColumnName="fix_power_volume" />
-          <ScalarProperty Name="eyeberry_sum_volume" ColumnName="eyeberry_sum_volume" />
-          <ScalarProperty Name="sweety_sum_volume" ColumnName="sweety_sum_volume" />
-          <ScalarProperty Name="lollipop_sum_volume" ColumnName="lollipop_sum_volume" />
-          <ScalarProperty Name="prettydoll_sum_volume" ColumnName="prettydoll_sum_volume" />
-          <ScalarProperty Name="dream_sum_volume" ColumnName="dream_sum_volume" />
-          <ScalarProperty Name="kitty_sum_volume" ColumnName="kitty_sum_volume" />
-          <ScalarProperty Name="pretty_sum_volume" ColumnName="pretty_sum_volume" />
-          <ScalarProperty Name="beauty_sum_volume" ColumnName="beauty_sum_volume" />
-          <ScalarProperty Name="all_sum_volume" ColumnName="all_sum_volume" />
-          <ScalarProperty Name="all_sum_power_volume" ColumnName="all_sum_power_volume" />
-          <ScalarProperty Name="total_volume" ColumnName="total_volume" />
-          <ScalarProperty Name="user" ColumnName="user" />
-          <ScalarProperty Name="eyeberry_volume" ColumnName="eyeberry_volume" />
-          <ScalarProperty Name="sweety_volume" ColumnName="sweety_volume" />
-          <ScalarProperty Name="lollipop_volume" ColumnName="lollipop_volume" />
-          <ScalarProperty Name="prettydoll_volume" ColumnName="prettydoll_volume" />
-          <ScalarProperty Name="dream_volume" ColumnName="dream_volume" />
-          <ScalarProperty Name="kitty_volume" ColumnName="kitty_volume" />
-          <ScalarProperty Name="pretty_volume" ColumnName="pretty_volume" />
-          <ScalarProperty Name="beauty_volume" ColumnName="beauty_volume" />
-          <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
-          <ScalarProperty Name="pay_date" ColumnName="pay_date" />
-          <ScalarProperty Name="pay_time" ColumnName="pay_time" />
-          <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
-          <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
-          <ScalarProperty Name="eyeberry_price" ColumnName="eyeberry_price" />
-          <ScalarProperty Name="sweety_price" ColumnName="sweety_price" />
-          <ScalarProperty Name="lollipop_price" ColumnName="lollipop_price" />
-          <ScalarProperty Name="prettydoll_price" ColumnName="prettydoll_price" />
-          <ScalarProperty Name="dream_price" ColumnName="dream_price" />
-          <ScalarProperty Name="kitty_price" ColumnName="kitty_price" />
-          <ScalarProperty Name="pretty_price" ColumnName="pretty_price" />
-          <ScalarProperty Name="beauty_price" ColumnName="beauty_price" />
+          <ScalarProperty Name="location_address" ColumnName="location_address" />
+          <ScalarProperty Name="location_url" ColumnName="location_url" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="order_item">
-      <EntityTypeMapping TypeName="sugareyeModel.order_item">
-        <MappingFragment StoreEntitySet="order_item">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="order_id" ColumnName="order_id" />
-          <ScalarProperty Name="product_id" ColumnName="product_id" />
-          <ScalarProperty Name="model" ColumnName="model" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="brand_order" ColumnName="brand_order" />
-          <ScalarProperty Name="brand" ColumnName="brand" />
-          <ScalarProperty Name="black" ColumnName="black" />
-          <ScalarProperty Name="choco" ColumnName="choco" />
-          <ScalarProperty Name="gray" ColumnName="gray" />
-          <ScalarProperty Name="brown" ColumnName="brown" />
-          <ScalarProperty Name="blue" ColumnName="blue" />
-          <ScalarProperty Name="green" ColumnName="green" />
-          <ScalarProperty Name="violet" ColumnName="violet" />
-          <ScalarProperty Name="pink" ColumnName="pink" />
-          <ScalarProperty Name="silver" ColumnName="silver" />
-          <ScalarProperty Name="gold" ColumnName="gold" />
-          <ScalarProperty Name="sky" ColumnName="sky" />
-          <ScalarProperty Name="red" ColumnName="red" />
-          <ScalarProperty Name="near" ColumnName="near" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="price_s" ColumnName="price_s" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="order_power_item">
-      <EntityTypeMapping TypeName="sugareyeModel.order_power_item">
-        <MappingFragment StoreEntitySet="order_power_item">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="order_id" ColumnName="order_id" />
-          <ScalarProperty Name="product_id" ColumnName="product_id" />
-          <ScalarProperty Name="group_brand" ColumnName="group_brand" />
-          <ScalarProperty Name="brand_order" ColumnName="brand_order" />
-          <ScalarProperty Name="brand" ColumnName="brand" />
-          <ScalarProperty Name="color" ColumnName="color" />
-          <ScalarProperty Name="power" ColumnName="power" />
-          <ScalarProperty Name="model" ColumnName="model" />
-          <ScalarProperty Name="volume" ColumnName="volume" />
-          <ScalarProperty Name="near" ColumnName="near" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="price_s" ColumnName="price_s" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="products">
+    <EntitySetMapping Name="product">
       <EntityTypeMapping TypeName="sugareyeModel.product">
         <MappingFragment StoreEntitySet="product">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -386,47 +299,37 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="set_power_volume">
-      <EntityTypeMapping TypeName="sugareyeModel.set_power_volume">
-        <MappingFragment StoreEntitySet="set_power_volume">
+    <EntitySetMapping Name="bigeyedev_order">
+      <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order">
+        <MappingFragment StoreEntitySet="bigeyedev_order">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="brand" ColumnName="brand" />
-          <ScalarProperty Name="power" ColumnName="power" />
-          <ScalarProperty Name="want_black" ColumnName="want_black" />
-          <ScalarProperty Name="want_choco" ColumnName="want_choco" />
-          <ScalarProperty Name="want_gray" ColumnName="want_gray" />
-          <ScalarProperty Name="want_brown" ColumnName="want_brown" />
-          <ScalarProperty Name="want_blue" ColumnName="want_blue" />
-          <ScalarProperty Name="want_green" ColumnName="want_green" />
-          <ScalarProperty Name="want_violet" ColumnName="want_violet" />
-          <ScalarProperty Name="want_pink" ColumnName="want_pink" />
-          <ScalarProperty Name="want_silver" ColumnName="want_silver" />
-          <ScalarProperty Name="want_gold" ColumnName="want_gold" />
-          <ScalarProperty Name="want_sky" ColumnName="want_sky" />
-          <ScalarProperty Name="want_red" ColumnName="want_red" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="sugareyeModel.user">
-        <MappingFragment StoreEntitySet="user">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="nickname" ColumnName="nickname" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="image" ColumnName="image" />
-          <ScalarProperty Name="firstname" ColumnName="firstname" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
-          <ScalarProperty Name="gender" ColumnName="gender" />
-          <ScalarProperty Name="birthday" ColumnName="birthday" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="zip" ColumnName="zip" />
-          <ScalarProperty Name="tel" ColumnName="tel" />
-          <ScalarProperty Name="mobile" ColumnName="mobile" />
-          <ScalarProperty Name="line" ColumnName="line" />
-          <ScalarProperty Name="position" ColumnName="position" />
-          <ScalarProperty Name="contract" ColumnName="contract" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
+          <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
+          <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
+          <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
+          <ScalarProperty Name="have_power" ColumnName="have_power" />
+          <ScalarProperty Name="have_other" ColumnName="have_other" />
+          <ScalarProperty Name="note_fashion1" ColumnName="note_fashion1" />
+          <ScalarProperty Name="note_fashion2" ColumnName="note_fashion2" />
+          <ScalarProperty Name="note_fashion3" ColumnName="note_fashion3" />
+          <ScalarProperty Name="note_power1" ColumnName="note_power1" />
+          <ScalarProperty Name="note_power2" ColumnName="note_power2" />
+          <ScalarProperty Name="note_power3" ColumnName="note_power3" />
+          <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
+          <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
+          <ScalarProperty Name="order_amount" ColumnName="order_amount" />
+          <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
+          <ScalarProperty Name="pay_date" ColumnName="pay_date" />
+          <ScalarProperty Name="pay_time" ColumnName="pay_time" />
+          <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
+          <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

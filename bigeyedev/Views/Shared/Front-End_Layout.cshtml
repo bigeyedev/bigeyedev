@@ -1,8 +1,97 @@
-﻿<!DOCTYPE html>
+﻿@*เปลี่ยนภาษา*@
+@*@using System.Resources;*@
+@*@using System.Globalization;*@
+@*@using System.Threading;*@
+
+
+@using bigeyedev.Models;
+@*@using System;
+@using System.Collections.Generic;*@
+@using System.Data.Entity;
+@*@using System.Linq;
+@using System.Threading.Tasks;
+@using System.Web;
+@using System.Web.Mvc;*@
+@*@model List<checkWebsite>*@
+
+@{
+    // ในส่วน html ต้องมีตรงนี้ด้วย แยกกับ controller
+    if (Session["Culture"] != null)
+    {
+        string Culture = Session["Culture"] as string;
+        //ใช้อันไหนก็ได้ระหว่าง Thread กับ Resources
+        //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+        Resources.Resource.Culture = new System.Globalization.CultureInfo(Culture);
+    }
+    else
+    {
+        Resources.Resource.Culture = new System.Globalization.CultureInfo("");
+    }
+
+
+
+    sugareyeEntities _db = new sugareyeEntities();
+
+    var mywebsite = _db.bigeyedev_shop.Where(m => m.website == ""+ Request.Url.Host + "").Select(u => new checkWebsite
+
+    {
+        //id = u.id,
+        //shop_id = u.shop_id ,
+        shop_name = u.shop_name,
+        //promotion = u.promotion,
+        logo_menu_url = u.logo_menu_url,
+        logo_top_url = u.logo_top_url,
+        meta_des = u.meta_des,
+        meta_keyword = u.meta_keyword,
+        website = u.website,
+        //tel = u.tel,
+        //face_id = u.face_id,
+        //face_qr_url = u.face_qr_url,
+        //face_url = u.face_url,
+        //line_id = u.line_id,
+        //line_qr_url = u.line_qr_url,
+        //line_url = u.line_url,
+        //line_at_id = u.line_at_id,
+        //insta_id = u.insta_id,
+        //insta_qr_url = u.insta_qr_url,
+        //insta_url = u.insta_url,
+        //email = u.email,
+        //location_address = u.location_address,
+        //location_url = u.location_url
+    }).ToList();
+
+
+
+
+
+
+
+    //var myshop2 = _db.bigeyedev_shop.Where(s => s.)
+    //{
+    //    website = u.website
+    //}).ToList();
+
+    //var webData = new bigeyedev_shop();
+    //foreach (var webName in myshop2)
+    //{
+    //    if (webName.website == Request.Url.Authority)
+    //    {
+    //        webData = _db.bigeyedev_shop.Where(m => m.website == Request.Url.Authority).Single();
+    //    }
+    //}
+
+
+
+
+
+
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr") 
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@ 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- Lock ไม่ให้แก้ขนาด -->
@@ -12,8 +101,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     
-    <title>@ViewBag.Shop - @ViewBag.Title</title>
-    <meta name="description" content="ขายส่งบิ๊กอาย ขายส่งคอนแทคเลนส์">
+    <title>@mywebsite[0].shop_name - @ViewBag.Title</title>
+    <meta name="keywords" content="@mywebsite[0].meta_keyword" />
+    <meta name="description" content="@mywebsite[0].meta_des">
 
     <!-- Favicons แก้เป็น logo dynamic -->
     <link rel="apple-touch-icon-precomposed" href="http://materializecss.com/images/favicon/apple-touch-icon-152x152.png">
@@ -199,34 +289,35 @@
             <div class="container">
                 <div class="nav-wrapper">
                     <a class="page-title">
-                        <img src="~/pic/slidebars-logo2x.gif" alt="Logo" width="118" height="40">
+                        <img src="@mywebsite[0].logo_top_url" alt="Logo" width="118" height="40">
 
 
-                        <div class="tom-top-right" >
-                            <a href="/Home/Tracking" title="Tracking" target=""><img src="~/pic/icon/tracking_icon.png" alt="Tracking" height="28" /></a>
+                        <div class="tom-top-right">
+                            <a href="/Home/Tracking" title="@Resources.Resource.menu_tracking" target=""><img src="~/pic/icon/tracking_icon.png" alt="Tracking" height="28" /></a>
                             &nbsp;
-                            <a href="/Home/Cart" title="Cart" target="_blank"><img src="~/pic/icon/cart_icon.png" alt="Cart" height="28" /></a>
-                            
+                            <a href="/Home/Cart" title="@Resources.Resource.menu_cart" target="_blank"><img src="~/pic/icon/cart_icon.png" alt="Cart" height="28" /></a>
+
                         </div>
 
-                    </a>   
+                    </a>
                 </div>
             </div>
 
-            <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a>
+            <div class="container">
+                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a>
             </div>
 
         </nav>
-        
-                                            @*สีของ background menu แต่ตัดออกไปแล้ว ให้ไปใส่ใน .side-nav*@
-        <ul id="nav-mobile" class="side-nav fixed"  >
+
+        @*สีของ background menu แต่ตัดออกไปแล้ว ให้ไปใส่ใน .side-nav*@
+        <ul id="nav-mobile" class="side-nav fixed">
 
             <!-- Logo Brand-->
 
             <li class="logo">
                 @*<a id="logo-container" href="" class="brand-logo">*@
-                    @*<object id="front-page-logo" type="image/gif" data="~/pic/slidebars-logo-white2.gif">Your browser does not support SVG</object>*@
-                    <img src="~/pic/slidebars-logo-white2.gif" height="57" />
+                @*<object id="front-page-logo" type="image/gif" data="~/pic/slidebars-logo-white2.gif">Your browser does not support SVG</object>*@
+                <img src="@mywebsite[0].logo_menu_url" height="57" />
                 @*</a>*@
             </li>
 
@@ -242,76 +333,77 @@
 
             @*@Html.ActionLink("Home", "Index", "Home")*@
 
-            <li class="bold"><a href="" class="waves-effect waves-pink"  >หน้าหลัก</a></li>
+            <li class="bold"><a href="" class="waves-effect waves-pink">@Resources.Resource.menu_home</a></li>
 
-            <li class="bold"><a href="/Home/Login" target="" class="waves-effect waves-pink"  >ล็อกอิน</a></li>
+            <li class="bold"><a href="/Home/Login" target="" class="waves-effect waves-pink">@Resources.Resource.menu_login</a></li>
 
-            <li class="bold"><a href="/Home/Cart" target="_blank" class="waves-effect waves-pink"  >รถเข็น</a></li>
+            <li class="bold"><a href="/Home/Cart" target="_blank" class="waves-effect waves-pink">@Resources.Resource.menu_cart</a></li>
 
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
 
                     <li class="bold">
-                        <a class="collapsible-header  waves-effect waves-pink">แนะนำ สินค้าใหม่</a>
+                        <a class="collapsible-header  waves-effect waves-pink">@Resources.Resource.menu_recommend</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/Home/New_Dueba" target="_blank">ตัวถูก</a></li>
-                                <li><a href="/Home/New_Dream_and_Vassen" target="_blank">ตัวแพง</a></li>
+                                <li><a href="/Home/New_Dueba" target="_blank">@Resources.Resource.menu_recommend_dueba</a></li>
+                                <li><a href="/Home/New_Dream" target="_blank">@Resources.Resource.menu_recommend_dream</a></li>
+                                <li><a href="/Home/New_Vassen" target="_blank">@Resources.Resource.menu_recomment_vassen</a></li>
                             </ul>
                         </div>
                     </li>
 
 
                     <li class="bold">
-                        <a class="collapsible-header  waves-effect waves-pink"  >สั่งเลนส์ แฟชั่น</a>
+                        <a class="collapsible-header  waves-effect waves-pink">@Resources.Resource.menu_fashion</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/Home/Fashion_Set">ให้ทีมงานจัดให้ พร้อมขาย</a></li>
-                                <li><a href="/Home/Fashion_Select_Only_Color">เลือกเฉพาะสี</a></li>
-                                <li><a href="/Home/Fashion_Select">เลือกรุ่น</a></li>
+                                <li><a href="/Home/Fashion_Set">@Resources.Resource.menu_fashion_no_select</a></li>
+                                <li><a href="/Home/Fashion_Select_Only_Color">@Resources.Resource.menu_fashion_color</a></li>
+                                <li><a href="/Home/Fashion_Select">@Resources.Resource.menu_fashion_select</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="bold">
-                        <a class="collapsible-header  waves-effect waves-pink"  >สั่งเลนส์ ค่าสายตา</a>
+                        <a class="collapsible-header  waves-effect waves-pink">@Resources.Resource.menu_power</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/Home/Power_Set">ให้ทีมงานจัดให้ พร้อมขาย</a></li>
-                                <li><a href="/Home/Power_Select_Only_Color">เลือกเฉพาะสี</a></li>
-                                <li><a href="/Home/Power_Select">เลือกรุ่น</a></li>
+                                <li><a href="/Home/Power_Set">@Resources.Resource.menu_power_no_select</a></li>
+                                <li><a href="/Home/Power_Select_Only_Color">@Resources.Resource.menu_power_color</a></li>
+                                <li><a href="/Home/Power_Select">@Resources.Resource.menu_power_select</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="bold">
-                        <a class="collapsible-header  waves-effect waves-pink"  >สินค้าอื่นๆ</a>
+                        <a class="collapsible-header  waves-effect waves-pink">@Resources.Resource.menu_other</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/Home/Solution">น้ำยาล้างคอนแทคเลนส์</a></li>
-                                <li><a href="/Home/SetBox">ตลับเซ็ต</a></li>
+                                <li><a href="/Home/Solution">@Resources.Resource.menu_other_solution</a></li>
+                                <li><a href="/Home/SetBox">@Resources.Resource.menu_other_setbox</a></li>
 
                             </ul>
                         </div>
                     </li>
 
                     <li class="bold">
-                        <a class="collapsible-header  waves-effect waves-pink">บริการหลังการขาย</a>
+                        <a class="collapsible-header  waves-effect waves-pink">@Resources.Resource.menu_service</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="/Home/Service_Change">เปลี่ยนสินค้า</a></li>
-                                <li><a href="/Home/Service_Help">คำแนะนำ</a></li>
+                                <li><a href="/Home/Service_Change">@Resources.Resource.menu_service_change</a></li>
+                                <li><a href="/Home/Service_Recommend">@Resources.Resource.menu_service_recommend</a></li>
 
                             </ul>
                         </div>
                     </li>
 
-                    <li class="bold"><a href="/Home/Tracking" class="waves-effect waves-pink">ติดตาม สถานะพัสดุ</a></li>
+                    <li class="bold"><a href="/Home/Tracking" class="waves-effect waves-pink">@Resources.Resource.menu_tracking</a></li>
 
                 </ul>
             </li>
 
             @*<li class="bold active"><a href="" class="waves-effect waves-pink"  >Tracking</a></li>*@
 
-            <li class="bold"><a href="Home_CantactUs" class="waves-effect waves-pink"  >ติดต่อเรา</a></li>
+            <li class="bold"><a href="Cantact" class="waves-effect waves-pink">@Resources.Resource.menu_contact</a></li>
         </ul>
     </header>
 
@@ -336,7 +428,7 @@
 
                         <br /><br />
 
-                        <h2 class="header">@ViewBag.Title</h2>
+                        <h5 class="header">@ViewBag.Title</h5>
 
                         @*<p class="caption">
                             The navbar is fully contained by an HTML5 Nav tag. Inside a recommended container div, there are 2 main parts of the navbar. A logo or brand link, and the navigations links. You can align these links to the left or right.
@@ -347,7 +439,19 @@
 
 
 
+                        <br />
+
+                        <li>@Html.ActionLink("English (Defualt)", "", "Culture")</li>
+                        <li>@Html.ActionLink("Thai", "Thai", "Culture")</li>
+
+                        <br />
+
+
+
+
+
                         @RenderBody();
+                        
                         
 
 
@@ -452,7 +556,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2016 @ViewBag.Shop, All rights reserved.
+                © 2016 @mywebsite[0].shop_name, All rights reserved.
                 @*<a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>*@
             </div>
         </div>
@@ -709,8 +813,15 @@ var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand chil
   js.src = "//connect.facebook.net/en_us/sdk.js#xfbml=1&appid=575718449220600&version=v2.0";
   fjs.parentnode.insertbefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>*@
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+
+
+    @*บอยเอามาใส่ 2 บรรทัดล่างนี้ ใส่แล้ว swipebox จะใช้ไม่ได้  มันคืออะไร*@
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+
+    @*ไม่ใส่แล้ว เน่าเลย*@
     @RenderSection("scripts", required: false)
+
+
 </body>
 </html>

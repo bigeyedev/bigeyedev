@@ -70,11 +70,20 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order to System.
+        /// </summary>
+        internal static string main_btn_cart_to_db {
+            get {
+                return ResourceManager.GetString("main_btn_cart_to_db", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order to Cart.
         /// </summary>
-        internal static string main_btn_order {
+        internal static string main_btn_order_to_cart {
             get {
-                return ResourceManager.GetString("main_btn_order", resourceCulture);
+                return ResourceManager.GetString("main_btn_order_to_cart", resourceCulture);
             }
         }
         
@@ -309,6 +318,15 @@ namespace Resources {
         internal static string menu_tracking {
             get {
                 return ResourceManager.GetString("menu_tracking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }

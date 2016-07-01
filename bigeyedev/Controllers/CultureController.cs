@@ -21,9 +21,5 @@ namespace bigeyedev.Controllers
             Session["Culture"] = "th-TH";
             return RedirectToAction("Index", "Home");
         }
-
-
-
-
     }
 }

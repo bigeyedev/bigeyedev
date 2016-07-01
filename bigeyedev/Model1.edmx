@@ -5,118 +5,68 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="order">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="bigeyedev_order">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="order_id" Type="int" />
-          <Property Name="datetime" Type="datetime" />
           <Property Name="member_id" Type="int" />
+          <Property Name="bill_id" Type="int" />
+          <Property Name="shop_id" Type="int" />
+          <Property Name="user_id" Type="int" />
           <Property Name="status" Type="int" />
-          <Property Name="status_print" Type="int" />
+          <Property Name="status_print_fashion" Type="int" />
+          <Property Name="status_print_power" Type="int" />
+          <Property Name="status_print_other" Type="int" />
           <Property Name="have_fashion" Type="int" />
           <Property Name="have_power" Type="int" />
-          <Property Name="name" Type="varchar" MaxLength="50" />
-          <Property Name="shop_name" Type="varchar" MaxLength="50" />
-          <Property Name="address" Type="varchar(max)" />
-          <Property Name="district" Type="varchar" MaxLength="50" />
-          <Property Name="area" Type="varchar" MaxLength="50" />
-          <Property Name="province" Type="varchar" MaxLength="50" />
-          <Property Name="zip" Type="varchar" MaxLength="10" />
-          <Property Name="mobile" Type="varchar" MaxLength="50" />
-          <Property Name="mobile2" Type="varchar" MaxLength="50" />
-          <Property Name="line_id" Type="varchar" MaxLength="50" />
-          <Property Name="line_display" Type="varchar" MaxLength="50" />
-          <Property Name="email" Type="varchar" MaxLength="50" />
-          <Property Name="note" Type="varchar" MaxLength="100" />
-          <Property Name="note2" Type="varchar" MaxLength="100" />
-          <Property Name="note3" Type="varchar" MaxLength="100" />
-          <Property Name="note4" Type="varchar" MaxLength="100" />
-          <Property Name="note5" Type="varchar" MaxLength="100" />
-          <Property Name="note_power" Type="varchar" MaxLength="150" />
-          <Property Name="note_power2" Type="varchar" MaxLength="150" />
-          <Property Name="note_power3" Type="varchar" MaxLength="150" />
-          <Property Name="fix_volume" Type="int" />
-          <Property Name="fix_power_volume" Type="int" />
-          <Property Name="eyeberry_sum_volume" Type="int" />
-          <Property Name="sweety_sum_volume" Type="int" />
-          <Property Name="lollipop_sum_volume" Type="int" />
-          <Property Name="prettydoll_sum_volume" Type="int" />
-          <Property Name="dream_sum_volume" Type="int" />
-          <Property Name="kitty_sum_volume" Type="int" />
-          <Property Name="pretty_sum_volume" Type="int" />
-          <Property Name="beauty_sum_volume" Type="int" />
-          <Property Name="all_sum_volume" Type="int" />
-          <Property Name="all_sum_power_volume" Type="int" />
-          <Property Name="total_volume" Type="int" />
-          <Property Name="user" Type="varchar" MaxLength="50" />
-          <Property Name="eyeberry_volume" Type="int" />
-          <Property Name="sweety_volume" Type="int" />
-          <Property Name="lollipop_volume" Type="int" />
-          <Property Name="prettydoll_volume" Type="int" />
-          <Property Name="dream_volume" Type="int" />
-          <Property Name="kitty_volume" Type="int" />
-          <Property Name="pretty_volume" Type="int" />
-          <Property Name="beauty_volume" Type="int" />
+          <Property Name="have_other" Type="int" />
+          <Property Name="note_fashion1" Type="int" />
+          <Property Name="note_fashion2" Type="int" />
+          <Property Name="note_fashion3" Type="int" />
+          <Property Name="note_power1" Type="int" />
+          <Property Name="note_power2" Type="int" />
+          <Property Name="note_power3" Type="int" />
+          <Property Name="fix_volume_fashion" Type="int" />
+          <Property Name="fix_volume_power" Type="int" />
+          <Property Name="order_amount" Type="real" />
           <Property Name="pay_bank" Type="varchar" MaxLength="50" />
           <Property Name="pay_date" Type="varchar" MaxLength="50" />
           <Property Name="pay_time" Type="varchar" MaxLength="50" />
           <Property Name="pay_amount" Type="real" />
           <Property Name="pay_finish" Type="int" />
-          <Property Name="eyeberry_price" Type="real" />
-          <Property Name="sweety_price" Type="real" />
-          <Property Name="lollipop_price" Type="real" />
-          <Property Name="prettydoll_price" Type="real" />
-          <Property Name="dream_price" Type="real" />
-          <Property Name="kitty_price" Type="real" />
-          <Property Name="pretty_price" Type="real" />
-          <Property Name="beauty_price" Type="real" />
+          <Property Name="datetime" Type="datetime" />
         </EntityType>
-        <EntityType Name="order_item">
+        <EntityType Name="bigeyedev_shop">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="order_id" Type="int" />
-          <Property Name="product_id" Type="int" />
-          <Property Name="model" Type="varchar" MaxLength="100" />
-          <Property Name="type" Type="varchar" MaxLength="50" />
-          <Property Name="brand_order" Type="int" />
-          <Property Name="brand" Type="varchar" MaxLength="50" />
-          <Property Name="black" Type="int" />
-          <Property Name="choco" Type="int" />
-          <Property Name="gray" Type="int" />
-          <Property Name="brown" Type="int" />
-          <Property Name="blue" Type="int" />
-          <Property Name="green" Type="int" />
-          <Property Name="violet" Type="int" />
-          <Property Name="pink" Type="int" />
-          <Property Name="silver" Type="int" />
-          <Property Name="gold" Type="int" />
-          <Property Name="sky" Type="int" />
-          <Property Name="red" Type="int" />
-          <Property Name="near" Type="varchar(max)" />
-          <Property Name="price" Type="real" />
-          <Property Name="price_s" Type="real" />
-        </EntityType>
-        <EntityType Name="order_power_item">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="order_id" Type="int" />
-          <Property Name="product_id" Type="int" />
-          <Property Name="group_brand" Type="int" />
-          <Property Name="brand_order" Type="int" />
-          <Property Name="brand" Type="varchar" MaxLength="50" />
-          <Property Name="color" Type="varchar" MaxLength="50" />
-          <Property Name="power" Type="int" />
-          <Property Name="model" Type="varchar" MaxLength="100" />
-          <Property Name="volume" Type="int" />
-          <Property Name="near" Type="varchar(max)" />
-          <Property Name="price" Type="real" />
-          <Property Name="price_s" Type="real" />
+          <Property Name="shop_id" Type="int" Nullable="false" />
+          <Property Name="shop_name" Type="varchar" MaxLength="50" />
+          <Property Name="promotion" Type="varchar(max)" />
+          <Property Name="logo_menu_url" Type="text" />
+          <Property Name="logo_top_url" Type="text" />
+          <Property Name="meta_des" Type="varchar(max)" />
+          <Property Name="meta_keyword" Type="varchar" MaxLength="200" />
+          <Property Name="website" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="50" />
+          <Property Name="face_id" Type="varchar" MaxLength="50" />
+          <Property Name="face_qr_url" Type="text" />
+          <Property Name="face_url" Type="text" />
+          <Property Name="line_id" Type="varchar" MaxLength="50" />
+          <Property Name="line_qr_url" Type="text" />
+          <Property Name="line_url" Type="text" />
+          <Property Name="line_at_id" Type="varchar" MaxLength="50" />
+          <Property Name="insta_id" Type="varchar" MaxLength="50" />
+          <Property Name="insta_qr_url" Type="text" />
+          <Property Name="insta_url" Type="text" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="location_address" Type="text" />
+          <Property Name="location_url" Type="text" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -386,173 +336,74 @@
           <Property Name="pink_1000" Type="int" />
           <Property Name="choco_50" Type="int" />
         </EntityType>
-        <EntityType Name="set_power_volume">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="brand" Type="varchar" MaxLength="50" />
-          <Property Name="power" Type="int" />
-          <Property Name="want_black" Type="int" />
-          <Property Name="want_choco" Type="int" />
-          <Property Name="want_gray" Type="int" />
-          <Property Name="want_brown" Type="int" />
-          <Property Name="want_blue" Type="int" />
-          <Property Name="want_green" Type="int" />
-          <Property Name="want_violet" Type="int" />
-          <Property Name="want_pink" Type="int" />
-          <Property Name="want_silver" Type="int" />
-          <Property Name="want_gold" Type="int" />
-          <Property Name="want_sky" Type="int" />
-          <Property Name="want_red" Type="int" />
-        </EntityType>
-        <EntityType Name="user">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userid" Type="int" />
-          <Property Name="nickname" Type="varchar" MaxLength="30" />
-          <Property Name="username" Type="varchar" MaxLength="50" />
-          <Property Name="password" Type="varchar" MaxLength="50" />
-          <Property Name="image" Type="varchar" MaxLength="200" />
-          <Property Name="firstname" Type="varchar" MaxLength="50" />
-          <Property Name="lastname" Type="varchar" MaxLength="50" />
-          <Property Name="gender" Type="varchar" MaxLength="10" />
-          <Property Name="birthday" Type="date" />
-          <Property Name="address" Type="varchar(max)" />
-          <Property Name="zip" Type="varchar" MaxLength="10" />
-          <Property Name="tel" Type="varchar" MaxLength="20" />
-          <Property Name="mobile" Type="varchar" MaxLength="20" />
-          <Property Name="line" Type="varchar" MaxLength="30" />
-          <Property Name="position" Type="varchar" MaxLength="50" />
-          <Property Name="contract" Type="varchar(max)" />
-        </EntityType>
         <EntityContainer Name="sugareyeModelStoreContainer">
-          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="order_item" EntityType="Self.order_item" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="order_power_item" EntityType="Self.order_power_item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="set_power_volume" EntityType="Self.set_power_volume" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [bigeyedev_order].[id] AS [id], 
+    [bigeyedev_order].[order_id] AS [order_id], 
+    [bigeyedev_order].[member_id] AS [member_id], 
+    [bigeyedev_order].[bill_id] AS [bill_id], 
+    [bigeyedev_order].[shop_id] AS [shop_id], 
+    [bigeyedev_order].[user_id] AS [user_id], 
+    [bigeyedev_order].[status] AS [status], 
+    [bigeyedev_order].[status_print_fashion] AS [status_print_fashion], 
+    [bigeyedev_order].[status_print_power] AS [status_print_power], 
+    [bigeyedev_order].[status_print_other] AS [status_print_other], 
+    [bigeyedev_order].[have_fashion] AS [have_fashion], 
+    [bigeyedev_order].[have_power] AS [have_power], 
+    [bigeyedev_order].[have_other] AS [have_other], 
+    [bigeyedev_order].[note_fashion1] AS [note_fashion1], 
+    [bigeyedev_order].[note_fashion2] AS [note_fashion2], 
+    [bigeyedev_order].[note_fashion3] AS [note_fashion3], 
+    [bigeyedev_order].[note_power1] AS [note_power1], 
+    [bigeyedev_order].[note_power2] AS [note_power2], 
+    [bigeyedev_order].[note_power3] AS [note_power3], 
+    [bigeyedev_order].[fix_volume_fashion] AS [fix_volume_fashion], 
+    [bigeyedev_order].[fix_volume_power] AS [fix_volume_power], 
+    [bigeyedev_order].[order_amount] AS [order_amount], 
+    [bigeyedev_order].[pay_bank] AS [pay_bank], 
+    [bigeyedev_order].[pay_date] AS [pay_date], 
+    [bigeyedev_order].[pay_time] AS [pay_time], 
+    [bigeyedev_order].[pay_amount] AS [pay_amount], 
+    [bigeyedev_order].[pay_finish] AS [pay_finish], 
+    [bigeyedev_order].[datetime] AS [datetime]
+    FROM [dbo].[bigeyedev_order] AS [bigeyedev_order]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="sugareyeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="order">
+        <EntityType Name="bigeyedev_shop">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="order_id" Type="Int32" />
-          <Property Name="datetime" Type="DateTime" Precision="3" />
-          <Property Name="member_id" Type="Int32" />
-          <Property Name="status" Type="Int32" />
-          <Property Name="status_print" Type="Int32" />
-          <Property Name="have_fashion" Type="Int32" />
-          <Property Name="have_power" Type="Int32" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="shop_id" Type="Int32" Nullable="false" />
           <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="promotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="logo_menu_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="logo_top_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="meta_des" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="meta_keyword" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="face_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="face_qr_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="face_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="line_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="line_display" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="line_qr_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="line_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="line_at_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="insta_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="insta_qr_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="insta_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="note2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="note3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="note4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="note5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="note_power" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="note_power2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="note_power3" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="fix_volume" Type="Int32" />
-          <Property Name="fix_power_volume" Type="Int32" />
-          <Property Name="eyeberry_sum_volume" Type="Int32" />
-          <Property Name="sweety_sum_volume" Type="Int32" />
-          <Property Name="lollipop_sum_volume" Type="Int32" />
-          <Property Name="prettydoll_sum_volume" Type="Int32" />
-          <Property Name="dream_sum_volume" Type="Int32" />
-          <Property Name="kitty_sum_volume" Type="Int32" />
-          <Property Name="pretty_sum_volume" Type="Int32" />
-          <Property Name="beauty_sum_volume" Type="Int32" />
-          <Property Name="all_sum_volume" Type="Int32" />
-          <Property Name="all_sum_power_volume" Type="Int32" />
-          <Property Name="total_volume" Type="Int32" />
-          <Property Name="user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="eyeberry_volume" Type="Int32" />
-          <Property Name="sweety_volume" Type="Int32" />
-          <Property Name="lollipop_volume" Type="Int32" />
-          <Property Name="prettydoll_volume" Type="Int32" />
-          <Property Name="dream_volume" Type="Int32" />
-          <Property Name="kitty_volume" Type="Int32" />
-          <Property Name="pretty_volume" Type="Int32" />
-          <Property Name="beauty_volume" Type="Int32" />
-          <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_amount" Type="Single" />
-          <Property Name="pay_finish" Type="Int32" />
-          <Property Name="eyeberry_price" Type="Single" />
-          <Property Name="sweety_price" Type="Single" />
-          <Property Name="lollipop_price" Type="Single" />
-          <Property Name="prettydoll_price" Type="Single" />
-          <Property Name="dream_price" Type="Single" />
-          <Property Name="kitty_price" Type="Single" />
-          <Property Name="pretty_price" Type="Single" />
-          <Property Name="beauty_price" Type="Single" />
-        </EntityType>
-        <EntityType Name="order_item">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="order_id" Type="Int32" />
-          <Property Name="product_id" Type="Int32" />
-          <Property Name="model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="brand_order" Type="Int32" />
-          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="black" Type="Int32" />
-          <Property Name="choco" Type="Int32" />
-          <Property Name="gray" Type="Int32" />
-          <Property Name="brown" Type="Int32" />
-          <Property Name="blue" Type="Int32" />
-          <Property Name="green" Type="Int32" />
-          <Property Name="violet" Type="Int32" />
-          <Property Name="pink" Type="Int32" />
-          <Property Name="silver" Type="Int32" />
-          <Property Name="gold" Type="Int32" />
-          <Property Name="sky" Type="Int32" />
-          <Property Name="red" Type="Int32" />
-          <Property Name="near" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="price" Type="Single" />
-          <Property Name="price_s" Type="Single" />
-        </EntityType>
-        <EntityType Name="order_power_item">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="order_id" Type="Int32" />
-          <Property Name="product_id" Type="Int32" />
-          <Property Name="group_brand" Type="Int32" />
-          <Property Name="brand_order" Type="Int32" />
-          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="power" Type="Int32" />
-          <Property Name="model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="volume" Type="Int32" />
-          <Property Name="near" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="price" Type="Single" />
-          <Property Name="price_s" Type="Single" />
+          <Property Name="location_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -822,55 +673,43 @@
           <Property Name="pink_1000" Type="Int32" />
           <Property Name="choco_50" Type="Int32" />
         </EntityType>
-        <EntityType Name="set_power_volume">
+        <EntityType Name="bigeyedev_order">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="power" Type="Int32" />
-          <Property Name="want_black" Type="Int32" />
-          <Property Name="want_choco" Type="Int32" />
-          <Property Name="want_gray" Type="Int32" />
-          <Property Name="want_brown" Type="Int32" />
-          <Property Name="want_blue" Type="Int32" />
-          <Property Name="want_green" Type="Int32" />
-          <Property Name="want_violet" Type="Int32" />
-          <Property Name="want_pink" Type="Int32" />
-          <Property Name="want_silver" Type="Int32" />
-          <Property Name="want_gold" Type="Int32" />
-          <Property Name="want_sky" Type="Int32" />
-          <Property Name="want_red" Type="Int32" />
-        </EntityType>
-        <EntityType Name="user">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userid" Type="Int32" />
-          <Property Name="nickname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="birthday" Type="DateTime" Precision="0" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="line" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="contract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="order_id" Type="Int32" />
+          <Property Name="member_id" Type="Int32" />
+          <Property Name="bill_id" Type="Int32" />
+          <Property Name="shop_id" Type="Int32" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="status_print_fashion" Type="Int32" />
+          <Property Name="status_print_power" Type="Int32" />
+          <Property Name="status_print_other" Type="Int32" />
+          <Property Name="have_fashion" Type="Int32" />
+          <Property Name="have_power" Type="Int32" />
+          <Property Name="have_other" Type="Int32" />
+          <Property Name="note_fashion1" Type="Int32" />
+          <Property Name="note_fashion2" Type="Int32" />
+          <Property Name="note_fashion3" Type="Int32" />
+          <Property Name="note_power1" Type="Int32" />
+          <Property Name="note_power2" Type="Int32" />
+          <Property Name="note_power3" Type="Int32" />
+          <Property Name="fix_volume_fashion" Type="Int32" />
+          <Property Name="fix_volume_power" Type="Int32" />
+          <Property Name="order_amount" Type="Single" />
+          <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_amount" Type="Single" />
+          <Property Name="pay_finish" Type="Int32" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="sugareyeEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="orders" EntityType="Self.order" />
-          <EntitySet Name="order_item" EntityType="Self.order_item" />
-          <EntitySet Name="order_power_item" EntityType="Self.order_power_item" />
-          <EntitySet Name="products" EntityType="Self.product" />
-          <EntitySet Name="set_power_volume" EntityType="Self.set_power_volume" />
-          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" />
+          <EntitySet Name="product" EntityType="Self.product" />
+          <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -878,123 +717,36 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="sugareyeModelStoreContainer" CdmEntityContainer="sugareyeEntities">
-          <EntitySetMapping Name="orders">
-            <EntityTypeMapping TypeName="sugareyeModel.order">
-              <MappingFragment StoreEntitySet="order">
+          <EntitySetMapping Name="bigeyedev_shop">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_shop">
+              <MappingFragment StoreEntitySet="bigeyedev_shop">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="datetime" ColumnName="datetime" />
-                <ScalarProperty Name="member_id" ColumnName="member_id" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="status_print" ColumnName="status_print" />
-                <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
-                <ScalarProperty Name="have_power" ColumnName="have_power" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
                 <ScalarProperty Name="shop_name" ColumnName="shop_name" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="district" ColumnName="district" />
-                <ScalarProperty Name="area" ColumnName="area" />
-                <ScalarProperty Name="province" ColumnName="province" />
-                <ScalarProperty Name="zip" ColumnName="zip" />
-                <ScalarProperty Name="mobile" ColumnName="mobile" />
-                <ScalarProperty Name="mobile2" ColumnName="mobile2" />
+                <ScalarProperty Name="promotion" ColumnName="promotion" />
+                <ScalarProperty Name="logo_menu_url" ColumnName="logo_menu_url" />
+                <ScalarProperty Name="logo_top_url" ColumnName="logo_top_url" />
+                <ScalarProperty Name="meta_des" ColumnName="meta_des" />
+                <ScalarProperty Name="meta_keyword" ColumnName="meta_keyword" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="face_id" ColumnName="face_id" />
+                <ScalarProperty Name="face_qr_url" ColumnName="face_qr_url" />
+                <ScalarProperty Name="face_url" ColumnName="face_url" />
                 <ScalarProperty Name="line_id" ColumnName="line_id" />
-                <ScalarProperty Name="line_display" ColumnName="line_display" />
+                <ScalarProperty Name="line_qr_url" ColumnName="line_qr_url" />
+                <ScalarProperty Name="line_url" ColumnName="line_url" />
+                <ScalarProperty Name="line_at_id" ColumnName="line_at_id" />
+                <ScalarProperty Name="insta_id" ColumnName="insta_id" />
+                <ScalarProperty Name="insta_qr_url" ColumnName="insta_qr_url" />
+                <ScalarProperty Name="insta_url" ColumnName="insta_url" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="note" ColumnName="note" />
-                <ScalarProperty Name="note2" ColumnName="note2" />
-                <ScalarProperty Name="note3" ColumnName="note3" />
-                <ScalarProperty Name="note4" ColumnName="note4" />
-                <ScalarProperty Name="note5" ColumnName="note5" />
-                <ScalarProperty Name="note_power" ColumnName="note_power" />
-                <ScalarProperty Name="note_power2" ColumnName="note_power2" />
-                <ScalarProperty Name="note_power3" ColumnName="note_power3" />
-                <ScalarProperty Name="fix_volume" ColumnName="fix_volume" />
-                <ScalarProperty Name="fix_power_volume" ColumnName="fix_power_volume" />
-                <ScalarProperty Name="eyeberry_sum_volume" ColumnName="eyeberry_sum_volume" />
-                <ScalarProperty Name="sweety_sum_volume" ColumnName="sweety_sum_volume" />
-                <ScalarProperty Name="lollipop_sum_volume" ColumnName="lollipop_sum_volume" />
-                <ScalarProperty Name="prettydoll_sum_volume" ColumnName="prettydoll_sum_volume" />
-                <ScalarProperty Name="dream_sum_volume" ColumnName="dream_sum_volume" />
-                <ScalarProperty Name="kitty_sum_volume" ColumnName="kitty_sum_volume" />
-                <ScalarProperty Name="pretty_sum_volume" ColumnName="pretty_sum_volume" />
-                <ScalarProperty Name="beauty_sum_volume" ColumnName="beauty_sum_volume" />
-                <ScalarProperty Name="all_sum_volume" ColumnName="all_sum_volume" />
-                <ScalarProperty Name="all_sum_power_volume" ColumnName="all_sum_power_volume" />
-                <ScalarProperty Name="total_volume" ColumnName="total_volume" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="eyeberry_volume" ColumnName="eyeberry_volume" />
-                <ScalarProperty Name="sweety_volume" ColumnName="sweety_volume" />
-                <ScalarProperty Name="lollipop_volume" ColumnName="lollipop_volume" />
-                <ScalarProperty Name="prettydoll_volume" ColumnName="prettydoll_volume" />
-                <ScalarProperty Name="dream_volume" ColumnName="dream_volume" />
-                <ScalarProperty Name="kitty_volume" ColumnName="kitty_volume" />
-                <ScalarProperty Name="pretty_volume" ColumnName="pretty_volume" />
-                <ScalarProperty Name="beauty_volume" ColumnName="beauty_volume" />
-                <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
-                <ScalarProperty Name="pay_date" ColumnName="pay_date" />
-                <ScalarProperty Name="pay_time" ColumnName="pay_time" />
-                <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
-                <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
-                <ScalarProperty Name="eyeberry_price" ColumnName="eyeberry_price" />
-                <ScalarProperty Name="sweety_price" ColumnName="sweety_price" />
-                <ScalarProperty Name="lollipop_price" ColumnName="lollipop_price" />
-                <ScalarProperty Name="prettydoll_price" ColumnName="prettydoll_price" />
-                <ScalarProperty Name="dream_price" ColumnName="dream_price" />
-                <ScalarProperty Name="kitty_price" ColumnName="kitty_price" />
-                <ScalarProperty Name="pretty_price" ColumnName="pretty_price" />
-                <ScalarProperty Name="beauty_price" ColumnName="beauty_price" />
+                <ScalarProperty Name="location_address" ColumnName="location_address" />
+                <ScalarProperty Name="location_url" ColumnName="location_url" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="order_item">
-            <EntityTypeMapping TypeName="sugareyeModel.order_item">
-              <MappingFragment StoreEntitySet="order_item">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="brand_order" ColumnName="brand_order" />
-                <ScalarProperty Name="brand" ColumnName="brand" />
-                <ScalarProperty Name="black" ColumnName="black" />
-                <ScalarProperty Name="choco" ColumnName="choco" />
-                <ScalarProperty Name="gray" ColumnName="gray" />
-                <ScalarProperty Name="brown" ColumnName="brown" />
-                <ScalarProperty Name="blue" ColumnName="blue" />
-                <ScalarProperty Name="green" ColumnName="green" />
-                <ScalarProperty Name="violet" ColumnName="violet" />
-                <ScalarProperty Name="pink" ColumnName="pink" />
-                <ScalarProperty Name="silver" ColumnName="silver" />
-                <ScalarProperty Name="gold" ColumnName="gold" />
-                <ScalarProperty Name="sky" ColumnName="sky" />
-                <ScalarProperty Name="red" ColumnName="red" />
-                <ScalarProperty Name="near" ColumnName="near" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="price_s" ColumnName="price_s" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="order_power_item">
-            <EntityTypeMapping TypeName="sugareyeModel.order_power_item">
-              <MappingFragment StoreEntitySet="order_power_item">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="group_brand" ColumnName="group_brand" />
-                <ScalarProperty Name="brand_order" ColumnName="brand_order" />
-                <ScalarProperty Name="brand" ColumnName="brand" />
-                <ScalarProperty Name="color" ColumnName="color" />
-                <ScalarProperty Name="power" ColumnName="power" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="volume" ColumnName="volume" />
-                <ScalarProperty Name="near" ColumnName="near" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="price_s" ColumnName="price_s" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="products">
+          <EntitySetMapping Name="product">
             <EntityTypeMapping TypeName="sugareyeModel.product">
               <MappingFragment StoreEntitySet="product">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1263,47 +1015,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="set_power_volume">
-            <EntityTypeMapping TypeName="sugareyeModel.set_power_volume">
-              <MappingFragment StoreEntitySet="set_power_volume">
+          <EntitySetMapping Name="bigeyedev_order">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order">
+              <MappingFragment StoreEntitySet="bigeyedev_order">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="brand" ColumnName="brand" />
-                <ScalarProperty Name="power" ColumnName="power" />
-                <ScalarProperty Name="want_black" ColumnName="want_black" />
-                <ScalarProperty Name="want_choco" ColumnName="want_choco" />
-                <ScalarProperty Name="want_gray" ColumnName="want_gray" />
-                <ScalarProperty Name="want_brown" ColumnName="want_brown" />
-                <ScalarProperty Name="want_blue" ColumnName="want_blue" />
-                <ScalarProperty Name="want_green" ColumnName="want_green" />
-                <ScalarProperty Name="want_violet" ColumnName="want_violet" />
-                <ScalarProperty Name="want_pink" ColumnName="want_pink" />
-                <ScalarProperty Name="want_silver" ColumnName="want_silver" />
-                <ScalarProperty Name="want_gold" ColumnName="want_gold" />
-                <ScalarProperty Name="want_sky" ColumnName="want_sky" />
-                <ScalarProperty Name="want_red" ColumnName="want_red" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="sugareyeModel.user">
-              <MappingFragment StoreEntitySet="user">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="userid" ColumnName="userid" />
-                <ScalarProperty Name="nickname" ColumnName="nickname" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="image" ColumnName="image" />
-                <ScalarProperty Name="firstname" ColumnName="firstname" />
-                <ScalarProperty Name="lastname" ColumnName="lastname" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="birthday" ColumnName="birthday" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="zip" ColumnName="zip" />
-                <ScalarProperty Name="tel" ColumnName="tel" />
-                <ScalarProperty Name="mobile" ColumnName="mobile" />
-                <ScalarProperty Name="line" ColumnName="line" />
-                <ScalarProperty Name="position" ColumnName="position" />
-                <ScalarProperty Name="contract" ColumnName="contract" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
+                <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
+                <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
+                <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
+                <ScalarProperty Name="have_power" ColumnName="have_power" />
+                <ScalarProperty Name="have_other" ColumnName="have_other" />
+                <ScalarProperty Name="note_fashion1" ColumnName="note_fashion1" />
+                <ScalarProperty Name="note_fashion2" ColumnName="note_fashion2" />
+                <ScalarProperty Name="note_fashion3" ColumnName="note_fashion3" />
+                <ScalarProperty Name="note_power1" ColumnName="note_power1" />
+                <ScalarProperty Name="note_power2" ColumnName="note_power2" />
+                <ScalarProperty Name="note_power3" ColumnName="note_power3" />
+                <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
+                <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
+                <ScalarProperty Name="order_amount" ColumnName="order_amount" />
+                <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
+                <ScalarProperty Name="pay_date" ColumnName="pay_date" />
+                <ScalarProperty Name="pay_time" ColumnName="pay_time" />
+                <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
+                <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1321,7 +1063,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

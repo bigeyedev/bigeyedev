@@ -4,13 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eed76a0ce119401eac9dbcaf82151bc0" Name="Diagram1" ZoomLevel="28">
-        <EntityTypeShape EntityType="sugareyeModel.order" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sugareyeModel.order_item" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sugareyeModel.order_power_item" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sugareyeModel.product" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sugareyeModel.set_power_volume" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sugareyeModel.user" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+      <Diagram DiagramId="05307c17fbae448da5e9972c5239496a" Name="Diagram1">
+        <EntityTypeShape EntityType="sugareyeModel.bigeyedev_shop" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sugareyeModel.product" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sugareyeModel.bigeyedev_order" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
