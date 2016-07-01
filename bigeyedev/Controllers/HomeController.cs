@@ -96,61 +96,25 @@ namespace bigeyedev.Controllers
             //add to cookie
             foreach (var item in itemOrder)
             {
-                int black = 0; int blue = 0; int brown = 0; int choco = 0; int gold = 0; int gray = 0; int green = 0;
-                int pink = 0; int red = 0; int silver = 0; int sky = 0; int violet = 0;
                 // if cookie order:id is exist
                 if (Request.Cookies["order:" + item.id] != null)
                 {
-                    black = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Black"]) + item.Black;
-                    blue = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Blue"]) + item.Blue;
-                    brown = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Brown"]) + item.Brown;
-                    choco = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Choco"]) + item.Choco;
-                    gold = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Gold"]) + item.Gold;
-                    gray = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Gray"]) + item.Gray;
-                    green = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Green"]) + item.Green;
-                    pink = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Pink"]) + item.Pink;
-                    red = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Red"]) + item.Red;
-                    silver = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Silver"]) + item.Silver;
-                    sky = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Sky"]) + item.Sky;
-                    violet = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Violet"]) + item.Violet;
+                    item.Black = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Black"]) + item.Black;
+                    item.Blue = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Blue"]) + item.Blue;
+                    item.Brown = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Brown"]) + item.Brown;
+                    item.Choco = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Choco"]) + item.Choco;
+                    item.Gold = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Gold"]) + item.Gold;
+                    item.Gray = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Gray"]) + item.Gray;
+                    item.Green = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Green"]) + item.Green;
+                    item.Pink = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Pink"]) + item.Pink;
+                    item.Red = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Red"]) + item.Red;
+                    item.Silver = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Silver"]) + item.Silver;
+                    item.Sky = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Sky"]) + item.Sky;
+                    item.Violet = Convert.ToInt32(Request.Cookies["order:" + item.id].Values["Violet"]) + item.Violet;
                 }
-                else
-                {
-                    black = item.Black;
-                    blue = item.Blue;
-                    brown = item.Brown;
-                    choco = item.Choco;
-                    gold = item.Gold;
-                    gray = item.Gray;
-                    green = item.Green;
-                    pink = item.Pink;
-                    red = item.Red;
-                    silver = item.Silver;
-                    sky = item.Sky;
-                    violet = item.Violet;
-                }
+
                 //addookie
-                var Cookie = new HttpCookie("order:" + item.id);
-                Cookie.Values["id"] = item.id.ToString();
-                Cookie.Values["model"] = item.model;
-                Cookie.Values["brand"] = item.brand;
-                Cookie.Values["imageUrl"] = item.imageUrl;
-                Cookie.Values["near"] = item.near;
-                Cookie.Values["Black"] = black.ToString();
-                Cookie.Values["Blue"] = blue.ToString();
-                Cookie.Values["Brown"] = brown.ToString();
-                Cookie.Values["Choco"] = choco.ToString();
-                Cookie.Values["Gold"] = gold.ToString();
-                Cookie.Values["Gray"] = gray.ToString();
-                Cookie.Values["Green"] = green.ToString();
-                Cookie.Values["Pink"] = pink.ToString();
-                Cookie.Values["Red"] = red.ToString();
-                Cookie.Values["Silver"] = silver.ToString();
-                Cookie.Values["Sky"] = sky.ToString();
-                Cookie.Values["Violet"] = violet.ToString();
-                Cookie.Expires = DateTime.Now.AddDays(1);
-                Response.Cookies.Add(Cookie);
-                Response.Cookies["confirm"].Value = "0";
+                addCookieStock(item, 0);
             }
 
             return RedirectToAction("Cart");
@@ -225,27 +189,7 @@ namespace bigeyedev.Controllers
             {
                 if (item.Black > 0 || item.Blue > 0 || item.Brown > 0 || item.Choco > 0 || item.Gold > 0 || item.Gray > 0 || item.Green > 0 || item.Pink > 0 || item.Red > 0 || item.Silver > 0 || item.Sky > 0 || item.Violet > 0)
                 {
-                    var Cookie = new HttpCookie("order:" + item.id);
-                    Cookie.Values["id"] = item.id.ToString();
-                    Cookie.Values["model"] = item.model;
-                    Cookie.Values["brand"] = item.brand;
-                    Cookie.Values["imageUrl"] = item.imageUrl;
-                    Cookie.Values["near"] = item.near;
-                    Cookie.Values["Black"] = item.Black.ToString();
-                    Cookie.Values["Blue"] = item.Blue.ToString();
-                    Cookie.Values["Brown"] = item.Brown.ToString();
-                    Cookie.Values["Choco"] = item.Choco.ToString();
-                    Cookie.Values["Gold"] = item.Gold.ToString();
-                    Cookie.Values["Gray"] = item.Gray.ToString();
-                    Cookie.Values["Green"] = item.Green.ToString();
-                    Cookie.Values["Pink"] = item.Pink.ToString();
-                    Cookie.Values["Red"] = item.Red.ToString();
-                    Cookie.Values["Silver"] = item.Silver.ToString();
-                    Cookie.Values["Sky"] = item.Sky.ToString();
-                    Cookie.Values["Violet"] = item.Violet.ToString();
-                    Cookie.Expires = DateTime.Now.AddDays(1);
-                    Response.Cookies.Add(Cookie);
-                    Response.Cookies["confirm"].Value = "1";
+                    addCookieStock(item, 1);
                 }
 
             }
@@ -253,6 +197,30 @@ namespace bigeyedev.Controllers
             return RedirectToAction("Address");
         }
 
+        private void addCookieStock(stockBindingModel item,int state)
+        {
+            var Cookie = new HttpCookie("order:" + item.id);
+            Cookie.Values["id"] = item.id.ToString();
+            Cookie.Values["model"] = item.model;
+            Cookie.Values["brand"] = item.brand;
+            Cookie.Values["imageUrl"] = item.imageUrl;
+            Cookie.Values["near"] = item.near;
+            Cookie.Values["Black"] = item.Black.ToString();
+            Cookie.Values["Blue"] = item.Blue.ToString();
+            Cookie.Values["Brown"] = item.Brown.ToString();
+            Cookie.Values["Choco"] = item.Choco.ToString();
+            Cookie.Values["Gold"] = item.Gold.ToString();
+            Cookie.Values["Gray"] = item.Gray.ToString();
+            Cookie.Values["Green"] = item.Green.ToString();
+            Cookie.Values["Pink"] = item.Pink.ToString();
+            Cookie.Values["Red"] = item.Red.ToString();
+            Cookie.Values["Silver"] = item.Silver.ToString();
+            Cookie.Values["Sky"] = item.Sky.ToString();
+            Cookie.Values["Violet"] = item.Violet.ToString();
+            Cookie.Expires = DateTime.Now.AddDays(1);
+            Response.Cookies.Add(Cookie);
+            Response.Cookies["confirm"].Value = state.ToString();
+        }
 
         public ActionResult Address()
         {
