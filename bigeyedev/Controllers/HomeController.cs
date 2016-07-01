@@ -25,11 +25,11 @@ namespace bigeyedev.Controllers
         public ActionResult Index()
         {          
 
-            // friendทำตรง friendไหนอยู่ ก็มาใส่ไว้ตรงนี้
+            // ทำตรงไหนอยู่ ก็มาใส่ไว้ตรงนี้ boy
             return RedirectToAction("Fashion_Select");
         }
 
-        private void friend()
+        public void dd()
         {
 
         }
