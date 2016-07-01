@@ -4,7 +4,6 @@
 @{
 
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
-
     // ในส่วน body ต้องมีตรงนี้ด้วย แยกกับ html & controller
     if (Session["Culture"] != null)
     {
@@ -19,7 +18,7 @@
     }
 }
 
-<div class="test" id="cont">
+<div class="main_container" >
     @using (Html.BeginForm("Cart", "Home", FormMethod.Post, new { id = "form-validation" }))
     {
         int ii = 0;
@@ -154,3 +153,4 @@
         return true;
     }
 </script>
+

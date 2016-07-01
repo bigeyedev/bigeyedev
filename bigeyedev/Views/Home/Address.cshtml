@@ -1,61 +1,62 @@
-﻿@model order
+﻿@using bigeyedev.Models
+@model  Contract
+
 @{
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     ViewBag.Title = "Address";
 }
 <div class="container" id="cont">
-    @using (Html.BeginForm("Address", "Home", FormMethod.Post, new { role = "form" }))
-    {
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.AntiForgeryToken()
-        <div class="form-group">
-            <p>ชื่อ-สกุล</p>
-            @Html.EditorFor(m => m.name, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>เบอร์โทรศัพท์</p>
-            @Html.EditorFor(m => m.mobile, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>เบอร์โทรศัพท์-สำรอง</p>
-            @Html.EditorFor(m => m.mobile2, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>Line ID</p>
-            @Html.EditorFor(m => m.line_id, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>Emial</p>
-            @Html.EditorFor(m => m.email, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>ชื่อ Shop</p>
-            @Html.EditorFor(m => m.shop_name, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>ที่อยู่</p>
-            @Html.EditorFor(m => m.address, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>ตำบล/แขวง</p>
-            @Html.EditorFor(m => m.district, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>อำเภอ/เขต</p>
-            @Html.EditorFor(m => m.area, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>จังหวัด</p>
-            @Html.EditorFor(m => m.province, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>รหัสไปษณีย์</p>
-            @Html.EditorFor(m => m.zip, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <div class="form-group">
-            <p>หมายเหตุ</p>
-            @Html.EditorFor(m => m.note, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <input type="submit" class="btn btn-default" value="ยืนยัน" />
-    }
+
+    <div id="newContract">
+        @using (Html.BeginForm("Address", "Home", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <p>ชื่อ-สกุล</p>
+                @Html.EditorFor(m => m.address.name , new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>เบอร์โทรศัพท์</p>
+                @Html.EditorFor(m => m.address.mobile_shop, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>เบอร์โทรศัพท์-สำรอง</p>
+                @Html.EditorFor(m => m.address.mobile2_shop, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>Line ID</p>
+                @Html.EditorFor(m => m.memberData.line_id, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>Emial</p>
+                @Html.EditorFor(m => m.memberData.email, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>ชื่อ Shop</p>
+                @Html.EditorFor(m => m.address.shop_name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>ที่อยู่</p>
+                @Html.EditorFor(m => m.address.address, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>ตำบล/แขวง</p>
+                @Html.EditorFor(m => m.address.sub_district, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>อำเภอ/เขต</p>
+                @Html.EditorFor(m => m.address.district, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>จังหวัด</p>
+                @Html.EditorFor(m => m.address.province, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <p>รหัสไปษณีย์</p>
+                @Html.EditorFor(m => m.address.zip, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <input type="submit" class="btn btn-default" value="ยืนยัน" />
+        }
+    </div>
 </div>

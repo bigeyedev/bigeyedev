@@ -17,12 +17,33 @@ namespace bigeyedev
         public int id { get; set; }
         public int shop_id { get; set; }
         public string shop_name { get; set; }
+        public string website { get; set; }
         public string promotion { get; set; }
+        public Nullable<float> rate_50_dueba { get; set; }
+        public Nullable<float> rate_100_dueba { get; set; }
+        public Nullable<float> rate_150_dueba { get; set; }
+        public Nullable<float> rate_225_dueba { get; set; }
+        public Nullable<float> rate_300_dueba { get; set; }
+        public Nullable<float> rate_500_dueba { get; set; }
+        public Nullable<float> rate_1000_dueba { get; set; }
+        public Nullable<float> rate_50_dream { get; set; }
+        public Nullable<float> rate_100_dream { get; set; }
+        public Nullable<float> rate_150_dream { get; set; }
+        public Nullable<float> rate_225_dream { get; set; }
+        public Nullable<float> rate_300_dream { get; set; }
+        public Nullable<float> rate_500_dream { get; set; }
+        public Nullable<float> rate_1000_dream { get; set; }
+        public Nullable<float> rate_50_vassen { get; set; }
+        public Nullable<float> rate_100_vassen { get; set; }
+        public Nullable<float> rate_150_vassen { get; set; }
+        public Nullable<float> rate_225_vassen { get; set; }
+        public Nullable<float> rate_300_vassen { get; set; }
+        public Nullable<float> rate_500_vassen { get; set; }
+        public Nullable<float> rate_1000_vassen { get; set; }
         public string logo_menu_url { get; set; }
         public string logo_top_url { get; set; }
         public string meta_des { get; set; }
         public string meta_keyword { get; set; }
-        public string website { get; set; }
         public string tel { get; set; }
         public string face_id { get; set; }
         public string face_qr_url { get; set; }
@@ -37,5 +58,13 @@ namespace bigeyedev
         public string email { get; set; }
         public string location_address { get; set; }
         public string location_url { get; set; }
+        public string book_bank_k { get; set; }
+        public string book_bank_k_name { get; set; }
+        public string book_bank_scb { get; set; }
+        public string book_bank_scb_name { get; set; }
+        public string book_bank_ktb { get; set; }
+        public string book_bank_ktb_name { get; set; }
+        public string book_bank_bbl { get; set; }
+        public string book_bank_bbl_name { get; set; }
     }
 }

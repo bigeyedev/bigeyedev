@@ -25,8 +25,14 @@ namespace bigeyedev
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<bigeyedev_free> bigeyedev_free { get; set; }
+        public virtual DbSet<bigeyedev_logic> bigeyedev_logic { get; set; }
+        public virtual DbSet<bigeyedev_logic_address> bigeyedev_logic_address { get; set; }
+        public virtual DbSet<bigeyedev_member> bigeyedev_member { get; set; }
+        public virtual DbSet<bigeyedev_member_address> bigeyedev_member_address { get; set; }
+        public virtual DbSet<bigeyedev_order> bigeyedev_order { get; set; }
+        public virtual DbSet<bigeyedev_order_fashion_item> bigeyedev_order_fashion_item { get; set; }
         public virtual DbSet<bigeyedev_shop> bigeyedev_shop { get; set; }
         public virtual DbSet<product> product { get; set; }
-        public virtual DbSet<bigeyedev_order> bigeyedev_order { get; set; }
     }
 }

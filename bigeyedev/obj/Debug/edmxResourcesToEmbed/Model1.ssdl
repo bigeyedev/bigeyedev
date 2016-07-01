@@ -1,30 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="bigeyedev_free">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" />
+    <Property Name="free_box" Type="int" />
+    <Property Name="delivery_fee" Type="real" />
+    <Property Name="acrylic" Type="int" />
+    <Property Name="stand_sw" Type="int" />
+    <Property Name="album" Type="text" />
+    <Property Name="bag" Type="int" />
+    <Property Name="manual" Type="int" />
+    <Property Name="cd" Type="int" />
+    <Property Name="certi" Type="int" />
+    <Property Name="desktop" Type="int" />
+    <Property Name="poster" Type="int" />
+    <Property Name="vinyl" Type="int" />
+    <Property Name="free_solution" Type="int" />
+    <Property Name="vinyl_big" Type="int" />
+    <Property Name="acrylic_tray" Type="int" />
+    <Property Name="stand_pd" Type="int" />
+  </EntityType>
+  <EntityType Name="bigeyedev_logic">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logic_id" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="mobile" Type="varchar" MaxLength="50" />
+    <Property Name="mobile2" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="bigeyedev_logic_address">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logic_id" Type="int" />
+    <Property Name="sub_district" Type="varchar" MaxLength="50" />
+    <Property Name="district" Type="varchar" MaxLength="50" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="zip" Type="varchar" MaxLength="10" />
+    <Property Name="mobile" Type="varchar" MaxLength="50" />
+    <Property Name="mobile2" Type="varchar" MaxLength="50" />
+    <Property Name="mobile3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="bigeyedev_member">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="member_id" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="birthday" Type="date" />
+    <Property Name="mobile" Type="varchar" MaxLength="50" />
+    <Property Name="mobile2" Type="varchar" MaxLength="50" />
+    <Property Name="line_id" Type="varchar" MaxLength="50" />
+    <Property Name="line_display" Type="text" />
+    <Property Name="face_url" Type="text" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="bigeyedev_member_address">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="member_id" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address_order" Type="int" />
+    <Property Name="shop_name" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="text" />
+    <Property Name="sub_district" Type="varchar" MaxLength="50" />
+    <Property Name="district" Type="varchar" MaxLength="50" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="zip" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="mobile_shop" Type="varchar" MaxLength="50" />
+    <Property Name="mobile2_shop" Type="varchar" MaxLength="50" />
+    <Property Name="location_url" Type="text" />
+  </EntityType>
   <EntityType Name="bigeyedev_order">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="order_id" Type="int" />
+    <Property Name="datetime" Type="datetime" />
     <Property Name="member_id" Type="int" />
+    <Property Name="address_id" Type="int" Nullable="false" />
     <Property Name="bill_id" Type="int" />
     <Property Name="shop_id" Type="int" />
     <Property Name="user_id" Type="int" />
+    <Property Name="logic_id" Type="int" />
     <Property Name="status" Type="int" />
     <Property Name="status_print_fashion" Type="int" />
     <Property Name="status_print_power" Type="int" />
     <Property Name="status_print_other" Type="int" />
+    <Property Name="status_print_bill" Type="int" />
+    <Property Name="status_working" Type="int" />
     <Property Name="have_fashion" Type="int" />
     <Property Name="have_power" Type="int" />
     <Property Name="have_other" Type="int" />
-    <Property Name="note_fashion1" Type="int" />
-    <Property Name="note_fashion2" Type="int" />
-    <Property Name="note_fashion3" Type="int" />
-    <Property Name="note_power1" Type="int" />
-    <Property Name="note_power2" Type="int" />
-    <Property Name="note_power3" Type="int" />
+    <Property Name="note_fashion1_ask_only_dueba" Type="int" />
+    <Property Name="note_fashion2_replace" Type="int" />
+    <Property Name="note_fashion3_replace_fac" Type="int" />
+    <Property Name="note_power1_ask_only_dueba" Type="int" />
+    <Property Name="note_power2_replace" Type="int" />
+    <Property Name="note_power3_replace_fac" Type="int" />
     <Property Name="fix_volume_fashion" Type="int" />
     <Property Name="fix_volume_power" Type="int" />
     <Property Name="order_amount" Type="real" />
@@ -33,7 +116,35 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
     <Property Name="pay_time" Type="varchar" MaxLength="50" />
     <Property Name="pay_amount" Type="real" />
     <Property Name="pay_finish" Type="int" />
+    <Property Name="logic_book_no" Type="varchar" MaxLength="20" />
+    <Property Name="logic_no" Type="varchar" MaxLength="20" />
+    <Property Name="tracking" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="bigeyedev_order_fashion_item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" />
     <Property Name="datetime" Type="datetime" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="model" Type="varchar" MaxLength="100" />
+    <Property Name="brand_order" Type="int" />
+    <Property Name="brand" Type="varchar" MaxLength="50" />
+    <Property Name="black" Type="int" />
+    <Property Name="choco" Type="int" />
+    <Property Name="gray" Type="int" />
+    <Property Name="brown" Type="int" />
+    <Property Name="blue" Type="int" />
+    <Property Name="green" Type="int" />
+    <Property Name="violet" Type="int" />
+    <Property Name="pink" Type="int" />
+    <Property Name="silver" Type="int" />
+    <Property Name="gold" Type="int" />
+    <Property Name="sky" Type="int" />
+    <Property Name="red" Type="int" />
+    <Property Name="same" Type="text" />
+    <Property Name="near" Type="text" />
   </EntityType>
   <EntityType Name="bigeyedev_shop">
     <Key>
@@ -42,12 +153,33 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="shop_id" Type="int" Nullable="false" />
     <Property Name="shop_name" Type="varchar" MaxLength="50" />
+    <Property Name="website" Type="varchar" MaxLength="50" />
     <Property Name="promotion" Type="varchar(max)" />
+    <Property Name="rate_50_dueba" Type="real" />
+    <Property Name="rate_100_dueba" Type="real" />
+    <Property Name="rate_150_dueba" Type="real" />
+    <Property Name="rate_225_dueba" Type="real" />
+    <Property Name="rate_300_dueba" Type="real" />
+    <Property Name="rate_500_dueba" Type="real" />
+    <Property Name="rate_1000_dueba" Type="real" />
+    <Property Name="rate_50_dream" Type="real" />
+    <Property Name="rate_100_dream" Type="real" />
+    <Property Name="rate_150_dream" Type="real" />
+    <Property Name="rate_225_dream" Type="real" />
+    <Property Name="rate_300_dream" Type="real" />
+    <Property Name="rate_500_dream" Type="real" />
+    <Property Name="rate_1000_dream" Type="real" />
+    <Property Name="rate_50_vassen" Type="real" />
+    <Property Name="rate_100_vassen" Type="real" />
+    <Property Name="rate_150_vassen" Type="real" />
+    <Property Name="rate_225_vassen" Type="real" />
+    <Property Name="rate_300_vassen" Type="real" />
+    <Property Name="rate_500_vassen" Type="real" />
+    <Property Name="rate_1000_vassen" Type="real" />
     <Property Name="logo_menu_url" Type="text" />
     <Property Name="logo_top_url" Type="text" />
     <Property Name="meta_des" Type="varchar(max)" />
     <Property Name="meta_keyword" Type="varchar" MaxLength="200" />
-    <Property Name="website" Type="varchar" MaxLength="50" />
     <Property Name="tel" Type="varchar" MaxLength="50" />
     <Property Name="face_id" Type="varchar" MaxLength="50" />
     <Property Name="face_qr_url" Type="text" />
@@ -62,6 +194,14 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="location_address" Type="text" />
     <Property Name="location_url" Type="text" />
+    <Property Name="book_bank_k" Type="varchar" MaxLength="50" />
+    <Property Name="book_bank_k_name" Type="varchar" MaxLength="50" />
+    <Property Name="book_bank_scb" Type="varchar" MaxLength="50" />
+    <Property Name="book_bank_scb_name" Type="varchar" MaxLength="50" />
+    <Property Name="book_bank_ktb" Type="varchar" MaxLength="50" />
+    <Property Name="book_bank_ktb_name" Type="varchar" MaxLength="50" />
+    <Property Name="book_bank_bbl" Type="varchar" MaxLength="50" />
+    <Property Name="book_bank_bbl_name" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="product">
     <Key>
@@ -332,39 +472,14 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
     <Property Name="choco_50" Type="int" />
   </EntityType>
   <EntityContainer Name="sugareyeModelStoreContainer">
+    <EntitySet Name="bigeyedev_free" EntityType="Self.bigeyedev_free" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_logic" EntityType="Self.bigeyedev_logic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_logic_address" EntityType="Self.bigeyedev_logic_address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_member" EntityType="Self.bigeyedev_member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_member_address" EntityType="Self.bigeyedev_member_address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [bigeyedev_order].[id] AS [id], 
-    [bigeyedev_order].[order_id] AS [order_id], 
-    [bigeyedev_order].[member_id] AS [member_id], 
-    [bigeyedev_order].[bill_id] AS [bill_id], 
-    [bigeyedev_order].[shop_id] AS [shop_id], 
-    [bigeyedev_order].[user_id] AS [user_id], 
-    [bigeyedev_order].[status] AS [status], 
-    [bigeyedev_order].[status_print_fashion] AS [status_print_fashion], 
-    [bigeyedev_order].[status_print_power] AS [status_print_power], 
-    [bigeyedev_order].[status_print_other] AS [status_print_other], 
-    [bigeyedev_order].[have_fashion] AS [have_fashion], 
-    [bigeyedev_order].[have_power] AS [have_power], 
-    [bigeyedev_order].[have_other] AS [have_other], 
-    [bigeyedev_order].[note_fashion1] AS [note_fashion1], 
-    [bigeyedev_order].[note_fashion2] AS [note_fashion2], 
-    [bigeyedev_order].[note_fashion3] AS [note_fashion3], 
-    [bigeyedev_order].[note_power1] AS [note_power1], 
-    [bigeyedev_order].[note_power2] AS [note_power2], 
-    [bigeyedev_order].[note_power3] AS [note_power3], 
-    [bigeyedev_order].[fix_volume_fashion] AS [fix_volume_fashion], 
-    [bigeyedev_order].[fix_volume_power] AS [fix_volume_power], 
-    [bigeyedev_order].[order_amount] AS [order_amount], 
-    [bigeyedev_order].[pay_bank] AS [pay_bank], 
-    [bigeyedev_order].[pay_date] AS [pay_date], 
-    [bigeyedev_order].[pay_time] AS [pay_time], 
-    [bigeyedev_order].[pay_amount] AS [pay_amount], 
-    [bigeyedev_order].[pay_finish] AS [pay_finish], 
-    [bigeyedev_order].[datetime] AS [datetime]
-    FROM [dbo].[bigeyedev_order] AS [bigeyedev_order]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

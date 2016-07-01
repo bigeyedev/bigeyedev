@@ -1,26 +1,25 @@
 ﻿@using bigeyedev.Models
-@model Tuple<order, List<stockBindingModel>>
+@model Tuple<Contract, List<stockBindingModel>>
 @{
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     ViewBag.Title = "Review";
 }
 
 <div class="container" id="cont">
-    <p>ชื่อ-สกุล : @Model.Item1.name</p>
-    <p>เบอร์โทร : @Model.Item1.mobile</p>
-    @if (Model.Item1.mobile2 != null)
+    <p>ชื่อ-สกุล : @Model.Item1.address.name</p>
+    <p>เบอร์โทร : @Model.Item1.address.mobile_shop</p>
+    @if (Model.Item1.address.mobile2_shop != null)
     {
-        <p> เบอร์โทร สำรอง: @Model.Item1.mobile2</p>
+        <p> เบอร์โทร สำรอง: @Model.Item1.address.mobile2_shop</p>
     }
-    <p>Line ID : @Model.Item1.line_id</p>
-    <p>Email : @Model.Item1.email</p>
-    <p>ชื่อร้อน : @Model.Item1.shop_name</p>
-    <p>ที่อยู่ : @Model.Item1.address</p>
-    <p>ตำบล/แขวง : @Model.Item1.district</p>
-    <p>อำเภอ/เขต : @Model.Item1.area</p>
-    <p>จังหวัด : @Model.Item1.province</p>
-    <p>รหัสไปษณีย์ : @Model.Item1.zip</p>
-    <p>หมายเหตุ : @Model.Item1.note</p>
+    <p>Line ID : @Model.Item1.memberData.line_id</p>
+    <p>Email : @Model.Item1.memberData.email</p>
+    <p>ชื่อร้อน : @Model.Item1.address.shop_name</p>
+    <p>ที่อยู่ : @Model.Item1.address.address</p>
+    <p>ตำบล/แขวง : @Model.Item1.address.sub_district</p>
+    <p>อำเภอ/เขต : @Model.Item1.address.district</p>
+    <p>จังหวัด : @Model.Item1.address.province</p>
+    <p>รหัสไปษณีย์ : @Model.Item1.address.zip</p>
     <hr />
     <table class="tab table-condensed">
         @foreach (var item in Model.Item2)
@@ -85,10 +84,35 @@
             </tr>
         }
     </table>
+
     @using (Html.BeginForm("Result", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
+        <div id="option">
+            <p>ในกรณีที่มีสินค้าบางตัวหมด?</p>
 
+            <input type="radio" name="replace" />ให้ผมจัดรุ่นใกล้เคียงที่สุด Style เดียวกัน (ได้รับการบริการที่เร็วกว่า)
+
+
+            <input type="radio" name="replace" />แทน รุ่นที่สั่ง โดยกระจายรุ่นให้ครบตามจำนวน
+
+
+            <input type="radio" name="replace" id="fix" />ข้าม (ให้ลูกค้าทำ Order เผื่อจำนวนเกินไว้หน่อย และอย่าลืม Fix จำนวนที่จะเอาด้วย)
+
+
+            <input type="radio" name="replace" />ข้าม และวงแจ้งรุ่นที่หมด ไปทาง LINE
+            <br />
+
+            <input class="form-control" type="tel" id="txtFix" width="3" disabled />
+            <p>ลายเดียวกัน+โรงงานเดียวกัน แต่คนละยี่ห้อ แทนได้ไหม?</p>
+
+
+            <input type="radio" name="replace_fac" />แทนได้
+
+
+            <input type="radio" name="replace_fac" />เอาเฉพาะยี่ห้อที่เลือก เท่านั้น
+
+        </div>
         <input type="submit" value="สั่งซื้อ" class="btn btn-danger" />
     }
 </div>
@@ -98,5 +122,16 @@
         if (charCode > 31 && (charCode < 48 || charCode > 57))
             return false;
         return true;
+    }
+
+    document.getElementById('fix').onchange = displayTextBox;
+
+    var textBox = document.getElementById('txtFix');
+    function displayTextBox(evt) {
+        if (evt.target.checked) {
+            textBox.disabled = true;
+        } else {
+            textBox.disabled = false;
+        }
     }
 </script>

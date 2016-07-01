@@ -1,5 +1,162 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sugareyeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="sugareyeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bigeyedev_free" EntityType="sugareyeModel.bigeyedev_free" />
+    <EntitySet Name="bigeyedev_logic" EntityType="sugareyeModel.bigeyedev_logic" />
+    <EntitySet Name="bigeyedev_logic_address" EntityType="sugareyeModel.bigeyedev_logic_address" />
+    <EntitySet Name="bigeyedev_member" EntityType="sugareyeModel.bigeyedev_member" />
+    <EntitySet Name="bigeyedev_member_address" EntityType="sugareyeModel.bigeyedev_member_address" />
+    <EntitySet Name="bigeyedev_order" EntityType="sugareyeModel.bigeyedev_order" />
+    <EntitySet Name="bigeyedev_order_fashion_item" EntityType="sugareyeModel.bigeyedev_order_fashion_item" />
+    <EntitySet Name="bigeyedev_shop" EntityType="sugareyeModel.bigeyedev_shop" />
+    <EntitySet Name="product" EntityType="sugareyeModel.product" />
+  </EntityContainer>
+  <EntityType Name="bigeyedev_free">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int32" />
+    <Property Name="free_box" Type="Int32" />
+    <Property Name="delivery_fee" Type="Single" />
+    <Property Name="acrylic" Type="Int32" />
+    <Property Name="stand_sw" Type="Int32" />
+    <Property Name="album" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="bag" Type="Int32" />
+    <Property Name="manual" Type="Int32" />
+    <Property Name="cd" Type="Int32" />
+    <Property Name="certi" Type="Int32" />
+    <Property Name="desktop" Type="Int32" />
+    <Property Name="poster" Type="Int32" />
+    <Property Name="vinyl" Type="Int32" />
+    <Property Name="free_solution" Type="Int32" />
+    <Property Name="vinyl_big" Type="Int32" />
+    <Property Name="acrylic_tray" Type="Int32" />
+    <Property Name="stand_pd" Type="Int32" />
+  </EntityType>
+  <EntityType Name="bigeyedev_logic">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logic_id" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bigeyedev_logic_address">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logic_id" Type="Int32" />
+    <Property Name="sub_district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bigeyedev_member">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="member_id" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="line_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="line_display" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="face_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bigeyedev_member_address">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="member_id" Type="Int32" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address_order" Type="Int32" />
+    <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sub_district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="zip" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mobile_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile2_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bigeyedev_order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int32" />
+    <Property Name="datetime" Type="DateTime" Precision="3" />
+    <Property Name="member_id" Type="Int32" />
+    <Property Name="address_id" Type="Int32" Nullable="false" />
+    <Property Name="bill_id" Type="Int32" />
+    <Property Name="shop_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="logic_id" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="status_print_fashion" Type="Int32" />
+    <Property Name="status_print_power" Type="Int32" />
+    <Property Name="status_print_other" Type="Int32" />
+    <Property Name="status_print_bill" Type="Int32" />
+    <Property Name="status_working" Type="Int32" />
+    <Property Name="have_fashion" Type="Int32" />
+    <Property Name="have_power" Type="Int32" />
+    <Property Name="have_other" Type="Int32" />
+    <Property Name="note_fashion1_ask_only_dueba" Type="Int32" />
+    <Property Name="note_fashion2_replace" Type="Int32" />
+    <Property Name="note_fashion3_replace_fac" Type="Int32" />
+    <Property Name="note_power1_ask_only_dueba" Type="Int32" />
+    <Property Name="note_power2_replace" Type="Int32" />
+    <Property Name="note_power3_replace_fac" Type="Int32" />
+    <Property Name="fix_volume_fashion" Type="Int32" />
+    <Property Name="fix_volume_power" Type="Int32" />
+    <Property Name="order_amount" Type="Single" />
+    <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pay_amount" Type="Single" />
+    <Property Name="pay_finish" Type="Int32" />
+    <Property Name="logic_book_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="logic_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="tracking" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bigeyedev_order_fashion_item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int32" />
+    <Property Name="datetime" Type="DateTime" Precision="3" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="brand_order" Type="Int32" />
+    <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="black" Type="Int32" />
+    <Property Name="choco" Type="Int32" />
+    <Property Name="gray" Type="Int32" />
+    <Property Name="brown" Type="Int32" />
+    <Property Name="blue" Type="Int32" />
+    <Property Name="green" Type="Int32" />
+    <Property Name="violet" Type="Int32" />
+    <Property Name="pink" Type="Int32" />
+    <Property Name="silver" Type="Int32" />
+    <Property Name="gold" Type="Int32" />
+    <Property Name="sky" Type="Int32" />
+    <Property Name="red" Type="Int32" />
+    <Property Name="same" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="near" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="bigeyedev_shop">
     <Key>
       <PropertyRef Name="id" />
@@ -7,12 +164,33 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="shop_id" Type="Int32" Nullable="false" />
     <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="promotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rate_50_dueba" Type="Single" />
+    <Property Name="rate_100_dueba" Type="Single" />
+    <Property Name="rate_150_dueba" Type="Single" />
+    <Property Name="rate_225_dueba" Type="Single" />
+    <Property Name="rate_300_dueba" Type="Single" />
+    <Property Name="rate_500_dueba" Type="Single" />
+    <Property Name="rate_1000_dueba" Type="Single" />
+    <Property Name="rate_50_dream" Type="Single" />
+    <Property Name="rate_100_dream" Type="Single" />
+    <Property Name="rate_150_dream" Type="Single" />
+    <Property Name="rate_225_dream" Type="Single" />
+    <Property Name="rate_300_dream" Type="Single" />
+    <Property Name="rate_500_dream" Type="Single" />
+    <Property Name="rate_1000_dream" Type="Single" />
+    <Property Name="rate_50_vassen" Type="Single" />
+    <Property Name="rate_100_vassen" Type="Single" />
+    <Property Name="rate_150_vassen" Type="Single" />
+    <Property Name="rate_225_vassen" Type="Single" />
+    <Property Name="rate_300_vassen" Type="Single" />
+    <Property Name="rate_500_vassen" Type="Single" />
+    <Property Name="rate_1000_vassen" Type="Single" />
     <Property Name="logo_menu_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="logo_top_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="meta_des" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="meta_keyword" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="face_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="face_qr_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -27,6 +205,14 @@
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="location_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_k" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_k_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_scb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_scb_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_ktb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_ktb_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_bbl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_bank_bbl_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="product">
     <Key>
@@ -296,42 +482,4 @@
     <Property Name="pink_1000" Type="Int32" />
     <Property Name="choco_50" Type="Int32" />
   </EntityType>
-  <EntityType Name="bigeyedev_order">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="order_id" Type="Int32" />
-    <Property Name="member_id" Type="Int32" />
-    <Property Name="bill_id" Type="Int32" />
-    <Property Name="shop_id" Type="Int32" />
-    <Property Name="user_id" Type="Int32" />
-    <Property Name="status" Type="Int32" />
-    <Property Name="status_print_fashion" Type="Int32" />
-    <Property Name="status_print_power" Type="Int32" />
-    <Property Name="status_print_other" Type="Int32" />
-    <Property Name="have_fashion" Type="Int32" />
-    <Property Name="have_power" Type="Int32" />
-    <Property Name="have_other" Type="Int32" />
-    <Property Name="note_fashion1" Type="Int32" />
-    <Property Name="note_fashion2" Type="Int32" />
-    <Property Name="note_fashion3" Type="Int32" />
-    <Property Name="note_power1" Type="Int32" />
-    <Property Name="note_power2" Type="Int32" />
-    <Property Name="note_power3" Type="Int32" />
-    <Property Name="fix_volume_fashion" Type="Int32" />
-    <Property Name="fix_volume_power" Type="Int32" />
-    <Property Name="order_amount" Type="Single" />
-    <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pay_amount" Type="Single" />
-    <Property Name="pay_finish" Type="Int32" />
-    <Property Name="datetime" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityContainer Name="sugareyeEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" />
-    <EntitySet Name="product" EntityType="Self.product" />
-    <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" />
-  </EntityContainer>
 </Schema>

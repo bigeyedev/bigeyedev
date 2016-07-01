@@ -4,32 +4,115 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bigeyedev_free">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_id" Type="int" />
+          <Property Name="free_box" Type="int" />
+          <Property Name="delivery_fee" Type="real" />
+          <Property Name="acrylic" Type="int" />
+          <Property Name="stand_sw" Type="int" />
+          <Property Name="album" Type="text" />
+          <Property Name="bag" Type="int" />
+          <Property Name="manual" Type="int" />
+          <Property Name="cd" Type="int" />
+          <Property Name="certi" Type="int" />
+          <Property Name="desktop" Type="int" />
+          <Property Name="poster" Type="int" />
+          <Property Name="vinyl" Type="int" />
+          <Property Name="free_solution" Type="int" />
+          <Property Name="vinyl_big" Type="int" />
+          <Property Name="acrylic_tray" Type="int" />
+          <Property Name="stand_pd" Type="int" />
+        </EntityType>
+        <EntityType Name="bigeyedev_logic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logic_id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="mobile2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="bigeyedev_logic_address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logic_id" Type="int" />
+          <Property Name="sub_district" Type="varchar" MaxLength="50" />
+          <Property Name="district" Type="varchar" MaxLength="50" />
+          <Property Name="province" Type="varchar" MaxLength="50" />
+          <Property Name="zip" Type="varchar" MaxLength="10" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="mobile2" Type="varchar" MaxLength="50" />
+          <Property Name="mobile3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="bigeyedev_member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="birthday" Type="date" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="mobile2" Type="varchar" MaxLength="50" />
+          <Property Name="line_id" Type="varchar" MaxLength="50" />
+          <Property Name="line_display" Type="text" />
+          <Property Name="face_url" Type="text" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="bigeyedev_member_address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address_order" Type="int" />
+          <Property Name="shop_name" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="text" />
+          <Property Name="sub_district" Type="varchar" MaxLength="50" />
+          <Property Name="district" Type="varchar" MaxLength="50" />
+          <Property Name="province" Type="varchar" MaxLength="50" />
+          <Property Name="zip" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="mobile_shop" Type="varchar" MaxLength="50" />
+          <Property Name="mobile2_shop" Type="varchar" MaxLength="50" />
+          <Property Name="location_url" Type="text" />
+        </EntityType>
         <EntityType Name="bigeyedev_order">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="order_id" Type="int" />
+          <Property Name="datetime" Type="datetime" />
           <Property Name="member_id" Type="int" />
+          <Property Name="address_id" Type="int" Nullable="false" />
           <Property Name="bill_id" Type="int" />
           <Property Name="shop_id" Type="int" />
           <Property Name="user_id" Type="int" />
+          <Property Name="logic_id" Type="int" />
           <Property Name="status" Type="int" />
           <Property Name="status_print_fashion" Type="int" />
           <Property Name="status_print_power" Type="int" />
           <Property Name="status_print_other" Type="int" />
+          <Property Name="status_print_bill" Type="int" />
+          <Property Name="status_working" Type="int" />
           <Property Name="have_fashion" Type="int" />
           <Property Name="have_power" Type="int" />
           <Property Name="have_other" Type="int" />
-          <Property Name="note_fashion1" Type="int" />
-          <Property Name="note_fashion2" Type="int" />
-          <Property Name="note_fashion3" Type="int" />
-          <Property Name="note_power1" Type="int" />
-          <Property Name="note_power2" Type="int" />
-          <Property Name="note_power3" Type="int" />
+          <Property Name="note_fashion1_ask_only_dueba" Type="int" />
+          <Property Name="note_fashion2_replace" Type="int" />
+          <Property Name="note_fashion3_replace_fac" Type="int" />
+          <Property Name="note_power1_ask_only_dueba" Type="int" />
+          <Property Name="note_power2_replace" Type="int" />
+          <Property Name="note_power3_replace_fac" Type="int" />
           <Property Name="fix_volume_fashion" Type="int" />
           <Property Name="fix_volume_power" Type="int" />
           <Property Name="order_amount" Type="real" />
@@ -38,7 +121,35 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
           <Property Name="pay_time" Type="varchar" MaxLength="50" />
           <Property Name="pay_amount" Type="real" />
           <Property Name="pay_finish" Type="int" />
+          <Property Name="logic_book_no" Type="varchar" MaxLength="20" />
+          <Property Name="logic_no" Type="varchar" MaxLength="20" />
+          <Property Name="tracking" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="bigeyedev_order_fashion_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_id" Type="int" />
           <Property Name="datetime" Type="datetime" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="model" Type="varchar" MaxLength="100" />
+          <Property Name="brand_order" Type="int" />
+          <Property Name="brand" Type="varchar" MaxLength="50" />
+          <Property Name="black" Type="int" />
+          <Property Name="choco" Type="int" />
+          <Property Name="gray" Type="int" />
+          <Property Name="brown" Type="int" />
+          <Property Name="blue" Type="int" />
+          <Property Name="green" Type="int" />
+          <Property Name="violet" Type="int" />
+          <Property Name="pink" Type="int" />
+          <Property Name="silver" Type="int" />
+          <Property Name="gold" Type="int" />
+          <Property Name="sky" Type="int" />
+          <Property Name="red" Type="int" />
+          <Property Name="same" Type="text" />
+          <Property Name="near" Type="text" />
         </EntityType>
         <EntityType Name="bigeyedev_shop">
           <Key>
@@ -47,12 +158,33 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="shop_id" Type="int" Nullable="false" />
           <Property Name="shop_name" Type="varchar" MaxLength="50" />
+          <Property Name="website" Type="varchar" MaxLength="50" />
           <Property Name="promotion" Type="varchar(max)" />
+          <Property Name="rate_50_dueba" Type="real" />
+          <Property Name="rate_100_dueba" Type="real" />
+          <Property Name="rate_150_dueba" Type="real" />
+          <Property Name="rate_225_dueba" Type="real" />
+          <Property Name="rate_300_dueba" Type="real" />
+          <Property Name="rate_500_dueba" Type="real" />
+          <Property Name="rate_1000_dueba" Type="real" />
+          <Property Name="rate_50_dream" Type="real" />
+          <Property Name="rate_100_dream" Type="real" />
+          <Property Name="rate_150_dream" Type="real" />
+          <Property Name="rate_225_dream" Type="real" />
+          <Property Name="rate_300_dream" Type="real" />
+          <Property Name="rate_500_dream" Type="real" />
+          <Property Name="rate_1000_dream" Type="real" />
+          <Property Name="rate_50_vassen" Type="real" />
+          <Property Name="rate_100_vassen" Type="real" />
+          <Property Name="rate_150_vassen" Type="real" />
+          <Property Name="rate_225_vassen" Type="real" />
+          <Property Name="rate_300_vassen" Type="real" />
+          <Property Name="rate_500_vassen" Type="real" />
+          <Property Name="rate_1000_vassen" Type="real" />
           <Property Name="logo_menu_url" Type="text" />
           <Property Name="logo_top_url" Type="text" />
           <Property Name="meta_des" Type="varchar(max)" />
           <Property Name="meta_keyword" Type="varchar" MaxLength="200" />
-          <Property Name="website" Type="varchar" MaxLength="50" />
           <Property Name="tel" Type="varchar" MaxLength="50" />
           <Property Name="face_id" Type="varchar" MaxLength="50" />
           <Property Name="face_qr_url" Type="text" />
@@ -67,6 +199,14 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
           <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="location_address" Type="text" />
           <Property Name="location_url" Type="text" />
+          <Property Name="book_bank_k" Type="varchar" MaxLength="50" />
+          <Property Name="book_bank_k_name" Type="varchar" MaxLength="50" />
+          <Property Name="book_bank_scb" Type="varchar" MaxLength="50" />
+          <Property Name="book_bank_scb_name" Type="varchar" MaxLength="50" />
+          <Property Name="book_bank_ktb" Type="varchar" MaxLength="50" />
+          <Property Name="book_bank_ktb_name" Type="varchar" MaxLength="50" />
+          <Property Name="book_bank_bbl" Type="varchar" MaxLength="50" />
+          <Property Name="book_bank_bbl_name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -337,46 +477,177 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
           <Property Name="choco_50" Type="int" />
         </EntityType>
         <EntityContainer Name="sugareyeModelStoreContainer">
+          <EntitySet Name="bigeyedev_free" EntityType="Self.bigeyedev_free" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_logic" EntityType="Self.bigeyedev_logic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_logic_address" EntityType="Self.bigeyedev_logic_address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_member" EntityType="Self.bigeyedev_member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_member_address" EntityType="Self.bigeyedev_member_address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [bigeyedev_order].[id] AS [id], 
-    [bigeyedev_order].[order_id] AS [order_id], 
-    [bigeyedev_order].[member_id] AS [member_id], 
-    [bigeyedev_order].[bill_id] AS [bill_id], 
-    [bigeyedev_order].[shop_id] AS [shop_id], 
-    [bigeyedev_order].[user_id] AS [user_id], 
-    [bigeyedev_order].[status] AS [status], 
-    [bigeyedev_order].[status_print_fashion] AS [status_print_fashion], 
-    [bigeyedev_order].[status_print_power] AS [status_print_power], 
-    [bigeyedev_order].[status_print_other] AS [status_print_other], 
-    [bigeyedev_order].[have_fashion] AS [have_fashion], 
-    [bigeyedev_order].[have_power] AS [have_power], 
-    [bigeyedev_order].[have_other] AS [have_other], 
-    [bigeyedev_order].[note_fashion1] AS [note_fashion1], 
-    [bigeyedev_order].[note_fashion2] AS [note_fashion2], 
-    [bigeyedev_order].[note_fashion3] AS [note_fashion3], 
-    [bigeyedev_order].[note_power1] AS [note_power1], 
-    [bigeyedev_order].[note_power2] AS [note_power2], 
-    [bigeyedev_order].[note_power3] AS [note_power3], 
-    [bigeyedev_order].[fix_volume_fashion] AS [fix_volume_fashion], 
-    [bigeyedev_order].[fix_volume_power] AS [fix_volume_power], 
-    [bigeyedev_order].[order_amount] AS [order_amount], 
-    [bigeyedev_order].[pay_bank] AS [pay_bank], 
-    [bigeyedev_order].[pay_date] AS [pay_date], 
-    [bigeyedev_order].[pay_time] AS [pay_time], 
-    [bigeyedev_order].[pay_amount] AS [pay_amount], 
-    [bigeyedev_order].[pay_finish] AS [pay_finish], 
-    [bigeyedev_order].[datetime] AS [datetime]
-    FROM [dbo].[bigeyedev_order] AS [bigeyedev_order]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="sugareyeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="sugareyeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bigeyedev_free" EntityType="sugareyeModel.bigeyedev_free" />
+          <EntitySet Name="bigeyedev_logic" EntityType="sugareyeModel.bigeyedev_logic" />
+          <EntitySet Name="bigeyedev_logic_address" EntityType="sugareyeModel.bigeyedev_logic_address" />
+          <EntitySet Name="bigeyedev_member" EntityType="sugareyeModel.bigeyedev_member" />
+          <EntitySet Name="bigeyedev_member_address" EntityType="sugareyeModel.bigeyedev_member_address" />
+          <EntitySet Name="bigeyedev_order" EntityType="sugareyeModel.bigeyedev_order" />
+          <EntitySet Name="bigeyedev_order_fashion_item" EntityType="sugareyeModel.bigeyedev_order_fashion_item" />
+          <EntitySet Name="bigeyedev_shop" EntityType="sugareyeModel.bigeyedev_shop" />
+          <EntitySet Name="product" EntityType="sugareyeModel.product" />
+        </EntityContainer>
+        <EntityType Name="bigeyedev_free">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_id" Type="Int32" />
+          <Property Name="free_box" Type="Int32" />
+          <Property Name="delivery_fee" Type="Single" />
+          <Property Name="acrylic" Type="Int32" />
+          <Property Name="stand_sw" Type="Int32" />
+          <Property Name="album" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bag" Type="Int32" />
+          <Property Name="manual" Type="Int32" />
+          <Property Name="cd" Type="Int32" />
+          <Property Name="certi" Type="Int32" />
+          <Property Name="desktop" Type="Int32" />
+          <Property Name="poster" Type="Int32" />
+          <Property Name="vinyl" Type="Int32" />
+          <Property Name="free_solution" Type="Int32" />
+          <Property Name="vinyl_big" Type="Int32" />
+          <Property Name="acrylic_tray" Type="Int32" />
+          <Property Name="stand_pd" Type="Int32" />
+        </EntityType>
+        <EntityType Name="bigeyedev_logic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logic_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bigeyedev_logic_address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logic_id" Type="Int32" />
+          <Property Name="sub_district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bigeyedev_member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="birthday" Type="DateTime" Precision="0" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="line_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="line_display" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="face_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bigeyedev_member_address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="Int32" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address_order" Type="Int32" />
+          <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sub_district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="mobile_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile2_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bigeyedev_order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_id" Type="Int32" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="member_id" Type="Int32" />
+          <Property Name="address_id" Type="Int32" Nullable="false" />
+          <Property Name="bill_id" Type="Int32" />
+          <Property Name="shop_id" Type="Int32" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="logic_id" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="status_print_fashion" Type="Int32" />
+          <Property Name="status_print_power" Type="Int32" />
+          <Property Name="status_print_other" Type="Int32" />
+          <Property Name="status_print_bill" Type="Int32" />
+          <Property Name="status_working" Type="Int32" />
+          <Property Name="have_fashion" Type="Int32" />
+          <Property Name="have_power" Type="Int32" />
+          <Property Name="have_other" Type="Int32" />
+          <Property Name="note_fashion1_ask_only_dueba" Type="Int32" />
+          <Property Name="note_fashion2_replace" Type="Int32" />
+          <Property Name="note_fashion3_replace_fac" Type="Int32" />
+          <Property Name="note_power1_ask_only_dueba" Type="Int32" />
+          <Property Name="note_power2_replace" Type="Int32" />
+          <Property Name="note_power3_replace_fac" Type="Int32" />
+          <Property Name="fix_volume_fashion" Type="Int32" />
+          <Property Name="fix_volume_power" Type="Int32" />
+          <Property Name="order_amount" Type="Single" />
+          <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_amount" Type="Single" />
+          <Property Name="pay_finish" Type="Int32" />
+          <Property Name="logic_book_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="logic_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tracking" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bigeyedev_order_fashion_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_id" Type="Int32" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="brand_order" Type="Int32" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="black" Type="Int32" />
+          <Property Name="choco" Type="Int32" />
+          <Property Name="gray" Type="Int32" />
+          <Property Name="brown" Type="Int32" />
+          <Property Name="blue" Type="Int32" />
+          <Property Name="green" Type="Int32" />
+          <Property Name="violet" Type="Int32" />
+          <Property Name="pink" Type="Int32" />
+          <Property Name="silver" Type="Int32" />
+          <Property Name="gold" Type="Int32" />
+          <Property Name="sky" Type="Int32" />
+          <Property Name="red" Type="Int32" />
+          <Property Name="same" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="near" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="bigeyedev_shop">
           <Key>
             <PropertyRef Name="id" />
@@ -384,12 +655,33 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="shop_id" Type="Int32" Nullable="false" />
           <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="promotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="rate_50_dueba" Type="Single" />
+          <Property Name="rate_100_dueba" Type="Single" />
+          <Property Name="rate_150_dueba" Type="Single" />
+          <Property Name="rate_225_dueba" Type="Single" />
+          <Property Name="rate_300_dueba" Type="Single" />
+          <Property Name="rate_500_dueba" Type="Single" />
+          <Property Name="rate_1000_dueba" Type="Single" />
+          <Property Name="rate_50_dream" Type="Single" />
+          <Property Name="rate_100_dream" Type="Single" />
+          <Property Name="rate_150_dream" Type="Single" />
+          <Property Name="rate_225_dream" Type="Single" />
+          <Property Name="rate_300_dream" Type="Single" />
+          <Property Name="rate_500_dream" Type="Single" />
+          <Property Name="rate_1000_dream" Type="Single" />
+          <Property Name="rate_50_vassen" Type="Single" />
+          <Property Name="rate_100_vassen" Type="Single" />
+          <Property Name="rate_150_vassen" Type="Single" />
+          <Property Name="rate_225_vassen" Type="Single" />
+          <Property Name="rate_300_vassen" Type="Single" />
+          <Property Name="rate_500_vassen" Type="Single" />
+          <Property Name="rate_1000_vassen" Type="Single" />
           <Property Name="logo_menu_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="logo_top_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="meta_des" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="meta_keyword" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="face_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="face_qr_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -404,6 +696,14 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="location_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_k" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_k_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_scb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_scb_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_ktb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_ktb_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_bbl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="book_bank_bbl_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -673,379 +973,489 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_order' does not have a prim
           <Property Name="pink_1000" Type="Int32" />
           <Property Name="choco_50" Type="Int32" />
         </EntityType>
-        <EntityType Name="bigeyedev_order">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="order_id" Type="Int32" />
-          <Property Name="member_id" Type="Int32" />
-          <Property Name="bill_id" Type="Int32" />
-          <Property Name="shop_id" Type="Int32" />
-          <Property Name="user_id" Type="Int32" />
-          <Property Name="status" Type="Int32" />
-          <Property Name="status_print_fashion" Type="Int32" />
-          <Property Name="status_print_power" Type="Int32" />
-          <Property Name="status_print_other" Type="Int32" />
-          <Property Name="have_fashion" Type="Int32" />
-          <Property Name="have_power" Type="Int32" />
-          <Property Name="have_other" Type="Int32" />
-          <Property Name="note_fashion1" Type="Int32" />
-          <Property Name="note_fashion2" Type="Int32" />
-          <Property Name="note_fashion3" Type="Int32" />
-          <Property Name="note_power1" Type="Int32" />
-          <Property Name="note_power2" Type="Int32" />
-          <Property Name="note_power3" Type="Int32" />
-          <Property Name="fix_volume_fashion" Type="Int32" />
-          <Property Name="fix_volume_power" Type="Int32" />
-          <Property Name="order_amount" Type="Single" />
-          <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_amount" Type="Single" />
-          <Property Name="pay_finish" Type="Int32" />
-          <Property Name="datetime" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityContainer Name="sugareyeEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" />
-          <EntitySet Name="product" EntityType="Self.product" />
-          <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" />
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="sugareyeModelStoreContainer" CdmEntityContainer="sugareyeEntities">
-          <EntitySetMapping Name="bigeyedev_shop">
-            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_shop">
-              <MappingFragment StoreEntitySet="bigeyedev_shop">
+          <EntitySetMapping Name="bigeyedev_free">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_free">
+              <MappingFragment StoreEntitySet="bigeyedev_free">
+                <ScalarProperty Name="stand_pd" ColumnName="stand_pd" />
+                <ScalarProperty Name="acrylic_tray" ColumnName="acrylic_tray" />
+                <ScalarProperty Name="vinyl_big" ColumnName="vinyl_big" />
+                <ScalarProperty Name="free_solution" ColumnName="free_solution" />
+                <ScalarProperty Name="vinyl" ColumnName="vinyl" />
+                <ScalarProperty Name="poster" ColumnName="poster" />
+                <ScalarProperty Name="desktop" ColumnName="desktop" />
+                <ScalarProperty Name="certi" ColumnName="certi" />
+                <ScalarProperty Name="cd" ColumnName="cd" />
+                <ScalarProperty Name="manual" ColumnName="manual" />
+                <ScalarProperty Name="bag" ColumnName="bag" />
+                <ScalarProperty Name="album" ColumnName="album" />
+                <ScalarProperty Name="stand_sw" ColumnName="stand_sw" />
+                <ScalarProperty Name="acrylic" ColumnName="acrylic" />
+                <ScalarProperty Name="delivery_fee" ColumnName="delivery_fee" />
+                <ScalarProperty Name="free_box" ColumnName="free_box" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
-                <ScalarProperty Name="shop_name" ColumnName="shop_name" />
-                <ScalarProperty Name="promotion" ColumnName="promotion" />
-                <ScalarProperty Name="logo_menu_url" ColumnName="logo_menu_url" />
-                <ScalarProperty Name="logo_top_url" ColumnName="logo_top_url" />
-                <ScalarProperty Name="meta_des" ColumnName="meta_des" />
-                <ScalarProperty Name="meta_keyword" ColumnName="meta_keyword" />
-                <ScalarProperty Name="website" ColumnName="website" />
-                <ScalarProperty Name="tel" ColumnName="tel" />
-                <ScalarProperty Name="face_id" ColumnName="face_id" />
-                <ScalarProperty Name="face_qr_url" ColumnName="face_qr_url" />
-                <ScalarProperty Name="face_url" ColumnName="face_url" />
-                <ScalarProperty Name="line_id" ColumnName="line_id" />
-                <ScalarProperty Name="line_qr_url" ColumnName="line_qr_url" />
-                <ScalarProperty Name="line_url" ColumnName="line_url" />
-                <ScalarProperty Name="line_at_id" ColumnName="line_at_id" />
-                <ScalarProperty Name="insta_id" ColumnName="insta_id" />
-                <ScalarProperty Name="insta_qr_url" ColumnName="insta_qr_url" />
-                <ScalarProperty Name="insta_url" ColumnName="insta_url" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="location_address" ColumnName="location_address" />
-                <ScalarProperty Name="location_url" ColumnName="location_url" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="product">
-            <EntityTypeMapping TypeName="sugareyeModel.product">
-              <MappingFragment StoreEntitySet="product">
+          <EntitySetMapping Name="bigeyedev_logic">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_logic">
+              <MappingFragment StoreEntitySet="bigeyedev_logic">
+                <ScalarProperty Name="mobile2" ColumnName="mobile2" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="logic_id" ColumnName="logic_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="visible" ColumnName="visible" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="image_url" ColumnName="image_url" />
-                <ScalarProperty Name="image_name" ColumnName="image_name" />
-                <ScalarProperty Name="same_image_sub_url" ColumnName="same_image_sub_url" />
-                <ScalarProperty Name="len_name" ColumnName="len_name" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="brand" ColumnName="brand" />
-                <ScalarProperty Name="same_model" ColumnName="same_model" />
-                <ScalarProperty Name="same_model2" ColumnName="same_model2" />
-                <ScalarProperty Name="speed_black" ColumnName="speed_black" />
-                <ScalarProperty Name="speed_choco" ColumnName="speed_choco" />
-                <ScalarProperty Name="speed_gray" ColumnName="speed_gray" />
-                <ScalarProperty Name="speed_brown" ColumnName="speed_brown" />
-                <ScalarProperty Name="speed_blue" ColumnName="speed_blue" />
-                <ScalarProperty Name="speed_green" ColumnName="speed_green" />
-                <ScalarProperty Name="speed_violet" ColumnName="speed_violet" />
-                <ScalarProperty Name="speed_pink" ColumnName="speed_pink" />
-                <ScalarProperty Name="speed_silver" ColumnName="speed_silver" />
-                <ScalarProperty Name="speed_gold" ColumnName="speed_gold" />
-                <ScalarProperty Name="speed_sky" ColumnName="speed_sky" />
-                <ScalarProperty Name="speed_red" ColumnName="speed_red" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="power" ColumnName="power" />
-                <ScalarProperty Name="size" ColumnName="size" />
-                <ScalarProperty Name="style" ColumnName="style" />
-                <ScalarProperty Name="black" ColumnName="black" />
-                <ScalarProperty Name="choco" ColumnName="choco" />
-                <ScalarProperty Name="gray" ColumnName="gray" />
-                <ScalarProperty Name="brown" ColumnName="brown" />
-                <ScalarProperty Name="blue" ColumnName="blue" />
-                <ScalarProperty Name="green" ColumnName="green" />
-                <ScalarProperty Name="violet" ColumnName="violet" />
-                <ScalarProperty Name="pink" ColumnName="pink" />
-                <ScalarProperty Name="silver" ColumnName="silver" />
-                <ScalarProperty Name="gold" ColumnName="gold" />
-                <ScalarProperty Name="sky" ColumnName="sky" />
-                <ScalarProperty Name="red" ColumnName="red" />
-                <ScalarProperty Name="near" ColumnName="near" />
-                <ScalarProperty Name="des" ColumnName="des" />
-                <ScalarProperty Name="des_s" ColumnName="des_s" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="price_s" ColumnName="price_s" />
-                <ScalarProperty Name="order_time" ColumnName="order_time" />
-                <ScalarProperty Name="order_black" ColumnName="order_black" />
-                <ScalarProperty Name="order_choco" ColumnName="order_choco" />
-                <ScalarProperty Name="order_gray" ColumnName="order_gray" />
-                <ScalarProperty Name="order_brown" ColumnName="order_brown" />
-                <ScalarProperty Name="order_blue" ColumnName="order_blue" />
-                <ScalarProperty Name="order_green" ColumnName="order_green" />
-                <ScalarProperty Name="order_violet" ColumnName="order_violet" />
-                <ScalarProperty Name="order_pink" ColumnName="order_pink" />
-                <ScalarProperty Name="order_silver" ColumnName="order_silver" />
-                <ScalarProperty Name="order_gold" ColumnName="order_gold" />
-                <ScalarProperty Name="order_sky" ColumnName="order_sky" />
-                <ScalarProperty Name="order_red" ColumnName="order_red" />
-                <ScalarProperty Name="black_50" ColumnName="black_50" />
-                <ScalarProperty Name="black_75" ColumnName="black_75" />
-                <ScalarProperty Name="black_100" ColumnName="black_100" />
-                <ScalarProperty Name="black_125" ColumnName="black_125" />
-                <ScalarProperty Name="black_150" ColumnName="black_150" />
-                <ScalarProperty Name="black_175" ColumnName="black_175" />
-                <ScalarProperty Name="black_200" ColumnName="black_200" />
-                <ScalarProperty Name="black_225" ColumnName="black_225" />
-                <ScalarProperty Name="black_250" ColumnName="black_250" />
-                <ScalarProperty Name="black_275" ColumnName="black_275" />
-                <ScalarProperty Name="black_300" ColumnName="black_300" />
-                <ScalarProperty Name="black_325" ColumnName="black_325" />
-                <ScalarProperty Name="black_350" ColumnName="black_350" />
-                <ScalarProperty Name="black_375" ColumnName="black_375" />
-                <ScalarProperty Name="black_400" ColumnName="black_400" />
-                <ScalarProperty Name="black_425" ColumnName="black_425" />
-                <ScalarProperty Name="black_450" ColumnName="black_450" />
-                <ScalarProperty Name="black_475" ColumnName="black_475" />
-                <ScalarProperty Name="black_500" ColumnName="black_500" />
-                <ScalarProperty Name="black_550" ColumnName="black_550" />
-                <ScalarProperty Name="black_600" ColumnName="black_600" />
-                <ScalarProperty Name="black_650" ColumnName="black_650" />
-                <ScalarProperty Name="black_700" ColumnName="black_700" />
-                <ScalarProperty Name="black_750" ColumnName="black_750" />
-                <ScalarProperty Name="black_800" ColumnName="black_800" />
-                <ScalarProperty Name="black_850" ColumnName="black_850" />
-                <ScalarProperty Name="black_900" ColumnName="black_900" />
-                <ScalarProperty Name="black_950" ColumnName="black_950" />
-                <ScalarProperty Name="black_1000" ColumnName="black_1000" />
-                <ScalarProperty Name="gray_50" ColumnName="gray_50" />
-                <ScalarProperty Name="gray_75" ColumnName="gray_75" />
-                <ScalarProperty Name="gray_100" ColumnName="gray_100" />
-                <ScalarProperty Name="gray_125" ColumnName="gray_125" />
-                <ScalarProperty Name="gray_150" ColumnName="gray_150" />
-                <ScalarProperty Name="gray_175" ColumnName="gray_175" />
-                <ScalarProperty Name="gray_200" ColumnName="gray_200" />
-                <ScalarProperty Name="gray_225" ColumnName="gray_225" />
-                <ScalarProperty Name="gray_250" ColumnName="gray_250" />
-                <ScalarProperty Name="gray_275" ColumnName="gray_275" />
-                <ScalarProperty Name="gray_300" ColumnName="gray_300" />
-                <ScalarProperty Name="gray_325" ColumnName="gray_325" />
-                <ScalarProperty Name="gray_350" ColumnName="gray_350" />
-                <ScalarProperty Name="gray_375" ColumnName="gray_375" />
-                <ScalarProperty Name="gray_400" ColumnName="gray_400" />
-                <ScalarProperty Name="gray_425" ColumnName="gray_425" />
-                <ScalarProperty Name="gray_450" ColumnName="gray_450" />
-                <ScalarProperty Name="gray_475" ColumnName="gray_475" />
-                <ScalarProperty Name="gray_500" ColumnName="gray_500" />
-                <ScalarProperty Name="gray_550" ColumnName="gray_550" />
-                <ScalarProperty Name="gray_600" ColumnName="gray_600" />
-                <ScalarProperty Name="gray_650" ColumnName="gray_650" />
-                <ScalarProperty Name="gray_700" ColumnName="gray_700" />
-                <ScalarProperty Name="gray_750" ColumnName="gray_750" />
-                <ScalarProperty Name="gray_800" ColumnName="gray_800" />
-                <ScalarProperty Name="gray_850" ColumnName="gray_850" />
-                <ScalarProperty Name="gray_900" ColumnName="gray_900" />
-                <ScalarProperty Name="gray_950" ColumnName="gray_950" />
-                <ScalarProperty Name="gray_1000" ColumnName="gray_1000" />
-                <ScalarProperty Name="brown_50" ColumnName="brown_50" />
-                <ScalarProperty Name="brown_75" ColumnName="brown_75" />
-                <ScalarProperty Name="brown_100" ColumnName="brown_100" />
-                <ScalarProperty Name="brown_125" ColumnName="brown_125" />
-                <ScalarProperty Name="brown_150" ColumnName="brown_150" />
-                <ScalarProperty Name="brown_175" ColumnName="brown_175" />
-                <ScalarProperty Name="brown_200" ColumnName="brown_200" />
-                <ScalarProperty Name="brown_225" ColumnName="brown_225" />
-                <ScalarProperty Name="brown_250" ColumnName="brown_250" />
-                <ScalarProperty Name="brown_275" ColumnName="brown_275" />
-                <ScalarProperty Name="brown_300" ColumnName="brown_300" />
-                <ScalarProperty Name="brown_325" ColumnName="brown_325" />
-                <ScalarProperty Name="brown_350" ColumnName="brown_350" />
-                <ScalarProperty Name="brown_375" ColumnName="brown_375" />
-                <ScalarProperty Name="brown_400" ColumnName="brown_400" />
-                <ScalarProperty Name="brown_425" ColumnName="brown_425" />
-                <ScalarProperty Name="brown_450" ColumnName="brown_450" />
-                <ScalarProperty Name="brown_475" ColumnName="brown_475" />
-                <ScalarProperty Name="brown_500" ColumnName="brown_500" />
-                <ScalarProperty Name="brown_550" ColumnName="brown_550" />
-                <ScalarProperty Name="brown_600" ColumnName="brown_600" />
-                <ScalarProperty Name="brown_650" ColumnName="brown_650" />
-                <ScalarProperty Name="brown_700" ColumnName="brown_700" />
-                <ScalarProperty Name="brown_750" ColumnName="brown_750" />
-                <ScalarProperty Name="brown_800" ColumnName="brown_800" />
-                <ScalarProperty Name="brown_850" ColumnName="brown_850" />
-                <ScalarProperty Name="brown_900" ColumnName="brown_900" />
-                <ScalarProperty Name="brown_950" ColumnName="brown_950" />
-                <ScalarProperty Name="brown_1000" ColumnName="brown_1000" />
-                <ScalarProperty Name="blue_50" ColumnName="blue_50" />
-                <ScalarProperty Name="blue_75" ColumnName="blue_75" />
-                <ScalarProperty Name="blue_100" ColumnName="blue_100" />
-                <ScalarProperty Name="blue_125" ColumnName="blue_125" />
-                <ScalarProperty Name="blue_150" ColumnName="blue_150" />
-                <ScalarProperty Name="blue_175" ColumnName="blue_175" />
-                <ScalarProperty Name="blue_200" ColumnName="blue_200" />
-                <ScalarProperty Name="blue_225" ColumnName="blue_225" />
-                <ScalarProperty Name="blue_250" ColumnName="blue_250" />
-                <ScalarProperty Name="blue_275" ColumnName="blue_275" />
-                <ScalarProperty Name="blue_300" ColumnName="blue_300" />
-                <ScalarProperty Name="blue_325" ColumnName="blue_325" />
-                <ScalarProperty Name="blue_350" ColumnName="blue_350" />
-                <ScalarProperty Name="blue_375" ColumnName="blue_375" />
-                <ScalarProperty Name="blue_400" ColumnName="blue_400" />
-                <ScalarProperty Name="blue_425" ColumnName="blue_425" />
-                <ScalarProperty Name="blue_450" ColumnName="blue_450" />
-                <ScalarProperty Name="blue_475" ColumnName="blue_475" />
-                <ScalarProperty Name="blue_500" ColumnName="blue_500" />
-                <ScalarProperty Name="blue_550" ColumnName="blue_550" />
-                <ScalarProperty Name="blue_600" ColumnName="blue_600" />
-                <ScalarProperty Name="blue_650" ColumnName="blue_650" />
-                <ScalarProperty Name="blue_700" ColumnName="blue_700" />
-                <ScalarProperty Name="blue_750" ColumnName="blue_750" />
-                <ScalarProperty Name="blue_800" ColumnName="blue_800" />
-                <ScalarProperty Name="blue_850" ColumnName="blue_850" />
-                <ScalarProperty Name="blue_900" ColumnName="blue_900" />
-                <ScalarProperty Name="blue_950" ColumnName="blue_950" />
-                <ScalarProperty Name="blue_1000" ColumnName="blue_1000" />
-                <ScalarProperty Name="green_50" ColumnName="green_50" />
-                <ScalarProperty Name="green_75" ColumnName="green_75" />
-                <ScalarProperty Name="green_100" ColumnName="green_100" />
-                <ScalarProperty Name="green_125" ColumnName="green_125" />
-                <ScalarProperty Name="green_150" ColumnName="green_150" />
-                <ScalarProperty Name="green_175" ColumnName="green_175" />
-                <ScalarProperty Name="green_200" ColumnName="green_200" />
-                <ScalarProperty Name="green_225" ColumnName="green_225" />
-                <ScalarProperty Name="green_250" ColumnName="green_250" />
-                <ScalarProperty Name="green_275" ColumnName="green_275" />
-                <ScalarProperty Name="green_300" ColumnName="green_300" />
-                <ScalarProperty Name="green_325" ColumnName="green_325" />
-                <ScalarProperty Name="green_350" ColumnName="green_350" />
-                <ScalarProperty Name="green_375" ColumnName="green_375" />
-                <ScalarProperty Name="green_400" ColumnName="green_400" />
-                <ScalarProperty Name="green_425" ColumnName="green_425" />
-                <ScalarProperty Name="green_450" ColumnName="green_450" />
-                <ScalarProperty Name="green_475" ColumnName="green_475" />
-                <ScalarProperty Name="green_500" ColumnName="green_500" />
-                <ScalarProperty Name="green_550" ColumnName="green_550" />
-                <ScalarProperty Name="green_600" ColumnName="green_600" />
-                <ScalarProperty Name="green_650" ColumnName="green_650" />
-                <ScalarProperty Name="green_700" ColumnName="green_700" />
-                <ScalarProperty Name="green_750" ColumnName="green_750" />
-                <ScalarProperty Name="green_800" ColumnName="green_800" />
-                <ScalarProperty Name="green_850" ColumnName="green_850" />
-                <ScalarProperty Name="green_900" ColumnName="green_900" />
-                <ScalarProperty Name="green_950" ColumnName="green_950" />
-                <ScalarProperty Name="green_1000" ColumnName="green_1000" />
-                <ScalarProperty Name="violet_50" ColumnName="violet_50" />
-                <ScalarProperty Name="violet_75" ColumnName="violet_75" />
-                <ScalarProperty Name="violet_100" ColumnName="violet_100" />
-                <ScalarProperty Name="violet_125" ColumnName="violet_125" />
-                <ScalarProperty Name="violet_150" ColumnName="violet_150" />
-                <ScalarProperty Name="violet_175" ColumnName="violet_175" />
-                <ScalarProperty Name="violet_200" ColumnName="violet_200" />
-                <ScalarProperty Name="violet_225" ColumnName="violet_225" />
-                <ScalarProperty Name="violet_250" ColumnName="violet_250" />
-                <ScalarProperty Name="violet_275" ColumnName="violet_275" />
-                <ScalarProperty Name="violet_300" ColumnName="violet_300" />
-                <ScalarProperty Name="violet_325" ColumnName="violet_325" />
-                <ScalarProperty Name="violet_350" ColumnName="violet_350" />
-                <ScalarProperty Name="violet_375" ColumnName="violet_375" />
-                <ScalarProperty Name="violet_400" ColumnName="violet_400" />
-                <ScalarProperty Name="violet_425" ColumnName="violet_425" />
-                <ScalarProperty Name="violet_450" ColumnName="violet_450" />
-                <ScalarProperty Name="violet_475" ColumnName="violet_475" />
-                <ScalarProperty Name="violet_500" ColumnName="violet_500" />
-                <ScalarProperty Name="violet_550" ColumnName="violet_550" />
-                <ScalarProperty Name="violet_600" ColumnName="violet_600" />
-                <ScalarProperty Name="violet_650" ColumnName="violet_650" />
-                <ScalarProperty Name="violet_700" ColumnName="violet_700" />
-                <ScalarProperty Name="violet_750" ColumnName="violet_750" />
-                <ScalarProperty Name="violet_800" ColumnName="violet_800" />
-                <ScalarProperty Name="violet_850" ColumnName="violet_850" />
-                <ScalarProperty Name="violet_900" ColumnName="violet_900" />
-                <ScalarProperty Name="violet_950" ColumnName="violet_950" />
-                <ScalarProperty Name="violet_1000" ColumnName="violet_1000" />
-                <ScalarProperty Name="pink_50" ColumnName="pink_50" />
-                <ScalarProperty Name="pink_75" ColumnName="pink_75" />
-                <ScalarProperty Name="pink_100" ColumnName="pink_100" />
-                <ScalarProperty Name="pink_125" ColumnName="pink_125" />
-                <ScalarProperty Name="pink_150" ColumnName="pink_150" />
-                <ScalarProperty Name="pink_175" ColumnName="pink_175" />
-                <ScalarProperty Name="pink_200" ColumnName="pink_200" />
-                <ScalarProperty Name="pink_225" ColumnName="pink_225" />
-                <ScalarProperty Name="pink_250" ColumnName="pink_250" />
-                <ScalarProperty Name="pink_275" ColumnName="pink_275" />
-                <ScalarProperty Name="pink_300" ColumnName="pink_300" />
-                <ScalarProperty Name="pink_325" ColumnName="pink_325" />
-                <ScalarProperty Name="pink_350" ColumnName="pink_350" />
-                <ScalarProperty Name="pink_375" ColumnName="pink_375" />
-                <ScalarProperty Name="pink_400" ColumnName="pink_400" />
-                <ScalarProperty Name="pink_425" ColumnName="pink_425" />
-                <ScalarProperty Name="pink_450" ColumnName="pink_450" />
-                <ScalarProperty Name="pink_475" ColumnName="pink_475" />
-                <ScalarProperty Name="pink_500" ColumnName="pink_500" />
-                <ScalarProperty Name="pink_550" ColumnName="pink_550" />
-                <ScalarProperty Name="pink_600" ColumnName="pink_600" />
-                <ScalarProperty Name="pink_650" ColumnName="pink_650" />
-                <ScalarProperty Name="pink_700" ColumnName="pink_700" />
-                <ScalarProperty Name="pink_750" ColumnName="pink_750" />
-                <ScalarProperty Name="pink_800" ColumnName="pink_800" />
-                <ScalarProperty Name="pink_850" ColumnName="pink_850" />
-                <ScalarProperty Name="pink_900" ColumnName="pink_900" />
-                <ScalarProperty Name="pink_950" ColumnName="pink_950" />
-                <ScalarProperty Name="pink_1000" ColumnName="pink_1000" />
-                <ScalarProperty Name="choco_50" ColumnName="choco_50" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bigeyedev_logic_address">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_logic_address">
+              <MappingFragment StoreEntitySet="bigeyedev_logic_address">
+                <ScalarProperty Name="mobile3" ColumnName="mobile3" />
+                <ScalarProperty Name="mobile2" ColumnName="mobile2" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="sub_district" ColumnName="sub_district" />
+                <ScalarProperty Name="logic_id" ColumnName="logic_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bigeyedev_member">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_member">
+              <MappingFragment StoreEntitySet="bigeyedev_member">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="face_url" ColumnName="face_url" />
+                <ScalarProperty Name="line_display" ColumnName="line_display" />
+                <ScalarProperty Name="line_id" ColumnName="line_id" />
+                <ScalarProperty Name="mobile2" ColumnName="mobile2" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bigeyedev_member_address">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_member_address">
+              <MappingFragment StoreEntitySet="bigeyedev_member_address">
+                <ScalarProperty Name="location_url" ColumnName="location_url" />
+                <ScalarProperty Name="mobile2_shop" ColumnName="mobile2_shop" />
+                <ScalarProperty Name="mobile_shop" ColumnName="mobile_shop" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="sub_district" ColumnName="sub_district" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="shop_name" ColumnName="shop_name" />
+                <ScalarProperty Name="address_order" ColumnName="address_order" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bigeyedev_order">
             <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order">
               <MappingFragment StoreEntitySet="bigeyedev_order">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="member_id" ColumnName="member_id" />
-                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
-                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
-                <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
-                <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
-                <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
-                <ScalarProperty Name="have_power" ColumnName="have_power" />
-                <ScalarProperty Name="have_other" ColumnName="have_other" />
-                <ScalarProperty Name="note_fashion1" ColumnName="note_fashion1" />
-                <ScalarProperty Name="note_fashion2" ColumnName="note_fashion2" />
-                <ScalarProperty Name="note_fashion3" ColumnName="note_fashion3" />
-                <ScalarProperty Name="note_power1" ColumnName="note_power1" />
-                <ScalarProperty Name="note_power2" ColumnName="note_power2" />
-                <ScalarProperty Name="note_power3" ColumnName="note_power3" />
-                <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
-                <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
-                <ScalarProperty Name="order_amount" ColumnName="order_amount" />
-                <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
-                <ScalarProperty Name="pay_date" ColumnName="pay_date" />
-                <ScalarProperty Name="pay_time" ColumnName="pay_time" />
-                <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
+                <ScalarProperty Name="tracking" ColumnName="tracking" />
+                <ScalarProperty Name="logic_no" ColumnName="logic_no" />
+                <ScalarProperty Name="logic_book_no" ColumnName="logic_book_no" />
                 <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
+                <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
+                <ScalarProperty Name="pay_time" ColumnName="pay_time" />
+                <ScalarProperty Name="pay_date" ColumnName="pay_date" />
+                <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
+                <ScalarProperty Name="order_amount" ColumnName="order_amount" />
+                <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
+                <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
+                <ScalarProperty Name="note_power3_replace_fac" ColumnName="note_power3_replace_fac" />
+                <ScalarProperty Name="note_power2_replace" ColumnName="note_power2_replace" />
+                <ScalarProperty Name="note_power1_ask_only_dueba" ColumnName="note_power1_ask_only_dueba" />
+                <ScalarProperty Name="note_fashion3_replace_fac" ColumnName="note_fashion3_replace_fac" />
+                <ScalarProperty Name="note_fashion2_replace" ColumnName="note_fashion2_replace" />
+                <ScalarProperty Name="note_fashion1_ask_only_dueba" ColumnName="note_fashion1_ask_only_dueba" />
+                <ScalarProperty Name="have_other" ColumnName="have_other" />
+                <ScalarProperty Name="have_power" ColumnName="have_power" />
+                <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
+                <ScalarProperty Name="status_working" ColumnName="status_working" />
+                <ScalarProperty Name="status_print_bill" ColumnName="status_print_bill" />
+                <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
+                <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
+                <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="logic_id" ColumnName="logic_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
                 <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bigeyedev_order_fashion_item">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order_fashion_item">
+              <MappingFragment StoreEntitySet="bigeyedev_order_fashion_item">
+                <ScalarProperty Name="near" ColumnName="near" />
+                <ScalarProperty Name="same" ColumnName="same" />
+                <ScalarProperty Name="red" ColumnName="red" />
+                <ScalarProperty Name="sky" ColumnName="sky" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+                <ScalarProperty Name="silver" ColumnName="silver" />
+                <ScalarProperty Name="pink" ColumnName="pink" />
+                <ScalarProperty Name="violet" ColumnName="violet" />
+                <ScalarProperty Name="green" ColumnName="green" />
+                <ScalarProperty Name="blue" ColumnName="blue" />
+                <ScalarProperty Name="brown" ColumnName="brown" />
+                <ScalarProperty Name="gray" ColumnName="gray" />
+                <ScalarProperty Name="choco" ColumnName="choco" />
+                <ScalarProperty Name="black" ColumnName="black" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="brand_order" ColumnName="brand_order" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bigeyedev_shop">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_shop">
+              <MappingFragment StoreEntitySet="bigeyedev_shop">
+                <ScalarProperty Name="book_bank_bbl_name" ColumnName="book_bank_bbl_name" />
+                <ScalarProperty Name="book_bank_bbl" ColumnName="book_bank_bbl" />
+                <ScalarProperty Name="book_bank_ktb_name" ColumnName="book_bank_ktb_name" />
+                <ScalarProperty Name="book_bank_ktb" ColumnName="book_bank_ktb" />
+                <ScalarProperty Name="book_bank_scb_name" ColumnName="book_bank_scb_name" />
+                <ScalarProperty Name="book_bank_scb" ColumnName="book_bank_scb" />
+                <ScalarProperty Name="book_bank_k_name" ColumnName="book_bank_k_name" />
+                <ScalarProperty Name="book_bank_k" ColumnName="book_bank_k" />
+                <ScalarProperty Name="location_url" ColumnName="location_url" />
+                <ScalarProperty Name="location_address" ColumnName="location_address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="insta_url" ColumnName="insta_url" />
+                <ScalarProperty Name="insta_qr_url" ColumnName="insta_qr_url" />
+                <ScalarProperty Name="insta_id" ColumnName="insta_id" />
+                <ScalarProperty Name="line_at_id" ColumnName="line_at_id" />
+                <ScalarProperty Name="line_url" ColumnName="line_url" />
+                <ScalarProperty Name="line_qr_url" ColumnName="line_qr_url" />
+                <ScalarProperty Name="line_id" ColumnName="line_id" />
+                <ScalarProperty Name="face_url" ColumnName="face_url" />
+                <ScalarProperty Name="face_qr_url" ColumnName="face_qr_url" />
+                <ScalarProperty Name="face_id" ColumnName="face_id" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="meta_keyword" ColumnName="meta_keyword" />
+                <ScalarProperty Name="meta_des" ColumnName="meta_des" />
+                <ScalarProperty Name="logo_top_url" ColumnName="logo_top_url" />
+                <ScalarProperty Name="logo_menu_url" ColumnName="logo_menu_url" />
+                <ScalarProperty Name="rate_1000_vassen" ColumnName="rate_1000_vassen" />
+                <ScalarProperty Name="rate_500_vassen" ColumnName="rate_500_vassen" />
+                <ScalarProperty Name="rate_300_vassen" ColumnName="rate_300_vassen" />
+                <ScalarProperty Name="rate_225_vassen" ColumnName="rate_225_vassen" />
+                <ScalarProperty Name="rate_150_vassen" ColumnName="rate_150_vassen" />
+                <ScalarProperty Name="rate_100_vassen" ColumnName="rate_100_vassen" />
+                <ScalarProperty Name="rate_50_vassen" ColumnName="rate_50_vassen" />
+                <ScalarProperty Name="rate_1000_dream" ColumnName="rate_1000_dream" />
+                <ScalarProperty Name="rate_500_dream" ColumnName="rate_500_dream" />
+                <ScalarProperty Name="rate_300_dream" ColumnName="rate_300_dream" />
+                <ScalarProperty Name="rate_225_dream" ColumnName="rate_225_dream" />
+                <ScalarProperty Name="rate_150_dream" ColumnName="rate_150_dream" />
+                <ScalarProperty Name="rate_100_dream" ColumnName="rate_100_dream" />
+                <ScalarProperty Name="rate_50_dream" ColumnName="rate_50_dream" />
+                <ScalarProperty Name="rate_1000_dueba" ColumnName="rate_1000_dueba" />
+                <ScalarProperty Name="rate_500_dueba" ColumnName="rate_500_dueba" />
+                <ScalarProperty Name="rate_300_dueba" ColumnName="rate_300_dueba" />
+                <ScalarProperty Name="rate_225_dueba" ColumnName="rate_225_dueba" />
+                <ScalarProperty Name="rate_150_dueba" ColumnName="rate_150_dueba" />
+                <ScalarProperty Name="rate_100_dueba" ColumnName="rate_100_dueba" />
+                <ScalarProperty Name="rate_50_dueba" ColumnName="rate_50_dueba" />
+                <ScalarProperty Name="promotion" ColumnName="promotion" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="shop_name" ColumnName="shop_name" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="sugareyeModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="choco_50" ColumnName="choco_50" />
+                <ScalarProperty Name="pink_1000" ColumnName="pink_1000" />
+                <ScalarProperty Name="pink_950" ColumnName="pink_950" />
+                <ScalarProperty Name="pink_900" ColumnName="pink_900" />
+                <ScalarProperty Name="pink_850" ColumnName="pink_850" />
+                <ScalarProperty Name="pink_800" ColumnName="pink_800" />
+                <ScalarProperty Name="pink_750" ColumnName="pink_750" />
+                <ScalarProperty Name="pink_700" ColumnName="pink_700" />
+                <ScalarProperty Name="pink_650" ColumnName="pink_650" />
+                <ScalarProperty Name="pink_600" ColumnName="pink_600" />
+                <ScalarProperty Name="pink_550" ColumnName="pink_550" />
+                <ScalarProperty Name="pink_500" ColumnName="pink_500" />
+                <ScalarProperty Name="pink_475" ColumnName="pink_475" />
+                <ScalarProperty Name="pink_450" ColumnName="pink_450" />
+                <ScalarProperty Name="pink_425" ColumnName="pink_425" />
+                <ScalarProperty Name="pink_400" ColumnName="pink_400" />
+                <ScalarProperty Name="pink_375" ColumnName="pink_375" />
+                <ScalarProperty Name="pink_350" ColumnName="pink_350" />
+                <ScalarProperty Name="pink_325" ColumnName="pink_325" />
+                <ScalarProperty Name="pink_300" ColumnName="pink_300" />
+                <ScalarProperty Name="pink_275" ColumnName="pink_275" />
+                <ScalarProperty Name="pink_250" ColumnName="pink_250" />
+                <ScalarProperty Name="pink_225" ColumnName="pink_225" />
+                <ScalarProperty Name="pink_200" ColumnName="pink_200" />
+                <ScalarProperty Name="pink_175" ColumnName="pink_175" />
+                <ScalarProperty Name="pink_150" ColumnName="pink_150" />
+                <ScalarProperty Name="pink_125" ColumnName="pink_125" />
+                <ScalarProperty Name="pink_100" ColumnName="pink_100" />
+                <ScalarProperty Name="pink_75" ColumnName="pink_75" />
+                <ScalarProperty Name="pink_50" ColumnName="pink_50" />
+                <ScalarProperty Name="violet_1000" ColumnName="violet_1000" />
+                <ScalarProperty Name="violet_950" ColumnName="violet_950" />
+                <ScalarProperty Name="violet_900" ColumnName="violet_900" />
+                <ScalarProperty Name="violet_850" ColumnName="violet_850" />
+                <ScalarProperty Name="violet_800" ColumnName="violet_800" />
+                <ScalarProperty Name="violet_750" ColumnName="violet_750" />
+                <ScalarProperty Name="violet_700" ColumnName="violet_700" />
+                <ScalarProperty Name="violet_650" ColumnName="violet_650" />
+                <ScalarProperty Name="violet_600" ColumnName="violet_600" />
+                <ScalarProperty Name="violet_550" ColumnName="violet_550" />
+                <ScalarProperty Name="violet_500" ColumnName="violet_500" />
+                <ScalarProperty Name="violet_475" ColumnName="violet_475" />
+                <ScalarProperty Name="violet_450" ColumnName="violet_450" />
+                <ScalarProperty Name="violet_425" ColumnName="violet_425" />
+                <ScalarProperty Name="violet_400" ColumnName="violet_400" />
+                <ScalarProperty Name="violet_375" ColumnName="violet_375" />
+                <ScalarProperty Name="violet_350" ColumnName="violet_350" />
+                <ScalarProperty Name="violet_325" ColumnName="violet_325" />
+                <ScalarProperty Name="violet_300" ColumnName="violet_300" />
+                <ScalarProperty Name="violet_275" ColumnName="violet_275" />
+                <ScalarProperty Name="violet_250" ColumnName="violet_250" />
+                <ScalarProperty Name="violet_225" ColumnName="violet_225" />
+                <ScalarProperty Name="violet_200" ColumnName="violet_200" />
+                <ScalarProperty Name="violet_175" ColumnName="violet_175" />
+                <ScalarProperty Name="violet_150" ColumnName="violet_150" />
+                <ScalarProperty Name="violet_125" ColumnName="violet_125" />
+                <ScalarProperty Name="violet_100" ColumnName="violet_100" />
+                <ScalarProperty Name="violet_75" ColumnName="violet_75" />
+                <ScalarProperty Name="violet_50" ColumnName="violet_50" />
+                <ScalarProperty Name="green_1000" ColumnName="green_1000" />
+                <ScalarProperty Name="green_950" ColumnName="green_950" />
+                <ScalarProperty Name="green_900" ColumnName="green_900" />
+                <ScalarProperty Name="green_850" ColumnName="green_850" />
+                <ScalarProperty Name="green_800" ColumnName="green_800" />
+                <ScalarProperty Name="green_750" ColumnName="green_750" />
+                <ScalarProperty Name="green_700" ColumnName="green_700" />
+                <ScalarProperty Name="green_650" ColumnName="green_650" />
+                <ScalarProperty Name="green_600" ColumnName="green_600" />
+                <ScalarProperty Name="green_550" ColumnName="green_550" />
+                <ScalarProperty Name="green_500" ColumnName="green_500" />
+                <ScalarProperty Name="green_475" ColumnName="green_475" />
+                <ScalarProperty Name="green_450" ColumnName="green_450" />
+                <ScalarProperty Name="green_425" ColumnName="green_425" />
+                <ScalarProperty Name="green_400" ColumnName="green_400" />
+                <ScalarProperty Name="green_375" ColumnName="green_375" />
+                <ScalarProperty Name="green_350" ColumnName="green_350" />
+                <ScalarProperty Name="green_325" ColumnName="green_325" />
+                <ScalarProperty Name="green_300" ColumnName="green_300" />
+                <ScalarProperty Name="green_275" ColumnName="green_275" />
+                <ScalarProperty Name="green_250" ColumnName="green_250" />
+                <ScalarProperty Name="green_225" ColumnName="green_225" />
+                <ScalarProperty Name="green_200" ColumnName="green_200" />
+                <ScalarProperty Name="green_175" ColumnName="green_175" />
+                <ScalarProperty Name="green_150" ColumnName="green_150" />
+                <ScalarProperty Name="green_125" ColumnName="green_125" />
+                <ScalarProperty Name="green_100" ColumnName="green_100" />
+                <ScalarProperty Name="green_75" ColumnName="green_75" />
+                <ScalarProperty Name="green_50" ColumnName="green_50" />
+                <ScalarProperty Name="blue_1000" ColumnName="blue_1000" />
+                <ScalarProperty Name="blue_950" ColumnName="blue_950" />
+                <ScalarProperty Name="blue_900" ColumnName="blue_900" />
+                <ScalarProperty Name="blue_850" ColumnName="blue_850" />
+                <ScalarProperty Name="blue_800" ColumnName="blue_800" />
+                <ScalarProperty Name="blue_750" ColumnName="blue_750" />
+                <ScalarProperty Name="blue_700" ColumnName="blue_700" />
+                <ScalarProperty Name="blue_650" ColumnName="blue_650" />
+                <ScalarProperty Name="blue_600" ColumnName="blue_600" />
+                <ScalarProperty Name="blue_550" ColumnName="blue_550" />
+                <ScalarProperty Name="blue_500" ColumnName="blue_500" />
+                <ScalarProperty Name="blue_475" ColumnName="blue_475" />
+                <ScalarProperty Name="blue_450" ColumnName="blue_450" />
+                <ScalarProperty Name="blue_425" ColumnName="blue_425" />
+                <ScalarProperty Name="blue_400" ColumnName="blue_400" />
+                <ScalarProperty Name="blue_375" ColumnName="blue_375" />
+                <ScalarProperty Name="blue_350" ColumnName="blue_350" />
+                <ScalarProperty Name="blue_325" ColumnName="blue_325" />
+                <ScalarProperty Name="blue_300" ColumnName="blue_300" />
+                <ScalarProperty Name="blue_275" ColumnName="blue_275" />
+                <ScalarProperty Name="blue_250" ColumnName="blue_250" />
+                <ScalarProperty Name="blue_225" ColumnName="blue_225" />
+                <ScalarProperty Name="blue_200" ColumnName="blue_200" />
+                <ScalarProperty Name="blue_175" ColumnName="blue_175" />
+                <ScalarProperty Name="blue_150" ColumnName="blue_150" />
+                <ScalarProperty Name="blue_125" ColumnName="blue_125" />
+                <ScalarProperty Name="blue_100" ColumnName="blue_100" />
+                <ScalarProperty Name="blue_75" ColumnName="blue_75" />
+                <ScalarProperty Name="blue_50" ColumnName="blue_50" />
+                <ScalarProperty Name="brown_1000" ColumnName="brown_1000" />
+                <ScalarProperty Name="brown_950" ColumnName="brown_950" />
+                <ScalarProperty Name="brown_900" ColumnName="brown_900" />
+                <ScalarProperty Name="brown_850" ColumnName="brown_850" />
+                <ScalarProperty Name="brown_800" ColumnName="brown_800" />
+                <ScalarProperty Name="brown_750" ColumnName="brown_750" />
+                <ScalarProperty Name="brown_700" ColumnName="brown_700" />
+                <ScalarProperty Name="brown_650" ColumnName="brown_650" />
+                <ScalarProperty Name="brown_600" ColumnName="brown_600" />
+                <ScalarProperty Name="brown_550" ColumnName="brown_550" />
+                <ScalarProperty Name="brown_500" ColumnName="brown_500" />
+                <ScalarProperty Name="brown_475" ColumnName="brown_475" />
+                <ScalarProperty Name="brown_450" ColumnName="brown_450" />
+                <ScalarProperty Name="brown_425" ColumnName="brown_425" />
+                <ScalarProperty Name="brown_400" ColumnName="brown_400" />
+                <ScalarProperty Name="brown_375" ColumnName="brown_375" />
+                <ScalarProperty Name="brown_350" ColumnName="brown_350" />
+                <ScalarProperty Name="brown_325" ColumnName="brown_325" />
+                <ScalarProperty Name="brown_300" ColumnName="brown_300" />
+                <ScalarProperty Name="brown_275" ColumnName="brown_275" />
+                <ScalarProperty Name="brown_250" ColumnName="brown_250" />
+                <ScalarProperty Name="brown_225" ColumnName="brown_225" />
+                <ScalarProperty Name="brown_200" ColumnName="brown_200" />
+                <ScalarProperty Name="brown_175" ColumnName="brown_175" />
+                <ScalarProperty Name="brown_150" ColumnName="brown_150" />
+                <ScalarProperty Name="brown_125" ColumnName="brown_125" />
+                <ScalarProperty Name="brown_100" ColumnName="brown_100" />
+                <ScalarProperty Name="brown_75" ColumnName="brown_75" />
+                <ScalarProperty Name="brown_50" ColumnName="brown_50" />
+                <ScalarProperty Name="gray_1000" ColumnName="gray_1000" />
+                <ScalarProperty Name="gray_950" ColumnName="gray_950" />
+                <ScalarProperty Name="gray_900" ColumnName="gray_900" />
+                <ScalarProperty Name="gray_850" ColumnName="gray_850" />
+                <ScalarProperty Name="gray_800" ColumnName="gray_800" />
+                <ScalarProperty Name="gray_750" ColumnName="gray_750" />
+                <ScalarProperty Name="gray_700" ColumnName="gray_700" />
+                <ScalarProperty Name="gray_650" ColumnName="gray_650" />
+                <ScalarProperty Name="gray_600" ColumnName="gray_600" />
+                <ScalarProperty Name="gray_550" ColumnName="gray_550" />
+                <ScalarProperty Name="gray_500" ColumnName="gray_500" />
+                <ScalarProperty Name="gray_475" ColumnName="gray_475" />
+                <ScalarProperty Name="gray_450" ColumnName="gray_450" />
+                <ScalarProperty Name="gray_425" ColumnName="gray_425" />
+                <ScalarProperty Name="gray_400" ColumnName="gray_400" />
+                <ScalarProperty Name="gray_375" ColumnName="gray_375" />
+                <ScalarProperty Name="gray_350" ColumnName="gray_350" />
+                <ScalarProperty Name="gray_325" ColumnName="gray_325" />
+                <ScalarProperty Name="gray_300" ColumnName="gray_300" />
+                <ScalarProperty Name="gray_275" ColumnName="gray_275" />
+                <ScalarProperty Name="gray_250" ColumnName="gray_250" />
+                <ScalarProperty Name="gray_225" ColumnName="gray_225" />
+                <ScalarProperty Name="gray_200" ColumnName="gray_200" />
+                <ScalarProperty Name="gray_175" ColumnName="gray_175" />
+                <ScalarProperty Name="gray_150" ColumnName="gray_150" />
+                <ScalarProperty Name="gray_125" ColumnName="gray_125" />
+                <ScalarProperty Name="gray_100" ColumnName="gray_100" />
+                <ScalarProperty Name="gray_75" ColumnName="gray_75" />
+                <ScalarProperty Name="gray_50" ColumnName="gray_50" />
+                <ScalarProperty Name="black_1000" ColumnName="black_1000" />
+                <ScalarProperty Name="black_950" ColumnName="black_950" />
+                <ScalarProperty Name="black_900" ColumnName="black_900" />
+                <ScalarProperty Name="black_850" ColumnName="black_850" />
+                <ScalarProperty Name="black_800" ColumnName="black_800" />
+                <ScalarProperty Name="black_750" ColumnName="black_750" />
+                <ScalarProperty Name="black_700" ColumnName="black_700" />
+                <ScalarProperty Name="black_650" ColumnName="black_650" />
+                <ScalarProperty Name="black_600" ColumnName="black_600" />
+                <ScalarProperty Name="black_550" ColumnName="black_550" />
+                <ScalarProperty Name="black_500" ColumnName="black_500" />
+                <ScalarProperty Name="black_475" ColumnName="black_475" />
+                <ScalarProperty Name="black_450" ColumnName="black_450" />
+                <ScalarProperty Name="black_425" ColumnName="black_425" />
+                <ScalarProperty Name="black_400" ColumnName="black_400" />
+                <ScalarProperty Name="black_375" ColumnName="black_375" />
+                <ScalarProperty Name="black_350" ColumnName="black_350" />
+                <ScalarProperty Name="black_325" ColumnName="black_325" />
+                <ScalarProperty Name="black_300" ColumnName="black_300" />
+                <ScalarProperty Name="black_275" ColumnName="black_275" />
+                <ScalarProperty Name="black_250" ColumnName="black_250" />
+                <ScalarProperty Name="black_225" ColumnName="black_225" />
+                <ScalarProperty Name="black_200" ColumnName="black_200" />
+                <ScalarProperty Name="black_175" ColumnName="black_175" />
+                <ScalarProperty Name="black_150" ColumnName="black_150" />
+                <ScalarProperty Name="black_125" ColumnName="black_125" />
+                <ScalarProperty Name="black_100" ColumnName="black_100" />
+                <ScalarProperty Name="black_75" ColumnName="black_75" />
+                <ScalarProperty Name="black_50" ColumnName="black_50" />
+                <ScalarProperty Name="order_red" ColumnName="order_red" />
+                <ScalarProperty Name="order_sky" ColumnName="order_sky" />
+                <ScalarProperty Name="order_gold" ColumnName="order_gold" />
+                <ScalarProperty Name="order_silver" ColumnName="order_silver" />
+                <ScalarProperty Name="order_pink" ColumnName="order_pink" />
+                <ScalarProperty Name="order_violet" ColumnName="order_violet" />
+                <ScalarProperty Name="order_green" ColumnName="order_green" />
+                <ScalarProperty Name="order_blue" ColumnName="order_blue" />
+                <ScalarProperty Name="order_brown" ColumnName="order_brown" />
+                <ScalarProperty Name="order_gray" ColumnName="order_gray" />
+                <ScalarProperty Name="order_choco" ColumnName="order_choco" />
+                <ScalarProperty Name="order_black" ColumnName="order_black" />
+                <ScalarProperty Name="order_time" ColumnName="order_time" />
+                <ScalarProperty Name="price_s" ColumnName="price_s" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="des_s" ColumnName="des_s" />
+                <ScalarProperty Name="des" ColumnName="des" />
+                <ScalarProperty Name="near" ColumnName="near" />
+                <ScalarProperty Name="red" ColumnName="red" />
+                <ScalarProperty Name="sky" ColumnName="sky" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+                <ScalarProperty Name="silver" ColumnName="silver" />
+                <ScalarProperty Name="pink" ColumnName="pink" />
+                <ScalarProperty Name="violet" ColumnName="violet" />
+                <ScalarProperty Name="green" ColumnName="green" />
+                <ScalarProperty Name="blue" ColumnName="blue" />
+                <ScalarProperty Name="brown" ColumnName="brown" />
+                <ScalarProperty Name="gray" ColumnName="gray" />
+                <ScalarProperty Name="choco" ColumnName="choco" />
+                <ScalarProperty Name="black" ColumnName="black" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="speed_red" ColumnName="speed_red" />
+                <ScalarProperty Name="speed_sky" ColumnName="speed_sky" />
+                <ScalarProperty Name="speed_gold" ColumnName="speed_gold" />
+                <ScalarProperty Name="speed_silver" ColumnName="speed_silver" />
+                <ScalarProperty Name="speed_pink" ColumnName="speed_pink" />
+                <ScalarProperty Name="speed_violet" ColumnName="speed_violet" />
+                <ScalarProperty Name="speed_green" ColumnName="speed_green" />
+                <ScalarProperty Name="speed_blue" ColumnName="speed_blue" />
+                <ScalarProperty Name="speed_brown" ColumnName="speed_brown" />
+                <ScalarProperty Name="speed_gray" ColumnName="speed_gray" />
+                <ScalarProperty Name="speed_choco" ColumnName="speed_choco" />
+                <ScalarProperty Name="speed_black" ColumnName="speed_black" />
+                <ScalarProperty Name="same_model2" ColumnName="same_model2" />
+                <ScalarProperty Name="same_model" ColumnName="same_model" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="len_name" ColumnName="len_name" />
+                <ScalarProperty Name="same_image_sub_url" ColumnName="same_image_sub_url" />
+                <ScalarProperty Name="image_name" ColumnName="image_name" />
+                <ScalarProperty Name="image_url" ColumnName="image_url" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

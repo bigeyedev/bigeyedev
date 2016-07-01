@@ -16,23 +16,28 @@ namespace bigeyedev
     {
         public int id { get; set; }
         public Nullable<int> order_id { get; set; }
+        public Nullable<System.DateTime> datetime { get; set; }
         public Nullable<int> member_id { get; set; }
+        public int address_id { get; set; }
         public Nullable<int> bill_id { get; set; }
         public Nullable<int> shop_id { get; set; }
         public Nullable<int> user_id { get; set; }
+        public Nullable<int> logic_id { get; set; }
         public Nullable<int> status { get; set; }
         public Nullable<int> status_print_fashion { get; set; }
         public Nullable<int> status_print_power { get; set; }
         public Nullable<int> status_print_other { get; set; }
+        public Nullable<int> status_print_bill { get; set; }
+        public Nullable<int> status_working { get; set; }
         public Nullable<int> have_fashion { get; set; }
         public Nullable<int> have_power { get; set; }
         public Nullable<int> have_other { get; set; }
-        public Nullable<int> note_fashion1 { get; set; }
-        public Nullable<int> note_fashion2 { get; set; }
-        public Nullable<int> note_fashion3 { get; set; }
-        public Nullable<int> note_power1 { get; set; }
-        public Nullable<int> note_power2 { get; set; }
-        public Nullable<int> note_power3 { get; set; }
+        public Nullable<int> note_fashion1_ask_only_dueba { get; set; }
+        public Nullable<int> note_fashion2_replace { get; set; }
+        public Nullable<int> note_fashion3_replace_fac { get; set; }
+        public Nullable<int> note_power1_ask_only_dueba { get; set; }
+        public Nullable<int> note_power2_replace { get; set; }
+        public Nullable<int> note_power3_replace_fac { get; set; }
         public Nullable<int> fix_volume_fashion { get; set; }
         public Nullable<int> fix_volume_power { get; set; }
         public Nullable<float> order_amount { get; set; }
@@ -41,6 +46,8 @@ namespace bigeyedev
         public string pay_time { get; set; }
         public Nullable<float> pay_amount { get; set; }
         public Nullable<int> pay_finish { get; set; }
-        public Nullable<System.DateTime> datetime { get; set; }
+        public string logic_book_no { get; set; }
+        public string logic_no { get; set; }
+        public string tracking { get; set; }
     }
 }
