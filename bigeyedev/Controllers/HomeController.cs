@@ -26,11 +26,14 @@ namespace bigeyedev.Controllers
         {          
 
             // //boytimw 2 ทำตรงไหนอยู่ ก็มาใส่ไว้ตรงนี้ boy
+            //friend
+            // ทำตรงไหนอยู่ ก็มาใส่ไว้ตรงนี้ boy
             return RedirectToAction("Fashion_Select");
         }
 
         public void dd()
         {
+            //statmen2
             //eye
             //statment
         }
