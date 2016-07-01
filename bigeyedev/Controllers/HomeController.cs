@@ -24,14 +24,14 @@ namespace bigeyedev.Controllers
 
         public ActionResult Index()
         {          
-
+            //friend
             // ทำตรงไหนอยู่ ก็มาใส่ไว้ตรงนี้ boy
             return RedirectToAction("Fashion_Select");
         }
 
         public void dd()
         {
-
+            //statmen2
         }
 
         public async Task<ActionResult> Fashion_Select()
