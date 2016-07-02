@@ -1,0 +1,185 @@
+/**
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/* Reset ================================================================================= */
+
+
+
+/*lange--------------------------*/
+.langs-wrapper {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.lang-flag {
+    margin-left: 10px;
+    line-height: 8px;
+    display: inline-block;
+}
+.lang-flag:hover {
+}
+.drop-lang {
+list-style: none;
+padding: 0;
+}
+.drop-lang .drop-trigger {
+    position: relative;
+    z-index:999;
+}
+.drop-lang li a {
+    padding:0 0 0 20px;
+    display: block;
+    font-weight: normal;
+    position: relative;
+    z-index: 10;
+}
+.drop-lang ul.sub-lang li a{border: none;padding: 5px 10px 5px 28px;border: 1px solid #f4f4f4;border-top: none;line-height:15px;height: inherit;}
+.drop-lang li a:hover,.drop-currency li a:hover {}
+
+
+
+.drop-lang .drop-trigger .sub-lang {
+	position: absolute;
+	top:100%;
+	left:0;
+	z-index: 9;
+	list-style: none;
+	margin:0;
+	min-width: 112px;
+	display: none;
+	text-align: left;
+    background-color: #fff;
+    border: 1px solid #f00;
+
+
+
+
+
+
+
+
+    width:112px;
+
+    margin-top: -35px;
+
+
+
+
+
+
+
+
+}
+.drop-lang .drop-trigger .lang-content {
+	margin:13px 0 0;
+	background: #f00;
+}
+.drop-lang .drop-trigger:hover .sub-lang {
+top:100%;
+display: block;
+}
+.drop-lang .sub-lang  .brazilian { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/br.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .brazilian:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/br.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .canadian { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ca.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .canadian:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ca.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .en{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/en.png") no-repeat 6% 50% #fff;}
+.drop-lang li a.en{background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/en.png") no-repeat 0 50%}
+
+.drop-lang li a.default{background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/en.png") no-repeat 0 50%}
+.drop-lang .sub-lang .default{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/en.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang .default:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/en.png") no-repeat 6% 50% #fff;}
+
+.drop-lang li a.french{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/fr.png") no-repeat 0 50% }
+.drop-lang .sub-lang .french{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/fr.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang .french:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/fr.png") no-repeat 6% 50% #fff;}
+
+.drop-lang li a.german{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ge.png") no-repeat 0 50% }
+.drop-lang .sub-lang .german{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ge.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang .german:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ge.png") no-repeat 6% 50% #fff;}
+
+.drop-lang li a.fr{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/fr.png") no-repeat 0 50% }
+.drop-lang li a.ge{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ge.png") no-repeat 0 50% }
+.drop-lang .sub-lang  .en:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/en.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .fr{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/fr.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .fr:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/fr.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .italian { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ie.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .italian:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ie.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .portuguese { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/pt.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .portuguese:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/pt.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .ge{ background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ge.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .ge:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ge.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .australian { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/au.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .australian:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/au.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .dutch { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/nl.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .dutch:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/nl.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .russian { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/rs.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang  .russian:hover { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/rs.png") no-repeat 6% 50% #fff;}
+.drop-lang .germany { background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/ge.png") no-repeat 6% 50% #fff;}
+.drop-lang .sub-lang li a {
+	background: #fff;
+	padding:2px 0 2px 25px;
+	line-height: 22px;
+	display: block;
+	color: #666;
+	text-transform: capitalize;
+	font-weight: normal;
+	border-bottom: 1px solid #f2f2f2;
+}
+.drop-lang .sub-lang li:last-child a { border:0; }
+.drop-lang .sub-lang li a:hover {color: #f47e1e}
+.drop-lang .sub-lang li:last-child a.th{background:url("https://www.mabeza.com/skin/frontend/telecorsa/default/images/th.png") no-repeat 6% 50%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===top.link icon==*/
+.mabeza-ico-language{
+    background:url(https://www.mabeza.com/skin/frontend/telecorsa/default/images/sprite.png) -1px -25px no-repeat;
+    width: 55px;
+    height: 25px;
+    margin:12px auto 15px auto;
+    display: block;
+}
+.mabeza-ico-language:hover{
+    color:#f47e1e;
+    background-position:-85px -25px;
+}
+.mabeza-ico-language.en{
+    background:url(https://www.mabeza.com/skin/frontend/telecorsa/default/images/sprite.png) -163px -25px no-repeat;
+}
+.mabeza-ico-language.en:hover{
+    background-position:-237px -25px;
+}

@@ -947,6 +947,7 @@ nav ul a span.badge{position:static;margin-left:4px;line-height:0}
 .row .col.push-l12{left:100%}
 }
 
+
 nav{
     color:#fff;
     /*สี background nav by Tom   สีเดิม ee6e73*/
@@ -957,7 +958,10 @@ nav{
 width:100%;height:56px;line-height:56px}
 nav a{color:#fff}
 nav i,nav [class^="mdi-"],nav [class*="mdi-"],nav i.material-icons{display:block;font-size:2rem;height:56px;line-height:56px}
-nav .nav-wrapper{position:relative;height:100%}
+
+
+nav .nav-wrapper{position:relative;height:100%; /*test border border: 1px solid blue;*/ 
+}
 
 
 
@@ -1765,7 +1769,19 @@ nav.top-nav{
 
 
 /*title บน top-nav by Tom ใน Mode เปิดในคอม มันคือ default*/
-nav.top-nav a.page-title{line-height:65px;font-size:36px; /*ตรงนี้มีส่วนในตำแหน่ง บน -ล่าง ของ title ที่เป็นโหมด คอม*/  /*margin-left:auto; margin-right:auto;*/
+nav.top-nav a.page-title{line-height:65px;font-size:36px;/*ตรงนี้มีส่วนในตำแหน่ง บน -ล่าง ของ title ที่เป็นโหมด คอม*/  
+                         
+                         
+                         padding-right:0px; /*ตรงนี้คือ ระยะว่างทางขวาที่คุม logo กลาง*/                       
+                         
+                         
+                         /*margin-left:auto; margin-right:auto;*/
+
+
+                 
+                
+
+                  
 
 
 
@@ -1784,7 +1800,7 @@ a.button-collapse.top-nav i{font-size:32px}
 /*nav wrapper ปุ่ม menu by Tom*/
 @media only screen and (max-width: 600px) {a.button-collapse.top-nav {left:-8px; top: -6px;} }
 
-@media only screen and (max-width: 992px)  {a.button-collapse.top-nav {left:-8px; top: -6px;} nav .nav-wrapper{text-align:center } nav .nav-wrapper a.page-title{font-size:36px} /*ตรงนี้มีส่วนในตำแหน่ง บน -ล่าง ของ title ที่เป็นโหมด iphone , ipad*/}
+@media only screen and (max-width: 992px)  {a.button-collapse.top-nav {left:-15px; top: -6px;} nav .nav-wrapper{text-align:center } nav .nav-wrapper a.page-title{font-size:36px;} /*ตรงนี้มีส่วนในตำแหน่ง บน -ล่าง ของ nav-menu ที่เป็นโหมด iphone , ipad*/}
 
 
 @media only screen and (min-width: 993px)

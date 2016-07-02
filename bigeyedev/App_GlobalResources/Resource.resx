@@ -205,7 +205,25 @@
   <data name="menu_tracking" xml:space="preserve">
     <value>Tracking</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
+  <data name="login_mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="login_forgot" xml:space="preserve">
+    <value>Forget your years password?</value>
+  </data>
+  <data name="login_go" xml:space="preserve">
+    <value>GO</value>
+  </data>
+  <data name="login_next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="login_register" xml:space="preserve">
+    <value>REGISTER</value>
+  </data>
+  <data name="login_year" xml:space="preserve">
+    <value>Years (ex. 1983)</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>English</value>
   </data>
 </root>

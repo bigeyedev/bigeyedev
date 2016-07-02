@@ -70,6 +70,69 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string lang {
+            get {
+                return ResourceManager.GetString("lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forget your years password?.
+        /// </summary>
+        internal static string login_forgot {
+            get {
+                return ResourceManager.GetString("login_forgot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GO.
+        /// </summary>
+        internal static string login_go {
+            get {
+                return ResourceManager.GetString("login_go", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobile.
+        /// </summary>
+        internal static string login_mobile {
+            get {
+                return ResourceManager.GetString("login_mobile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        internal static string login_next {
+            get {
+                return ResourceManager.GetString("login_next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to REGISTER.
+        /// </summary>
+        internal static string login_register {
+            get {
+                return ResourceManager.GetString("login_register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Years (ex. 1983).
+        /// </summary>
+        internal static string login_year {
+            get {
+                return ResourceManager.GetString("login_year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order to System.
         /// </summary>
         internal static string main_btn_cart_to_db {
@@ -318,15 +381,6 @@ namespace Resources {
         internal static string menu_tracking {
             get {
                 return ResourceManager.GetString("menu_tracking", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }

@@ -269,6 +269,7 @@
     <Content Include="assets\css\!อ่านก่อน.txt" />
     <Content Include="assets\css\ghpages-materialize.css" />
     <Content Include="assets\css\prism.css" />
+    <Content Include="assets\drop-lang\styles.css" />
     <Content Include="assets\jade\lunr.min.js" />
     <Content Include="assets\jade\search.js" />
     <Content Include="assets\jquery.pwstabs.css" />
@@ -280,6 +281,12 @@
     <Content Include="assets\js\jquery.timeago.min.js" />
     <Content Include="assets\js\prism.js" />
     <Content Include="assets\js\script.js" />
+    <Content Include="assets\material-login-form\css\reset.css" />
+    <Content Include="assets\material-login-form\css\style.css" />
+    <Content Include="assets\material-login-form\index.html" />
+    <Content Include="assets\material-login-form\js\index.js" />
+    <Content Include="assets\material-login-form\license.txt" />
+    <Content Include="assets\material-login-form\README.txt" />
     <Content Include="assets\swipebox\demo\style.css" />
     <Content Include="assets\swipebox\lib\ios-orientationchange-fix.js" />
     <Content Include="assets\swipebox\lib\jquery-2.1.0.min.js" />
@@ -322,6 +329,10 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="assets\material-login-form\config.rb" />
+    <Content Include="assets\material-login-form\index.jade" />
+    <Content Include="assets\material-login-form\js\index.js.bak" />
+    <Content Include="assets\material-login-form\scss\style.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -377,6 +388,7 @@
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

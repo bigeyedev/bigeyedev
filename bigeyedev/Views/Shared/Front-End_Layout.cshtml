@@ -3,7 +3,6 @@
 @*@using System.Globalization;*@
 @*@using System.Threading;*@
 
-
 @using bigeyedev.Models;
 @*@using System;
     @using System.Collections.Generic;*@
@@ -196,7 +195,32 @@
             });
         });
     </script>
+
+
+
+
+    <link rel="stylesheet" href="~/assets/material-login-form/css/reset.css">
+
+    @*<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>*@
+    @*รูป symbol ดินสอ*@
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    <link rel="stylesheet" href="~/assets/material-login-form/css/style.css">
+
+    
+
+
+  
+
+
     <link href="~/Content/Site.css" rel="stylesheet" />
+
+
+
+    <link href="~/assets/drop-lang/styles.css" rel="stylesheet" />
+
+
+
 </head>
 <body>
     <header>
@@ -205,12 +229,45 @@
                 <div class="nav-wrapper">
                     <a class="page-title">
                         <img src="@mywebsite[0].logo_top_url" alt="Logo" width="118" height="40">
+                        
+
+
                         <div class="tom-top-right">
                             <a href="/Home/Tracking" title="@Resources.Resource.menu_tracking" target=""><img src="~/pic/icon/tracking_icon.png" alt="Tracking" height="28" /></a>
                             &nbsp;
                             <a href="/Home/Cart" title="@Resources.Resource.menu_cart" target="_blank"><img src="~/pic/icon/cart_icon.png" alt="Cart" height="28" /></a>
                         </div>
-                    </a>
+
+
+                        <div class="tom-top-right2">
+                            <div class="drop-lang">
+                                <div class="drop-trigger">
+
+                                    <a class="th">@Resources.Resource.lang&nbsp;<i class="fa fa-caret-down"></i></a>
+
+                                    <div class="sub-lang">
+                                        <ul class="lang-content">
+                                            <li><a class="en" href="~/Culture">English</a></li>
+                                            <li><a class="th" href="~/Culture/Thai">Thai</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</a>
                 </div>
             </div>
             <div class="container">
@@ -299,7 +356,7 @@
                 <div class="col s12 m9 l10">
                     <!--        Sidenav   -->
                     <div id="right" class="section scrollspy">
-                        <br /><br />
+                        <br /><br /><br /><br />
                         <h5 class="header">@ViewBag.Title</h5>
                         @*<p class="caption">
                                 The navbar is fully contained by an HTML5 Nav tag. Inside a recommended container div, there are 2 main parts of the navbar. A logo or brand link, and the navigations links. You can align these links to the left or right.
@@ -307,10 +364,12 @@
                         @*<h4>Drag Out Menu</h4>*@
                         @*<p>This plugin includes several options for customizing the menu. See <a href="side-nav.html#options">Plugin Options</a> for details.</p>*@
                         @*<img class="mobile-image" src="images/menu.gif">*@
-                        <br />
+
+                        @*<br />
                         <li>@Html.ActionLink("English (Defualt)", "", "Culture")</li>
                         <li>@Html.ActionLink("Thai", "Thai", "Culture")</li>
-                        <br />
+                        <br />*@
+
                         @RenderBody();
                     </div>
                     <!--        Toast   -->
@@ -322,11 +381,12 @@
 
                         </div>*@
                 </div>
+                @*ห้ามลบ ads
                 <div class="col hide-on-small-only m3 l2">
                     <div class="toc-wrapper">
-                        <div class="buysellads hide-on-small-only">
+                        <div class="buysellads hide-on-small-only">*@
                             <!-- CarbonAds Zone Code -->
-                            <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=materializecss" id="_carbonads_js"></script>
+                            @*<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=materializecss" id="_carbonads_js"></script>
                         </div>
                         <div style="height: 1px;">
                             <ul class="section table-of-contents">
@@ -335,7 +395,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div> <!-- End Container -->
     </main>    
     <footer class="page-footer">
@@ -504,5 +564,9 @@
         @Scripts.Render("~/bundles/bootstrap")*@
     @*ไม่ใส่แล้ว เน่าเลย*@
     @RenderSection("scripts", required: false)
+
+
+
+
 </body>
 </html>
