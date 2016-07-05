@@ -36,7 +36,7 @@ namespace bigeyedev.Controllers
         public void bototototo { }
 
 
-
+        public tom {}
         public ActionResult Fashion_Select_Dialog()
         {
             //ViewBag.Message = "Your contact page.";
