@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     ViewBag.Title = "Address";
 }
-<div class="container" id="cont">
+<div class="container" id="tablecon">
     <div id="newContract">
         @using (Html.BeginForm("Address", "Home", FormMethod.Post, new { role = "form" }))
         {
@@ -28,6 +28,9 @@
 
             <div class="form-group">
                 <h6 style="color:green;">ใช้ที่อยู่ใหม่</h6>
+                <label style="color:blue;">
+                    <input type="radio" name="addressRdo" value="0"/>
+                </label>
                 <p>ชื่อ-สกุล</p>
                 @Html.EditorFor(m => m.address.name, new { htmlAttributes = new { @class = "form-control" } })
             </div>

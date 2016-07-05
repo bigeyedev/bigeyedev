@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     ViewBag.Title = "Review";
 }
-<div class="container" id="cont">
+<div class="container" id="tablecon">
     <p>ชื่อ-สกุล : @Model.Item1.address.name</p>
     <p>เบอร์โทร : @Model.Item1.address.mobile_shop</p>
     @if (Model.Item1.address.mobile2_shop != null)

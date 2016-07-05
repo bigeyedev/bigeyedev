@@ -285,7 +285,7 @@ namespace bigeyedev.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return RedirectToAction("Address");
             }
             if (model == null)
             {
@@ -300,7 +300,7 @@ namespace bigeyedev.Controllers
             }
 
 
-            if (addressRdo != null)
+            if (addressRdo != null && addressRdo!=0)
             {
                 model = new Contract();
                 model.address = _db.bigeyedev_member_address.Where(m => m.id == addressRdo.Value).Single();
