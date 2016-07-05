@@ -1,6 +1,5 @@
-﻿@using bigeyedev.Models
+﻿﻿@using bigeyedev.Models
 @model Tuple<List<stockBindingModel>, List<stockBindingModel>>
-
 @{
 
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
@@ -17,8 +16,7 @@
         Resources.Resource.Culture = new System.Globalization.CultureInfo("");
     }
 }
-
-<div class="main_container" >
+<div class="main_container">
     @using (Html.BeginForm("Cart", "Home", FormMethod.Post, new { id = "form-validation" }))
     {
         int ii = 0;
@@ -79,7 +77,6 @@
                     <input type="hidden" value="@modelItem.brand" name="[@ii].brand" />
                     <input type="hidden" value="@modelItem.model" name="[@ii].model" />
                     <tr>
-
                         <td width="150" bgcolor="@Brand_Bg">
                             <a href="http://www.sugar-eye.net/@Model.Item1.Find(m=>m.id==modelItem.id).imageUrl.Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@modelItem.model - @modelItem.brand - @modelItem.near">
                                 &nbsp;@modelItem.model
@@ -134,7 +131,6 @@
                             {
                                 @Html.EditorFor(m => modelItem.Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Red" } });
                             }
-
                         </td>
                     </tr>
                     ii++;
@@ -144,7 +140,6 @@
         <input type="submit" value="Order" class="btn btn-default" id="btnsub" />
     }
 </div>
-
 <script type="text/javascript">
     function isNumberKey(evt) {
         var charCode = (evt.which) ? evt.which : event.keyCode
@@ -153,4 +148,3 @@
         return true;
     }
 </script>
-

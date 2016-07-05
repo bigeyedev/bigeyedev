@@ -14,10 +14,10 @@ namespace bigeyedev
     
     public partial class bigeyedev_member
     {
-        public int id { get; set; }
-        public Nullable<int> member_id { get; set; }
+        public Nullable<int> id { get; set; }
+        public int member_id { get; set; }
         public string name { get; set; }
-        public Nullable<System.DateTime> birthday { get; set; }
+        public string year { get; set; }
         public string mobile { get; set; }
         public string mobile2 { get; set; }
         public string line_id { get; set; }

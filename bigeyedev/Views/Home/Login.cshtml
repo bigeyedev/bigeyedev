@@ -1,31 +1,37 @@
-﻿
+﻿﻿@model string
 @{
 
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+    string str = @"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+    string url = "";
+    if (Request.UrlReferrer != null)
+    {
+        url = Request.UrlReferrer.ToString();
+    }
 }
-
-
-
 
 
 <!-- Mixins-->
 <!-- Pen title_login-->
 @*<div class="pen-title_login">
-    <h1>Material Login Form</h1><span>Pen <i class='fa fa-code'></i> by <a href='http://andytran.me'>Andy Tran</a></span>
-</div>*@
+        <h1>Material Login Form</h1><span>Pen <i class='fa fa-code'></i> by <a href='http://andytran.me'>Andy Tran</a></span>
+    </div>*@
 @*<div class="rerun"><a href="">Rerun Pen</a></div>*@
 <div class="container_login">
     <div class="card_login"></div>
     <div class="card_login">
         <h1 class="title_login">@Resources.Resource.menu_login</h1>
-        <form action="" method="post" id="form-validation">
+        <p align="center" style="color:red;">@Model</p>
+        <form action="Login" method="post" id="form-validation">
+            @Html.AntiForgeryToken()
+            <input type="hidden" value="@url" name="url" />
             <div class="input-container">
-                <input type="tel" id="Username" required="required" class ="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength = "15" pattern="^[0-9]{8,9}$"/>
+                <input name="txtUser" type="tel" id="Username" required="required" class="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength="15" pattern="^[0-9]{9,10}$" />
                 <label for="Username">@Resources.Resource.login_mobile</label>
-                <div class="bar_login"></div>    
+                <div class="bar_login"></div>
             </div>
             <div class="input-container">
-                <input type="tel" id="Password" required="required" class ="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength = "4" pattern="^[0-9]{8,9}$"/>
+                <input name="txtPwd" type="tel" id="Password" required="required" class="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength="4" pattern="^[0-9]{4}$" />
                 <label for="Password">@Resources.Resource.login_year</label>
                 <div class="bar_login"></div>
             </div>
@@ -41,21 +47,35 @@
             @Resources.Resource.login_register
             <div class="close_login"></div>
         </h1>
-
-        <form>
-            
+        <form action="Register" method="post" id="form-validation">
+            @Html.AntiForgeryToken()
             <div class="input-container">
-                <input type="tel" id="Username" required="required" class ="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength = "15" pattern="^[0-9]{8,9}$" />
+                <input name="txtName" type="text" id="Name" required="required" class="product_qty" value="" maxlength="50" />
+                <label for="Name">@Resources.Resource.login_name</label>
+                <div class="bar_login"></div>
+            </div>
+            <div class="input-container">
+                <input name="txtEmail" type="email" id="Email" required="required" class="product_qty" value="" maxlength="50" pattern=@str />
+                <label for="Email">@Resources.Resource.login_email</label>
+                <div class="bar_login"></div>
+            </div>
+            <div class="input-container">
+                <input name="txtLine" type="text" id="Line" required="required" class="product_qty" value="" maxlength="50" />
+                <label for="Line">@Resources.Resource.login_line</label>
+                <div class="bar_login"></div>
+            </div>
+            <div class="input-container">
+                <input type="tel" name="txtUserR" id="Username" required="required" class="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength="15" pattern="^[0-9]{9,10}$" />
                 <label for="Username">@Resources.Resource.login_mobile</label>
                 <div class="bar_login"></div>
             </div>
             <div class="input-container">
-                <input type="tel" id="Password" required="required" class ="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength = "4" pattern="^[0-9]{8,9}$"/>
+                <input type="tel" name="txtPwdR" ="Password" required="required" class="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength="4" pattern="^[0-9]{4}$" />
                 <label for="Password">@Resources.Resource.login_year</label>
                 <div class="bar_login"></div>
             </div>
             <div class="input-container">
-                <input type="tel" id="Repeat Password" required="required" class ="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength = "4" pattern="^[0-9]{8,9}$"/>
+                <input name="txtRePwdR" type="tel" id="Repeat Password" required="required" class="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength="4" pattern="^[0-9]{4}$" />
                 <label for="Repeat Password">Repeat @Resources.Resource.login_year</label>
                 <div class="bar_login"></div>
             </div>
@@ -66,9 +86,7 @@
     </div>
 </div>
 @*<!-- Portfolio--><a id="portfolio" href="http://andytran.me/" title="View my portfolio!"><i class="fa fa-link"></i></a>
-<!-- CodePen--><a id="codepen" href="http://codepen.io/andytran/" title="Follow me!"><i class="fa fa-codepen"></i></a>*@
+    <!-- CodePen--><a id="codepen" href="http://codepen.io/andytran/" title="Follow me!"><i class="fa fa-codepen"></i></a>*@
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
 <script src="~/assets/material-login-form/js/index.js"></script>
-
 

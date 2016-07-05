@@ -28,6 +28,22 @@ namespace bigeyedev.Controllers
         }
 
 
+        public ActionResult Boy()
+        {
+            return RedirectToAction("Fashion_Select");
+        }
+
+
+
+
+        public ActionResult Fashion_Select_Dialog()
+        {
+            //ViewBag.Message = "Your contact page.";
+
+            return View("Fashion_Select_Dialog");
+        }
+
+
 
         public async Task<ActionResult> Fashion_Select()
         {
@@ -70,7 +86,8 @@ namespace bigeyedev.Controllers
             }).ToListAsync();
 
 
-            return View(model);
+            var brand = await _db.bigeyedev_brand.ToListAsync();
+            return View(new Tuple<List<stockBindingModel>, List<bigeyedev_brand>>(model, brand));
         }
 
 
@@ -125,7 +142,10 @@ namespace bigeyedev.Controllers
         public async Task<ActionResult> Cart()
         {
             var model = bindCookieStock();
-
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
             var stock = new List<stockBindingModel>();
             for (int i = model.Count - 1; i >= 0; i--)
             {
@@ -199,6 +219,9 @@ namespace bigeyedev.Controllers
 
 
 
+
+
+
         private void addCookieStock(stockBindingModel item, int state)
         {
             var Cookie = new HttpCookie("order:" + item.id);
@@ -226,9 +249,9 @@ namespace bigeyedev.Controllers
 
         public ActionResult Address()
         {
-            if (Request.Cookies["memberPhone"] == null)
+            if (Request.Cookies["Account"] == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
             if (Request.Cookies["confirm"] == null)
             {
@@ -239,7 +262,13 @@ namespace bigeyedev.Controllers
                 return RedirectToAction("Cart");
             }
 
-            return View();
+            //get address form member
+            int id = Convert.ToInt32(Response.Cookies["Account"].Values["id"]);
+            var address = _db.bigeyedev_member_address.Where(m => m.member_id == id).ToList();
+            var contract = new Contract();
+            contract.addressList = address;
+
+            return View(contract);
         }
 
 
@@ -270,6 +299,11 @@ namespace bigeyedev.Controllers
             Cookie.Values["zipcode"] = model.address.zip;
             Cookie.Expires = DateTime.Now.AddDays(1);
             Response.Cookies.Add(Cookie);
+
+            //test
+            model.address.member_id = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+            _db.bigeyedev_member_address.Add(model.address);
+            _db.SaveChanges();
             return RedirectToAction("Review");
         }
 
@@ -317,71 +351,60 @@ namespace bigeyedev.Controllers
         }
 
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Login(int mobile)
-    {
-        if (mobile == null)
-        {
-            return RedirectToAction("Index");
-        }
-        Response.Cookies["memberPhone"].Value = mobile.ToString();
-        return View("Index");
-    }
 
 
 
-    private List<stockBindingModel> bindCookieStock()
-    {
-        bool found = chkCookie();
-        if (!found)
+        private List<stockBindingModel> bindCookieStock()
         {
-            return null;
-        }
-        var model = new List<stockBindingModel>();
-        for (int i = 0; i < Request.Cookies.Count; i++)
-        {
-            if (Request.Cookies[i].Name.Substring(0, 5) == "order")
+            bool found = chkCookie();
+            if (!found)
             {
-                model.Add(new stockBindingModel()
+                return null;
+            }
+            var model = new List<stockBindingModel>();
+            for (int i = 0; i < Request.Cookies.Count; i++)
+            {
+                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
                 {
-                    id = Convert.ToInt32(Request.Cookies[i].Values["id"]),
-                    brand = Request.Cookies[i].Values["brand"],
-                    model = Request.Cookies[i].Values["model"],
-                    imageUrl = Request.Cookies[i].Values["imageUrl"],
-                    near = Request.Cookies[i].Values["near"],
-                    Black = Convert.ToInt32(Request.Cookies[i].Values["Black"]),
-                    Blue = Convert.ToInt32(Request.Cookies[i].Values["Blue"]),
-                    Brown = Convert.ToInt32(Request.Cookies[i].Values["Brown"]),
-                    Choco = Convert.ToInt32(Request.Cookies[i].Values["Choco"]),
-                    Gold = Convert.ToInt32(Request.Cookies[i].Values["Gold"]),
-                    Gray = Convert.ToInt32(Request.Cookies[i].Values["Gray"]),
-                    Green = Convert.ToInt32(Request.Cookies[i].Values["Green"]),
-                    Pink = Convert.ToInt32(Request.Cookies[i].Values["Pink"]),
-                    Red = Convert.ToInt32(Request.Cookies[i].Values["Red"]),
-                    Silver = Convert.ToInt32(Request.Cookies[i].Values["Silver"]),
-                    Sky = Convert.ToInt32(Request.Cookies[i].Values["Sky"]),
-                    Violet = Convert.ToInt32(Request.Cookies[i].Values["Violet"])
-                });
+                    model.Add(new stockBindingModel()
+                    {
+                        id = Convert.ToInt32(Request.Cookies[i].Values["id"]),
+                        brand = Request.Cookies[i].Values["brand"],
+                        model = Request.Cookies[i].Values["model"],
+                        imageUrl = Request.Cookies[i].Values["imageUrl"],
+                        near = Request.Cookies[i].Values["near"],
+                        Black = Convert.ToInt32(Request.Cookies[i].Values["Black"]),
+                        Blue = Convert.ToInt32(Request.Cookies[i].Values["Blue"]),
+                        Brown = Convert.ToInt32(Request.Cookies[i].Values["Brown"]),
+                        Choco = Convert.ToInt32(Request.Cookies[i].Values["Choco"]),
+                        Gold = Convert.ToInt32(Request.Cookies[i].Values["Gold"]),
+                        Gray = Convert.ToInt32(Request.Cookies[i].Values["Gray"]),
+                        Green = Convert.ToInt32(Request.Cookies[i].Values["Green"]),
+                        Pink = Convert.ToInt32(Request.Cookies[i].Values["Pink"]),
+                        Red = Convert.ToInt32(Request.Cookies[i].Values["Red"]),
+                        Silver = Convert.ToInt32(Request.Cookies[i].Values["Silver"]),
+                        Sky = Convert.ToInt32(Request.Cookies[i].Values["Sky"]),
+                        Violet = Convert.ToInt32(Request.Cookies[i].Values["Violet"])
+                    });
+                }
             }
+            return (model);
         }
-        return (model);
-    }
 
 
-    private bool chkCookie()
-    {
-        bool found = false;
-        for (int i = 0; i < Request.Cookies.Count; i++)
+        private bool chkCookie()
         {
-            if (Request.Cookies[i].Name.Substring(0, 5) == "order")
+            bool found = false;
+            for (int i = 0; i < Request.Cookies.Count; i++)
             {
-                found = true;
-                break;
+                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
+                {
+                    found = true;
+                    break;
+                }
             }
+            return found;
         }
-        return found;
-    }
 
 
 
@@ -455,11 +478,144 @@ namespace bigeyedev.Controllers
 
 
 
-        public ActionResult Login()
+        public ActionResult Login(int? status)
         {
-            ViewBag.Message = "Your application description page.";
+            var d = Request.Url.AbsoluteUri;
+            //ตรวจสอบว่ามีการล็อคอินค้างอยู่หรือป่าว
+            if (Request.Cookies["Account"] != null)
+            {
+                return RedirectToAction("Index");
+            }
 
-            return View("Login");
+            //กำหนด ข้อความ อาไว้แสดงเมื่อการกระทำ
+            string msg = "";
+            if (status == 1)
+            {
+                return RedirectToAction("Index");
+            }
+            else if (status == 0)
+            {
+                msg = "Login Fail!Mobile or Year is wrong.";
+            }
+            else if (status == 2)
+            {
+                msg = "Register Fail!Already Mobile.";
+            }
+            else if (status == 3)
+            {
+                msg = "Register Success";
+            }
+
+            return View((object)msg);
+        }
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string txtUser, string txtPwd, string url)
+        {
+            //check varible is null
+            if (txtUser == null || txtPwd == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            //select data member from database
+            var member = _db.bigeyedev_member.Where(m => m.mobile == txtUser && m.year == txtPwd).SingleOrDefault();
+            if (member == null)
+            {
+                return RedirectToAction("Login", new { status = 0 });
+            }
+
+            //new cookie for user
+            var Cookie = new HttpCookie("Account");
+            Cookie.Values["memberPhone"] = txtUser;
+            Cookie.Values["id"] = member.member_id.ToString();
+            Cookie.Expires = DateTime.Now.AddDays(1);
+            Response.Cookies.Add(Cookie);
+
+
+            //check back link to redirect
+            if (url == "" || Request.Url.ToString().ToUpper() == url.ToUpper())
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return Redirect(url);
+            }
+
+        }
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(string txtUserR, string txtPwdR, string txtRePwdR, string txtName, string txtEmail, string txtLine)
+        {
+
+            //check null var
+            if (txtPwdR == null || txtUserR == null || txtRePwdR == null || txtName == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            //checck repass and padd is equal
+            if (!txtRePwdR.Equals(txtPwdR))
+            {
+                return RedirectToAction("Login");
+            }
+
+            //check mobile is exist?
+            if (_db.bigeyedev_member.Where(m => m.mobile == txtUserR).SingleOrDefault() != null)
+            {
+                return RedirectToAction("Login", new { status = 2 });
+            }
+
+            //insert data
+            try
+            {
+                var e = _db.bigeyedev_member.Add(new bigeyedev_member()
+                {
+                    mobile = txtUserR,
+                    year = txtPwdR,
+                    name = txtName,
+                    email = txtEmail,
+                    line_id = txtLine
+                });
+                var d = _db.SaveChanges();
+            }
+            catch
+            {
+                return RedirectToAction("Login");
+            }
+
+            return RedirectToAction("Login", new { status = 3 });
+        }
+
+
+
+        public ActionResult Singout()
+        {
+            //check ว่า มี cookie การล็อคอินหรือป่าว
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            //ลบ cookie login
+            Response.Cookies["Account"].Expires = DateTime.Now.AddDays(-1);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult About()
+        {
+
+            return View();
         }
 
 
@@ -467,12 +623,22 @@ namespace bigeyedev.Controllers
 
 
 
-        public ActionResult About()
-    {
-        ViewBag.Message = "Your application description page.";
 
-        return View();
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public ActionResult Contact()
     {
@@ -480,5 +646,12 @@ namespace bigeyedev.Controllers
 
         return View();
     }
-}
+
+
+
+
+
+
+
+    }
 }

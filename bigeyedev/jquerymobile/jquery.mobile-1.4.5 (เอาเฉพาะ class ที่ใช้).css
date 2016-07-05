@@ -1,0 +1,1778 @@
+/* Shadow
+-----------------------------------------------------------------------------------------------------------*/
+.ui-dialog-shadow {
+	-webkit-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.15) /*{global-box-shadow-color}*/;
+	-moz-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.15) /*{global-box-shadow-color}*/;
+	box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.15) /*{global-box-shadow-color}*/;
+}
+.ui-dialog-shadow-inset {
+	-webkit-box-shadow: inset 0 1px 3px /*{global-box-shadow-size}*/ 	rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+	-moz-box-shadow: inset 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+	box-shadow: inset 0 1px 3px /*{global-box-shadow-size}*/ 	rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+}
+.ui-dialog-overlay-shadow {
+	-webkit-box-shadow: 0 0 12px 		rgba(0,0,0,.6);
+	-moz-box-shadow: 0 0 12px 			rgba(0,0,0,.6);
+	box-shadow: 0 0 12px 				rgba(0,0,0,.6);
+}
+
+
+/* Icon shadow */
+.ui-dialog-shadow-icon.ui-dialog-btn:after,
+.ui-dialog-shadow-icon .ui-dialog-btn:after {
+	-webkit-box-shadow: 0 1px 0 			rgba(255,255,255,.3) /*{global-icon-shadow}*/;
+	-moz-box-shadow: 0 1px 0 				rgba(255,255,255,.3) /*{global-icon-shadow}*/;
+	box-shadow: 0 1px 0 					rgba(255,255,255,.3) /*{global-icon-shadow}*/;
+}
+
+
+/* Unset box-shadow in browsers that don't do it right */
+.ui-dialog-noboxshadow .ui-dialog-shadow,
+.ui-dialog-noboxshadow .ui-dialog-shadow-inset,
+.ui-dialog-noboxshadow .ui-dialog-overlay-shadow,
+.ui-dialog-noboxshadow .ui-dialog-shadow-icon.ui-dialog-btn:after,
+.ui-dialog-noboxshadow .ui-dialog-shadow-icon .ui-dialog-btn:after,
+.ui-dialog-noboxshadow .ui-dialog-focus,
+.ui-dialog-noboxshadow .ui-dialog-btn:focus,
+.ui-dialog-noboxshadow  input:focus,
+.ui-dialog-noboxshadow .ui-dialog-panel {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+
+.ui-dialog-controlgroup-controls a.ui-dialog-shadow:not(:focus),
+.ui-dialog-controlgroup-controls button.ui-dialog-shadow:not(:focus),
+.ui-dialog-controlgroup-controls div.ui-dialog-shadow:not(.ui-dialog-focus) {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+
+
+
+.ui-dialog-icon-check:after,
+/* Used ui-dialog-checkbox-on twice to increase specificity. If active state has background-image for gradient this rule overrides. */
+html .ui-dialog-btn.ui-dialog-checkbox-on.ui-dialog-checkbox-on:after {
+	background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2014%2014%22%20style%3D%22enable-background%3Anew%200%200%2014%2014%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpolygon%20style%3D%22fill%3A%23FFFFFF%3B%22%20points%3D%2214%2C4%2011%2C1%205.003%2C6.997%203%2C5%200%2C8%204.966%2C13%204.983%2C12.982%205%2C13%20%22%2F%3E%3C%2Fsvg%3E");
+}
+
+
+
+.ui-dialog-alt-icon.ui-dialog-icon-check:after,
+.ui-dialog-alt-icon .ui-dialog-icon-check:after,
+html .ui-dialog-alt-icon.ui-dialog-btn.ui-dialog-checkbox-on:after,
+html .ui-dialog-alt-icon .ui-dialog-btn.ui-dialog-checkbox-on:after {
+	background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2014%2014%22%20style%3D%22enable-background%3Anew%200%200%2014%2014%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpolygon%20points%3D%2214%2C4%2011%2C1%205.003%2C6.997%203%2C5%200%2C8%204.966%2C13%204.983%2C12.982%205%2C13%20%22%2F%3E%3C%2Fsvg%3E");
+}
+
+
+.ui-dialog-nosvg .ui-dialog-icon-check:after,
+html.ui-dialog-nosvg .ui-dialog-btn.ui-dialog-checkbox-on:after {
+	background-image: url(images/icons-png/check-white.png);
+}
+
+
+.ui-dialog-nosvg .ui-dialog-alt-icon.ui-dialog-icon-check:after,
+.ui-dialog-nosvg .ui-dialog-alt-icon .ui-dialog-icon-check:after,
+.ui-dialog-nosvg .ui-dialog-alt-icon.ui-dialog-btn.ui-dialog-checkbox-on:after,
+.ui-dialog-nosvg .ui-dialog-alt-icon .ui-dialog-btn.ui-dialog-checkbox-on:after {
+	background-image: url(images/icons-png/check-black.png);
+}
+
+
+.ui-dialog-btn {
+	font-size: 1em;
+	line-height: 1.3;
+	font-family: sans-serif /*{global-font-family}*/;
+}
+
+
+
+
+/* Buttons
+-----------------------------------------------------------------------------------------------------------*/
+.ui-dialog-btn,
+label.ui-dialog-btn {
+	font-weight: bold;
+	border-width: 1px;
+	border-style: solid;
+}
+.ui-dialog-btn {
+	text-decoration: none !important;
+}
+.ui-dialog-btn-active {
+	cursor: pointer;
+}
+
+
+/* Buttons */
+.ui-dialog-btn-corner-all,
+.ui-dialog-btn.ui-dialog-corner-all,
+/* Slider track */
+.ui-dialog-slider-track.ui-dialog-corner-all,
+/* Flipswitch */
+.ui-dialog-flipswitch.ui-dialog-corner-all,
+/* Count bubble */
+.ui-dialog-li-count {
+	-webkit-border-radius: 				.3125em /*{global-radii-buttons}*/;
+	border-radius: 						.3125em /*{global-radii-buttons}*/;
+}
+
+
+
+/* Icon-only buttons */
+.ui-dialog-btn-icon-notext.ui-dialog-btn-corner-all,
+.ui-dialog-btn-icon-notext.ui-dialog-corner-all {
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+}
+
+
+/* Radius clip workaround for cleaning up corner trapping */
+.ui-dialog-btn-corner-all,
+.ui-dialog-corner-all {
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+}
+
+
+
+
+/* Icons
+-----------------------------------------------------------------------------------------------------------*/
+.ui-dialog-btn-icon-left:after,
+.ui-dialog-btn-icon-right:after,
+.ui-dialog-btn-icon-top:after,
+.ui-dialog-btn-icon-bottom:after,
+.ui-dialog-btn-icon-notext:after {
+	background-color: 					#666 /*{global-icon-color}*/;
+	background-color: 					rgba(0,0,0,.3) /*{global-icon-disc}*/;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+}
+
+
+
+
+
+
+
+/* Alt icons */
+.ui-dialog-alt-icon.ui-dialog-btn:after,
+.ui-dialog-alt-icon .ui-dialog-btn:after,
+html .ui-dialog-alt-icon.ui-dialog-checkbox-off:after,
+html .ui-dialog-alt-icon.ui-dialog-radio-off:after,
+html .ui-dialog-alt-icon .ui-dialog-checkbox-off:after,
+html .ui-dialog-alt-icon .ui-dialog-radio-off:after {
+	background-color: 					#666 /*{global-icon-color}*/;
+	background-color: 					rgba(0,0,0,.15) /*{global-icon-disc}*/;
+}
+/* No disc */
+.ui-dialog-nodisc-icon.ui-dialog-btn:after,
+.ui-dialog-nodisc-icon .ui-dialog-btn:after {
+	background-color: transparent;
+}
+/* Icon shadow */
+.ui-dialog-shadow-icon.ui-dialog-btn:after,
+.ui-dialog-shadow-icon .ui-dialog-btn:after {
+	-webkit-box-shadow: 0 1px 0 			rgba(255,255,255,.3) /*{global-icon-shadow}*/;
+	-moz-box-shadow: 0 1px 0 				rgba(255,255,255,.3) /*{global-icon-shadow}*/;
+	box-shadow: 0 1px 0 					rgba(255,255,255,.3) /*{global-icon-shadow}*/;
+}
+/* Checkbox and radio */
+.ui-dialog-btn.ui-dialog-checkbox-off:after,
+.ui-dialog-btn.ui-dialog-checkbox-on:after,
+.ui-dialog-btn.ui-dialog-radio-off:after,
+.ui-dialog-btn.ui-dialog-radio-on:after {
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: -9px 2px 0 2px;
+}
+.ui-dialog-checkbox-off:after,
+.ui-dialog-btn.ui-dialog-radio-off:after {
+	filter: Alpha(Opacity=30);
+	opacity: .3;
+}
+.ui-dialog-btn.ui-dialog-checkbox-off:after,
+.ui-dialog-btn.ui-dialog-checkbox-on:after {
+	-webkit-border-radius: .1875em;
+	border-radius: .1875em;
+}
+.ui-dialog-btn.ui-dialog-checkbox-off:after {
+	background-color: #666;
+	background-color: rgba(0,0,0,.3);
+}
+.ui-dialog-radio .ui-dialog-btn.ui-dialog-radio-on:after {
+	background-image: none;
+	background-color: #fff;
+	width: 8px;
+	height: 8px;
+	border-width: 5px;
+	border-style: solid; 
+}
+.ui-dialog-alt-icon.ui-dialog-btn.ui-dialog-radio-on:after,
+.ui-dialog-alt-icon .ui-dialog-btn.ui-dialog-radio-on:after {
+	background-color: #000;
+}
+
+
+
+
+
+
+
+
+
+/* Loader */
+.ui-dialog-icon-loading {
+	background: url(~/jquerymobile/images/ajax-loader.gif);
+	background-size: 2.875em 2.875em;
+}
+
+
+
+/* Button up */
+.ui-dialog-page-theme-a .ui-dialog-btn,
+html .ui-dialog-bar-a .ui-dialog-btn,
+html .ui-dialog-body-a .ui-dialog-btn,
+html body .ui-dialog-group-theme-a .ui-dialog-btn,
+html head + body .ui-dialog-btn.ui-dialog-btn-a,
+/* Button visited */
+.ui-dialog-page-theme-a .ui-dialog-btn:visited,
+html .ui-dialog-bar-a .ui-dialog-btn:visited,
+html .ui-dialog-body-a .ui-dialog-btn:visited,
+html body .ui-dialog-group-theme-a .ui-dialog-btn:visited,
+html head + body .ui-dialog-btn.ui-dialog-btn-a:visited {
+	background-color: 			#f6f6f6 /*{a-bup-background-color}*/;
+	border-color:	 		#ddd /*{a-bup-border}*/;
+	color: 					#333 /*{a-bup-color}*/;
+	text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #f3f3f3 /*{a-bup-shadow-color}*/;
+}
+/* Button hover */
+.ui-dialog-page-theme-a .ui-dialog-btn:hover,
+html .ui-dialog-bar-a .ui-dialog-btn:hover,
+html .ui-dialog-body-a .ui-dialog-btn:hover,
+html body .ui-dialog-group-theme-a .ui-dialog-btn:hover,
+html head + body .ui-dialog-btn.ui-dialog-btn-a:hover {
+	background-color: 			#ededed /*{a-bhover-background-color}*/;
+	border-color:	 		#ddd /*{a-bhover-border}*/;
+	color: 					#333 /*{a-bhover-color}*/;
+	text-shadow: 0 /*{a-bhover-shadow-x}*/ 1px /*{a-bhover-shadow-y}*/ 0 /*{a-bhover-shadow-radius}*/ #f3f3f3 /*{a-bhover-shadow-color}*/;
+}
+/* Button down */
+.ui-dialog-page-theme-a .ui-dialog-btn:active,
+html .ui-dialog-bar-a .ui-dialog-btn:active,
+html .ui-dialog-body-a .ui-dialog-btn:active,
+html body .ui-dialog-group-theme-a .ui-dialog-btn:active,
+html head + body .ui-dialog-btn.ui-dialog-btn-a:active {
+	background-color: 			#e8e8e8 /*{a-bdown-background-color}*/;
+	border-color:	 		#ddd /*{a-bdown-border}*/;
+	color: 					#333 /*{a-bdown-color}*/;
+	text-shadow: 0 /*{a-bdown-shadow-x}*/ 1px /*{a-bdown-shadow-y}*/ 0 /*{a-bdown-shadow-radius}*/ #f3f3f3 /*{a-bdown-shadow-color}*/;
+}
+/* Active button */
+.ui-dialog-page-theme-a .ui-dialog-btn.ui-dialog-btn-active,
+html .ui-dialog-bar-a .ui-dialog-btn.ui-dialog-btn-active,
+html .ui-dialog-body-a .ui-dialog-btn.ui-dialog-btn-active,
+html body .ui-dialog-group-theme-a .ui-dialog-btn.ui-dialog-btn-active,
+html head + body .ui-dialog-btn.ui-dialog-btn-a.ui-dialog-btn-active,
+/* Active checkbox icon */
+.ui-dialog-page-theme-a .ui-dialog-checkbox-on:after,
+html .ui-dialog-bar-a .ui-dialog-checkbox-on:after,
+html .ui-dialog-body-a .ui-dialog-checkbox-on:after,
+html body .ui-dialog-group-theme-a .ui-dialog-checkbox-on:after,
+.ui-dialog-btn.ui-dialog-checkbox-on.ui-dialog-btn-a:after,
+/* Active flipswitch background */
+.ui-dialog-page-theme-a .ui-dialog-flipswitch-active,
+html .ui-dialog-bar-a .ui-dialog-flipswitch-active,
+html .ui-dialog-body-a .ui-dialog-flipswitch-active,
+html body .ui-dialog-group-theme-a .ui-dialog-flipswitch-active,
+html body .ui-dialog-flipswitch.ui-dialog-bar-a.ui-dialog-flipswitch-active,
+/* Active slider track */
+.ui-dialog-page-theme-a .ui-dialog-slider-track .ui-dialog-btn-active,
+html .ui-dialog-bar-a .ui-dialog-slider-track .ui-dialog-btn-active,
+html .ui-dialog-body-a .ui-dialog-slider-track .ui-dialog-btn-active,
+html body .ui-dialog-group-theme-a .ui-dialog-slider-track .ui-dialog-btn-active,
+html body div.ui-dialog-slider-track.ui-dialog-body-a .ui-dialog-btn-active {
+	background-color: 		#3388cc /*{a-active-background-color}*/;
+	border-color:	 		#3388cc /*{a-active-border}*/;
+	color: 					#fff /*{a-active-color}*/;
+	text-shadow: 0 /*{a-active-shadow-x}*/ 1px /*{a-active-shadow-y}*/ 0 /*{a-active-shadow-radius}*/ #005599 /*{a-active-shadow-color}*/;
+}
+/* Active radio button icon */
+.ui-dialog-page-theme-a .ui-dialog-radio-on:after,
+html .ui-dialog-bar-a .ui-dialog-radio-on:after,
+html .ui-dialog-body-a .ui-dialog-radio-on:after,
+html body .ui-dialog-group-theme-a .ui-dialog-radio-on:after,
+.ui-dialog-btn.ui-dialog-radio-on.ui-dialog-btn-a:after {
+	border-color:			#3388cc /*{a-active-background-color}*/;
+}
+/* Focus */
+.ui-dialog-page-theme-a .ui-dialog-btn:focus,
+html .ui-dialog-bar-a .ui-dialog-btn:focus,
+html .ui-dialog-body-a .ui-dialog-btn:focus,
+html body .ui-dialog-group-theme-a .ui-dialog-btn:focus,
+html head + body .ui-dialog-btn.ui-dialog-btn-a:focus,
+/* Focus buttons and text inputs with div wrap */
+.ui-dialog-page-theme-a .ui-dialog-focus,
+html .ui-dialog-bar-a .ui-dialog-focus,
+html .ui-dialog-body-a .ui-dialog-focus,
+html body .ui-dialog-group-theme-a .ui-dialog-focus,
+html head + body .ui-dialog-btn-a.ui-dialog-focus,
+html head + body .ui-dialog-body-a.ui-dialog-focus {
+	-webkit-box-shadow: 0 0 12px 	#3388cc /*{a-active-background-color}*/;
+	-moz-box-shadow: 0 0 12px 		#3388cc /*{a-active-background-color}*/;
+	box-shadow: 0 0 12px 			#3388cc /*{a-active-background-color}*/;
+}
+
+
+
+
+
+
+/* Button up */
+.ui-dialog-page-theme-b .ui-dialog-btn,
+html .ui-dialog-bar-b .ui-dialog-btn,
+html .ui-dialog-body-b .ui-dialog-btn,
+html body .ui-dialog-group-theme-b .ui-dialog-btn,
+html head + body .ui-dialog-btn.ui-dialog-btn-b,
+/* Button visited */
+.ui-dialog-page-theme-b .ui-dialog-btn:visited,
+html .ui-dialog-bar-b .ui-dialog-btn:visited,
+html .ui-dialog-body-b .ui-dialog-btn:visited,
+html body .ui-dialog-group-theme-b .ui-dialog-btn:visited,
+html head + body .ui-dialog-btn.ui-dialog-btn-b:visited {
+	background-color: 			#333 /*{b-bup-background-color}*/;
+	border-color:	 		#1f1f1f /*{b-bup-border}*/;
+	color: 					#fff /*{b-bup-color}*/;
+	text-shadow: 0 /*{b-bup-shadow-x}*/ 1px /*{b-bup-shadow-y}*/ 0 /*{b-bup-shadow-radius}*/ #111 /*{b-bup-shadow-color}*/;
+}
+/* Button hover */
+.ui-dialog-page-theme-b .ui-dialog-btn:hover,
+html .ui-dialog-bar-b .ui-dialog-btn:hover,
+html .ui-dialog-body-b .ui-dialog-btn:hover,
+html body .ui-dialog-group-theme-b .ui-dialog-btn:hover,
+html head + body .ui-dialog-btn.ui-dialog-btn-b:hover {
+	background-color: 			#373737 /*{b-bhover-background-color}*/;
+	border-color:	 		#1f1f1f /*{b-bhover-border}*/;
+	color: 					#fff /*{b-bhover-color}*/;
+	text-shadow: 0 /*{b-bhover-shadow-x}*/ 1px /*{b-bhover-shadow-y}*/ 0 /*{b-bhover-shadow-radius}*/ #111 /*{b-bhover-shadow-color}*/;
+}
+/* Button down */
+.ui-dialog-page-theme-b .ui-dialog-btn:active,
+html .ui-dialog-bar-b .ui-dialog-btn:active,
+html .ui-dialog-body-b .ui-dialog-btn:active,
+html body .ui-dialog-group-theme-b .ui-dialog-btn:active,
+html head + body .ui-dialog-btn.ui-dialog-btn-b:active {
+	background-color: 			#404040 /*{b-bdown-background-color}*/;
+	border-color:	 		#1f1f1f /*{b-bdown-border}*/;
+	color: 					#fff /*{b-bdown-color}*/;
+	text-shadow: 0 /*{b-bdown-shadow-x}*/ 1px /*{b-bdown-shadow-y}*/ 0 /*{b-bdown-shadow-radius}*/ #111 /*{b-bdown-shadow-color}*/;
+}
+/* Active button */
+.ui-dialog-page-theme-b .ui-dialog-btn.ui-dialog-btn-active,
+html .ui-dialog-bar-b .ui-dialog-btn.ui-dialog-btn-active,
+html .ui-dialog-body-b .ui-dialog-btn.ui-dialog-btn-active,
+html body .ui-dialog-group-theme-b .ui-dialog-btn.ui-dialog-btn-active,
+html head + body .ui-dialog-btn.ui-dialog-btn-b.ui-dialog-btn-active,
+/* Active checkbox icon */
+.ui-dialog-page-theme-b .ui-dialog-checkbox-on:after,
+html .ui-dialog-bar-b .ui-dialog-checkbox-on:after,
+html .ui-dialog-body-b .ui-dialog-checkbox-on:after,
+html body .ui-dialog-group-theme-b .ui-dialog-checkbox-on:after,
+.ui-dialog-btn.ui-dialog-checkbox-on.ui-dialog-btn-b:after,
+/* Active flipswitch background */
+.ui-dialog-page-theme-b .ui-dialog-flipswitch-active,
+html .ui-dialog-bar-b .ui-dialog-flipswitch-active,
+html .ui-dialog-body-b .ui-dialog-flipswitch-active,
+html body .ui-dialog-group-theme-b .ui-dialog-flipswitch-active,
+html body .ui-dialog-flipswitch.ui-dialog-bar-b.ui-dialog-flipswitch-active,
+/* Active slider track */
+.ui-dialog-page-theme-b .ui-dialog-slider-track .ui-dialog-btn-active,
+html .ui-dialog-bar-b .ui-dialog-slider-track .ui-dialog-btn-active,
+html .ui-dialog-body-b .ui-dialog-slider-track .ui-dialog-btn-active,
+html body .ui-dialog-group-theme-b .ui-dialog-slider-track .ui-dialog-btn-active,
+html body div.ui-dialog-slider-track.ui-dialog-body-b .ui-dialog-btn-active {
+	background-color: 		#22aadd /*{b-active-background-color}*/;
+	border-color:	 		#22aadd /*{b-active-border}*/;
+	color: 					#fff /*{b-active-color}*/;
+	text-shadow: 0 /*{b-active-shadow-x}*/ 1px /*{b-active-shadow-y}*/ 0 /*{b-active-shadow-radius}*/ #0088bb /*{b-active-shadow-color}*/;
+}
+/* Active radio button icon */
+.ui-dialog-page-theme-b .ui-dialog-radio-on:after,
+html .ui-dialog-bar-b .ui-dialog-radio-on:after,
+html .ui-dialog-body-b .ui-dialog-radio-on:after,
+html body .ui-dialog-group-theme-b .ui-dialog-radio-on:after,
+.ui-dialog-btn.ui-dialog-radio-on.ui-dialog-btn-b:after {
+	border-color:			#22aadd /*{b-active-background-color}*/;
+}
+/* Focus */
+.ui-dialog-page-theme-b .ui-dialog-btn:focus,
+html .ui-dialog-bar-b .ui-dialog-btn:focus,
+html .ui-dialog-body-b .ui-dialog-btn:focus,
+html body .ui-dialog-group-theme-b .ui-dialog-btn:focus,
+html head + body .ui-dialog-btn.ui-dialog-btn-b:focus,
+/* Focus buttons and text inputs with div wrap */
+.ui-dialog-page-theme-b .ui-dialog-focus,
+html .ui-dialog-bar-b .ui-dialog-focus,
+html .ui-dialog-body-b .ui-dialog-focus,
+html body .ui-dialog-group-theme-b .ui-dialog-focus,
+html head + body .ui-dialog-btn-b.ui-dialog-focus,
+html head + body .ui-dialog-body-b.ui-dialog-focus {
+	-webkit-box-shadow: 0 0 12px 	#22aadd /*{b-active-background-color}*/;
+	-moz-box-shadow: 0 0 12px 		#22aadd /*{b-active-background-color}*/;
+	box-shadow: 0 0 12px 			#22aadd /*{b-active-background-color}*/;
+}
+/* Structure */
+/* Disabled
+-----------------------------------------------------------------------------------------------------------*/
+/* Class ui-dialog-disabled deprecated in 1.4. :disabled not supported by IE8 so we use [disabled] */
+.ui-dialog-disabled,
+.ui-dialog-state-disabled,
+button[disabled],
+.ui-dialog-select .ui-dialog-btn.ui-dialog-state-disabled {
+	filter: Alpha(Opacity=30);
+	opacity: .3;
+	cursor: default !important;
+	pointer-events: none;
+}
+/* Focus state outline
+-----------------------------------------------------------------------------------------------------------*/
+.ui-dialog-btn:focus,
+.ui-dialog-btn.ui-dialog-focus {
+	outline: 0;
+}
+/* Unset box-shadow in browsers that don't do it right */
+.ui-dialog-noboxshadow .ui-dialog-shadow,
+.ui-dialog-noboxshadow .ui-dialog-shadow-inset,
+.ui-dialog-noboxshadow .ui-dialog-overlay-shadow,
+.ui-dialog-noboxshadow .ui-dialog-shadow-icon.ui-dialog-btn:after,
+.ui-dialog-noboxshadow .ui-dialog-shadow-icon .ui-dialog-btn:after,
+.ui-dialog-noboxshadow .ui-dialog-focus,
+.ui-dialog-noboxshadow .ui-dialog-btn:focus,
+.ui-dialog-noboxshadow  input:focus,
+.ui-dialog-noboxshadow .ui-dialog-panel {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.ui-dialog-noboxshadow .ui-dialog-btn:focus,
+.ui-dialog-noboxshadow .ui-dialog-focus {
+	outline-width: 1px;
+	outline-style: auto;
+}
+
+
+
+
+
+
+
+/* Buttons and icons */
+.ui-dialog-btn {
+	font-size: 16px;
+	margin: .5em 0;
+	padding: .7em 1em;
+	display: block;
+	position: relative;
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.ui-dialog-btn-icon-notext,
+.ui-dialog-header button.ui-dialog-btn.ui-dialog-btn-icon-notext,
+.ui-dialog-footer button.ui-dialog-btn.ui-dialog-btn-icon-notext {
+	padding: 0;
+	width: 1.75em;
+	height: 1.75em;
+	text-indent: -9999px;
+	white-space: nowrap !important;
+}
+.ui-dialog-mini {
+	font-size: 12.5px;
+}
+.ui-dialog-mini .ui-dialog-btn {
+	font-size: inherit;
+}
+/* Make buttons in toolbars default to mini and inline. */
+.ui-dialog-header .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-btn {
+	font-size: 12.5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.ui-dialog-header .ui-dialog-controlgroup .ui-dialog-btn-icon-notext,
+.ui-dialog-footer .ui-dialog-controlgroup .ui-dialog-btn-icon-notext {
+    font-size: 12.5px;
+}
+/* To ensure same top and left/right position when ui-dialog-btn-left/right are added to something other than buttons. */
+.ui-dialog-header .ui-dialog-btn-left,
+.ui-dialog-header .ui-dialog-btn-right {
+	font-size: 12.5px;
+}
+.ui-dialog-mini.ui-dialog-btn-icon-notext,
+.ui-dialog-mini .ui-dialog-btn-icon-notext,
+.ui-dialog-header .ui-dialog-btn-icon-notext,
+.ui-dialog-footer .ui-dialog-btn-icon-notext {
+	font-size: 16px;	
+	padding: 0;
+}
+.ui-dialog-btn-inline {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: .625em;
+}
+.ui-dialog-btn-icon-left {
+	padding-left: 2.5em;
+}
+.ui-dialog-btn-icon-right {
+	padding-right: 2.5em;
+}
+.ui-dialog-btn-icon-top {
+	padding-top: 2.5em;
+}
+.ui-dialog-btn-icon-bottom {
+	padding-bottom: 2.5em;
+}
+.ui-dialog-header .ui-dialog-btn-icon-top,
+.ui-dialog-footer .ui-dialog-btn-icon-top,
+.ui-dialog-header .ui-dialog-btn-icon-bottom,
+.ui-dialog-footer .ui-dialog-btn-icon-bottom {
+	padding-left: .3125em;
+	padding-right: .3125em;
+}
+.ui-dialog-btn-icon-left:after,
+.ui-dialog-btn-icon-right:after,
+.ui-dialog-btn-icon-top:after,
+.ui-dialog-btn-icon-bottom:after,
+.ui-dialog-btn-icon-notext:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 22px;
+	height: 22px;
+}
+.ui-dialog-btn-icon-notext:after,
+.ui-dialog-btn-icon-left:after,
+.ui-dialog-btn-icon-right:after {
+	top: 50%;
+	margin-top: -11px;
+}
+.ui-dialog-btn-icon-left:after {
+	left: .5625em;
+}
+.ui-dialog-btn-icon-right:after {
+	right: .5625em;
+}
+.ui-dialog-mini.ui-dialog-btn-icon-left:after,
+.ui-dialog-mini .ui-dialog-btn-icon-left:after,
+.ui-dialog-header .ui-dialog-btn-icon-left:after,
+.ui-dialog-footer .ui-dialog-btn-icon-left:after {
+	left: .37em;
+}
+.ui-dialog-mini.ui-dialog-btn-icon-right:after,
+.ui-dialog-mini .ui-dialog-btn-icon-right:after,
+.ui-dialog-header .ui-dialog-btn-icon-right:after,
+.ui-dialog-footer .ui-dialog-btn-icon-right:after {
+	right: .37em;
+}
+.ui-dialog-btn-icon-notext:after,
+.ui-dialog-btn-icon-top:after,
+.ui-dialog-btn-icon-bottom:after {
+	left: 50%;
+	margin-left: -11px;
+}
+.ui-dialog-btn-icon-top:after {
+	top: .5625em;
+}
+.ui-dialog-btn-icon-bottom:after {
+	top: auto;
+	bottom: .5625em;
+}
+/* Buttons in header position classes */
+.ui-dialog-header .ui-dialog-btn-left,
+.ui-dialog-header .ui-dialog-btn-right,
+.ui-dialog-btn-left > [class*="ui-dialog-"],
+.ui-dialog-btn-right > [class*="ui-dialog-"] {
+	margin: 0;
+}
+.ui-dialog-btn-left,
+.ui-dialog-btn-right {
+	position: absolute;
+	top: .24em;
+}
+.ui-dialog-btn-left {
+	left: .4em;
+}
+.ui-dialog-btn-right {
+	right: .4em;
+}
+.ui-dialog-btn-icon-notext.ui-dialog-btn-left {
+	top: .3125em;
+	left: .3125em;
+}
+.ui-dialog-btn-icon-notext.ui-dialog-btn-right {
+	top: .3125em;
+	right: .3125em;
+}
+/* Button elements */
+button.ui-dialog-btn,
+.ui-dialog-controlgroup-controls button.ui-dialog-btn-icon-notext {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 100%;
+}
+button.ui-dialog-btn-inline,
+.ui-dialog-header button.ui-dialog-btn,
+.ui-dialog-footer button.ui-dialog-btn {
+	width: auto;
+}
+/* Firefox adds a 1px border in a button element. We negate this to make sure they have the same height as other buttons in controlgroups. */
+button.ui-dialog-btn::-moz-focus-inner {
+	border: 0;
+}
+button.ui-dialog-btn-icon-notext,
+.ui-dialog-controlgroup-horizontal .ui-dialog-controlgroup-controls button.ui-dialog-btn {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	width: 1.75em;
+}
+
+
+
+
+@media (min-width: 28em) {
+	.ui-dialog-field-contain,
+	.ui-dialog-mobile fieldset.ui-dialog-field-contain {
+		padding: 0;
+		margin: 1em 0;
+		border-bottom-width: 0;
+	}
+	.ui-dialog-field-contain:before,
+	.ui-dialog-field-contain:after {
+		content: "";
+		display: table;
+	}
+	.ui-dialog-field-contain:after {
+		clear: both;
+	}
+	.ui-dialog-field-contain > label,
+	.ui-dialog-field-contain .ui-dialog-controlgroup-label,
+	.ui-dialog-field-contain > .ui-dialog-rangeslider > label {
+		float: left;
+		width: 20%;
+		margin: .5em 2% 0 0;
+	}
+	.ui-dialog-popup .ui-dialog-field-contain > label,
+	.ui-dialog-popup .ui-dialog-field-contain .ui-dialog-controlgroup-label,
+	.ui-dialog-popup .ui-dialog-field-contain > .ui-dialog-rangeslider > label {
+		float: none;
+		width: auto;
+		margin: 0 0 .4em;
+	}
+	.ui-dialog-field-contain > label ~ [class*="ui-dialog-"],
+	.ui-dialog-field-contain .ui-dialog-controlgroup-controls {
+		float: left;
+		width: 78%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	/* ui-dialog-hide-label deprecated in 1.4. TODO: Remove in 1.5 */
+	.ui-dialog-hide-label > label ~ [class*="ui-dialog-"],
+	.ui-dialog-hide-label .ui-dialog-controlgroup-controls,
+	.ui-dialog-popup .ui-dialog-field-contain > label ~ [class*="ui-dialog-"],
+	.ui-dialog-popup .ui-dialog-field-contain .ui-dialog-controlgroup-controls {
+		float: none;
+		width: 100%;
+	}
+	.ui-dialog-field-contain > label ~ .ui-dialog-btn-inline {
+		width: auto;
+		margin-right: .625em;
+	}
+	.ui-dialog-field-contain > label ~ .ui-dialog-btn-inline.ui-dialog-btn-icon-notext {
+		width: 1.75em;
+	}
+}
+
+
+
+
+
+
+
+
+
+/* No margin in grids for 100% width button elements until we can use max-width: fill-available; */
+[class*="ui-dialog-block-"] > button.ui-dialog-btn {
+	margin-right: 0;
+	margin-left: 0;
+}
+[class*="ui-dialog-block-"] > .ui-dialog-btn,
+[class*="ui-dialog-block-"] > .ui-dialog-select,
+[class*="ui-dialog-block-"] > .ui-dialog-checkbox,
+[class*="ui-dialog-block-"] > .ui-dialog-radio,
+[class*="ui-dialog-block-"] > button.ui-dialog-btn-inline,
+[class*="ui-dialog-block-"] > button.ui-dialog-btn-icon-notext,
+.ui-dialog-header [class*="ui-dialog-block-"] > button.ui-dialog-btn,
+.ui-dialog-footer [class*="ui-dialog-block-"] > button.ui-dialog-btn {
+	margin-right: .3125em;
+	margin-left: .3125em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ui-dialog-header-fixed .ui-dialog-btn-left,
+.ui-dialog-header-fixed .ui-dialog-btn-right {
+	margin-top: 1px;
+}
+.ui-dialog-header-fixed.ui-dialog-fixed-hidden .ui-dialog-btn-left,
+.ui-dialog-header-fixed.ui-dialog-fixed-hidden .ui-dialog-btn-right {
+	margin-top: 0;
+}
+
+
+
+
+
+.ui-dialog-header-fixed .ui-dialog-btn,
+.ui-dialog-footer-fixed .ui-dialog-btn { 
+	z-index: 10;
+}
+
+
+
+
+
+.ui-dialog-navbar li .ui-dialog-btn {
+	font-size: 12.5px;
+	display: block;
+	margin: 0;
+	border-right-width: 0;
+}
+.ui-dialog-header .ui-dialog-navbar li button.ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-navbar li button.ui-dialog-btn {
+	margin: 0;
+	width: 100%;
+}
+.ui-dialog-navbar .ui-dialog-btn:focus {
+	z-index: 1;
+}
+/* fixes gaps caused by subpixel problem */
+.ui-dialog-navbar li:last-child .ui-dialog-btn {
+	margin-right: -4px;
+}
+.ui-dialog-navbar li:last-child .ui-dialog-btn:after {
+	margin-right: 4px;
+}
+.ui-dialog-content .ui-dialog-navbar li:last-child .ui-dialog-btn,
+.ui-dialog-content .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-b .ui-dialog-btn {
+	border-right-width: 1px;
+	margin-right: 0;
+}
+.ui-dialog-content .ui-dialog-navbar li:last-child .ui-dialog-btn:after,
+.ui-dialog-content .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-b .ui-dialog-btn:after {
+	margin-right: 0;
+}
+.ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:last-child .ui-dialog-btn {
+	border-right-width: 1px;
+	margin-right: -1px;
+}
+.ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:last-child .ui-dialog-btn:after {
+	margin-right: 1px;
+}
+.ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-btn {
+	border-top-width: 0;
+}
+.ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child .ui-dialog-btn,
+.ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child + .ui-dialog-block-b .ui-dialog-btn {
+	border-top-width: 1px;
+}
+.ui-dialog-header .ui-dialog-navbar .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-navbar .ui-dialog-btn {
+	border-top-width: 0;
+	border-bottom-width: 0;
+}
+.ui-dialog-header .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child .ui-dialog-btn,
+.ui-dialog-header .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child + .ui-dialog-block-b .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child + .ui-dialog-block-b .ui-dialog-btn {
+	border-top-width: 0;
+}
+.ui-dialog-header .ui-dialog-title ~ .ui-dialog-navbar .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-title ~ .ui-dialog-navbar .ui-dialog-btn,
+.ui-dialog-header .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-btn,
+.ui-dialog-header .ui-dialog-title ~ .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-title ~ .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child .ui-dialog-btn,
+.ui-dialog-header .ui-dialog-title ~ .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child + .ui-dialog-block-b .ui-dialog-btn,
+.ui-dialog-footer .ui-dialog-title ~ .ui-dialog-navbar .ui-dialog-grid-duo .ui-dialog-block-a:first-child + .ui-dialog-block-b .ui-dialog-btn {
+	border-top-width: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Class ui-dialog-btn-corner-all deprecated in 1.4 */
+.ui-dialog-corner-all {
+	-webkit-border-radius: 				.3125em /*{global-radii-blocks}*/;
+	border-radius: 						.3125em /*{global-radii-blocks}*/;
+}
+
+
+
+
+/* Corner styling for dialogs and popups */
+.ui-dialog-corner-all > .ui-dialog-header:first-child,
+.ui-dialog-corner-all > .ui-dialog-content:first-child,
+.ui-dialog-corner-all > .ui-dialog-footer:first-child {
+	-webkit-border-top-left-radius: inherit;
+	border-top-left-radius: inherit;
+	-webkit-border-top-right-radius: inherit;
+	border-top-right-radius: inherit;
+}
+.ui-dialog-corner-all > .ui-dialog-header:last-child,
+.ui-dialog-corner-all > .ui-dialog-content:last-child,
+.ui-dialog-corner-all > .ui-dialog-footer:last-child {
+	-webkit-border-bottom-left-radius: inherit;
+	border-bottom-left-radius: inherit;
+	-webkit-border-bottom-right-radius: inherit;
+	border-bottom-right-radius: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ui-dialog-btn-inline {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: .625em;
+}
+
+
+
+button.ui-dialog-btn-inline,
+.ui-dialog-header button.ui-dialog-btn,
+.ui-dialog-footer button.ui-dialog-btn {
+	width: auto;
+}
+
+
+
+@media (min-width: 28em) {
+	.ui-dialog-field-contain,
+	.ui-dialog-mobile fieldset.ui-dialog-field-contain {
+		padding: 0;
+		margin: 1em 0;
+		border-bottom-width: 0;
+	}
+	.ui-dialog-field-contain:before,
+	.ui-dialog-field-contain:after {
+		content: "";
+		display: table;
+	}
+	.ui-dialog-field-contain:after {
+		clear: both;
+	}
+	.ui-dialog-field-contain > label,
+	.ui-dialog-field-contain .ui-dialog-controlgroup-label,
+	.ui-dialog-field-contain > .ui-dialog-rangeslider > label {
+		float: left;
+		width: 20%;
+		margin: .5em 2% 0 0;
+	}
+	.ui-dialog-popup .ui-dialog-field-contain > label,
+	.ui-dialog-popup .ui-dialog-field-contain .ui-dialog-controlgroup-label,
+	.ui-dialog-popup .ui-dialog-field-contain > .ui-dialog-rangeslider > label {
+		float: none;
+		width: auto;
+		margin: 0 0 .4em;
+	}
+	.ui-dialog-field-contain > label ~ [class*="ui-dialog-"],
+	.ui-dialog-field-contain .ui-dialog-controlgroup-controls {
+		float: left;
+		width: 78%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	/* ui-dialog-hide-label deprecated in 1.4. TODO: Remove in 1.5 */
+	.ui-dialog-hide-label > label ~ [class*="ui-dialog-"],
+	.ui-dialog-hide-label .ui-dialog-controlgroup-controls,
+	.ui-dialog-popup .ui-dialog-field-contain > label ~ [class*="ui-dialog-"],
+	.ui-dialog-popup .ui-dialog-field-contain .ui-dialog-controlgroup-controls {
+		float: none;
+		width: 100%;
+	}
+	.ui-dialog-field-contain > label ~ .ui-dialog-btn-inline {
+		width: auto;
+		margin-right: .625em;
+	}
+	.ui-dialog-field-contain > label ~ .ui-dialog-btn-inline.ui-dialog-btn-icon-notext {
+		width: 1.75em;
+	}
+}
+
+
+
+
+.ui-dialog-dialog {
+	 background: none !important; /* this is to ensure that dialog theming does not apply (by default at least) on the page div */
+}
+.ui-dialog-dialog-contain {
+	width: 92.5%;
+	max-width: 500px;
+	margin: 10% auto 1em auto;
+	padding: 0;
+	position: relative;
+	top: -1em;
+}
+.ui-dialog-dialog-contain > .ui-dialog-header, 
+.ui-dialog-dialog-contain > .ui-dialog-content, 
+.ui-dialog-dialog-contain > .ui-dialog-footer { 
+	display: block;
+	position: relative; 
+	width: auto;
+	margin: 0;
+}
+.ui-dialog-dialog-contain > .ui-dialog-header {
+	overflow: hidden;
+	z-index: 10; 
+	padding: 0;
+	border-top-width: 0;
+}
+.ui-dialog-dialog-contain > .ui-dialog-footer {
+	z-index: 10; 
+	padding: 0 1em; 
+	border-bottom-width: 0;
+}
+
+
+/* We set the rules for the span as well to fix an issue on Chrome with text-overflow ellipsis for the button in combination with text-align center. */
+.ui-dialog-select .ui-dialog-btn > span:not(.ui-dialog-li-count) {
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden !important;
+	white-space: nowrap;
+}
+.ui-dialog-selectmenu.ui-dialog-popup {
+	min-width: 11em;
+}
+.ui-dialog-selectmenu .ui-dialog-dialog-contain {
+	overflow: hidden;
+}
+.ui-dialog-selectmenu .ui-dialog-header {
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+}
+.ui-dialog-selectmenu.ui-dialog-dialog .ui-dialog-header {
+	z-index: 1;
+	position: relative;
+}
+.ui-dialog-selectmenu.ui-dialog-popup .ui-dialog-header {
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+/* when no placeholder is defined in a multiple select, the header height doesn't even extend past the close button.  this shim's content in there */
+.ui-dialog-selectmenu.ui-dialog-popup .ui-dialog-header h1:after {
+	content: '.';
+	visibility: hidden;
+}
+.ui-dialog-selectmenu .ui-dialog-header .ui-dialog-title {
+	margin: 0 2.875em;
+}
+.ui-dialog-selectmenu.ui-dialog-dialog .ui-dialog-content {
+	overflow: visible;
+	z-index: 1;
+}
+
+
+
+
+
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-webkit-keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-moz-keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+.fade.out {
+	opacity: 0;
+	-webkit-animation-duration: 125ms;
+	-webkit-animation-name: fadeout;
+	-moz-animation-duration: 125ms;
+	-moz-animation-name: fadeout;
+	animation-duration: 125ms;
+	animation-name: fadeout;
+}
+.fade.in {
+	opacity: 1;
+	-webkit-animation-duration: 225ms;
+	-webkit-animation-name: fadein;
+	-moz-animation-duration: 225ms;
+	-moz-animation-name: fadein;
+	animation-duration: 225ms;
+	animation-name: fadein;
+}
+.pop {
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+.pop.in {
+	-webkit-transform: scale(1);
+	-webkit-animation-name: popin;
+	-webkit-animation-duration: 350ms;
+	-moz-transform: scale(1);
+	-moz-animation-name: popin;
+	-moz-animation-duration: 350ms;
+	transform: scale(1);
+	animation-name: popin;
+	animation-duration: 350ms;
+    opacity: 1;
+}
+.pop.out {
+	-webkit-animation-name: fadeout;
+	-webkit-animation-duration: 100ms;
+	-moz-animation-name: fadeout;
+	-moz-animation-duration: 100ms;
+	animation-name: fadeout;
+	animation-duration: 100ms;
+	opacity: 0;
+}
+.pop.in.reverse {
+	-webkit-animation-name: fadein;
+	-moz-animation-name: fadein;
+	animation-name: fadein;
+}
+.pop.out.reverse {
+	-webkit-transform: scale(.8);
+	-webkit-animation-name: popout;
+	-moz-transform: scale(.8);
+	-moz-animation-name: popout;
+	transform: scale(.8);
+	animation-name: popout;
+}
+@-webkit-keyframes popin {
+    from {
+        -webkit-transform: scale(.8);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
+@-moz-keyframes popin {
+    from {
+        -moz-transform: scale(.8);
+        opacity: 0;
+    }
+    to {
+        -moz-transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes popin {
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes popout {
+    from {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: scale(.8);
+        opacity: 0;
+    }
+}
+@-moz-keyframes popout {
+    from {
+        -moz-transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        -moz-transform: scale(.8);
+        opacity: 0;
+    }
+}
+@keyframes popout {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(.8);
+        opacity: 0;
+    }
+}
+/* keyframes for slidein from sides */
+@-webkit-keyframes slideinfromright {
+    from { -webkit-transform: translate3d(100%,0,0); }
+    to { -webkit-transform: translate3d(0,0,0); }
+}
+@-moz-keyframes slideinfromright {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(0); }
+}
+@keyframes slideinfromright {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+@-webkit-keyframes slideinfromleft {
+    from { -webkit-transform: translate3d(-100%,0,0); }
+    to { -webkit-transform: translate3d(0,0,0); }
+}
+@-moz-keyframes slideinfromleft {
+    from { -moz-transform: translateX(-100%); }
+    to { -moz-transform: translateX(0); }
+}
+@keyframes slideinfromleft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+/* keyframes for slideout to sides */
+@-webkit-keyframes slideouttoleft {
+    from { -webkit-transform: translate3d(0,0,0); }
+    to { -webkit-transform: translate3d(-100%,0,0); }
+}
+@-moz-keyframes slideouttoleft {
+    from { -moz-transform: translateX(0); }
+    to { -moz-transform: translateX(-100%); }
+}
+@keyframes slideouttoleft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+@-webkit-keyframes slideouttoright {
+    from { -webkit-transform: translate3d(0,0,0); }
+    to { -webkit-transform: translate3d(100%,0,0); }
+}
+@-moz-keyframes slideouttoright {
+    from { -moz-transform: translateX(0); }
+    to { -moz-transform: translateX(100%); }
+}
+@keyframes slideouttoright {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+.slide.out, .slide.in {
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-duration: 350ms;
+	-moz-animation-timing-function: ease-out;
+	-moz-animation-duration: 350ms;
+	animation-timing-function: ease-out;
+	animation-duration: 350ms;
+}
+.slide.out {
+	-webkit-transform: translate3d(-100%,0,0);
+	-webkit-animation-name: slideouttoleft;
+	-moz-transform: translateX(-100%);
+	-moz-animation-name: slideouttoleft;
+	transform: translateX(-100%);
+	animation-name: slideouttoleft;
+}
+.slide.in {
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-animation-name: slideinfromright;
+	-moz-transform: translateX(0);
+	-moz-animation-name: slideinfromright;
+	transform: translateX(0);
+	animation-name: slideinfromright;
+}
+.slide.out.reverse {
+	-webkit-transform: translate3d(100%,0,0);
+	-webkit-animation-name: slideouttoright;
+	-moz-transform: translateX(100%);
+	-moz-animation-name: slideouttoright;
+	transform: translateX(100%);
+	animation-name: slideouttoright;
+}
+.slide.in.reverse {
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-animation-name: slideinfromleft;
+	-moz-transform: translateX(0);
+	-moz-animation-name: slideinfromleft;
+	transform: translateX(0);
+	animation-name: slideinfromleft;
+}
+.slidefade.out {
+	-webkit-transform: translateX(-100%);
+	-webkit-animation-name: slideouttoleft;
+	-webkit-animation-duration: 225ms;
+	-moz-transform: translateX(-100%);
+	-moz-animation-name: slideouttoleft;
+	-moz-animation-duration: 225ms;
+	transform: translateX(-100%);
+	animation-name: slideouttoleft;
+	animation-duration: 225ms;
+}
+.slidefade.in {
+	-webkit-transform: translateX(0);
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: 200ms;
+	-moz-transform: translateX(0);
+	-moz-animation-name: fadein;
+	-moz-animation-duration: 200ms;
+	transform: translateX(0);
+	animation-name: fadein;
+	animation-duration: 200ms;
+}
+.slidefade.out.reverse {
+	-webkit-transform: translateX(100%);
+	-webkit-animation-name: slideouttoright;
+	-webkit-animation-duration: 200ms;
+	-moz-transform: translateX(100%);
+	-moz-animation-name: slideouttoright;
+	-moz-animation-duration: 200ms;
+	transform: translateX(100%);
+	animation-name: slideouttoright;
+	animation-duration: 200ms;
+}
+.slidefade.in.reverse {
+	-webkit-transform: translateX(0);
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: 200ms;
+	-moz-transform: translateX(0);
+	-moz-animation-name: fadein;
+	-moz-animation-duration: 200ms;
+	transform: translateX(0);
+	animation-name: fadein;
+	animation-duration: 200ms;
+}
+/* slide down */
+.slidedown.out {
+	-webkit-animation-name: fadeout;
+	-webkit-animation-duration: 100ms;
+	-moz-animation-name: fadeout;
+	-moz-animation-duration: 100ms;
+	animation-name: fadeout;
+	animation-duration: 100ms;
+}
+.slidedown.in {
+	-webkit-transform: translateY(0);
+	-webkit-animation-name: slideinfromtop;
+	-webkit-animation-duration: 250ms;
+	-moz-transform: translateY(0);
+	-moz-animation-name: slideinfromtop;
+	-moz-animation-duration: 250ms;
+	transform: translateY(0);
+	animation-name: slideinfromtop;
+	animation-duration: 250ms;
+}
+.slidedown.in.reverse {
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: 150ms;
+	-moz-animation-name: fadein;
+	-moz-animation-duration: 150ms;
+	animation-name: fadein;
+	animation-duration: 150ms;
+}
+.slidedown.out.reverse {
+	-webkit-transform: translateY(-100%);
+	-webkit-animation-name: slideouttotop;
+	-webkit-animation-duration: 200ms;
+	-moz-transform: translateY(-100%);
+	-moz-animation-name: slideouttotop;
+	-moz-animation-duration: 200ms;
+	transform: translateY(-100%);
+	animation-name: slideouttotop;
+	animation-duration: 200ms;
+}
+@-webkit-keyframes slideinfromtop {
+    from { -webkit-transform: translateY(-100%); }
+    to { -webkit-transform: translateY(0); }
+}
+@-moz-keyframes slideinfromtop {
+    from { -moz-transform: translateY(-100%); }
+    to { -moz-transform: translateY(0); }
+}
+@keyframes slideinfromtop {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+@-webkit-keyframes slideouttotop {
+    from { -webkit-transform: translateY(0); }
+    to { -webkit-transform: translateY(-100%); }
+}
+@-moz-keyframes slideouttotop {
+    from { -moz-transform: translateY(0); }
+    to { -moz-transform: translateY(-100%); }
+}
+@keyframes slideouttotop {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+/* slide up */
+.slideup.out {
+	-webkit-animation-name: fadeout;
+	-webkit-animation-duration: 100ms;
+	-moz-animation-name: fadeout;
+	-moz-animation-duration: 100ms;
+	animation-name: fadeout;
+	animation-duration: 100ms;
+}
+.slideup.in {
+	-webkit-transform: translateY(0);
+	-webkit-animation-name: slideinfrombottom;
+	-webkit-animation-duration: 250ms;
+	-moz-transform: translateY(0);
+	-moz-animation-name: slideinfrombottom;
+	-moz-animation-duration: 250ms;
+	transform: translateY(0);
+	animation-name: slideinfrombottom;
+	animation-duration: 250ms;
+}
+.slideup.in.reverse {
+	-webkit-animation-name: fadein;
+	-webkit-animation-duration: 150ms;
+	-moz-animation-name: fadein;
+	-moz-animation-duration: 150ms;
+	animation-name: fadein;
+	animation-duration: 150ms;
+}
+.slideup.out.reverse {
+	-webkit-transform: translateY(100%);
+	-webkit-animation-name: slideouttobottom;
+	-webkit-animation-duration: 200ms;
+	-moz-transform: translateY(100%);
+	-moz-animation-name: slideouttobottom;
+	-moz-animation-duration: 200ms;
+	transform: translateY(100%);
+	animation-name: slideouttobottom;
+	animation-duration: 200ms;
+}
+@-webkit-keyframes slideinfrombottom {
+    from { -webkit-transform: translateY(100%); }
+    to { -webkit-transform: translateY(0); }
+}
+@-moz-keyframes slideinfrombottom {
+    from { -moz-transform: translateY(100%); }
+    to { -moz-transform: translateY(0); }
+}
+@keyframes slideinfrombottom {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+@-webkit-keyframes slideouttobottom {
+    from { -webkit-transform: translateY(0); }
+    to { -webkit-transform: translateY(100%); }
+}
+@-moz-keyframes slideouttobottom {
+    from { -moz-transform: translateY(0); }
+    to { -moz-transform: translateY(100%); }
+}
+@keyframes slideouttobottom {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); }
+}
+/* The properties in this rule are only necessary for the 'flip' transition.
+ * We need specify the perspective to create a projection matrix. This will add
+ * some depth as the element flips. The depth number represents the distance of
+ * the viewer from the z-plane. According to the CSS3 spec, 1000 is a moderate
+ * value.
+ */
+.viewport-flip {
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	perspective: 1000;
+	position: absolute;
+}
+.flip {
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateX(0); /* Needed to work around an iOS 3.1 bug that causes listview thumbs to disappear when -webkit-visibility:hidden is used. */
+	-moz-backface-visibility: hidden;
+	-moz-transform: translateX(0);
+	backface-visibility: hidden;
+	transform: translateX(0);
+}
+.flip.out {
+	-webkit-transform: rotateY(-90deg) scale(.9);
+	-webkit-animation-name: flipouttoleft;
+	-webkit-animation-duration: 175ms;
+	-moz-transform: rotateY(-90deg) scale(.9);
+	-moz-animation-name: flipouttoleft;
+	-moz-animation-duration: 175ms;
+	transform: rotateY(-90deg) scale(.9);
+	animation-name: flipouttoleft;
+	animation-duration: 175ms;
+}
+.flip.in {
+	-webkit-animation-name: flipintoright;
+	-webkit-animation-duration: 225ms;
+	-moz-animation-name: flipintoright;
+	-moz-animation-duration: 225ms;
+	animation-name: flipintoright;
+	animation-duration: 225ms;
+}
+.flip.out.reverse {
+	-webkit-transform: rotateY(90deg) scale(.9);
+	-webkit-animation-name: flipouttoright;
+	-moz-transform: rotateY(90deg) scale(.9);
+	-moz-animation-name: flipouttoright;
+	transform: rotateY(90deg) scale(.9);
+	animation-name: flipouttoright;
+}
+.flip.in.reverse {
+	-webkit-animation-name: flipintoleft;
+	-moz-animation-name: flipintoleft;
+	animation-name: flipintoleft;
+}
+@-webkit-keyframes flipouttoleft {
+    from { -webkit-transform: rotateY(0); }
+    to { -webkit-transform: rotateY(-90deg) scale(.9); }
+}
+@-moz-keyframes flipouttoleft {
+    from { -moz-transform: rotateY(0); }
+    to { -moz-transform: rotateY(-90deg) scale(.9); }
+}
+@keyframes flipouttoleft {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(-90deg) scale(.9); }
+}
+@-webkit-keyframes flipouttoright {
+    from { -webkit-transform: rotateY(0) ; }
+    to { -webkit-transform: rotateY(90deg) scale(.9); }
+}
+@-moz-keyframes flipouttoright {
+    from { -moz-transform: rotateY(0); }
+    to { -moz-transform: rotateY(90deg) scale(.9); }
+}
+@keyframes flipouttoright {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(90deg) scale(.9); }
+}
+@-webkit-keyframes flipintoleft {
+    from { -webkit-transform: rotateY(-90deg) scale(.9); }
+    to { -webkit-transform: rotateY(0); }
+}
+@-moz-keyframes flipintoleft {
+    from { -moz-transform: rotateY(-90deg) scale(.9); }
+    to { -moz-transform: rotateY(0); }
+}
+@keyframes flipintoleft {
+    from { transform: rotateY(-90deg) scale(.9); }
+    to { transform: rotateY(0); }
+}
+@-webkit-keyframes flipintoright {
+    from { -webkit-transform: rotateY(90deg) scale(.9); }
+    to { -webkit-transform: rotateY(0); }
+}
+@-moz-keyframes flipintoright {
+    from { -moz-transform: rotateY(90deg) scale(.9); }
+    to { -moz-transform: rotateY(0); }
+}
+@keyframes flipintoright {
+    from { transform: rotateY(90deg) scale(.9); }
+    to { transform: rotateY(0); }
+}
+/* The properties in this rule are only necessary for the 'flip' transition.
+ * We need specify the perspective to create a projection matrix. This will add
+ * some depth as the element flips. The depth number represents the distance of
+ * the viewer from the z-plane. According to the CSS3 spec, 1000 is a moderate
+ * value.
+ */
+.viewport-turn {
+	-webkit-perspective: 200px;
+	-moz-perspective: 200px;
+	-ms-perspective: 200px;
+	perspective: 200px;
+	position: absolute;
+}
+.turn {
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateX(0); /* Needed to work around an iOS 3.1 bug that causes listview thumbs to disappear when -webkit-visibility:hidden is used. */
+	-webkit-transform-origin: 0;
+	
+	-moz-backface-visibility: hidden;
+	-moz-transform: translateX(0);
+	-moz-transform-origin: 0;
+	
+	backface-visibility :hidden;
+	transform: translateX(0);
+	transform-origin: 0;
+}
+.turn.out {
+	-webkit-transform: rotateY(-90deg) scale(.9);
+	-webkit-animation-name: flipouttoleft;
+	-webkit-animation-duration: 125ms;
+	-moz-transform: rotateY(-90deg) scale(.9);
+	-moz-animation-name: flipouttoleft;
+	-moz-animation-duration: 125ms;
+	transform: rotateY(-90deg) scale(.9);
+	animation-name: flipouttoleft;
+	animation-duration: 125ms;
+}
+.turn.in {
+	-webkit-animation-name: flipintoright;
+	-webkit-animation-duration: 250ms;
+	-moz-animation-name: flipintoright;
+	-moz-animation-duration: 250ms;
+	animation-name: flipintoright;
+	animation-duration: 250ms;
+	
+}
+.turn.out.reverse {
+	-webkit-transform: rotateY(90deg) scale(.9);
+	-webkit-animation-name: flipouttoright;
+	-moz-transform: rotateY(90deg) scale(.9);
+	-moz-animation-name: flipouttoright;
+	transform: rotateY(90deg) scale(.9);
+	animation-name: flipouttoright;
+}
+.turn.in.reverse {
+	-webkit-animation-name: flipintoleft;
+	-moz-animation-name: flipintoleft;
+	animation-name: flipintoleft;
+}
+@-webkit-keyframes flipouttoleft {
+    from { -webkit-transform: rotateY(0); }
+    to { -webkit-transform: rotateY(-90deg) scale(.9); }
+}
+@-moz-keyframes flipouttoleft {
+    from { -moz-transform: rotateY(0); }
+    to { -moz-transform: rotateY(-90deg) scale(.9); }
+}
+@keyframes flipouttoleft {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(-90deg) scale(.9); }
+}
+@-webkit-keyframes flipouttoright {
+    from { -webkit-transform: rotateY(0) ; }
+    to { -webkit-transform: rotateY(90deg) scale(.9); }
+}
+@-moz-keyframes flipouttoright {
+    from { -moz-transform: rotateY(0); }
+    to { -moz-transform: rotateY(90deg) scale(.9); }
+}
+@keyframes flipouttoright {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(90deg) scale(.9); }
+}
+@-webkit-keyframes flipintoleft {
+    from { -webkit-transform: rotateY(-90deg) scale(.9); }
+    to { -webkit-transform: rotateY(0); }
+}
+@-moz-keyframes flipintoleft {
+    from { -moz-transform: rotateY(-90deg) scale(.9); }
+    to { -moz-transform: rotateY(0); }
+}
+@keyframes flipintoleft {
+    from { transform: rotateY(-90deg) scale(.9); }
+    to { transform: rotateY(0); }
+}
+@-webkit-keyframes flipintoright {
+    from { -webkit-transform: rotateY(90deg) scale(.9); }
+    to { -webkit-transform: rotateY(0); }
+}
+@-moz-keyframes flipintoright {
+    from { -moz-transform: rotateY(90deg) scale(.9); }
+    to { -moz-transform: rotateY(0); }
+}
+@keyframes flipintoright {
+    from { transform: rotateY(90deg) scale(.9); }
+    to { transform: rotateY(0); }
+}
+/* flow transition */
+.flow {
+	-webkit-transform-origin: 50% 30%;
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,.4);
+	-moz-transform-origin: 50% 30%;	
+	-moz-box-shadow: 0 0 20px rgba(0,0,0,.4);
+	transform-origin: 50% 30%;	
+	box-shadow: 0 0 20px rgba(0,0,0,.4);
+}
+.ui-dialog-dialog.flow {
+	-webkit-transform-origin: none;
+	-webkit-box-shadow: none;
+	-moz-transform-origin: none;	
+	-moz-box-shadow: none;
+	transform-origin: none;	
+	box-shadow: none;
+}
+.flow.out {
+	-webkit-transform: translateX(-100%) scale(.7);
+	-webkit-animation-name: flowouttoleft;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-duration: 350ms;
+	-moz-transform: translateX(-100%) scale(.7);
+	-moz-animation-name: flowouttoleft;
+	-moz-animation-timing-function: ease;
+	-moz-animation-duration: 350ms;
+	transform: translateX(-100%) scale(.7);
+	animation-name: flowouttoleft;
+	animation-timing-function: ease;
+	animation-duration: 350ms;
+}
+.flow.in {
+	-webkit-transform: translateX(0) scale(1);
+	-webkit-animation-name: flowinfromright;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-duration: 350ms;
+	-moz-transform: translateX(0) scale(1);
+	-moz-animation-name: flowinfromright;
+	-moz-animation-timing-function: ease;
+	-moz-animation-duration: 350ms;
+	transform: translateX(0) scale(1);
+	animation-name: flowinfromright;
+	animation-timing-function: ease;
+	animation-duration: 350ms;
+}
+.flow.out.reverse {
+	-webkit-transform: translateX(100%);
+	-webkit-animation-name: flowouttoright;
+	-moz-transform: translateX(100%);
+	-moz-animation-name: flowouttoright;
+	transform: translateX(100%);
+	animation-name: flowouttoright;
+}
+.flow.in.reverse {
+	-webkit-animation-name: flowinfromleft;
+	-moz-animation-name: flowinfromleft;
+	animation-name: flowinfromleft;
+}
+@-webkit-keyframes flowouttoleft {
+    0% { -webkit-transform: translateX(0) scale(1); }
+	60%, 70% { -webkit-transform: translateX(0) scale(.7); }
+    100% { -webkit-transform: translateX(-100%) scale(.7); }
+}
+@-moz-keyframes flowouttoleft {
+    0% { -moz-transform: translateX(0) scale(1); }
+	60%, 70% { -moz-transform: translateX(0) scale(.7); }
+    100% { -moz-transform:  translateX(-100%) scale(.7); }
+}
+@keyframes flowouttoleft {
+    0% { transform: translateX(0) scale(1); }
+	60%, 70% { transform: translateX(0) scale(.7); }
+    100% { transform:  translateX(-100%) scale(.7); }
+}
+@-webkit-keyframes flowouttoright {
+    0% { -webkit-transform: translateX(0) scale(1); }
+	60%, 70% { -webkit-transform: translateX(0) scale(.7); }
+    100% { -webkit-transform:  translateX(100%) scale(.7); }
+}
+@-moz-keyframes flowouttoright {
+    0% { -moz-transform: translateX(0) scale(1); }
+	60%, 70% { -moz-transform: translateX(0) scale(.7); }
+    100% { -moz-transform:  translateX(100%) scale(.7); }
+}
+@keyframes flowouttoright {
+    0% { transform: translateX(0) scale(1); }
+	60%, 70% { transform: translateX(0) scale(.7); }
+    100% { transform:  translateX(100%) scale(.7); }
+}
+@-webkit-keyframes flowinfromleft {
+    0% { -webkit-transform: translateX(-100%) scale(.7); }
+	30%, 40% { -webkit-transform: translateX(0) scale(.7); }
+    100% { -webkit-transform: translateX(0) scale(1); }
+}
+@-moz-keyframes flowinfromleft {
+    0% { -moz-transform: translateX(-100%) scale(.7); }
+	30%, 40% { -moz-transform: translateX(0) scale(.7); }
+    100% { -moz-transform: translateX(0) scale(1); }
+}
+@keyframes flowinfromleft {
+    0% { transform: translateX(-100%) scale(.7); }
+	30%, 40% { transform: translateX(0) scale(.7); }
+    100% { transform: translateX(0) scale(1); }
+}
+@-webkit-keyframes flowinfromright {
+    0% { -webkit-transform: translateX(100%) scale(.7); }
+	30%, 40% { -webkit-transform: translateX(0) scale(.7); }
+    100% { -webkit-transform: translateX(0) scale(1); }
+}
+@-moz-keyframes flowinfromright {
+    0% { -moz-transform: translateX(100%) scale(.7); }
+	30%, 40% { -moz-transform: translateX(0) scale(.7); }
+    100% { -moz-transform: translateX(0) scale(1); }
+}
+@keyframes flowinfromright {
+    0% { transform: translateX(100%) scale(.7); }
+	30%, 40% { transform: translateX(0) scale(.7); }
+    100% { transform: translateX(0) scale(1); }
+}

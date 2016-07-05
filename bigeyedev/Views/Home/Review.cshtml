@@ -1,10 +1,9 @@
-﻿@using bigeyedev.Models
+﻿﻿@using bigeyedev.Models
 @model Tuple<Contract, List<stockBindingModel>>
 @{
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     ViewBag.Title = "Review";
 }
-
 <div class="container" id="cont">
     <p>ชื่อ-สกุล : @Model.Item1.address.name</p>
     <p>เบอร์โทร : @Model.Item1.address.mobile_shop</p>
@@ -84,13 +83,11 @@
             </tr>
         }
     </table>
-
     @using (Html.BeginForm("Result", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         <div id="option">
             <p>ในกรณีที่มีสินค้าบางตัวหมด?</p>
-
             <input type="radio" name="replace" />ให้ผมจัดรุ่นใกล้เคียงที่สุด Style เดียวกัน (ได้รับการบริการที่เร็วกว่า)
 
 
@@ -102,10 +99,8 @@
 
             <input type="radio" name="replace" />ข้าม และวงแจ้งรุ่นที่หมด ไปทาง LINE
             <br />
-
             <input class="form-control" type="tel" id="txtFix" width="3" disabled />
             <p>ลายเดียวกัน+โรงงานเดียวกัน แต่คนละยี่ห้อ แทนได้ไหม?</p>
-
 
             <input type="radio" name="replace_fac" />แทนได้
 

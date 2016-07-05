@@ -54,8 +54,30 @@ a:active {
 }
 
 
+
+/*.container_top {
+
+        width: 1000px;
+        border: 1px solid green;
+
+}
+
+
+.container {
+
+        width: 1000px;
+        border: 1px solid blue;
+
+}*/
+
+
+
+
+
+
+
 /* div รวม ของ ตัวแสดงผล ยี่ห้อต่างๆ */
-.main_container {
+.main_tab_container {
 
     background-color: white;
     /*top: 0px;
@@ -132,12 +154,24 @@ color : #333;
                          margin-top: 0px;                          
 
                          margin-left:73%;
-                         margin-right:0%; 
+                         /*margin-right:0%;*/  /*ไม่ได้ผล*/
+                         /*ใช้ right มาช่วย*/
+                         right: 1%;
+}
+
+
+/*ipad เป็นต้นไป ถึง PC*/
+@media only screen and (min-width: 993px)      {
+    .tom-top-right {
+        /*margin-right:0%;*/ /*ไม่ได้ผล*/
+        /*ใช้ right มาช่วย*/
+        right: 20%;
+    }
 }
 
 
 
-.tom-top-right2 {
+.tom-top-lang {
 
         border: 0px solid blue;
 

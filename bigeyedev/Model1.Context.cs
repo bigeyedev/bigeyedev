@@ -34,5 +34,6 @@ namespace bigeyedev
         public virtual DbSet<bigeyedev_order_fashion_item> bigeyedev_order_fashion_item { get; set; }
         public virtual DbSet<bigeyedev_shop> bigeyedev_shop { get; set; }
         public virtual DbSet<product> product { get; set; }
+        public virtual DbSet<bigeyedev_brand> bigeyedev_brand { get; set; }
     }
 }

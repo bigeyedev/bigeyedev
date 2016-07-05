@@ -1,7 +1,5 @@
-﻿@using bigeyedev.Models
-@model IList<stockBindingModel>
-
-
+﻿﻿@using bigeyedev.Models
+@model Tuple<List<stockBindingModel>, List<bigeyedev_brand>>
 @{
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     //boy
@@ -21,21 +19,104 @@
     }
 }
 
-
-
-
-    @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#LoginModal">Open Modal</button>
-    @Html.Partial("_Login")*@
-
-
-
-<form action="Fashion_Select" method="post" id="form-validation">
+@using (Html.BeginForm("Fashion_Select", "Home", FormMethod.Post, new { role = "form", id = "form-validation" }))
+{
+    int i = 0;
     @Html.AntiForgeryToken()
-
-
-    <div class="main_container">
-
+    <div class="main_tab_container">
         <div class="tabset1">
+            @foreach (var item in Model.Item2)
+            {
+                int minStock = 10;
+                var modelItem = Model.Item1.Where(m => m.brand.Contains(item.brand)).ToList();
+                <a name=""></a>
+                <br />
+                <img src="@item.logo_url" alt="@item.brand" title="@item.brand" height="80" /><p></p>
+                <table border="1" bordercolor="#cccccc" class="test2">
+                    @for (var ii = 0; ii < modelItem.Count; ii++)
+                    {
+                        <tr>
+                            <input type="hidden" value="@modelItem[ii].id" name="[@i].id" />
+                            <input type="hidden" value="@modelItem[ii].brand" name="[@i].brand" />
+                            <input type="hidden" value="@modelItem[ii].model" name="[@i].model" />
+                            <td width="150" bgcolor="@item.fashion_bgcolor">
+                                <a href="http://www.sugar-eye.net/@modelItem[ii].imageUrl.Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@modelItem[ii].model - @item.brand - @modelItem[ii].near">
+                                    &nbsp;@modelItem[ii].model
+                                </a>
+                            </td>
+                            <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
+                                @if (modelItem[ii].Black > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Black" } });
+                                }
+                                @if (modelItem[ii].Choco > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Choco" } });
+                                }
+                                @if (modelItem[ii].Gray > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gray" } });
+                                }
+                                @if (modelItem[ii].Brown > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Brown" } });
+                                }
+                                @if (modelItem[ii].Blue > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Blue" } });
+                                }
+                                @if (modelItem[ii].Green > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Green" } });
+                                }
+                                @if (modelItem[ii].Violet > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Violet" } });
+                                }
+                                @if (modelItem[ii].Pink > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" }, Name = "[" + i + "].Pink" });
+                                }
+                                @if (modelItem[ii].Silver > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Silver" } });
+                                }
+                                @if (modelItem[ii].Gold > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gold" } });
+                                }
+                                @if (modelItem[ii].Sky > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Sky" } });
+                                }
+                                @if (modelItem[ii].Red > minStock)
+                                {
+                                    @Html.EditorFor(m => modelItem[ii].Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Red" } });
+                                }
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </table>
+            }
+        </div>
+    </div>
+
+    <div class="box-100 fl text-right">
+        <input type="hidden" name="sighted" value="">
+        <button type="submit" value="submit" class="btn-pay"></button>
+        @*<input type="submit" value="@Resources.Resource.main_btn_order_to_cart" class="btn btn-default" id="btnsub" />*@
+    </div>
+}
+
+
+
+
+@*<form action="Fashion_Select" method="post" id="form-validation">
+    @Html.AntiForgeryToken()
+    <div class="main_tab_container">
+        <div class="tabset1">
+
             <div data-pws-tab="tab1" data-pws-tab-name="@Resources.Resource.main_tab_dueba">
                 @{
                     int minStock = 10;
@@ -82,13 +163,10 @@
                             Brand_Logo = "http://www.sugar-eye.net/pic/logo_dreamcolor1.gif";
                             Brand_Bg = "#f2dbfb";
 
-        @:</div> <!--ปิด tab1-->
-        @:<div data-pws-tab="tab2" data-pws-tab-name="@Resources.Resource.main_tab_dream">
-
-
-                        }
-
-
+                            @:
+                        </div> <!--ปิด tab1-->
+                            @:<div data-pws-tab="tab2" data-pws-tab-name="@Resources.Resource.main_tab_dream">
+            }
                         else if (LoopBrand == 6)
                         {
                             StrBrand = "Kitty Kawaii";
@@ -96,13 +174,10 @@
                             Brand_Logo = "http://www.sugar-eye.net/pic/logo_kitty.gif";
                             Brand_Bg = "#fed5ef";
 
-        @:</div> <!--ปิด tab2-->
-        @:<div data-pws-tab="tab3" data-pws-tab-name="@Resources.Resource.main_tab_vassen">
-
-
-                        }
-
-
+                            @:
+                        </div> <!--ปิด tab2-->
+                            @:<div data-pws-tab="tab3" data-pws-tab-name="@Resources.Resource.main_tab_vassen">
+            }
                         else if (LoopBrand == 7)
                         {
                             StrBrand = "Pretty Lens";
@@ -119,104 +194,105 @@
                         }
                         <a name="@ABrand"></a>
                         <br />
-                            <img src="@Brand_Logo" alt="@StrBrand" title="@StrBrand" height="80" /><p></p>
-                            <table border="1" bordercolor="#cccccc" class="test2">
-                                @for (var ii = 0; ii < Model.Count; ii++)
+                        <img src="@Brand_Logo" alt="@StrBrand" title="@StrBrand" height="80" /><p></p>
+                        <table border="1" bordercolor="#cccccc" class="test2">
+                            @for (var ii = 0; ii < Model.Count; ii++)
+                            {
+                                if (Model[ii].brand.Contains(StrBrand))
                                 {
-                                    if (Model[ii].brand.Contains(StrBrand))
-                                    {
-                                        <tr>
-                                            <input type="hidden" value="@Model[ii].id" name="[@ii].id" />
-                                            <input type="hidden" value="@Model[ii].brand" name="[@ii].brand" />
-                                            <input type="hidden" value="@Model[ii].model" name="[@ii].model" />
-                                            <td width="150" bgcolor="@Brand_Bg">
-                                                <a href="http://www.sugar-eye.net/@Model[ii].imageUrl.Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@Model[ii].model - @ABrand - @Model[ii].near">
-                                                    &nbsp;@Model[ii].model
-                                                </a>
-                                            </td>
-                                            <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
-                                                @if (Model[ii].Black > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Choco > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Gray > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Brown > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Blue > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Green > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Violet > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Pink > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Silver > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
+                                    <tr>
+                                        <input type="hidden" value="@Model[ii].id" name="[@ii].id" />
+                                        <input type="hidden" value="@Model[ii].brand" name="[@ii].brand" />
+                                        <input type="hidden" value="@Model[ii].model" name="[@ii].model" />
+                                        <td width="150" bgcolor="@Brand_Bg">
+                                            <a href="http://www.sugar-eye.net/@Model[ii].imageUrl.Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@Model[ii].model - @ABrand - @Model[ii].near">
+                                                &nbsp;@Model[ii].model
+                                            </a>
+                                        </td>
+                                        <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
+                                            @if (Model[ii].Black > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Choco > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Gray > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Brown > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Blue > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Green > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Violet > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Pink > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Silver > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
 
-                                                @if (Model[ii].Gold > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                                @if (Model[ii].Sky > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
+                                            @if (Model[ii].Gold > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                            @if (Model[ii].Sky > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
 
-                                                @if (Model[ii].Red > minStock)
-                                                {
-                                                    @Html.EditorFor(m => m[ii].Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress="return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
-                                                }
-                                            </td>
-                                        </tr>
-                                    }
+                                            @if (Model[ii].Red > minStock)
+                                            {
+                                                @Html.EditorFor(m => m[ii].Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" } });
+                                            }
+                                        </td>
+                                    </tr>
                                 }
-                            </table>
+                            }
+                        </table>
                     } //End For
                 }
             </div><!-- ปิด tab3 -->
         </div><!-- tabset1 -->
         <br /><br />
-    </div><!--main_container-->
+    </div><!--main_container-->*@
+
+@*<div class="box-100 fl text-right">
+    @*<input type="hidden" name="sighted" value="">
+    <button type="submit" value="submit" class="btn-pay"></button>*@
+@*<input type="submit" value="@Resources.Resource.main_btn_order_to_cart" class="btn btn-default" id="btnsub" />
+    </div>*@
+
+@*</form>*@
+<!-- boy (ไม่ต้อง) -->
+@*@Scripts.Render("~/bundles/bootstrap")*@
+
+@*ยังไม่ต้องลบ (isNumberKey(evt) แต่ว่าตอนนี้ใช้ของ doodee อยู่)
+    @section Scripts
+    {
+        <script type="text/javascript">
+            function isNumberKey(evt)
+            {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+                return true;
+            }
+        </script>*@
 
 
-    <div class="box-100 fl text-right">
-        @*<input type="hidden" name="sighted" value="">
-            <button type="submit" value="submit" class="btn-pay"></button>*@
-        <input type="submit" value="@Resources.Resource.main_btn_order_to_cart" class="btn btn-default" id="btnsub" />
-    </div>
-
-
-</form>
-@Scripts.Render("~/bundles/bootstrap")  
-
-@section Scripts
-{
-    <script type="text/javascript">
-        function isNumberKey(evt)
-        {
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
-            return true;
-        }
-    </script>
-}

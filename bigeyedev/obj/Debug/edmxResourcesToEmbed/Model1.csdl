@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sugareyeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="sugareyeEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="bigeyedev_free" EntityType="sugareyeModel.bigeyedev_free" />
-    <EntitySet Name="bigeyedev_logic" EntityType="sugareyeModel.bigeyedev_logic" />
-    <EntitySet Name="bigeyedev_logic_address" EntityType="sugareyeModel.bigeyedev_logic_address" />
-    <EntitySet Name="bigeyedev_member" EntityType="sugareyeModel.bigeyedev_member" />
-    <EntitySet Name="bigeyedev_member_address" EntityType="sugareyeModel.bigeyedev_member_address" />
-    <EntitySet Name="bigeyedev_order" EntityType="sugareyeModel.bigeyedev_order" />
-    <EntitySet Name="bigeyedev_order_fashion_item" EntityType="sugareyeModel.bigeyedev_order_fashion_item" />
-    <EntitySet Name="bigeyedev_shop" EntityType="sugareyeModel.bigeyedev_shop" />
-    <EntitySet Name="product" EntityType="sugareyeModel.product" />
-  </EntityContainer>
   <EntityType Name="bigeyedev_free">
     <Key>
       <PropertyRef Name="id" />
@@ -60,12 +49,12 @@
   </EntityType>
   <EntityType Name="bigeyedev_member">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="member_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="member_id" Type="Int32" />
+    <Property Name="id" Type="Int32" />
+    <Property Name="member_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <Property Name="year" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="mobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="line_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -79,14 +68,14 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="member_id" Type="Int32" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="address_order" Type="Int32" />
     <Property Name="shop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="sub_district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="zip" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="mobile_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="mobile2_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -481,5 +470,29 @@
     <Property Name="pink_950" Type="Int32" />
     <Property Name="pink_1000" Type="Int32" />
     <Property Name="choco_50" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="sugareyeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bigeyedev_free" EntityType="Self.bigeyedev_free" />
+    <EntitySet Name="bigeyedev_logic" EntityType="Self.bigeyedev_logic" />
+    <EntitySet Name="bigeyedev_logic_address" EntityType="Self.bigeyedev_logic_address" />
+    <EntitySet Name="bigeyedev_member" EntityType="Self.bigeyedev_member" />
+    <EntitySet Name="bigeyedev_member_address" EntityType="Self.bigeyedev_member_address" />
+    <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" />
+    <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" />
+    <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" />
+    <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="bigeyedev_brand" EntityType="sugareyeModel.bigeyedev_brand" />
+  </EntityContainer>
+  <EntityType Name="bigeyedev_brand">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="brand_id" Type="Int32" />
+    <Property Name="brand_group" Type="Int32" />
+    <Property Name="visible" Type="Int32" />
+    <Property Name="brand" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="logo_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fashion_bgcolor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

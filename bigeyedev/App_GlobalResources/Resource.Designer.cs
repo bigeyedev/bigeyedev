@@ -70,11 +70,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to en.
+        /// </summary>
+        internal static string html_lang {
+            get {
+                return ResourceManager.GetString("html_lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         internal static string lang {
             get {
                 return ResourceManager.GetString("lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        internal static string login_email {
+            get {
+                return ResourceManager.GetString("login_email", resourceCulture);
             }
         }
         
@@ -97,11 +115,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Line.
+        /// </summary>
+        internal static string login_line {
+            get {
+                return ResourceManager.GetString("login_line", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mobile.
         /// </summary>
         internal static string login_mobile {
             get {
                 return ResourceManager.GetString("login_mobile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string login_name {
+            get {
+                return ResourceManager.GetString("login_name", resourceCulture);
             }
         }
         
@@ -124,7 +160,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Years (ex. 1983).
+        ///   Looks up a localized string similar to Years                (ex. 1983).
         /// </summary>
         internal static string login_year {
             get {

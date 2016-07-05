@@ -1,20 +1,31 @@
-﻿@using bigeyedev.Models
+﻿﻿@using bigeyedev.Models
 @model  Contract
-
 @{
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     ViewBag.Title = "Address";
 }
 <div class="container" id="cont">
-
     <div id="newContract">
         @using (Html.BeginForm("Address", "Home", FormMethod.Post, new { role = "form" }))
         {
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.AntiForgeryToken()
+
+            // แสดงถ้ามีที่อยู่เคยบันทึกไว้อยู่แล้ว
+            if (Model.addressList.Count > 0)
+            {
+                foreach (var item in Model.addressList)
+                {
+                    <div>
+                        <input type="radio" name="addressRdo" value="@item.id" /> @item.name+" "+" "+@item.mobile_shop+@item.address+" "+@item.sub_district+" "+@item.district+" "+@item.province+" "+@item.zip
+                    </div>
+                }
+
+            }
+
             <div class="form-group">
                 <p>ชื่อ-สกุล</p>
-                @Html.EditorFor(m => m.address.name , new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.address.name, new { htmlAttributes = new { @class = "form-control" } })
             </div>
             <div class="form-group">
                 <p>เบอร์โทรศัพท์</p>

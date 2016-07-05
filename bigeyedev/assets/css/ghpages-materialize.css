@@ -787,9 +787,23 @@ nav ul a span.badge{position:static;margin-left:4px;line-height:0}
 
 }
 
-@media only screen and (min-width: 601px){.container{width:85%}
+
+/*mini ipad*/
+@media only screen and (min-width: 601px){.container{width:85%;}
 }
-@media only screen and (min-width: 993px){.container{width:70%}
+
+/*ipad เป็นต้นไป ถึง PC*/
+@media only screen and (min-width: 993px){.container{width:70%;}
+        
+                                          
+                                                                            
+    .page-title{padding-left: 20%; display: inline;}  /*ทำให้ระยะ ของ logo ดันไปทางขวาอีก ใน ipad*/
+    /*.tom-top-right { right: 20%;}*/  /*ไม่ได้ผล ต้องไปรับ หลังสุดใน Site.css*/
+}
+
+
+
+
 }
 .container .row{margin-left:-0.75rem;margin-right:-0.75rem}
 .section{padding-top:1rem;padding-bottom:1rem}
@@ -973,9 +987,9 @@ nav .button-collapse i{font-size:2.7rem;height:56px;line-height:56px}
 nav .brand-logo{position:absolute;color:#fff;display:inline-block;font-size:2.1rem;padding:0;white-space:nowrap}
 nav .brand-logo.center{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
 
-
+/*tommybigeye ไม่รู้ว่าเกี่ยวกับ logo ป่าว  ไม่เกี่ยว sure*/
 @media only screen and (max-width: 992px){nav .brand-logo{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
-nav .brand-logo.left,nav .brand-logo.right{padding:0;-webkit-transform:none;transform:none}
+nav .brand-logo.left,nav .brand-logo.right{-webkit-transform:none;transform:none}
 nav .brand-logo.left{left:0.5rem}
 nav .brand-logo.right{right:0.5rem;left:auto}
 }
@@ -1803,9 +1817,10 @@ a.button-collapse.top-nav i{font-size:32px}
 @media only screen and (max-width: 992px)  {a.button-collapse.top-nav {left:-15px; top: -6px;} nav .nav-wrapper{text-align:center } nav .nav-wrapper a.page-title{font-size:36px;} /*ตรงนี้มีส่วนในตำแหน่ง บน -ล่าง ของ nav-menu ที่เป็นโหมด iphone , ipad*/}
 
 
+/*ipad*/
 @media only screen and (min-width: 993px)
 {
-.container{width:85%}}
+.container{width:85%; }}
 
 #front-page-logo{display:inline-block;
 height:100%;pointer-events:none
@@ -1848,7 +1863,7 @@ height:100%;pointer-events:none
 #front-page-nav a{color:#ee6e73}
 #front-page-nav li:hover{background-color:#fdeaeb}
 #front-page-nav li.active{background-color:#fdeaeb}
-#front-page-nav .container{height:inherit}
+#front-page-nav .container{height:inherit;}
 .col.grid-example{border:1px solid #eee;margin:7px 0;text-align:center;line-height:50px;font-size:28px;background-color:tomato;color:white;padding:0}
 .col.grid-example span{font-weight:200;line-height:50px}
 .promo-example{overflow:hidden}
@@ -1946,7 +1961,7 @@ body.parallax-demo footer{margin-top:0}
 
 
 
-#nav-mobile li.search{position:absolute;left:0;right:0;top:115px;/*ระยะของ search*/margin-top:1px;padding:1px 0 0 0;z-index:2}
+#nav-mobile li.search{position:absolute;left:0;right:0;top:105px;/*ระยะของ search*/margin-top:1px;padding:1px 0 0 0;z-index:2}
 
 #nav-mobile li.search:hover{background-color:#212121}
 #nav-mobile li.search .search-wrapper{margin:0 12px;transition:margin .25s ease}
