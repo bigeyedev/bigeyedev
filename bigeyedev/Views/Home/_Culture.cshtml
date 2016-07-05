@@ -1,0 +1,13 @@
+﻿@{
+    if (Session["Culture"] != null)
+    {
+        string Culture = Session["Culture"] as string;
+        //ใช้อันไหนก็ได้ระหว่าง Thread กับ Resources
+        //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+        Resources.Resource.Culture = new System.Globalization.CultureInfo(Culture);
+    }
+    else
+    {
+        Resources.Resource.Culture = new System.Globalization.CultureInfo("");
+    }
+}

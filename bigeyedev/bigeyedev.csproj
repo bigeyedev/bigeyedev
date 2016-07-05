@@ -1089,7 +1089,6 @@
     <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Home\Address.cshtml" />
     <Content Include="Views\Home\Review.cshtml" />
-    <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
@@ -1100,6 +1099,7 @@
     <Content Include="Views\Home\Login - Copy.cshtml" />
     <Content Include="Views\Home\SingResult.cshtml" />
     <Content Include="Views\Home\Fashion_Select - Copy.cshtml" />
+    <Content Include="Views\Home\_Culture.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

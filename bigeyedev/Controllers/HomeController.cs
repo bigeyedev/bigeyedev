@@ -27,13 +27,7 @@ namespace bigeyedev.Controllers
             return RedirectToAction("Fashion_Select");
         }
 
-
-        public ActionResult Boy()
-        {
-            return RedirectToAction("Fashion_Select");
-        }
-
-        public void bototototo { }
+        
 
 
         public ActionResult Fashion_Select_Dialog()

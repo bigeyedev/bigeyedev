@@ -212,6 +212,7 @@ color : #333;
 /* tabset1 ถ้าจะแก้อะไรที่ละเอียด ให้แก้ใน jquery.psstabs.css (มันถูก โหลดใน js) by Tom */
 .tabset1 {
 
+   
       z-index:0;  /*set ให้ ใส่ในของ Tab อยู่ layer ปกติที่ 0*/
 
 

@@ -4,17 +4,7 @@
 
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     // ในส่วน body ต้องมีตรงนี้ด้วย แยกกับ html & controller
-    if (Session["Culture"] != null)
-    {
-        string Culture = Session["Culture"] as string;
-        //ใช้อันไหนก็ได้ระหว่าง Thread กับ Resources
-        //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-        Resources.Resource.Culture = new System.Globalization.CultureInfo(Culture);
-    }
-    else
-    {
-        Resources.Resource.Culture = new System.Globalization.CultureInfo("");
-    }
+    Html.RenderPartial("_Culture");
 }
 <div class="main_container">
     @using (Html.BeginForm("Cart", "Home", FormMethod.Post, new { id = "form-validation" }))

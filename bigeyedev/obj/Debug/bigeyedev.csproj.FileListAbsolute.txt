@@ -325,3 +325,4 @@ C:\Users\boyya\Source\Repos\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.Twit
 C:\Users\boyya\Source\Repos\bigeyedev\bigeyedev\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\boyya\Source\Repos\bigeyedev\bigeyedev\obj\Debug\bigeyedev.dll
 C:\Users\boyya\Source\Repos\bigeyedev\bigeyedev\obj\Debug\bigeyedev.pdb
+C:\Users\boyya\Source\Repos\bigeyedev\bigeyedev\obj\Debug\bigeyedev.csprojResolveAssemblyReference.cache
