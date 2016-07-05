@@ -269,7 +269,7 @@ namespace bigeyedev.Controllers
             }
 
             //get address form member
-            int id = Convert.ToInt32(Response.Cookies["Account"].Values["id"]);
+            int id = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
             var address = _db.bigeyedev_member_address.Where(m => m.member_id == id).ToList();
             var contract = new Contract();
             contract.addressList = address;
@@ -281,7 +281,7 @@ namespace bigeyedev.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Address(Contract model)
+        public ActionResult Address(Contract model,int? addressRdo)
         {
             if (!ModelState.IsValid)
             {
@@ -291,10 +291,31 @@ namespace bigeyedev.Controllers
             {
                 return RedirectToAction("Address");
             }
+
+            //clear cookie การติดต่อ ที่อยู่
+            if (Request.Cookies["contract"] != null)
+            {
+                Response.Cookies["contract"].Expires = DateTime.Now.AddDays(-1);
+
+            }
+
+
+            if (addressRdo != null)
+            {
+                model = new Contract();
+                model.address = _db.bigeyedev_member_address.Where(m => m.id == addressRdo.Value).Single();
+                model.memberData = _db.bigeyedev_member.Where(m => m.member_id == model.address.member_id).Single();
+                // add จำนวนการสั่ง ต้องทำ
+            }
+            else
+            {
+                //update email and line id
+                
+            }
             var Cookie = new HttpCookie("contract");
             Cookie.Values["name"] = model.address.name;
             Cookie.Values["mobile"] = model.address.mobile_shop;
-            Cookie.Values["mobile2"] = model.address.mobile_shop;
+            Cookie.Values["mobile2"] = model.address.mobile2_shop;
             Cookie.Values["lineid"] = model.memberData.line_id;
             Cookie.Values["email"] = model.memberData.email;
             Cookie.Values["shopname"] = model.address.shop_name;
@@ -303,13 +324,15 @@ namespace bigeyedev.Controllers
             Cookie.Values["area"] = model.address.district;
             Cookie.Values["province"] = model.address.province;
             Cookie.Values["zipcode"] = model.address.zip;
+            if (model.address.address_order > 0)
+            {
+                // ตรวจสอบถ้า เป็น ที่อยู่เดิม ให้เอาเข้า cookie ไปด้วย เพื่อเอาไป บวกเพิ่ม
+                Cookie.Values["addressorder"] = model.address.address_order.ToString();
+            }
             Cookie.Expires = DateTime.Now.AddDays(1);
             Response.Cookies.Add(Cookie);
 
-            //test
-            model.address.member_id = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
-            _db.bigeyedev_member_address.Add(model.address);
-            _db.SaveChanges();
+          
             return RedirectToAction("Review");
         }
 

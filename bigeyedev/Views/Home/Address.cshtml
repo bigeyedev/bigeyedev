@@ -14,16 +14,20 @@
             // แสดงถ้ามีที่อยู่เคยบันทึกไว้อยู่แล้ว
             if (Model.addressList.Count > 0)
             {
-                foreach (var item in Model.addressList)
+                foreach (var item in Model.addressList.OrderBy(m=>m.address_order))
                 {
                     <div>
-                        <input type="radio" name="addressRdo" value="@item.id" /> @item.name+" "+" "+@item.mobile_shop+@item.address+" "+@item.sub_district+" "+@item.district+" "+@item.province+" "+@item.zip
+                        <h6 style="color:green;">ใช้ที่อยู่เดิม</h6>
+                        <label style="color:blue;">
+                            <input type="radio" name="addressRdo" value="@item.id" />คุณ @item.name โทร:@item.mobile_shop ที่อยู่: @item.address @item.sub_district @item.district @item.province รหัสไปษณีย์ @item.zip
+                        </label>
                     </div>
                 }
 
             }
 
             <div class="form-group">
+                <h6 style="color:green;">ใช้ที่อยู่ใหม่</h6>
                 <p>ชื่อ-สกุล</p>
                 @Html.EditorFor(m => m.address.name, new { htmlAttributes = new { @class = "form-control" } })
             </div>

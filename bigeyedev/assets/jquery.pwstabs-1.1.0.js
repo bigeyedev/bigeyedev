@@ -155,8 +155,8 @@
             }
 
             // Set main container height to the height of current tab
-            currentTab.parent().height(parseInt(currentTab.height()));
-
+            currentTab.parent().height(parseInt(currentTab.height()) *1.115);
+             z
 
          });
 

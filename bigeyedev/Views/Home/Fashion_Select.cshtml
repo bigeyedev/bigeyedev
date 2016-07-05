@@ -9,6 +9,7 @@
     Html.RenderPartial("_Culture");
 }
 
+
 @using (Html.BeginForm("Fashion_Select", "Home", FormMethod.Post, new { role = "form", id = "form-validation" }))
 {
     int i = 0;
@@ -16,21 +17,21 @@
     int tab3 = 0;
     @Html.AntiForgeryToken()
     <div class="main_tab_container">
-        <div class="tabset1">
-            <div data-pws-tab="tab1" data-pws-tab-name="@Resources.Resource.main_tab_dueba">
+        <div class="tabset1" id="tabs1">
+            <div data-pws-tab="tab1" data-pws-tab-name="@Resources.Resource.main_tab_dueba" id="t1">
                 @foreach (var item in Model.Item2.OrderBy(m=>m.brand_group))
                 {
                     if (item.brand_group == 2&&tab2==0)
                     {
                         tab2 = 1;
                         @:</div><!--ปิด tab2-->
-                        @:<div data-pws-tab="tab2"  data-pws-tab-name="@Resources.Resource.main_tab_dream"><!--เปิด tab2-->
+                        @:<div data-pws-tab="tab2"  data-pws-tab-name="@Resources.Resource.main_tab_dream" id="t2"><!--เปิด tab2-->
                     }
                     if(item.brand_group==3&&tab3==0)
                     {
                         tab3 = 1;
                         @:</div><!--ปิด tab3-->
-                        @:<div data-pws-tab="tab3" data-pws-tab-name="@Resources.Resource.main_tab_vassen"><!--เปิด tab3-->
+                        @:<div data-pws-tab="tab3" data-pws-tab-name="@Resources.Resource.main_tab_vassen" id="t3"><!--เปิด tab3-->
                     }
                         
                     int minStock = 10;
@@ -115,6 +116,6 @@
         @*<input type="submit" value="@Resources.Resource.main_btn_order_to_cart" class="btn btn-default" id="btnsub" />*@
     </div>
 }
-
-
-
+<script>
+    
+</script>
