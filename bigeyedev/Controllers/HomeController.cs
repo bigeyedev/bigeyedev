@@ -28,15 +28,9 @@ namespace bigeyedev.Controllers
         }
 
 
-        public ActionResult Boy()
-        {
-            return RedirectToAction("Fashion_Select");
-        }
-
-        public void bototototo { }
+   
 
 
-        public tom {}
         public ActionResult Fashion_Select_Dialog()
         {
             //ViewBag.Message = "Your contact page.";
@@ -137,8 +131,6 @@ namespace bigeyedev.Controllers
 
             return RedirectToAction("Cart");
         }
-
-        public botP{}
 
 
         public async Task<ActionResult> Cart()
