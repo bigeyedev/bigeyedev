@@ -33,6 +33,7 @@ namespace bigeyedev.Controllers
             return RedirectToAction("Fashion_Select");
         }
 
+        public void bototototo { }
 
 
 
