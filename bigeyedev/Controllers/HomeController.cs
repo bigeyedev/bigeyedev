@@ -40,7 +40,7 @@ namespace bigeyedev.Controllers
 
 
 
-        public async Task<ActionResult> Fashion_Select()
+        public async Task<ActionResult> Fashion_Select(int? id)
         {
             // ในส่วน controller ต้องมีตรงนี้ด้วย แยกกับ html
             if (Session["Culture"] != null)
@@ -57,9 +57,10 @@ namespace bigeyedev.Controllers
 
             ViewBag.Title = " " + Resources.Resource.menu_fashion + " -> " + Resources.Resource.menu_fashion_select + " ";
             ViewBag.Des = Resources.Resource.head_des;
+            
 
 
-            var model = await _db.product.Where(m => m.visible == 1 && (m.black > 0 || m.choco > 0 || m.gray > 0 || m.brown > 0 || m.blue > 0 || m.green > 0 || m.violet > 0 || m.pink > 0 || m.silver > 0 || m.gold > 0 || m.sky > 0 || m.red > 0)).Select(u => new stockBindingModel
+           var  model = await _db.product.Where(m => m.visible == 1 && (m.black > 0 || m.choco > 0 || m.gray > 0 || m.brown > 0 || m.blue > 0 || m.green > 0 || m.violet > 0 || m.pink > 0 || m.silver > 0 || m.gold > 0 || m.sky > 0 || m.red > 0)).Select(u => new stockBindingModel
             {
                 id = u.id,
                 model = u.model,
@@ -80,8 +81,20 @@ namespace bigeyedev.Controllers
                 near = u.near
             }).ToListAsync();
 
-
             var brand = await _db.bigeyedev_brand.ToListAsync();
+
+            if (id == 1)
+            {
+                var modelItem = new List<stockBindingModel>();
+                brand = brand.Where(m => m.brand_group == 1).ToList();
+                
+                foreach(var itemBrand in brand)
+                {
+                    modelItem.AddRange(modelItem.Where(m => m.brand == itemBrand.brand).ToList());
+                }
+            }
+
+            
             return View(new Tuple<List<stockBindingModel>, List<bigeyedev_brand>>(model, brand));
         }
 
