@@ -1,45 +1,86 @@
-﻿@model List<bigeyedev_order>
+﻿@model Tuple<List<bigeyedev_order>, int>
 @{
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+    int able = 0;
 }
-<div class="container">
-    <form action="Payment" method="post" role="form">
-        @Html.AntiForgeryToken()
 
-        <div>
-            @for (int i = 0; i < Model.Count; i++)
-            {
+@if (Model.Item2 == 0)
+{
+    <div class="container">
+        <form action="Payment" method="post" role="form">
+            @Html.AntiForgeryToken()
+
+            <div id="tablecon">
+                @for (int i = 0; i < Model.Item1.Count; i++)
+                {
+                    <label>
+                        @if (Model.Item1[i].order_amount != null)
+                    {
+                        able = 1;
+                            <input type="radio" name="order_id" value="@Model.Item1[i].order_id" required /> @:ออเดอร์ @Model.Item1[i].order_id ยอดรวม @Model.Item1[i].order_amount
+                    }
+                        else
+                        {
+                            <input type="radio" name="order_id" value="@Model.Item1[i].order_id" disabled /> @:ออเดอร์ @Model.Item1[i].order_id <span style="color:red">รอการรวมยอด</span>
+                }
+                    </label> <br />
+                }
+            </div>
+
+            <div id="tablecon">
                 <label>
-                    @if (Model[i].order_amount != null)
+                    <input type="radio" name="pay_bank" value="kbank" required /> ธนาาคาร กสิกรไทย
+                </label><br />
+                <label>
+                    <input type="radio" name="pay_bank" value="ktb" /> ธนาาคาร กรุงไทย
+                </label><br />
+                <label>
+                    <input type="radio" name="pay_bank" value="ibank" /> ธนาาคาร กรุงเทพ
+                </label><br />
+            </div>
+            <div id="tablecon">
+                <label for="time">เวลา :</label>
+                <input id="time" type="time" name="pay_time" required />
+                <br />
+                <label for="date">วันที่ :</label>
+                <input id="date" type="date" name="pay_date" required />
+                <br />
+                <label for="money">จำนวนเงิน :</label>
+                <input id="money" type="number" required name="pay_amount" />
+                <br />
+                @if (able == 1)
                 {
-                        <input type="radio" name="orderID" value="@Model[i].order_id" /> @:ออเดอร์ @Model[i].order_id ยอดรวม @Model[i].order_amount
-            }
-                else
-                {
-                        <input type="radio" name="orderID" value="@Model[i].order_id" disabled /> @:ออเดอร์ @Model[i].order_id ยอดรวม <span style="color:red">รอการรวมยอด</span>
-            }
-                </label>
-            }
-        </div>
+                    <input type="submit" value="แจ้งโอนเงิน" />
+                }
+            </div>
+            
+        </form>
+    </div>
+}
+else
+{
+    <div class="container">
+        <h3 style="color:green;">Order : @Model.Item1[0].order_id</h3>
         
-        <div>
-            <label>
-                <input type="radio" name="bank" value="1" /> ธนาาคาร กสิกรไทย
-            </label>
-            <label>
-                <input type="radio" name="bank" value="2" /> ธนาาคาร กรุงไทย
-            </label>
-            <label>
-                <input type="radio" name="bank" value="3" /> ธนาาคาร กรุงเทพ
-            </label>
+        <div id="tablecon">
+            @if (Model.Item1[0].pay_amount == null)
+            {
+                <span>สถานะ : <span style="color:red">ยังไม่ได้แจ้งชำระเงิน</span></span>
+            }
+            else
+            {
+                <p>สถานะ : <span style="color:green">แจ้งชำระเงินแล้ว</span></p>
+                <h6>รายละเอียดการแจ้งชำระเงิน</h6>
+                <p>ธนาคาร : @Model.Item1[0].pay_bank</p>
+                <p>เวลา : @Model.Item1[0].pay_time</p>
+                <p>วันที่ : @Model.Item1[0].pay_date</p>
+                <p>ยอดเงิน : @Model.Item1[0].pay_amount</p>
+            }
         </div>
-        <div>
-            <label></label>
-            <input type="time" name="time"/>
-        </div>
-    </form>
-</div>
+    </div>
+}
+
 
 
 

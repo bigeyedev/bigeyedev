@@ -22,12 +22,136 @@ namespace bigeyedev.Controllers
 
 
 
+        private void addCookieStock(stockBindingModel item, int state)
+        {
+            var Cookie = new HttpCookie("order:" + item.id);
+            Cookie.Values["id"] = item.id.ToString();
+            Cookie.Values["model"] = item.model;
+            Cookie.Values["brand"] = item.brand;
+            Cookie.Values["imageUrl"] = item.imageUrl;
+            Cookie.Values["near"] = item.near;
+            Cookie.Values["Black"] = item.Black.ToString();
+            Cookie.Values["Blue"] = item.Blue.ToString();
+            Cookie.Values["Brown"] = item.Brown.ToString();
+            Cookie.Values["Choco"] = item.Choco.ToString();
+            Cookie.Values["Gold"] = item.Gold.ToString();
+            Cookie.Values["Gray"] = item.Gray.ToString();
+            Cookie.Values["Green"] = item.Green.ToString();
+            Cookie.Values["Pink"] = item.Pink.ToString();
+            Cookie.Values["Red"] = item.Red.ToString();
+            Cookie.Values["Silver"] = item.Silver.ToString();
+            Cookie.Values["Sky"] = item.Sky.ToString();
+            Cookie.Values["Violet"] = item.Violet.ToString();
+            Cookie.Expires = DateTime.Now.AddDays(1);
+            Response.Cookies.Add(Cookie);
+            Response.Cookies["confirm"].Value = state.ToString();
+        }
+
+
+
+        private Contract bindCookieContract()
+        {
+            if (Request.Cookies["contract"] == null)
+            {
+                return null;
+            }
+            var Cookie = Request.Cookies["contract"];
+            var contract = new Contract();
+            contract.address.id = Convert.ToInt32(Cookie.Values["id"]);
+            contract.address.name = Cookie.Values["name"];
+            contract.address.mobile_shop = Cookie.Values["mobile"];
+            contract.address.mobile2_shop = Cookie.Values["mobile2"];
+            contract.memberData.line_id = Cookie.Values["lineid"];
+            contract.memberData.email = Cookie.Values["email"];
+            contract.address.shop_name = Cookie.Values["shopname"];
+            contract.address.address = Cookie.Values["address"];
+            contract.address.sub_district = Cookie.Values["distict"];
+            contract.address.district = Cookie.Values["area"];
+            contract.address.province = Cookie.Values["province"];
+            contract.address.zip = Cookie.Values["zipcode"];
+            contract.address.address_order = Convert.ToInt32(Cookie.Values["addressorder"]);
+            return contract;
+        }
+
+
+
+
+
+        private List<stockBindingModel> bindCookieStock()
+        {
+            bool found = chkCookie();
+            if (!found)
+            {
+                return null;
+            }
+            var model = new List<stockBindingModel>();
+            for (int i = 0; i < Request.Cookies.Count; i++)
+            {
+                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
+                {
+                    model.Add(new stockBindingModel()
+                    {
+                        id = Convert.ToInt32(Request.Cookies[i].Values["id"]),
+                        brand = Request.Cookies[i].Values["brand"],
+                        model = Request.Cookies[i].Values["model"],
+                        imageUrl = Request.Cookies[i].Values["imageUrl"],
+                        near = Request.Cookies[i].Values["near"],
+                        Black = Convert.ToInt32(Request.Cookies[i].Values["Black"]),
+                        Blue = Convert.ToInt32(Request.Cookies[i].Values["Blue"]),
+                        Brown = Convert.ToInt32(Request.Cookies[i].Values["Brown"]),
+                        Choco = Convert.ToInt32(Request.Cookies[i].Values["Choco"]),
+                        Gold = Convert.ToInt32(Request.Cookies[i].Values["Gold"]),
+                        Gray = Convert.ToInt32(Request.Cookies[i].Values["Gray"]),
+                        Green = Convert.ToInt32(Request.Cookies[i].Values["Green"]),
+                        Pink = Convert.ToInt32(Request.Cookies[i].Values["Pink"]),
+                        Red = Convert.ToInt32(Request.Cookies[i].Values["Red"]),
+                        Silver = Convert.ToInt32(Request.Cookies[i].Values["Silver"]),
+                        Sky = Convert.ToInt32(Request.Cookies[i].Values["Sky"]),
+                        Violet = Convert.ToInt32(Request.Cookies[i].Values["Violet"])
+                    });
+                }
+            }
+            return (model);
+        }
+
+
+        private bool chkCookie()
+        {
+            bool found = false;
+            for (int i = 0; i < Request.Cookies.Count; i++)
+            {
+                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
+                {
+                    found = true;
+                    break;
+                }
+            }
+            return found;
+        }
+
+
+
+
+        private void deleteCookieStock()
+        {
+            for (int i = Request.Cookies.Count - 1; i >= 0; i--)
+            {
+                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
+                {
+                    var cookie = new HttpCookie(Request.Cookies[i].Name);
+                    cookie.Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies.Add(cookie);
+                }
+            }
+        }
+
+
         public ActionResult Index()
         {
             return RedirectToAction("Fashion_Select");
         }
 
-        
+
 
 
         public ActionResult Fashion_Select_Dialog()
@@ -59,7 +183,7 @@ namespace bigeyedev.Controllers
 
 
 
-           var  model = await _db.product.Where(m => m.visible == 1 && (m.black > 0 || m.choco > 0 || m.gray > 0 || m.brown > 0 || m.blue > 0 || m.green > 0 || m.violet > 0 || m.pink > 0 || m.silver > 0 || m.gold > 0 || m.sky > 0 || m.red > 0)).Select(u => new stockBindingModel
+            var model = await _db.product.Where(m => m.visible == 1 && (m.black > 0 || m.choco > 0 || m.gray > 0 || m.brown > 0 || m.blue > 0 || m.green > 0 || m.violet > 0 || m.pink > 0 || m.silver > 0 || m.gold > 0 || m.sky > 0 || m.red > 0)).Select(u => new stockBindingModel
             {
                 id = u.id,
                 model = u.model,
@@ -85,15 +209,16 @@ namespace bigeyedev.Controllers
             if (id == 1)
             {
                 var modelItem = new List<stockBindingModel>();
+
                 brand = brand.Where(m => m.brand_group == 1).ToList();
 
-                foreach(var itemBrand in brand)
+                foreach (var itemBrand in brand)
                 {
                     modelItem.AddRange(modelItem.Where(m => m.brand == itemBrand.brand).ToList());
                 }
             }
 
-            
+
             return View(new Tuple<List<stockBindingModel>, List<bigeyedev_brand>>(model, brand));
         }
 
@@ -219,33 +344,6 @@ namespace bigeyedev.Controllers
 
 
 
-
-
-        private void addCookieStock(stockBindingModel item, int state)
-        {
-            var Cookie = new HttpCookie("order:" + item.id);
-            Cookie.Values["id"] = item.id.ToString();
-            Cookie.Values["model"] = item.model;
-            Cookie.Values["brand"] = item.brand;
-            Cookie.Values["imageUrl"] = item.imageUrl;
-            Cookie.Values["near"] = item.near;
-            Cookie.Values["Black"] = item.Black.ToString();
-            Cookie.Values["Blue"] = item.Blue.ToString();
-            Cookie.Values["Brown"] = item.Brown.ToString();
-            Cookie.Values["Choco"] = item.Choco.ToString();
-            Cookie.Values["Gold"] = item.Gold.ToString();
-            Cookie.Values["Gray"] = item.Gray.ToString();
-            Cookie.Values["Green"] = item.Green.ToString();
-            Cookie.Values["Pink"] = item.Pink.ToString();
-            Cookie.Values["Red"] = item.Red.ToString();
-            Cookie.Values["Silver"] = item.Silver.ToString();
-            Cookie.Values["Sky"] = item.Sky.ToString();
-            Cookie.Values["Violet"] = item.Violet.ToString();
-            Cookie.Expires = DateTime.Now.AddDays(1);
-            Response.Cookies.Add(Cookie);
-            Response.Cookies["confirm"].Value = state.ToString();
-        }
-
         public ActionResult Address()
         {
             if (Request.Cookies["Account"] == null)
@@ -274,9 +372,9 @@ namespace bigeyedev.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Address(Contract model,int? addressRdo)
+        public ActionResult Address(Contract model, int? addressRdo)
         {
-            if (addressRdo==null|| addressRdo.Value == 0)
+            if (addressRdo == null || addressRdo.Value == 0)
             {
                 if (!ModelState.IsValid)
                 {
@@ -296,7 +394,7 @@ namespace bigeyedev.Controllers
             }
 
 
-            if (addressRdo != null && addressRdo.Value!=0)
+            if (addressRdo != null && addressRdo.Value != 0)
             {
                 model = new Contract();
                 model.address = _db.bigeyedev_member_address.Where(m => m.id == addressRdo.Value).Single();
@@ -306,7 +404,7 @@ namespace bigeyedev.Controllers
             else
             {
                 //update email and line id
-                
+
             }
             var Cookie = new HttpCookie("contract");
             Cookie.Values["id"] = model.address.id.ToString();
@@ -329,7 +427,7 @@ namespace bigeyedev.Controllers
             Cookie.Expires = DateTime.Now.AddDays(1);
             Response.Cookies.Add(Cookie);
 
-          
+
             return RedirectToAction("Review");
         }
 
@@ -354,7 +452,7 @@ namespace bigeyedev.Controllers
             {
                 return RedirectToAction("Address");
             }
-            
+
             var itemStock = bindCookieStock();
             if (itemStock == null)
             {
@@ -366,91 +464,12 @@ namespace bigeyedev.Controllers
 
 
 
-        private Contract bindCookieContract()
-        {
-            if (Request.Cookies["contract"] == null)
-            {
-                return null;
-            }
-            var Cookie = Request.Cookies["contract"];
-            var contract = new Contract();
-            contract.address.id = Convert.ToInt32(Cookie.Values["id"]);
-            contract.address.name = Cookie.Values["name"];
-            contract.address.mobile_shop = Cookie.Values["mobile"];
-            contract.address.mobile2_shop = Cookie.Values["mobile2"];
-            contract.memberData.line_id = Cookie.Values["lineid"];
-            contract.memberData.email = Cookie.Values["email"];
-            contract.address.shop_name = Cookie.Values["shopname"];
-            contract.address.address = Cookie.Values["address"];
-            contract.address.sub_district = Cookie.Values["distict"];
-            contract.address.district = Cookie.Values["area"];
-            contract.address.province = Cookie.Values["province"];
-            contract.address.zip = Cookie.Values["zipcode"];
-            contract.address.address_order = Convert.ToInt32(Cookie.Values["addressorder"]);
-            return contract;
-        }
-
-
-
-
-
-        private List<stockBindingModel> bindCookieStock()
-        {
-            bool found = chkCookie();
-            if (!found)
-            {
-                return null;
-            }
-            var model = new List<stockBindingModel>();
-            for (int i = 0; i < Request.Cookies.Count; i++)
-            {
-                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
-                {
-                    model.Add(new stockBindingModel()
-                    {
-                        id = Convert.ToInt32(Request.Cookies[i].Values["id"]),
-                        brand = Request.Cookies[i].Values["brand"],
-                        model = Request.Cookies[i].Values["model"],
-                        imageUrl = Request.Cookies[i].Values["imageUrl"],
-                        near = Request.Cookies[i].Values["near"],
-                        Black = Convert.ToInt32(Request.Cookies[i].Values["Black"]),
-                        Blue = Convert.ToInt32(Request.Cookies[i].Values["Blue"]),
-                        Brown = Convert.ToInt32(Request.Cookies[i].Values["Brown"]),
-                        Choco = Convert.ToInt32(Request.Cookies[i].Values["Choco"]),
-                        Gold = Convert.ToInt32(Request.Cookies[i].Values["Gold"]),
-                        Gray = Convert.ToInt32(Request.Cookies[i].Values["Gray"]),
-                        Green = Convert.ToInt32(Request.Cookies[i].Values["Green"]),
-                        Pink = Convert.ToInt32(Request.Cookies[i].Values["Pink"]),
-                        Red = Convert.ToInt32(Request.Cookies[i].Values["Red"]),
-                        Silver = Convert.ToInt32(Request.Cookies[i].Values["Silver"]),
-                        Sky = Convert.ToInt32(Request.Cookies[i].Values["Sky"]),
-                        Violet = Convert.ToInt32(Request.Cookies[i].Values["Violet"])
-                    });
-                }
-            }
-            return (model);
-        }
-
-
-        private bool chkCookie()
-        {
-            bool found = false;
-            for (int i = 0; i < Request.Cookies.Count; i++)
-            {
-                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
-                {
-                    found = true;
-                    break;
-                }
-            }
-            return found;
-        }
 
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Review(int? replace,int? replace_fac,int? txtFix)
+        public ActionResult Review(int? replace, int? replace_fac, int? txtFix)
         {
             //check ว่ามี ออเดอร์ใน cookie ไหม
             bool found = chkCookie();
@@ -582,18 +601,6 @@ namespace bigeyedev.Controllers
         }
 
 
-        private void deleteCookieStock()
-        {
-            for (int i = Request.Cookies.Count - 1; i >= 0; i--)
-            {
-                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
-                {
-                    var cookie = new HttpCookie(Request.Cookies[i].Name);
-                    cookie.Expires = DateTime.Now.AddDays(-1);
-                    Response.Cookies.Add(cookie);
-                }
-            }
-        }
 
 
 
@@ -734,7 +741,7 @@ namespace bigeyedev.Controllers
         }
 
 
-        
+
         public ActionResult Result(int? id)
         {
             if (id == null)
@@ -743,29 +750,72 @@ namespace bigeyedev.Controllers
             }
             //check error 1 , 2 ,3 is error
             int idResult = id.Value;
-           
+
             return View(idResult);
         }
 
 
-        
+
         [HttpGet]
-        public ActionResult Payment()
+        public ActionResult Payment(int? id)
         {
+
             if (Request.Cookies["Account"] == null)
             {
                 return RedirectToAction("Login");
             }
-            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
-            var order = _db.bigeyedev_order.Where(m => m.member_id == memberID).ToList();
 
-            return View(order);
+            var order = new List<bigeyedev_order>();
+            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+            //statusView 0 = แจ้งโอนเงิน , 1= ดูรายละเอียดการชำระเงิน
+            int statusView = 1;
+            if (id == null)
+            {
+                statusView = 0;
+                order = _db.bigeyedev_order.Where(m => m.member_id == memberID && m.pay_amount == null).ToList();
+            }
+            else
+            {
+                order = _db.bigeyedev_order.Where(m => m.order_id == id.Value && m.member_id == memberID).ToList();
+            }
+
+
+            if (order.Count == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(new Tuple<List<bigeyedev_order>, int>(order, statusView));
         }
 
 
 
 
-        public ActionResult About()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Payment(bigeyedev_order model)
+        {
+            try
+            {
+                var update = _db.bigeyedev_order.Find(model.order_id);
+                update.pay_amount = model.pay_amount;
+                update.pay_bank = model.pay_bank;
+                update.pay_time = model.pay_time;
+                update.pay_date = model.pay_date;
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return RedirectToAction("Payment");
+            }
+
+            return RedirectToAction("Payment");
+        }
+
+
+
+
+        public ActionResult Tracking()
         {
 
             return View();
@@ -784,27 +834,17 @@ namespace bigeyedev.Controllers
 
 
 
+        public ActionResult About()
+        {
 
+            return View();
+        }
 
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
 
-
-
-
-
-
-
-    public ActionResult Contact()
-    {
-        ViewBag.Message = "Your contact page.";
-
-        return View();
-    }
-
-
-
-
-
-
-
+            return View();
+        }
     }
 }
