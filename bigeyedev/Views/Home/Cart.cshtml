@@ -75,51 +75,51 @@
                         <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Black > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Black" } });
+                                @Html.TextBoxFor(m => modelItem.Black,  new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Black" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Choco > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Choco" } });
+                                @Html.TextBoxFor(m => modelItem.Choco,  new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Name = "[" + ii + "].Choco" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Gray > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Gray" } });
+                                @Html.TextBoxFor(m => modelItem.Gray,  new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Gray" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Brown > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Brown" } });
+                                @Html.TextBoxFor(m => modelItem.Brown,  new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Brown" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Blue > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Blue" } });
+                                @Html.TextBoxFor(m => modelItem.Blue,  new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Blue" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Green > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Green" } });
+                                @Html.TextBoxFor(m => modelItem.Green,  new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Green" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Violet > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Violet" } });
+                                @Html.TextBoxFor(m => modelItem.Violet,  new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Violet" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Pink > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Pink" } });
+                                @Html.TextBoxFor(m => modelItem.Pink,  new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Pink" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Silver > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Silver" } });
+                                @Html.TextBoxFor(m => modelItem.Silver,  new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Silver" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Gold > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Gold" } });
+                                @Html.TextBoxFor(m => modelItem.Gold,  new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Gold" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Sky > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Sky" } });
+                                @Html.TextBoxFor(m => modelItem.Sky,  new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Sky" });
                             }
                             @if (Model.Item1.Find(x => x.id == modelItem.id).Red > 0)
                             {
-                                @Html.EditorFor(m => modelItem.Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Red" } });
+                                @Html.TextBoxFor(m => modelItem.Red,  new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return isNumberKey(event)", Name = "[" + ii + "].Red" });
                             }
                         </td>
                     </tr>

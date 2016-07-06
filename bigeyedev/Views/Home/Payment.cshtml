@@ -1,0 +1,45 @@
+﻿@model List<bigeyedev_order>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+}
+<div class="container">
+    <form action="Payment" method="post" role="form">
+        @Html.AntiForgeryToken()
+
+        <div>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <label>
+                    @if (Model[i].order_amount != null)
+                {
+                        <input type="radio" name="orderID" value="@Model[i].order_id" /> @:ออเดอร์ @Model[i].order_id ยอดรวม @Model[i].order_amount
+            }
+                else
+                {
+                        <input type="radio" name="orderID" value="@Model[i].order_id" disabled /> @:ออเดอร์ @Model[i].order_id ยอดรวม <span style="color:red">รอการรวมยอด</span>
+            }
+                </label>
+            }
+        </div>
+        
+        <div>
+            <label>
+                <input type="radio" name="bank" value="1" /> ธนาาคาร กสิกรไทย
+            </label>
+            <label>
+                <input type="radio" name="bank" value="2" /> ธนาาคาร กรุงไทย
+            </label>
+            <label>
+                <input type="radio" name="bank" value="3" /> ธนาาคาร กรุงเทพ
+            </label>
+        </div>
+        <div>
+            <label></label>
+            <input type="time" name="time"/>
+        </div>
+    </form>
+</div>
+
+
+

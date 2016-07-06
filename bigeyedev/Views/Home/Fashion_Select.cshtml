@@ -54,51 +54,52 @@
                                 <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
                                     @if (modelItem[ii].Black > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Black" } });
+                                   
+                                        @Html.TextBoxFor(m => modelItem[ii].Black,  new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Black" } );
                                     }
                                     @if (modelItem[ii].Choco > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Choco" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Choco,  new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Choco" } );
                                     }
                                     @if (modelItem[ii].Gray > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gray" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Gray,  new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gray" } );
                                     }
                                     @if (modelItem[ii].Brown > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Brown" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Brown,  new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Brown"  });
                                     }
                                     @if (modelItem[ii].Blue > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Blue" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Blue,  new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Blue" } );
                                     }
                                     @if (modelItem[ii].Green > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Green" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Green,  new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Green"  });
                                     }
                                     @if (modelItem[ii].Violet > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Violet" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Violet,  new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Violet"  });
                                     }
                                     @if (modelItem[ii].Pink > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" }, Name = "[" + i + "].Pink" });
+                                        @Html.TextBoxFor(m => modelItem[ii].Pink,  new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3" , Name = "[" + i + "].Pink" });
                                     }
                                     @if (modelItem[ii].Silver > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Silver" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Silver,  new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Silver"  });
                                     }
                                     @if (modelItem[ii].Gold > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gold" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Gold,  new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gold"  });
                                     }
                                     @if (modelItem[ii].Sky > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Sky" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Sky,  new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Sky" } );
                                     }
                                     @if (modelItem[ii].Red > minStock)
                                     {
-                                        @Html.EditorFor(m => modelItem[ii].Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Red" } });
+                                        @Html.TextBoxFor(m => modelItem[ii].Red,  new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Red" } );
                                     }
                                 </td>
                             </tr>

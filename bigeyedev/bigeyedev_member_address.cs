@@ -11,18 +11,24 @@ namespace bigeyedev
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class bigeyedev_member_address
     {
         public int id { get; set; }
         public Nullable<int> member_id { get; set; }
+        [Required]
         public string name { get; set; }
         public Nullable<int> address_order { get; set; }
         public string shop_name { get; set; }
+        [Required]
         public string address { get; set; }
+        [Required]
         public string sub_district { get; set; }
+        [Required]
         public string district { get; set; }
+        [Required]
         public string province { get; set; }
+        [Required]
         public string zip { get; set; }
         public string mobile_shop { get; set; }
         public string mobile2_shop { get; set; }

@@ -276,9 +276,12 @@ namespace bigeyedev.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Address(Contract model,int? addressRdo)
         {
-            if (!ModelState.IsValid)
+            if (addressRdo==null|| addressRdo.Value == 0)
             {
-                return RedirectToAction("Address");
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Address");
+                }
             }
             if (model == null)
             {
@@ -293,7 +296,7 @@ namespace bigeyedev.Controllers
             }
 
 
-            if (addressRdo != null && addressRdo!=0)
+            if (addressRdo != null && addressRdo.Value!=0)
             {
                 model = new Contract();
                 model.address = _db.bigeyedev_member_address.Where(m => m.id == addressRdo.Value).Single();
@@ -743,6 +746,24 @@ namespace bigeyedev.Controllers
            
             return View(idResult);
         }
+
+
+        
+        [HttpGet]
+        public ActionResult Payment()
+        {
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+            var order = _db.bigeyedev_order.Where(m => m.member_id == memberID).ToList();
+
+            return View(order);
+        }
+
+
+
 
         public ActionResult About()
         {

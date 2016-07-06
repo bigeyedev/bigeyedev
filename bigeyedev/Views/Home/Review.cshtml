@@ -33,51 +33,51 @@
                 <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
                     @if (item.Black > 0)
                     {
-                        @Html.EditorFor(m => item.Black, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Black, new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled"  });
                     }
                     @if (item.Choco > 0)
                     {
-                        @Html.EditorFor(m => item.Choco, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Choco, new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled"  });
                     }
                     @if (item.Gray > 0)
                     {
-                        @Html.EditorFor(m => item.Gray, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Gray, new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } );
                     }
                     @if (item.Brown > 0)
                     {
-                        @Html.EditorFor(m => item.Brown, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Brown, new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled"  });
                     }
                     @if (item.Blue > 0)
                     {
-                        @Html.EditorFor(m => item.Blue, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Blue, new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } );
                     }
                     @if (item.Green > 0)
                     {
-                        @Html.EditorFor(m => item.Green, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" } });
+                        @Html.TextBoxFor(m => item.Green, new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled"  });
                     }
                     @if (item.Violet > 0)
                     {
-                        @Html.EditorFor(m => item.Violet, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Violet, new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled"  });
                     }
                     @if (item.Pink > 0)
                     {
-                        @Html.EditorFor(m => item.Pink, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Pink, new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } );
                     }
                     @if (item.Silver > 0)
                     {
-                        @Html.EditorFor(m => item.Silver, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Silver, new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled"  });
                     }
                     @if (item.Gold > 0)
                     {
-                        @Html.EditorFor(m => item.Gold, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Gold, new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } );
                     }
                     @if (item.Sky > 0)
                     {
-                        @Html.EditorFor(m => item.Sky, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Sky, new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } );
                     }
                     @if (item.Red > 0)
                     {
-                        @Html.EditorFor(m => item.Red, new { htmlAttributes = new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } });
+                        @Html.TextBoxFor(m => item.Red, new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return isNumberKey(event)", disabled="disabled" } );
                     }
                 </td>
             </tr>
