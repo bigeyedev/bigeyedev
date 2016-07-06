@@ -14,8 +14,8 @@ namespace bigeyedev
     
     public partial class bigeyedev_order
     {
-        public int id { get; set; }
-        public Nullable<int> order_id { get; set; }
+        public Nullable<int> id { get; set; }
+        public int order_id { get; set; }
         public Nullable<System.DateTime> datetime { get; set; }
         public Nullable<int> member_id { get; set; }
         public int address_id { get; set; }

@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="bigeyedev_brand">
     <Key>
       <PropertyRef Name="id" />
@@ -96,10 +94,10 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
   </EntityType>
   <EntityType Name="bigeyedev_order">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="order_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="order_id" Type="int" />
+    <Property Name="id" Type="int" />
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="datetime" Type="datetime" />
     <Property Name="member_id" Type="int" />
     <Property Name="address_id" Type="int" Nullable="false" />
@@ -486,6 +484,7 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
     <Property Name="choco_50" Type="int" />
   </EntityType>
   <EntityContainer Name="sugareyeModelStoreContainer">
+    <EntitySet Name="bigeyedev_brand" EntityType="Self.bigeyedev_brand" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bigeyedev_free" EntityType="Self.bigeyedev_free" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bigeyedev_logic" EntityType="Self.bigeyedev_logic" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bigeyedev_logic_address" EntityType="Self.bigeyedev_logic_address" Schema="dbo" store:Type="Tables" />
@@ -495,16 +494,5 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
     <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="bigeyedev_brand" EntityType="Self.bigeyedev_brand" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [bigeyedev_brand].[id] AS [id], 
-    [bigeyedev_brand].[brand_id] AS [brand_id], 
-    [bigeyedev_brand].[brand_group] AS [brand_group], 
-    [bigeyedev_brand].[visible] AS [visible], 
-    [bigeyedev_brand].[brand] AS [brand], 
-    [bigeyedev_brand].[logo_url] AS [logo_url], 
-    [bigeyedev_brand].[fashion_bgcolor] AS [fashion_bgcolor]
-    FROM [dbo].[bigeyedev_brand] AS [bigeyedev_brand]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

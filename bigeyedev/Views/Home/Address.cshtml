@@ -14,10 +14,10 @@
             // แสดงถ้ามีที่อยู่เคยบันทึกไว้อยู่แล้ว
             if (Model.addressList.Count > 0)
             {
-                foreach (var item in Model.addressList.OrderBy(m=>m.address_order))
+                <h6 style="color:green;">ใช้ที่อยู่เดิม</h6>
+                foreach (var item in Model.addressList.OrderByDescending(m => m.address_order))
                 {
-                    <div>
-                        <h6 style="color:green;">ใช้ที่อยู่เดิม</h6>
+                    <div>                        
                         <label style="color:blue;">
                             <input type="radio" name="addressRdo" value="@item.id" />คุณ @item.name โทร:@item.mobile_shop ที่อยู่: @item.address @item.sub_district @item.district @item.province รหัสไปษณีย์ @item.zip
                         </label>

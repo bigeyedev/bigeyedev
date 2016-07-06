@@ -201,15 +201,8 @@ namespace bigeyedev.Controllers
                 return RedirectToAction("Cart");
             }
             //delete all order cookie
-            for (int i = Request.Cookies.Count - 1; i >= 0; i--)
-            {
-                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
-                {
-                    var cookie = new HttpCookie(Request.Cookies[i].Name);
-                    cookie.Expires = DateTime.Now.AddDays(-1);
-                    Response.Cookies.Add(cookie);
-                }
-            }
+            deleteCookieStock();
+
             //delete order 0 and add new cookie
             foreach (var item in model)
             {
@@ -313,6 +306,7 @@ namespace bigeyedev.Controllers
                 
             }
             var Cookie = new HttpCookie("contract");
+            Cookie.Values["id"] = model.address.id.ToString();
             Cookie.Values["name"] = model.address.name;
             Cookie.Values["mobile"] = model.address.mobile_shop;
             Cookie.Values["mobile2"] = model.address.mobile2_shop;
@@ -339,16 +333,29 @@ namespace bigeyedev.Controllers
 
         public ActionResult Review()
         {
+            if (Request.Cookies["confirm"] == null)
+            {
+                return RedirectToAction("Cart");
+            }
+            if (Request.Cookies["confirm"].Value != "1")
+            {
+                return RedirectToAction("Cart");
+            }
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
             var contract = bindCookieContract();
             if (contract == null)
             {
                 return RedirectToAction("Address");
             }
-
+            
             var itemStock = bindCookieStock();
             if (itemStock == null)
             {
-                return RedirectToAction("Indext");
+                return RedirectToAction("Index");
             }
 
             return View(new Tuple<Contract, List<stockBindingModel>>(contract, itemStock));
@@ -364,7 +371,7 @@ namespace bigeyedev.Controllers
             }
             var Cookie = Request.Cookies["contract"];
             var contract = new Contract();
-
+            contract.address.id = Convert.ToInt32(Cookie.Values["id"]);
             contract.address.name = Cookie.Values["name"];
             contract.address.mobile_shop = Cookie.Values["mobile"];
             contract.address.mobile2_shop = Cookie.Values["mobile2"];
@@ -376,6 +383,7 @@ namespace bigeyedev.Controllers
             contract.address.district = Cookie.Values["area"];
             contract.address.province = Cookie.Values["province"];
             contract.address.zip = Cookie.Values["zipcode"];
+            contract.address.address_order = Convert.ToInt32(Cookie.Values["addressorder"]);
             return contract;
         }
 
@@ -437,73 +445,152 @@ namespace bigeyedev.Controllers
 
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Result()
-        //{
-        //    bool found = chkCookie();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Review(int? replace,int? replace_fac,int? txtFix)
+        {
+            //check ว่ามี ออเดอร์ใน cookie ไหม
+            bool found = chkCookie();
 
-        //    if (!found)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    if (Request.Cookies["confirm"].Value != "1")
-        //    {
-        //        return RedirectToAction("Cart");
-        //    }
-        //    if (Request.Cookies["contract"] == null)
-        //    {
-        //        return RedirectToAction("Address");
-        //    }
-
-
-        //    var contract = bindCookieContract();
-        //    _db.orders.Add(contract);
-        //    if (_db.SaveChanges() <= 0)
-        //    {
-        //        return View(0);
-        //    }
-        //    int orderId = contract.id;
+            if (!found)
+            {
+                return RedirectToAction("Index");
+            }
+            if (Request.Cookies["confirm"] == null)
+            {
+                return RedirectToAction("Cart");
+            }
+            if (Request.Cookies["confirm"].Value != "1")
+            {
+                return RedirectToAction("Cart");
+            }
+            if (Request.Cookies["contract"] == null)
+            {
+                return RedirectToAction("Address");
+            }
 
 
-        //    var stock = bindCookieStock();
-        //    var product = new List<bigeyedev_order_fashion_item>();
-        //    foreach (var item in stock)
-        //    {
-        //        product.Add(new bigeyedev_order_fashion_item()
-        //        {
-        //            order_id = orderId,
-        //            product_id = item.id,
-        //            brand = item.brand,
-        //            model = item.model,
-        //            near = item.near,
-        //            black = item.Black,
-        //            blue = item.Blue,
-        //            brown = item.Brown,
-        //            choco = item.Choco,
-        //            gold = item.Gold,
-        //            gray = item.Gray,
-        //            green = item.Green,
-        //            pink = item.Pink,
-        //            red = item.Red,
-        //            silver = item.Silver,
-        //            sky = item.Sky,
-        //            violet = item.Violet
-        //        });
-        //    }
-        //    _db.bigeyedev_order_fashion_item.AddRange(product);
-        //    if (_db.SaveChanges() <= 0)
-        //    {
-        //        _db.bigeyedev_order.Remove(contract);
-        //        _db.SaveChanges();
-        //        return View(0);
-        //    }
+            //add address to database
+            var contract = bindCookieContract();
+            if (contract.address.address_order == 0)
+            {
+                contract.address.member_id = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+                contract.address.address_order += 1;
+                _db.bigeyedev_member_address.Add(contract.address);
+            }
+            else
+            {
+                var updateAddress = _db.bigeyedev_member_address.Find(contract.address.id);
+                updateAddress.address_order += 1;
+            }
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return RedirectToAction("Result", new { id = 0 });
+            }
 
-        //    return View(orderId);
-        //}
+            //ini fixValue Fashion = 0
+            int fashionFixValue = 0;
+            if (txtFix != null)
+            {
+                fashionFixValue = txtFix.Value;
+            }
+            //add order
+            var order = new bigeyedev_order()
+            {
+                datetime = DateTime.Now,
+                address_id = contract.address.id,
+                member_id = Convert.ToInt32(Request.Cookies["Account"].Values["id"])
+                //add เพิ่มเงื่อนไข replace
+            };
+            if (replace != null)
+            {
+                order.note_fashion2_replace = replace.Value;
+                if (replace == 3)
+                {
+                    order.fix_volume_fashion = fashionFixValue;
+                }
+            }
+            if (replace_fac != null)
+            {
+                order.note_fashion3_replace_fac = replace_fac.Value;
+            }
+            try
+            {
+                _db.bigeyedev_order.Add(order);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return RedirectToAction("Result", new { id = 1 });
+            }
 
 
+            //add fashion item
+            int orderId = order.order_id;
+            var stock = bindCookieStock();
+            var product = new List<bigeyedev_order_fashion_item>();
+            foreach (var item in stock)
+            {
+                product.Add(new bigeyedev_order_fashion_item()
+                {
+                    datetime = DateTime.Now,
+                    order_id = orderId,
+                    product_id = item.id,
+                    brand = item.brand,
+                    model = item.model,
+                    near = item.near,
+                    black = item.Black,
+                    blue = item.Blue,
+                    brown = item.Brown,
+                    choco = item.Choco,
+                    gold = item.Gold,
+                    gray = item.Gray,
+                    green = item.Green,
+                    pink = item.Pink,
+                    red = item.Red,
+                    silver = item.Silver,
+                    sky = item.Sky,
+                    violet = item.Violet
+                });
+            }
+            _db.bigeyedev_order_fashion_item.AddRange(product);
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch
+            {
+                _db.bigeyedev_order.Remove(order);
+                _db.SaveChanges();
+                deleteCookieStock();
+                return RedirectToAction("Result", new { id = 2 });
+            }
 
+            //dalete cookie
+            deleteCookieStock();
+            //delete comfirm cookie
+            Response.Cookies["confirm"].Expires = DateTime.Now.AddDays(-1);
+
+            return RedirectToAction("Result", new { id = orderId });
+        }
+
+
+        private void deleteCookieStock()
+        {
+            for (int i = Request.Cookies.Count - 1; i >= 0; i--)
+            {
+                if (Request.Cookies[i].Name.Substring(0, 5) == "order")
+                {
+                    var cookie = new HttpCookie(Request.Cookies[i].Name);
+                    cookie.Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies.Add(cookie);
+                }
+            }
+        }
 
 
 
@@ -638,7 +725,23 @@ namespace bigeyedev.Controllers
 
             //ลบ cookie login
             Response.Cookies["Account"].Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies["comfirm"].Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies["contract"].Expires = DateTime.Now.AddDays(-1);
             return RedirectToAction("Index");
+        }
+
+
+        
+        public ActionResult Result(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            //check error 1 , 2 ,3 is error
+            int idResult = id.Value;
+           
+            return View(idResult);
         }
 
         public ActionResult About()

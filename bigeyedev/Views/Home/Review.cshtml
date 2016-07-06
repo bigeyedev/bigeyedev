@@ -83,29 +83,29 @@
             </tr>
         }
     </table>
-    @using (Html.BeginForm("Result", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Review", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         <div id="option">
             <p>ในกรณีที่มีสินค้าบางตัวหมด?</p>
-            <input type="radio" name="replace" />ให้ผมจัดรุ่นใกล้เคียงที่สุด Style เดียวกัน (ได้รับการบริการที่เร็วกว่า)
+            <input type="radio" name="replace" value="1"/>ให้ผมจัดรุ่นใกล้เคียงที่สุด Style เดียวกัน (ได้รับการบริการที่เร็วกว่า)<br/>
 
 
-            <input type="radio" name="replace" />แทน รุ่นที่สั่ง โดยกระจายรุ่นให้ครบตามจำนวน
+            <input type="radio" name="replace" value="2"/>แทน รุ่นที่สั่ง โดยกระจายรุ่นให้ครบตามจำนวน<br />
 
 
-            <input type="radio" name="replace" id="fix" />ข้าม (ให้ลูกค้าทำ Order เผื่อจำนวนเกินไว้หน่อย และอย่าลืม Fix จำนวนที่จะเอาด้วย)
+            <input type="radio" name="replace" value="3" id="fix" />ข้าม (ให้ลูกค้าทำ Order เผื่อจำนวนเกินไว้หน่อย และอย่าลืม Fix จำนวนที่จะเอาด้วย)<br />
 
 
-            <input type="radio" name="replace" />ข้าม และวงแจ้งรุ่นที่หมด ไปทาง LINE
+            <input type="radio" name="replace" value="4"/>ข้าม และวงแจ้งรุ่นที่หมด ไปทาง LINE
             <br />
-            <input class="form-control" type="tel" id="txtFix" width="3" disabled />
+            <input class="form-control" type="tel" id="txtFix" name="txtFix" size="3"/><br />
             <p>ลายเดียวกัน+โรงงานเดียวกัน แต่คนละยี่ห้อ แทนได้ไหม?</p>
 
-            <input type="radio" name="replace_fac" />แทนได้
+            <input type="radio" name="replace_fac"  value="1"/>แทนได้<br />
 
 
-            <input type="radio" name="replace_fac" />เอาเฉพาะยี่ห้อที่เลือก เท่านั้น
+            <input type="radio" name="replace_fac" value="2"/>เอาเฉพาะยี่ห้อที่เลือก เท่านั้น<br />
 
         </div>
         <input type="submit" value="สั่งซื้อ" class="btn btn-danger" />
@@ -119,14 +119,4 @@
         return true;
     }
 
-    document.getElementById('fix').onchange = displayTextBox;
-
-    var textBox = document.getElementById('txtFix');
-    function displayTextBox(evt) {
-        if (evt.target.checked) {
-            textBox.disabled = true;
-        } else {
-            textBox.disabled = false;
-        }
-    }
 </script>

@@ -86,47 +86,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="bigeyedev_order">
-      <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order">
-        <MappingFragment StoreEntitySet="bigeyedev_order">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="order_id" ColumnName="order_id" />
-          <ScalarProperty Name="datetime" ColumnName="datetime" />
-          <ScalarProperty Name="member_id" ColumnName="member_id" />
-          <ScalarProperty Name="address_id" ColumnName="address_id" />
-          <ScalarProperty Name="bill_id" ColumnName="bill_id" />
-          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
-          <ScalarProperty Name="user_id" ColumnName="user_id" />
-          <ScalarProperty Name="logic_id" ColumnName="logic_id" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
-          <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
-          <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
-          <ScalarProperty Name="status_print_bill" ColumnName="status_print_bill" />
-          <ScalarProperty Name="status_working" ColumnName="status_working" />
-          <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
-          <ScalarProperty Name="have_power" ColumnName="have_power" />
-          <ScalarProperty Name="have_other" ColumnName="have_other" />
-          <ScalarProperty Name="note_fashion1_ask_only_dueba" ColumnName="note_fashion1_ask_only_dueba" />
-          <ScalarProperty Name="note_fashion2_replace" ColumnName="note_fashion2_replace" />
-          <ScalarProperty Name="note_fashion3_replace_fac" ColumnName="note_fashion3_replace_fac" />
-          <ScalarProperty Name="note_power1_ask_only_dueba" ColumnName="note_power1_ask_only_dueba" />
-          <ScalarProperty Name="note_power2_replace" ColumnName="note_power2_replace" />
-          <ScalarProperty Name="note_power3_replace_fac" ColumnName="note_power3_replace_fac" />
-          <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
-          <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
-          <ScalarProperty Name="order_amount" ColumnName="order_amount" />
-          <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
-          <ScalarProperty Name="pay_date" ColumnName="pay_date" />
-          <ScalarProperty Name="pay_time" ColumnName="pay_time" />
-          <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
-          <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
-          <ScalarProperty Name="logic_book_no" ColumnName="logic_book_no" />
-          <ScalarProperty Name="logic_no" ColumnName="logic_no" />
-          <ScalarProperty Name="tracking" ColumnName="tracking" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="bigeyedev_order_fashion_item">
       <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order_fashion_item">
         <MappingFragment StoreEntitySet="bigeyedev_order_fashion_item">
@@ -478,6 +437,47 @@
           <ScalarProperty Name="pink_950" ColumnName="pink_950" />
           <ScalarProperty Name="pink_1000" ColumnName="pink_1000" />
           <ScalarProperty Name="choco_50" ColumnName="choco_50" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bigeyedev_order">
+      <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order">
+        <MappingFragment StoreEntitySet="bigeyedev_order">
+          <ScalarProperty Name="tracking" ColumnName="tracking" />
+          <ScalarProperty Name="logic_no" ColumnName="logic_no" />
+          <ScalarProperty Name="logic_book_no" ColumnName="logic_book_no" />
+          <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
+          <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
+          <ScalarProperty Name="pay_time" ColumnName="pay_time" />
+          <ScalarProperty Name="pay_date" ColumnName="pay_date" />
+          <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
+          <ScalarProperty Name="order_amount" ColumnName="order_amount" />
+          <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
+          <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
+          <ScalarProperty Name="note_power3_replace_fac" ColumnName="note_power3_replace_fac" />
+          <ScalarProperty Name="note_power2_replace" ColumnName="note_power2_replace" />
+          <ScalarProperty Name="note_power1_ask_only_dueba" ColumnName="note_power1_ask_only_dueba" />
+          <ScalarProperty Name="note_fashion3_replace_fac" ColumnName="note_fashion3_replace_fac" />
+          <ScalarProperty Name="note_fashion2_replace" ColumnName="note_fashion2_replace" />
+          <ScalarProperty Name="note_fashion1_ask_only_dueba" ColumnName="note_fashion1_ask_only_dueba" />
+          <ScalarProperty Name="have_other" ColumnName="have_other" />
+          <ScalarProperty Name="have_power" ColumnName="have_power" />
+          <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
+          <ScalarProperty Name="status_working" ColumnName="status_working" />
+          <ScalarProperty Name="status_print_bill" ColumnName="status_print_bill" />
+          <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
+          <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
+          <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="logic_id" ColumnName="logic_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

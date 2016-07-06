@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+
+    // include culture
+    Html.RenderPartial("_Culture");
+    string msg = "";
+}
+<div class="container">
+    @*ถ้ามี 0,1 ,2 แสดงว่าเป็น eror*@
+    @if (Model == 0 || Model == 1 || Model == 2)
+    {
+        <h3 style="color:red;">เกิดความผิดพลาด</h3>
+        if (Model == 0)
+        {
+            msg = "เกิดความผิดพลาดในการเพิ่มที่อยู่จัดส่ง กรุณากรอกที่อยู๋จัดส่งใหม่อีกครั้ง";
+        }
+        else if (Model == 1)
+        {
+            msg = "เกิดข้อผิดพลาดในการเพิ่ม ออเดอร์ กรุณากดส่งออเดอร์ใหม่อีกครั้ง";
+        }
+        else if (Model == 2)
+        {
+            msg = "เกิดข้อผิดพลาดในการเพิ่มข้อมูลรายการสินค้า กรุณาเลือกสินค้าใหม่อีกครั้ง";
+        }
+    }
+    else
+    {
+        <h3 style="color:green;">ทำการบันทึกการสั่งซื้อสำเร็จ</h3>
+        msg = "เจ้าหน้าที่ได้บันทึกการสั่งซื้อเลขที่ " + Model + " เรียบร้อยแล้ว กรุณาโอนเงินใน 24 ชั่วโมง";
+    }
+    <p>@msg</p>
+
+    
+    
+
+</div>

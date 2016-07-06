@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="sugareyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="bigeyedev_brand">
           <Key>
             <PropertyRef Name="id" />
@@ -101,10 +99,10 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
         </EntityType>
         <EntityType Name="bigeyedev_order">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="order_id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="order_id" Type="int" />
+          <Property Name="id" Type="int" />
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="datetime" Type="datetime" />
           <Property Name="member_id" Type="int" />
           <Property Name="address_id" Type="int" Nullable="false" />
@@ -491,6 +489,7 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
           <Property Name="choco_50" Type="int" />
         </EntityType>
         <EntityContainer Name="sugareyeModelStoreContainer">
+          <EntitySet Name="bigeyedev_brand" EntityType="Self.bigeyedev_brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bigeyedev_free" EntityType="Self.bigeyedev_free" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bigeyedev_logic" EntityType="Self.bigeyedev_logic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bigeyedev_logic_address" EntityType="Self.bigeyedev_logic_address" Schema="dbo" store:Type="Tables" />
@@ -500,17 +499,6 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
           <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="bigeyedev_brand" EntityType="Self.bigeyedev_brand" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [bigeyedev_brand].[id] AS [id], 
-    [bigeyedev_brand].[brand_id] AS [brand_id], 
-    [bigeyedev_brand].[brand_group] AS [brand_group], 
-    [bigeyedev_brand].[visible] AS [visible], 
-    [bigeyedev_brand].[brand] AS [brand], 
-    [bigeyedev_brand].[logo_url] AS [logo_url], 
-    [bigeyedev_brand].[fashion_bgcolor] AS [fashion_bgcolor]
-    FROM [dbo].[bigeyedev_brand] AS [bigeyedev_brand]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -595,46 +583,6 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
           <Property Name="mobile_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="mobile2_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="bigeyedev_order">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="order_id" Type="Int32" />
-          <Property Name="datetime" Type="DateTime" Precision="3" />
-          <Property Name="member_id" Type="Int32" />
-          <Property Name="address_id" Type="Int32" Nullable="false" />
-          <Property Name="bill_id" Type="Int32" />
-          <Property Name="shop_id" Type="Int32" />
-          <Property Name="user_id" Type="Int32" />
-          <Property Name="logic_id" Type="Int32" />
-          <Property Name="status" Type="Int32" />
-          <Property Name="status_print_fashion" Type="Int32" />
-          <Property Name="status_print_power" Type="Int32" />
-          <Property Name="status_print_other" Type="Int32" />
-          <Property Name="status_print_bill" Type="Int32" />
-          <Property Name="status_working" Type="Int32" />
-          <Property Name="have_fashion" Type="Int32" />
-          <Property Name="have_power" Type="Int32" />
-          <Property Name="have_other" Type="Int32" />
-          <Property Name="note_fashion1_ask_only_dueba" Type="Int32" />
-          <Property Name="note_fashion2_replace" Type="Int32" />
-          <Property Name="note_fashion3_replace_fac" Type="Int32" />
-          <Property Name="note_power1_ask_only_dueba" Type="Int32" />
-          <Property Name="note_power2_replace" Type="Int32" />
-          <Property Name="note_power3_replace_fac" Type="Int32" />
-          <Property Name="fix_volume_fashion" Type="Int32" />
-          <Property Name="fix_volume_power" Type="Int32" />
-          <Property Name="order_amount" Type="Single" />
-          <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pay_amount" Type="Single" />
-          <Property Name="pay_finish" Type="Int32" />
-          <Property Name="logic_book_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="logic_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="tracking" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="bigeyedev_order_fashion_item">
           <Key>
@@ -993,12 +941,52 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
           <EntitySet Name="bigeyedev_logic_address" EntityType="Self.bigeyedev_logic_address" />
           <EntitySet Name="bigeyedev_member" EntityType="Self.bigeyedev_member" />
           <EntitySet Name="bigeyedev_member_address" EntityType="Self.bigeyedev_member_address" />
-          <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" />
           <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" />
           <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" />
           <EntitySet Name="product" EntityType="Self.product" />
+          <EntitySet Name="bigeyedev_order" EntityType="sugareyeModel.bigeyedev_order" />
           <EntitySet Name="bigeyedev_brand" EntityType="sugareyeModel.bigeyedev_brand" />
         </EntityContainer>
+        <EntityType Name="bigeyedev_order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="id" Type="Int32" />
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="member_id" Type="Int32" />
+          <Property Name="address_id" Type="Int32" Nullable="false" />
+          <Property Name="bill_id" Type="Int32" />
+          <Property Name="shop_id" Type="Int32" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="logic_id" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="status_print_fashion" Type="Int32" />
+          <Property Name="status_print_power" Type="Int32" />
+          <Property Name="status_print_other" Type="Int32" />
+          <Property Name="status_print_bill" Type="Int32" />
+          <Property Name="status_working" Type="Int32" />
+          <Property Name="have_fashion" Type="Int32" />
+          <Property Name="have_power" Type="Int32" />
+          <Property Name="have_other" Type="Int32" />
+          <Property Name="note_fashion1_ask_only_dueba" Type="Int32" />
+          <Property Name="note_fashion2_replace" Type="Int32" />
+          <Property Name="note_fashion3_replace_fac" Type="Int32" />
+          <Property Name="note_power1_ask_only_dueba" Type="Int32" />
+          <Property Name="note_power2_replace" Type="Int32" />
+          <Property Name="note_power3_replace_fac" Type="Int32" />
+          <Property Name="fix_volume_fashion" Type="Int32" />
+          <Property Name="fix_volume_power" Type="Int32" />
+          <Property Name="order_amount" Type="Single" />
+          <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pay_amount" Type="Single" />
+          <Property Name="pay_finish" Type="Int32" />
+          <Property Name="logic_book_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="logic_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tracking" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="bigeyedev_brand">
           <Key>
             <PropertyRef Name="id" />
@@ -1099,47 +1087,6 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
                 <ScalarProperty Name="mobile_shop" ColumnName="mobile_shop" />
                 <ScalarProperty Name="mobile2_shop" ColumnName="mobile2_shop" />
                 <ScalarProperty Name="location_url" ColumnName="location_url" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="bigeyedev_order">
-            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order">
-              <MappingFragment StoreEntitySet="bigeyedev_order">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="datetime" ColumnName="datetime" />
-                <ScalarProperty Name="member_id" ColumnName="member_id" />
-                <ScalarProperty Name="address_id" ColumnName="address_id" />
-                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
-                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="logic_id" ColumnName="logic_id" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
-                <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
-                <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
-                <ScalarProperty Name="status_print_bill" ColumnName="status_print_bill" />
-                <ScalarProperty Name="status_working" ColumnName="status_working" />
-                <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
-                <ScalarProperty Name="have_power" ColumnName="have_power" />
-                <ScalarProperty Name="have_other" ColumnName="have_other" />
-                <ScalarProperty Name="note_fashion1_ask_only_dueba" ColumnName="note_fashion1_ask_only_dueba" />
-                <ScalarProperty Name="note_fashion2_replace" ColumnName="note_fashion2_replace" />
-                <ScalarProperty Name="note_fashion3_replace_fac" ColumnName="note_fashion3_replace_fac" />
-                <ScalarProperty Name="note_power1_ask_only_dueba" ColumnName="note_power1_ask_only_dueba" />
-                <ScalarProperty Name="note_power2_replace" ColumnName="note_power2_replace" />
-                <ScalarProperty Name="note_power3_replace_fac" ColumnName="note_power3_replace_fac" />
-                <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
-                <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
-                <ScalarProperty Name="order_amount" ColumnName="order_amount" />
-                <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
-                <ScalarProperty Name="pay_date" ColumnName="pay_date" />
-                <ScalarProperty Name="pay_time" ColumnName="pay_time" />
-                <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
-                <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
-                <ScalarProperty Name="logic_book_no" ColumnName="logic_book_no" />
-                <ScalarProperty Name="logic_no" ColumnName="logic_no" />
-                <ScalarProperty Name="tracking" ColumnName="tracking" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1494,6 +1441,47 @@ warning 6002: The table/view 'sugareye.dbo.bigeyedev_brand' does not have a prim
                 <ScalarProperty Name="pink_950" ColumnName="pink_950" />
                 <ScalarProperty Name="pink_1000" ColumnName="pink_1000" />
                 <ScalarProperty Name="choco_50" ColumnName="choco_50" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bigeyedev_order">
+            <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_order">
+              <MappingFragment StoreEntitySet="bigeyedev_order">
+                <ScalarProperty Name="tracking" ColumnName="tracking" />
+                <ScalarProperty Name="logic_no" ColumnName="logic_no" />
+                <ScalarProperty Name="logic_book_no" ColumnName="logic_book_no" />
+                <ScalarProperty Name="pay_finish" ColumnName="pay_finish" />
+                <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
+                <ScalarProperty Name="pay_time" ColumnName="pay_time" />
+                <ScalarProperty Name="pay_date" ColumnName="pay_date" />
+                <ScalarProperty Name="pay_bank" ColumnName="pay_bank" />
+                <ScalarProperty Name="order_amount" ColumnName="order_amount" />
+                <ScalarProperty Name="fix_volume_power" ColumnName="fix_volume_power" />
+                <ScalarProperty Name="fix_volume_fashion" ColumnName="fix_volume_fashion" />
+                <ScalarProperty Name="note_power3_replace_fac" ColumnName="note_power3_replace_fac" />
+                <ScalarProperty Name="note_power2_replace" ColumnName="note_power2_replace" />
+                <ScalarProperty Name="note_power1_ask_only_dueba" ColumnName="note_power1_ask_only_dueba" />
+                <ScalarProperty Name="note_fashion3_replace_fac" ColumnName="note_fashion3_replace_fac" />
+                <ScalarProperty Name="note_fashion2_replace" ColumnName="note_fashion2_replace" />
+                <ScalarProperty Name="note_fashion1_ask_only_dueba" ColumnName="note_fashion1_ask_only_dueba" />
+                <ScalarProperty Name="have_other" ColumnName="have_other" />
+                <ScalarProperty Name="have_power" ColumnName="have_power" />
+                <ScalarProperty Name="have_fashion" ColumnName="have_fashion" />
+                <ScalarProperty Name="status_working" ColumnName="status_working" />
+                <ScalarProperty Name="status_print_bill" ColumnName="status_print_bill" />
+                <ScalarProperty Name="status_print_other" ColumnName="status_print_other" />
+                <ScalarProperty Name="status_print_power" ColumnName="status_print_power" />
+                <ScalarProperty Name="status_print_fashion" ColumnName="status_print_fashion" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="logic_id" ColumnName="logic_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1100,6 +1100,7 @@
     <Content Include="Views\Home\SingResult.cshtml" />
     <Content Include="Views\Home\Fashion_Select - Copy.cshtml" />
     <Content Include="Views\Home\_Culture.cshtml" />
+    <Content Include="Views\Home\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

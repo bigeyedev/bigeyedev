@@ -80,46 +80,6 @@
     <Property Name="mobile2_shop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="location_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="bigeyedev_order">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="order_id" Type="Int32" />
-    <Property Name="datetime" Type="DateTime" Precision="3" />
-    <Property Name="member_id" Type="Int32" />
-    <Property Name="address_id" Type="Int32" Nullable="false" />
-    <Property Name="bill_id" Type="Int32" />
-    <Property Name="shop_id" Type="Int32" />
-    <Property Name="user_id" Type="Int32" />
-    <Property Name="logic_id" Type="Int32" />
-    <Property Name="status" Type="Int32" />
-    <Property Name="status_print_fashion" Type="Int32" />
-    <Property Name="status_print_power" Type="Int32" />
-    <Property Name="status_print_other" Type="Int32" />
-    <Property Name="status_print_bill" Type="Int32" />
-    <Property Name="status_working" Type="Int32" />
-    <Property Name="have_fashion" Type="Int32" />
-    <Property Name="have_power" Type="Int32" />
-    <Property Name="have_other" Type="Int32" />
-    <Property Name="note_fashion1_ask_only_dueba" Type="Int32" />
-    <Property Name="note_fashion2_replace" Type="Int32" />
-    <Property Name="note_fashion3_replace_fac" Type="Int32" />
-    <Property Name="note_power1_ask_only_dueba" Type="Int32" />
-    <Property Name="note_power2_replace" Type="Int32" />
-    <Property Name="note_power3_replace_fac" Type="Int32" />
-    <Property Name="fix_volume_fashion" Type="Int32" />
-    <Property Name="fix_volume_power" Type="Int32" />
-    <Property Name="order_amount" Type="Single" />
-    <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="pay_amount" Type="Single" />
-    <Property Name="pay_finish" Type="Int32" />
-    <Property Name="logic_book_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="logic_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="tracking" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="bigeyedev_order_fashion_item">
     <Key>
       <PropertyRef Name="id" />
@@ -477,12 +437,52 @@
     <EntitySet Name="bigeyedev_logic_address" EntityType="Self.bigeyedev_logic_address" />
     <EntitySet Name="bigeyedev_member" EntityType="Self.bigeyedev_member" />
     <EntitySet Name="bigeyedev_member_address" EntityType="Self.bigeyedev_member_address" />
-    <EntitySet Name="bigeyedev_order" EntityType="Self.bigeyedev_order" />
     <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" />
     <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" />
     <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="bigeyedev_order" EntityType="sugareyeModel.bigeyedev_order" />
     <EntitySet Name="bigeyedev_brand" EntityType="sugareyeModel.bigeyedev_brand" />
   </EntityContainer>
+  <EntityType Name="bigeyedev_order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="id" Type="Int32" />
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datetime" Type="DateTime" Precision="3" />
+    <Property Name="member_id" Type="Int32" />
+    <Property Name="address_id" Type="Int32" Nullable="false" />
+    <Property Name="bill_id" Type="Int32" />
+    <Property Name="shop_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="logic_id" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="status_print_fashion" Type="Int32" />
+    <Property Name="status_print_power" Type="Int32" />
+    <Property Name="status_print_other" Type="Int32" />
+    <Property Name="status_print_bill" Type="Int32" />
+    <Property Name="status_working" Type="Int32" />
+    <Property Name="have_fashion" Type="Int32" />
+    <Property Name="have_power" Type="Int32" />
+    <Property Name="have_other" Type="Int32" />
+    <Property Name="note_fashion1_ask_only_dueba" Type="Int32" />
+    <Property Name="note_fashion2_replace" Type="Int32" />
+    <Property Name="note_fashion3_replace_fac" Type="Int32" />
+    <Property Name="note_power1_ask_only_dueba" Type="Int32" />
+    <Property Name="note_power2_replace" Type="Int32" />
+    <Property Name="note_power3_replace_fac" Type="Int32" />
+    <Property Name="fix_volume_fashion" Type="Int32" />
+    <Property Name="fix_volume_power" Type="Int32" />
+    <Property Name="order_amount" Type="Single" />
+    <Property Name="pay_bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pay_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pay_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pay_amount" Type="Single" />
+    <Property Name="pay_finish" Type="Int32" />
+    <Property Name="logic_book_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="logic_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="tracking" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="bigeyedev_brand">
     <Key>
       <PropertyRef Name="id" />
