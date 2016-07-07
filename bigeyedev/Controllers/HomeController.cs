@@ -22,6 +22,16 @@ namespace bigeyedev.Controllers
 
 
 
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
         private void addCookieStock(stockBindingModel item, int state)
         {
             var Cookie = new HttpCookie("order:" + item.id);
@@ -348,7 +358,7 @@ namespace bigeyedev.Controllers
         {
             if (Request.Cookies["Account"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
             if (Request.Cookies["confirm"] == null)
             {
@@ -397,9 +407,25 @@ namespace bigeyedev.Controllers
             if (addressRdo != null && addressRdo.Value != 0)
             {
                 model = new Contract();
-                model.address = _db.bigeyedev_member_address.Where(m => m.id == addressRdo.Value).Single();
-                model.memberData = _db.bigeyedev_member.Where(m => m.member_id == model.address.member_id).Single();
-                // add จำนวนการสั่ง ต้องทำ
+                try
+                {
+                    model.address = _db.bigeyedev_member_address.Where(m => m.id == addressRdo.Value).Single();
+                }
+                catch
+                {
+                    RedirectToAction("Address");
+                }
+
+                //ดึงข้อมูล account จาก DB
+                try
+                {
+                    model.memberData = _db.bigeyedev_member.Where(m => m.member_id == model.address.member_id).Single();
+                }
+                catch
+                {
+                    return RedirectToAction("Address");
+                }
+                
             }
             else
             {
@@ -444,7 +470,7 @@ namespace bigeyedev.Controllers
             }
             if (Request.Cookies["Account"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
 
             var contract = bindCookieContract();
@@ -604,8 +630,10 @@ namespace bigeyedev.Controllers
 
 
 
-        public ActionResult Login(int? status)
+        public ActionResult Login(int? status,string returnUrl)
         {
+            ViewBag.returnUrl = returnUrl;
+            
             var d = Request.Url.AbsoluteUri;
             //ตรวจสอบว่ามีการล็อคอินค้างอยู่หรือป่าว
             if (Request.Cookies["Account"] != null)
@@ -641,19 +669,19 @@ namespace bigeyedev.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string txtUser, string txtPwd, string url)
+        public ActionResult Login(string txtUser, string txtPwd, string returnUrl)
         {
             //check varible is null
             if (txtUser == null || txtPwd == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
 
             //select data member from database
             var member = _db.bigeyedev_member.Where(m => m.mobile == txtUser && m.year == txtPwd).SingleOrDefault();
             if (member == null)
             {
-                return RedirectToAction("Login", new { status = 0 });
+                return RedirectToAction("Login", new { status = 0, returnUrl =  Request.Url.AbsolutePath  });
             }
 
             //new cookie for user
@@ -665,14 +693,7 @@ namespace bigeyedev.Controllers
 
 
             //check back link to redirect
-            if (url == "" || Request.Url.ToString().ToUpper() == url.ToUpper())
-            {
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return Redirect(url);
-            }
+            return RedirectToLocal(returnUrl);
 
         }
 
@@ -687,19 +708,19 @@ namespace bigeyedev.Controllers
             //check null var
             if (txtPwdR == null || txtUserR == null || txtRePwdR == null || txtName == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath});
             }
-
+            
             //checck repass and padd is equal
             if (!txtRePwdR.Equals(txtPwdR))
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
 
             //check mobile is exist?
             if (_db.bigeyedev_member.Where(m => m.mobile == txtUserR).SingleOrDefault() != null)
             {
-                return RedirectToAction("Login", new { status = 2 });
+                return RedirectToAction("Login", new { status = 2 , returnUrl =  Request.Url.AbsolutePath});
             }
 
             //insert data
@@ -717,10 +738,10 @@ namespace bigeyedev.Controllers
             }
             catch
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
 
-            return RedirectToAction("Login", new { status = 3 });
+            return RedirectToAction("Login", new { status = 3 ,returnUrl =  Request.Url.AbsolutePath});
         }
 
 
@@ -765,7 +786,7 @@ namespace bigeyedev.Controllers
         {
             if (Request.Cookies["Account"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
 
             var order = new List<bigeyedev_order>();
@@ -798,6 +819,10 @@ namespace bigeyedev.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Payment(bigeyedev_order model)
         {
+            if (model == null)
+            {
+                return RedirectToAction("Payment");
+            }
             try
             {
                 var update = _db.bigeyedev_order.Find(model.order_id);
@@ -822,7 +847,7 @@ namespace bigeyedev.Controllers
         {
             if (Request.Cookies["Account"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
                         
             // feath data order form DB
@@ -842,7 +867,7 @@ namespace bigeyedev.Controllers
         {
             if(Request.Cookies["Account"] == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
             }
             //ตัวบ่งบอกว่า รับค่า id มาหรือไม่ เอาไว้สร้างเงื่อนไขในหน้า view
             int check = 0;
@@ -881,17 +906,166 @@ namespace bigeyedev.Controllers
 
 
 
+
+
         public ActionResult _orderViewItem(int orderID)
         {
             var orderItem = _db.bigeyedev_order_fashion_item.Where(m => m.order_id == orderID).ToList();
             var productItem = new List<string>();
             foreach(var item in orderItem)
             {
-                productItem.Add(_db.product.Where(m => m.id == item.product_id).Select(u =>u.image_url).Single());
+                try
+                {
+                    productItem.Add(_db.product.Where(m => m.id == item.product_id).Select(u => u.image_url).Single());
+                }
+                catch {}
+                
             }
 
             return PartialView(new Tuple<List<bigeyedev_order_fashion_item>,List<string>>(orderItem,productItem));
         }
+
+
+
+
+
+
+        public ActionResult Account()
+        {
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
+            }
+
+            //ค้นหาที่อยู่ของ account นี้
+            var memberID = Convert.ToInt16(Request.Cookies["Account"].Values["id"]);
+            var ModelAddress = _db.bigeyedev_member_address.Where(m => m.member_id == memberID).ToList();
+            //featch account data
+            var modelAccount = _db.bigeyedev_member.Find(memberID);
+
+            return View(new Tuple<bigeyedev_member, List<bigeyedev_member_address>>(modelAccount, ModelAddress));
+        }
+
+
+
+
+        public ActionResult AccountEdit()
+        {
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
+            }
+            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+            var modelAccount = _db.bigeyedev_member.Find(memberID);
+
+
+            return View(modelAccount);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AccountEdit(bigeyedev_member model)
+        {
+            if (model == null)
+            {
+                RedirectToAction("AccountEdit");
+            }
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Login", new { returnUrl =  Request.Url.AbsolutePath });
+            }
+
+            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+
+            var memberUpdate = _db.bigeyedev_member.Find(memberID);
+            memberUpdate.name = model.name; 
+            memberUpdate.email = model.email;
+            memberUpdate.mobile2 = model.mobile2;
+            memberUpdate.line_id = model.line_id;
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return View(model);
+            }
+
+
+            return RedirectToAction("Account");
+        }
+
+
+
+
+
+        public ActionResult  AddressEdit(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Account");
+            }
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Account");
+            }
+            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+            int addressID = id.Value;
+            var modelAddress = new bigeyedev_member_address();
+            try
+            {
+                 modelAddress = _db.bigeyedev_member_address.Where(m => m.id == addressID && m.member_id == memberID).Single();
+            }
+            catch
+            {
+                return RedirectToAction("Account");
+            }
+            
+
+            return View(modelAddress);
+        }
+
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddressEdit(bigeyedev_member_address model)
+        {
+            if (model == null)
+            {
+                return RedirectToAction("AddressEdit");
+            }
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("AddressEdit");
+            }
+
+            try
+            {
+                var modelAddress = _db.bigeyedev_member_address.Find(model.id);
+                modelAddress.name = model.name;
+                modelAddress.shop_name = model.shop_name;
+                modelAddress.mobile_shop = model.mobile_shop;
+                modelAddress.mobile2_shop = model.mobile2_shop;
+                modelAddress.address = model.address;
+                modelAddress.sub_district = model.sub_district;
+                modelAddress.district = model.district;
+                modelAddress.province = model.province;
+                modelAddress.zip = model.zip;
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return RedirectToAction("AddressEdit", new { id = model.id});
+            }
+
+            return RedirectToAction("Account");
+        }
+
 
 
 

@@ -4,10 +4,7 @@
     Layout = "~/Views/Shared/Front-End_Layout.cshtml";
     string str = @"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
     string url = "";
-    if (Request.UrlReferrer != null)
-    {
-        url = Request.UrlReferrer.ToString();
-    }
+
     Html.RenderPartial("_Culture");
 }
 
@@ -23,9 +20,9 @@
     <div class="card_login">
         <h1 class="title_login">@Resources.Resource.menu_login</h1>
         <p align="center" style="color:red;">@Model</p>
-        <form action="Login" method="post" id="form-validation">
+        <form action="Login" method="post" id="form-validation" >
             @Html.AntiForgeryToken()
-            <input type="hidden" value="@url" name="url" />
+            <input type="hidden" value="@ViewBag.returnUrl" name="returnUrl" />
             <div class="input-container">
                 <input name="txtUser" type="tel" id="Username" required="required" class="product_qty valid-number" onkeypress="return numbersonly(this, event)" value="" maxlength="15" pattern="^[0-9]{9,10}$" />
                 <label for="Username">@Resources.Resource.login_mobile</label>

@@ -1095,10 +1095,7 @@
     <Content Include="Views\Test\JQ_Dialog.cshtml" />
     <Content Include="Views\Test\JQ_Dialog_Dailog_Alt.cshtml" />
     <Content Include="Views\Test\JQ_Dialog - Copy.cshtml" />
-    <Content Include="Views\Home\Fashion_Select_Dialog.cshtml" />
-    <Content Include="Views\Home\Login - Copy.cshtml" />
     <Content Include="Views\Home\SingResult.cshtml" />
-    <Content Include="Views\Home\Fashion_Select - Copy.cshtml" />
     <Content Include="Views\Home\_Culture.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
@@ -1107,6 +1104,9 @@
     <Content Include="Views\Home\_orderViewAddress.cshtml" />
     <Content Include="Views\Home\_orderViewItem.cshtml" />
     <Content Include="Views\Home\_statusOrder.cshtml" />
+    <Content Include="Views\Home\Account.cshtml" />
+    <Content Include="Views\Home\AccountEdit.cshtml" />
+    <Content Include="Views\Home\AddressEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

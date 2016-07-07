@@ -1,0 +1,30 @@
+﻿@model bigeyedev.bigeyedev_member
+
+@{
+    ViewBag.Title = "AccountEdit";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+    string str = @"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+}
+
+<div class="container" id="tablecon">
+    <h5>แก้ไขบัญชี</h5>
+    <hr />
+    <div>
+        <form action="/Home/Account/Edit" method="post" role="form">
+            @Html.AntiForgeryToken()
+            <label for="editName">ชื่อ-สกุล * </label>
+            <input type="text" name="name" id="editName" maxlength="50" required value="@Model.name"/>
+            <br />
+            <label for="editEmail">อีเมลล์ * </label>
+            <input type="email" name="email" id="editEmail" maxlength="50" pattern=@str value="@Model.email" required/>
+            <br />
+            <label for="editLine">ไลน์ไอดี</label>
+            <input type="text" name="line_id" id="editLine" maxlength="50" value="@Model.line_id" />
+            <br />
+            <label for="editPhone">เบอร์โทร * </label>
+            <input type="tel" name="mobile2" id="editPhone" maxlength="11" value="@Model.mobile2" onkeypress="return numbersonly(this, event)" pattern="^[0-9]{9,10}$" required/>
+            <br />
+            <input type="submit" value="บันทึก" />
+        </form>        
+    </div>
+</div>

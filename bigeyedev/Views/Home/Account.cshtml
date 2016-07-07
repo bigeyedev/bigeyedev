@@ -1,0 +1,36 @@
+﻿@model Tuple<bigeyedev_member, List<bigeyedev_member_address>>
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+}
+
+
+<div class="container" id="tablecon">
+    <h5>ส่วนควบคุมบัญชี</h5>
+    <div style="width:300px;">
+        <h6>ข้อมูลติดต่อ</h6>
+        <hr />
+        @Model.Item1.name <br />
+        @Model.Item1.email <br />
+        <a href="/Home/Account/Edit">แก้ไข</a>
+        <br /><br />
+    </div>
+    <div style="width:300px;">
+        <div>
+            <span>สมุดที่อยู่ </span>
+        </div>
+        <hr />
+        @foreach (var item in Model.Item2)
+        {
+            <div style="border : 1px solid; border-color:#d3d3d3;  border-radius:2px;width:300px;padding:10px; color:dimgrey;">
+                @item.name<br />
+                @item.address @item.sub_district <br />
+                @item.district @item.province @item.zip<br />
+                @item.mobile_shop @item.mobile2_shop
+                <br />
+                <a href="/Home/Account/Address/@item.id"><u>แก้ไขที่อยู่</u></a>
+            </div>
+            <br />
+        }
+    </div>
+</div>

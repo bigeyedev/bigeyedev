@@ -1,0 +1,43 @@
+﻿@model bigeyedev_member_address
+@{
+    ViewBag.Title = "AddressEdit";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+}
+
+<div>
+    <h5>แก้ไขที่อยู่</h5>
+    
+    <form action="/Home/Account/Address" method="post" role="form">
+        @Html.AntiForgeryToken()
+        <input type="hidden" value="@Model.id" name="id"/>
+        <label for="editName">ชื่อ-สกุล</label>
+        <input id="editName" type ="text" name="name" maxlength="25" value="@Model.name" required/>
+        <br />
+        <label for="editMobile">เบอร์โทรศัพท์</label>
+        <input id="editMobile" type="tel"  name="mobile_shop" maxlength="11" value="@Model.mobile_shop" pattern="^[0-9]{9,11}$" />
+        <br />
+        <label for="editMobile2">เบอร์โทรศัพท์ สำรอง</label>
+        <input id="editMobile2" type="tel"  name="mobile2_shop" pattern="^[0-9]{9,11}$" value="@Model.mobile2_shop" maxlength="11"  />
+        <br />
+        <label for="editShop">ชื่อ Shop</label>
+        <input id="editShop" type="text" name="shop_name" maxlength="25" value="@Model.shop_name" />
+        <br />
+        <label for="editAddress">ที่อยู่</label>
+        <input id="editAddress" type="text" name="address" maxlength="100" value="@Model.address" required />
+        <br />
+        <label for="editSubdis">ตำบล/แขวง</label>
+        <input id="editSubdis" type="text" name="sub_district" maxlength="25" value="@Model.sub_district" required />
+        <br />
+        <label for="editDis">อำเภอ/เขต</label>
+        <input id="editDis" type="text" name="district" maxlength="25" value="@Model.district" required />
+        <br />
+        <label for="editProvince">จังหวัด</label>
+        <input id="editProvince" type="text" name="province" maxlength="25" value="@Model.province" required />
+        <br />
+        <label for="editZip">รหัสไปษณีย์</label>
+        <input id="editZip" type="tel" pattern="^[0-9]{5}$" name="zip" value="@Model.zip" required />
+        <br />
+        <input type="submit" value="บันทึก" />
+    </form>
+</div>
+
