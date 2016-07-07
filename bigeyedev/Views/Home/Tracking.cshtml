@@ -1,0 +1,43 @@
+﻿@model List<bigeyedev_order>
+@{
+    ViewBag.Title = "Tracking";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+}
+
+
+<div class="container" id="tablecon">
+    <h5>ติดตามสถานะคำสั่งซื้อ</h5>
+    @if (Model.Count == 0)
+    {
+        <p>ไม่มีรายการสินค้าที่กำลังดำเนินการจัดส่ง</p>
+    }
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <p>
+            <span>หมายเลขคำสั่งซื้อ | @Model[i].order_id</span>
+            <span>| สั่งเมื่อ @Model[i].datetime</span>
+            <span>| สถานะ</span>
+            @if (Model[i].status == 0 || Model[i].status == null)
+            {
+                <span style="color:blue;">กำลังดำเนินการจัดหาสินค้าของคุณ</span>
+            }
+            else if (Model[i].status == 1)
+            {
+                <span style="color:blue;">กำลังแพ็คสินค้า</span>
+            }
+            else if (Model[i].status == 2)
+            {
+                <span style="color:blue;">แพ็คสินค้าเรียบร้อย รอการจัดส่ง</span>
+            }
+            else if (Model[i].status == 3)
+            {
+                <span style="color:#8aad4e;">จัดส่งสินค้าเรียบร้อยแล้ว</span>
+            }
+            else
+            {
+                <span style="color:red;">ผิดพลาด</span>
+            }
+            <span><a href="/Home/Order/@Model[i].order_id"><u>ดูรายละเอียดคำสั่งซื้อ</u></a></span> 
+        </p>
+    }
+</div>

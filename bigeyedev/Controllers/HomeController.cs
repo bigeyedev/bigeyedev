@@ -744,6 +744,10 @@ namespace bigeyedev.Controllers
 
         public ActionResult Result(int? id)
         {
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Index");
+            }
             if (id == null)
             {
                 return RedirectToAction("Index");
@@ -759,7 +763,6 @@ namespace bigeyedev.Controllers
         [HttpGet]
         public ActionResult Payment(int? id)
         {
-
             if (Request.Cookies["Account"] == null)
             {
                 return RedirectToAction("Login");
@@ -817,20 +820,78 @@ namespace bigeyedev.Controllers
 
         public ActionResult Tracking()
         {
+            if (Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+                        
+            // feath data order form DB
+            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+            var tracking = _db.bigeyedev_order.Where(m => m.pay_finish == 1 && m.member_id == memberID).ToList();
+             
+            //order data by order_ID
+            return View(tracking.OrderByDescending(m=>m.order_id).ToList());
+        }
 
-            return View();
+
+
+
+        
+
+        public ActionResult Order(int? id)
+        {
+            if(Request.Cookies["Account"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            //ตัวบ่งบอกว่า รับค่า id มาหรือไม่ เอาไว้สร้างเงื่อนไขในหน้า view
+            int check = 0;
+            //รับค่า member id จาก cookie
+            int memberID = Convert.ToInt32(Request.Cookies["Account"].Values["id"]);
+            // ประกาศตัวรับค่าจาก DB
+            var order = new List<bigeyedev_order>();
+
+            //ตรวจสอบว่า มีการรับ id มาหรือป่าว
+            if (id == null)
+            {
+                order = _db.bigeyedev_order.Where(m => m.member_id == memberID).ToList();
+            }
+            else
+            {
+                check = 1;
+                int orderID = id.Value;
+                order = _db.bigeyedev_order.Where(m => m.order_id == orderID).ToList();
+            }
+
+            return View(new Tuple<List<bigeyedev_order>,int>(order.OrderByDescending(m=>m.order_id).ToList(),check));
         }
 
 
 
 
 
+        public ActionResult _orderViewAddress(int addressID)
+        {
+            var address = _db.bigeyedev_member_address.Find(addressID);
+
+            return PartialView(address);
+        }
 
 
 
 
 
+        public ActionResult _orderViewItem(int orderID)
+        {
+            var orderItem = _db.bigeyedev_order_fashion_item.Where(m => m.order_id == orderID).ToList();
+            var productItem = new List<string>();
+            foreach(var item in orderItem)
+            {
+                productItem.Add(_db.product.Where(m => m.id == item.product_id).Select(u =>u.image_url).Single());
+            }
 
+            return PartialView(new Tuple<List<bigeyedev_order_fashion_item>,List<string>>(orderItem,productItem));
+        }
 
 
 

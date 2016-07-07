@@ -70,7 +70,14 @@ else
             }
             else
             {
-                <p>สถานะ : <span style="color:green">แจ้งชำระเงินแล้ว</span></p>
+                if (Model.Item1[0].pay_finish == 1)
+                {
+                    <p>สถานะ : <span style="color:green">[การโอนเงินเสร็จเรียบร้อย] เจ้าหน้าที่ได้รับเงินแล้ว</span></p>
+                }
+                else
+                {
+                    <p>สถานะ : <span style="color:green">[แจ้งชำระเงินแล้ว]</span><span style="color:red;"> รอการตรวจสอบจากเจ้าหน้าที่.</span></p>
+                }
                 <h6>รายละเอียดการแจ้งชำระเงิน</h6>
                 <p>ธนาคาร : @Model.Item1[0].pay_bank</p>
                 <p>เวลา : @Model.Item1[0].pay_time</p>

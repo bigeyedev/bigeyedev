@@ -1,0 +1,44 @@
+﻿@model bigeyedev_order
+@if (Model.pay_finish == 1)
+{
+    if (Model.status == 0 || Model.status == null)
+    {
+        <span style="color:blue;">กำลังดำเนินการจัดหาสินค้าของคุณ</span>
+    }
+    else if (Model.status == 1)
+    {
+        <span style="color:blue;">กำลังแพ็คสินค้า</span>
+    }
+    else if (Model.status == 2)
+    {
+        <span style="color:blue;">แพ็คสินค้าเรียบร้อย รอการจัดส่ง</span>
+    }
+    else if (Model.status == 3)
+    {
+        <span style="color:#8aad4e;">จัดส่งสินค้าเรียบร้อยแล้ว</span>
+    }
+    else
+    {
+        <span style="color:red;">ผิดพลาด</span>
+    }
+}
+else
+{
+    if (Model.pay_amount == null)
+    {
+        if (Model.order_amount != null)
+        {
+            <span style="color:red;">รอการชำระเงิน</span>
+            <a href="/Home/Payment"><u>แจ้งชำระเงิน</u></a>
+        }
+        else
+        {
+            <span style="color:#A52A2A">รอการรวมยอด</span>
+        }
+
+    }
+    else
+    {
+        <span style="color:blue;">[แจ้งชำระเงินแล้ว] รอการตรวจสอบ</span>
+    }
+}

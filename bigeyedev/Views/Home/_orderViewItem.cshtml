@@ -1,0 +1,68 @@
+﻿@model Tuple<List<bigeyedev_order_fashion_item>, List<string>>
+<h6>รายการสินค้า</h6>
+<hr />
+<div>
+    <table class="tab table-condensed">
+        @for (int i = 0; i < Model.Item1.Count; i++)
+        {
+            <tr>
+                <td width="150">
+                    <a href="http://www.sugar-eye.net/@Model.Item2[i].Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@Model.Item1[i].model - @Model.Item1[i].brand - @Model.Item1[i].near">
+                        &nbsp;@Model.Item1[i].model
+                    </a>
+                </td>
+                <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
+                <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
+                    @if (Model.Item1[i].black > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].black, new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].choco > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].choco, new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].gray > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].gray, new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].brown > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].brown, new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].blue > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].blue, new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].green > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].green, new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].violet > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].violet, new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].pink > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].pink, new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].silver > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].silver, new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].gold > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].gold, new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].sky > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].sky, new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                    @if (Model.Item1[i].red > 0)
+                    {
+                        @Html.TextBoxFor(m => Model.Item1[i].red, new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return isNumberKey(event)", disabled = "disabled" });
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,49 @@
+﻿@model Tuple<List<bigeyedev_order>, int>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+}
+
+<div class="container" id="tablecon">
+
+    @if (Model.Item1.Count > 0)
+    {
+        if (Model.Item2 == 0) // ถ้า ไม่ได้รับ id มา ให้แสดง ออเดอร์ทั้งหมดที่สั่ง
+        {
+            <h5>สินค้าของฉัน</h5>
+            for (int i = 0; i < Model.Item1.Count; i++)
+            {
+                <p>
+                    <span>รายการสั่งซื้อ # <a href="/Home/Order/@Model.Item1[i].order_id"><u>@Model.Item1[i].order_id</u></a></span>
+                    <span>| สั่งเมื่อ @Model.Item1[i].datetime</span>
+                    <span>| ยอดสุทธิ @Model.Item1[i].order_amount</span>
+                    @*Render PartianView for Order Status*@
+                    @{ Html.RenderPartial("_statusOrder", Model.Item1[i]);}
+                </p>
+            }
+        }
+        else //ถ้ารับ id มา ให้แสดงแค่ออเดอร์นั้นๆ
+        {
+            <h5>รายละเอียดคำสั่งซื้อ</h5>
+            <p>
+                <span>หมายเลขคำสั่งซื้อ @Model.Item1[0].order_id</span>
+                <span>| วันที่ @Model.Item1[0].datetime</span>
+                <span>| สถานะ</span>
+                @*Render Partian Order Status View*@
+                @{ Html.RenderPartial("_statusOrder", Model.Item1[0]);}
+            </p>
+
+            //render partialview for 
+            Html.RenderAction("_orderViewAddress", new { addressID = Model.Item1[0].address_id });
+
+            //render patialview for item
+            Html.RenderAction("_orderViewItem", new { orderID = Model.Item1[0].order_id });
+        }
+    }
+    else
+    {
+        <p>ไม่มีคำสั่งซื้อ</p>
+    }
+
+</div>
+
