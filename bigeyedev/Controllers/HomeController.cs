@@ -962,7 +962,7 @@ namespace bigeyedev.Controllers
             return View(modelAccount);
         }
 
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AccountEdit(bigeyedev_member model)
@@ -1030,7 +1030,7 @@ namespace bigeyedev.Controllers
 
 
 
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddressEdit(bigeyedev_member_address model)
@@ -1065,6 +1065,47 @@ namespace bigeyedev.Controllers
 
             return RedirectToAction("Account");
         }
+
+
+
+
+
+
+
+        public async Task<ActionResult> Search(string id)
+        {
+            var model = await _db.product.Where(m => m.visible == 1&& m.model.Contains(id) && (m.black > 0 || m.choco > 0 || m.gray > 0 || m.brown > 0 || m.blue > 0 || m.green > 0 || m.violet > 0 || m.pink > 0 || m.silver > 0 || m.gold > 0 || m.sky > 0 || m.red > 0)).Select(u => new stockBindingModel
+            {
+                id = u.id,
+                model = u.model,
+                brand = u.brand,
+                imageUrl = u.image_url,
+                Black = u.black.Value,
+                Choco = u.choco.Value,
+                Gray = u.gray.Value,
+                Brown = u.brown.Value,
+                Blue = u.blue.Value,
+                Green = u.green.Value,
+                Violet = u.violet.Value,
+                Pink = u.pink.Value,
+                Silver = u.silver.Value,
+                Sky = u.sky.Value,
+                Gold = u.gold.Value,
+                Red = u.red.Value,
+                near = u.near
+            }).ToListAsync();
+
+            var brand = await _db.bigeyedev_brand.ToListAsync();
+
+
+            return View(new Tuple<List<stockBindingModel>, List<bigeyedev_brand>>(model, brand));
+        }
+
+
+
+
+
+
 
 
 

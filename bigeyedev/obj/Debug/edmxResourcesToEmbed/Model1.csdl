@@ -162,6 +162,8 @@
     <Property Name="book_bank_ktb_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="book_bank_bbl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="book_bank_bbl_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="theme_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="favicon_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="product">
     <Key>
@@ -442,6 +444,7 @@
     <EntitySet Name="product" EntityType="Self.product" />
     <EntitySet Name="bigeyedev_order" EntityType="sugareyeModel.bigeyedev_order" />
     <EntitySet Name="bigeyedev_brand" EntityType="sugareyeModel.bigeyedev_brand" />
+    <EntitySet Name="user" EntityType="sugareyeModel.user" />
   </EntityContainer>
   <EntityType Name="bigeyedev_order">
     <Key>
@@ -494,5 +497,27 @@
     <Property Name="brand" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="logo_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="fashion_bgcolor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="nickname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="line" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

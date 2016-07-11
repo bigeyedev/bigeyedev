@@ -13,18 +13,36 @@ namespace bigeyedev
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "AddressEdit",
+                url: "Home/Account/Address/{id}",
+                defaults: new { controller = "Home", action = "AddressEdit", id = UrlParameter.Optional }
+            );
+
+
             routes.MapRoute(
                 name: "AccountEdit",
                 url: "Home/Account/Edit",
                 defaults: new { controller = "Home", action = "AccountEdit" }
             );
 
-            routes.MapRoute(
-                name: "AddressEdit",
-                url: "Home/Account/Address/{id}",
-                defaults: new { controller = "Home", action = "AddressEdit", id=UrlParameter.Optional }
-            );
 
+            routes.MapRoute(
+               name: "AdminOrder",
+               url: "Admin/Order",
+               defaults: new { controller = "Admin", action = "ManagerOrder" }
+           );
+
+            routes.MapRoute(
+               name: "AdminOrderDetail",
+               url: "Admin/Order/{id}",
+               defaults: new { controller = "Admin", action = "OrderDetial", id = UrlParameter.Optional }
+           );
+
+
+            
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

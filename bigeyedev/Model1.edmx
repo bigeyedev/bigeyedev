@@ -193,10 +193,12 @@
           <Property Name="rate_300_vassen" Type="real" />
           <Property Name="rate_500_vassen" Type="real" />
           <Property Name="rate_1000_vassen" Type="real" />
+          <Property Name="theme_url" Type="text" />
           <Property Name="logo_menu_url" Type="text" />
           <Property Name="logo_top_url" Type="text" />
           <Property Name="meta_des" Type="varchar(max)" />
           <Property Name="meta_keyword" Type="varchar" MaxLength="200" />
+          <Property Name="favicon_url" Type="text" />
           <Property Name="tel" Type="varchar" MaxLength="50" />
           <Property Name="face_id" Type="varchar" MaxLength="50" />
           <Property Name="face_qr_url" Type="text" />
@@ -488,6 +490,28 @@
           <Property Name="pink_1000" Type="int" />
           <Property Name="choco_50" Type="int" />
         </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="nickname" Type="varchar" MaxLength="30" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="image" Type="varchar" MaxLength="200" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="birthday" Type="date" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="zip" Type="varchar" MaxLength="10" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="mobile" Type="varchar" MaxLength="20" />
+          <Property Name="line" Type="varchar" MaxLength="30" />
+          <Property Name="position" Type="varchar" MaxLength="50" />
+          <Property Name="contract" Type="varchar(max)" />
+        </EntityType>
         <EntityContainer Name="sugareyeModelStoreContainer">
           <EntitySet Name="bigeyedev_brand" EntityType="Self.bigeyedev_brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bigeyedev_free" EntityType="Self.bigeyedev_free" Schema="dbo" store:Type="Tables" />
@@ -499,6 +523,7 @@
           <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -666,6 +691,8 @@
           <Property Name="book_bank_ktb_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="book_bank_bbl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="book_bank_bbl_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="theme_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="favicon_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -946,6 +973,7 @@
           <EntitySet Name="product" EntityType="Self.product" />
           <EntitySet Name="bigeyedev_order" EntityType="sugareyeModel.bigeyedev_order" />
           <EntitySet Name="bigeyedev_brand" EntityType="sugareyeModel.bigeyedev_brand" />
+          <EntitySet Name="user" EntityType="sugareyeModel.user" />
         </EntityContainer>
         <EntityType Name="bigeyedev_order">
           <Key>
@@ -998,6 +1026,28 @@
           <Property Name="brand" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="logo_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="fashion_bgcolor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="nickname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="birthday" Type="DateTime" Precision="0" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="line" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contract" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1120,6 +1170,8 @@
           <EntitySetMapping Name="bigeyedev_shop">
             <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_shop">
               <MappingFragment StoreEntitySet="bigeyedev_shop">
+                <ScalarProperty Name="favicon_url" ColumnName="favicon_url" />
+                <ScalarProperty Name="theme_url" ColumnName="theme_url" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="shop_id" ColumnName="shop_id" />
                 <ScalarProperty Name="shop_name" ColumnName="shop_name" />
@@ -1494,6 +1546,29 @@
                 <ScalarProperty Name="visible" ColumnName="visible" />
                 <ScalarProperty Name="brand_group" ColumnName="brand_group" />
                 <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="sugareyeModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="contract" ColumnName="contract" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="line" ColumnName="line" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

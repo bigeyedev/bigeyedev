@@ -66,5 +66,7 @@ namespace bigeyedev
         public string book_bank_ktb_name { get; set; }
         public string book_bank_bbl { get; set; }
         public string book_bank_bbl_name { get; set; }
+        public string theme_url { get; set; }
+        public string favicon_url { get; set; }
     }
 }

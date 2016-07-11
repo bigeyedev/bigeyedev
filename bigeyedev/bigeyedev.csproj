@@ -235,6 +235,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -267,6 +268,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="user.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\bin\materialize.js" />
@@ -1002,8 +1006,6 @@
     <Content Include="pic\icon\cart_icon.png" />
     <Content Include="pic\icon\login_icon.png" />
     <Content Include="pic\icon\tracking_icon.png" />
-    <Content Include="pic\slidebars-logo-white2.gif" />
-    <Content Include="pic\slidebars-logo2x.gif" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1038,6 +1040,7 @@
     <Content Include="jquerymobile\demos\page-events\logevents.php" />
     <Content Include="jquerymobile\index.html.bak" />
     <Content Include="jquerymobile\jquery.mobile-1.4.5.min.map" />
+    <None Include="Properties\PublishProfiles\a.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1095,7 +1098,6 @@
     <Content Include="Views\Test\JQ_Dialog.cshtml" />
     <Content Include="Views\Test\JQ_Dialog_Dailog_Alt.cshtml" />
     <Content Include="Views\Test\JQ_Dialog - Copy.cshtml" />
-    <Content Include="Views\Home\SingResult.cshtml" />
     <Content Include="Views\Home\_Culture.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
@@ -1107,6 +1109,12 @@
     <Content Include="Views\Home\Account.cshtml" />
     <Content Include="Views\Home\AccountEdit.cshtml" />
     <Content Include="Views\Home\AddressEdit.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\ManagerOrder.cshtml" />
+    <Content Include="Views\Admin\OrderDetial.cshtml" />
+    <Content Include="Views\Admin\_orderViewAddress.cshtml" />
+    <Content Include="Views\Admin\_orderViewItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

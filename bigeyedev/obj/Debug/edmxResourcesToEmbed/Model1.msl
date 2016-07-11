@@ -116,6 +116,8 @@
     <EntitySetMapping Name="bigeyedev_shop">
       <EntityTypeMapping TypeName="sugareyeModel.bigeyedev_shop">
         <MappingFragment StoreEntitySet="bigeyedev_shop">
+          <ScalarProperty Name="favicon_url" ColumnName="favicon_url" />
+          <ScalarProperty Name="theme_url" ColumnName="theme_url" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="shop_id" ColumnName="shop_id" />
           <ScalarProperty Name="shop_name" ColumnName="shop_name" />
@@ -490,6 +492,29 @@
           <ScalarProperty Name="visible" ColumnName="visible" />
           <ScalarProperty Name="brand_group" ColumnName="brand_group" />
           <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="sugareyeModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="contract" ColumnName="contract" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="line" ColumnName="line" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

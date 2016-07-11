@@ -1,0 +1,83 @@
+﻿@model Tuple<List<bigeyedev_order>, List<string>>
+@{
+    ViewBag.Title = "ManagerOrder";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+}
+
+<div>
+    <table border="1" style="text-align:center;">
+        <tr>
+            <th>เลขที่</th>
+            <th>วันที่</th>
+            <th>ราคา</th>
+            <th>สถานะ</th>
+            <th>ชำระเงิน</th>
+            <th>แจ้งชำระเงิน</th>
+            <th>ลูกค้า</th>
+        </tr>
+        @for (int i = 0; i < Model.Item1.Count; i++)
+        {
+            <tr>
+                <td><a href="/Admin/order/@Model.Item1[i].order_id"><u>@Model.Item1[i].order_id</u></a></td>
+                <td>@Model.Item1[i].datetime</td>
+                <td>
+                    @if (Model.Item1[i].order_amount == null)
+                    {
+                        <span>ยังไม่รวมยอด</span>
+                    }
+                    else
+                    {
+                        @Model.Item1[i].order_amount
+                    }
+                </td>
+                <td>
+                    @if (Model.Item1[i].status == 0|| Model.Item1[i].status==null)
+                    {
+                        <span>ยังไม่ดำเนินการ</span>
+                    }
+                    else if(Model.Item1[i].status == 1)
+                    {
+                        <span>กำลังแพ็ค</span>
+                    }
+                    else if (Model.Item1[i].status == 2)
+                    {
+                        <span>รอจัดส่ง</span>
+                    }
+                    else if (Model.Item1[i].status == 3)
+                    {
+                        <span>จัดส่งแล้ว</span>
+                    }
+                </td>
+                <td>
+                    @if(Model.Item1[i].pay_finish ==1)
+                    {
+                        <span>ได้รับเงินแล้ว</span>
+                    }
+                    else
+                    {
+                        <span>ยังไม่ได้รับเงิน</span>
+                    }
+                </td>
+                <td>
+                    @if (Model.Item1[i].pay_bank == "kbank")
+                    {
+                        <span>KBank</span>
+                    }
+                    else if (Model.Item1[i].pay_bank == "ktb")
+                    {
+                        <span>KTB</span>
+                    }
+                    else if (Model.Item1[i].pay_bank == "ibank")
+                    {
+                        <span>IBank</span>
+                    }
+                    else
+                    {
+                        <span>ยังไม่แจ้งชำระเงิน</span>
+                    }
+                </td>
+                <td>@Model.Item2[i]</td>
+            </tr>
+        }
+    </table>
+</div>

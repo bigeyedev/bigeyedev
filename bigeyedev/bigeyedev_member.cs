@@ -11,7 +11,7 @@ namespace bigeyedev
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class bigeyedev_member
     {
         public Nullable<int> id { get; set; }

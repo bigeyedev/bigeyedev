@@ -35,10 +35,6 @@ namespace bigeyedev
         public virtual DbSet<product> product { get; set; }
         public virtual DbSet<bigeyedev_order> bigeyedev_order { get; set; }
         public virtual DbSet<bigeyedev_brand> bigeyedev_brand { get; set; }
-
-        internal void Attach(object updatedCandidat)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual DbSet<user> user { get; set; }
     }
 }

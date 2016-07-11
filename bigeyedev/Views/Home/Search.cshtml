@@ -1,0 +1,104 @@
+﻿﻿@using bigeyedev.Models
+@model Tuple<List<stockBindingModel>, List<bigeyedev_brand>>
+@{
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+    //boy
+
+
+    // ในส่วน body ต้องมีตรงนี้ด้วย แยกกับ html & controller
+    Html.RenderPartial("_Culture");
+}
+
+
+@using (Html.BeginForm("Fashion_Select", "Home", FormMethod.Post, new { role = "form", id = "form-validation" }))
+{
+    int i = 0;
+    @Html.AntiForgeryToken()
+    <div class="main_tab_container">
+        <div class="tabset1" id="tabs1">
+            @foreach (var item in Model.Item2.OrderBy(m => m.brand_group))
+            {
+                int minStock = 10;
+                var modelItem = Model.Item1.Where(m => m.brand.Contains(item.brand)).ToList();
+                <a name=""></a>
+                <br />
+                if (modelItem.Count > 0)
+                {
+                    <img src="@item.logo_url" alt="@item.brand" title="@item.brand" height="80" /><p></p>
+                }
+                <table border="1" bordercolor="#cccccc" class="test2">
+                    @for (var ii = 0; ii < modelItem.Count; ii++)
+                    {
+                        <tr>
+                            <input type="hidden" value="@modelItem[ii].id" name="[@i].id" />
+                            <input type="hidden" value="@modelItem[ii].brand" name="[@i].brand" />
+                            <input type="hidden" value="@modelItem[ii].model" name="[@i].model" />
+                            <td width="150" bgcolor="@item.fashion_bgcolor">
+                                <a href="http://www.sugar-eye.net/@modelItem[ii].imageUrl.Replace("bigeye/review/image", "bigeye/review/image_bigeyeinw")" class="swipebox" title="@modelItem[ii].model - @item.brand - @modelItem[ii].near">
+                                    &nbsp;@modelItem[ii].model
+                                </a>
+                            </td>
+                            <td style="padding-top: 5px;padding-bottom: 5px; padding-left: 3px; padding-right: 3px">
+                                @if (modelItem[ii].Black > minStock)
+                                {
+
+                                    @Html.TextBoxFor(m => modelItem[ii].Black, new { @class = "product_qty valid-number", placeholder = "Black", style = "color: #000000; font-size: 11px; border-color:#000000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Black" });
+                                }
+                                @if (modelItem[ii].Choco > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Choco, new { @class = "product_qty valid-number", placeholder = "Choco", style = "color: #af6b00; font-size: 11px; border-color:#af6b00;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Choco" });
+                                }
+                                @if (modelItem[ii].Gray > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Gray, new { @class = "product_qty valid-number", placeholder = "Gray", style = "color: #acacac; font-size: 11px; border-color:#acacac;background-color: #f6f6f6;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gray" });
+                                }
+                                @if (modelItem[ii].Brown > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Brown, new { @class = "product_qty valid-number", placeholder = "Brown", style = "color: #f1ac40; font-size: 11px; border-color:#f1ac40;background-color: #f7f1e7;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Brown" });
+                                }
+                                @if (modelItem[ii].Blue > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Blue, new { @class = "product_qty valid-number", placeholder = "Blue", style = "color: #2c4aff; font-size: 11px; border-color:#2c4aff;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Blue" });
+                                }
+                                @if (modelItem[ii].Green > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Green, new { @class = "product_qty valid-number", placeholder = "Green", style = "color: #2ddb2d; font-size: 11px; border-color:#2ddb2d;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Green" });
+                                }
+                                @if (modelItem[ii].Violet > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Violet, new { @class = "product_qty valid-number", placeholder = "Violet", style = "color: #c559e4; font-size: 11px; border-color:#c559e4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Violet" });
+                                }
+                                @if (modelItem[ii].Pink > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Pink, new { @class = "product_qty valid-number", placeholder = "Pink", style = "color: #fd74fb; font-size: 11px; border-color:#fd74fb;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Pink" });
+                                }
+                                @if (modelItem[ii].Silver > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Silver, new { @class = "product_qty valid-number", placeholder = "Silver", style = "color: #d1cfd1; font-size: 11px; border-color:#d1cfd1;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Silver" });
+                                }
+                                @if (modelItem[ii].Gold > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Gold, new { @class = "product_qty valid-number", placeholder = "Gold", style = "color: #f9d463; font-size: 11px; border-color:#f9d463;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Gold" });
+                                }
+                                @if (modelItem[ii].Sky > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Sky, new { @class = "product_qty valid-number", placeholder = "Sky", style = "color: #14e0a4; font-size: 11px; border-color:#14e0a4;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Sky" });
+                                }
+                                @if (modelItem[ii].Red > minStock)
+                                {
+                                    @Html.TextBoxFor(m => modelItem[ii].Red, new { @class = "product_qty valid-number", placeholder = "Red", style = "color: #ff0000; font-size: 11px; border-color:#ff0000;", size = "5", onkeypress = "return numbersonly(this, event)", Value = "", type = "tel", maxlength = "3", Name = "[" + i + "].Red" });
+                                }
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </table>
+            }
+        </div>
+    </div>
+    <div class="box-100 fl text-right">
+        <input type="hidden" name="sighted" value="">
+        <button type="submit" value="submit" class="btn-pay"></button>
+        @*<input type="submit" value="@Resources.Resource.main_btn_order_to_cart" class="btn btn-default" id="btnsub" />*@
+    </div>
+}

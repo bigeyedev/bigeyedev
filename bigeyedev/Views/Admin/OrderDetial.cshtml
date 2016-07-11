@@ -1,0 +1,119 @@
+﻿@model bigeyedev_order
+@{
+    ViewBag.Title = "OrderDetial";
+    Layout = "~/Views/Shared/Front-End_Layout.cshtml";
+}
+
+<div>
+    <h5>รายละเอียดคำสั่งซื้อ</h5>
+    <p><span><b>หมายเลขคำสั่งซื้อ</b> @Model.order_id</span></p>
+    <p><span><b>เวลา</b> @Model.datetime</span></p>
+    <p>
+        <b>ยอดชำระเงิน</b>
+        @if (Model.order_amount == null)
+        {
+            <span>รอการรวมยอด</span>
+        }
+        else
+        {
+            <span>@Model.order_amount บาท</span>
+        }
+        <form action="../orderAmount" method="post" id="formamount">
+            @Html.AntiForgeryToken()
+            <input type="hidden" value="@Model.order_id" name="orderID" />
+            <label for="amount">ยอดชำระ</label>
+            <input type="number" size="35" id="amount" name="amount" value="@Model.order_amount"/>
+            <input type="submit" value="ยืนยัน" />
+        </form>
+    </p>
+    @if (Model.pay_amount != null)
+    {
+        <p><b>ยอดแจ้งชำระ</b> @Model.pay_amount บาท</p>
+    }
+    <p><span><b>สถานะ :</b></span>
+        @*Order Status View*@
+        @if (Model.pay_finish == 1)
+        {
+            
+            <form action="../UpdateStatus" method="post" id="updateStatus">
+                @Html.AntiForgeryToken()
+                <input type="hidden" value="@Model.order_id" name="orderID" />
+                <input type="hidden" value="@Model.status" id="status" name="status" />
+
+                <input type="radio" id="sts0" name="rdoStatus" onclick="updateStatus.status.value = 0; updateStatus.submit();" checked/>
+                <span>กำลังหาสินค้า</span>
+
+                
+                <input type="radio" id="sts1" name="rdoStatus" onclick="updateStatus.status.value = 1; updateStatus.submit();" />
+                <span>กำลังแพ็คสินค้า</span>
+
+                
+                <input type="radio" id="sts2" name="rdoStatus" onclick="updateStatus.status.value = 2; updateStatus.submit();" />
+                <span>รอการจัดส่ง</span>
+                                
+                <input type="radio" id="sts3" name="rdoStatus" onclick="updateStatus.status.value = 3; updateStatus.submit();" />
+                <span style="color:#8aad4e;">ส่งสินค้าแล้ว</span>
+            </form>       
+        }
+        else
+        {
+            if (Model.pay_amount == null)
+            {
+                if (Model.order_amount != null)
+                {
+                    <span>รอการชำระเงิน</span>
+                }
+                else
+                {
+                    <span>รอการรวมยอด</span>
+                }
+
+            }
+            else
+            {
+                <span>แจ้งชำระเงินแล้ว</span>
+            }
+        }
+
+    </p>
+    @if (Model.pay_bank != null)
+    {
+        <p><b>ธนาคาร</b> @Model.pay_bank</p>
+    }
+    @if (Model.pay_finish!=1 && Model.pay_amount!=null)
+    {
+        <form method="post" action="../PayConfirm">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="orderID" value="@Model.order_id" />
+            <input type="submit" value="ได้รับเงินแล้ว" />
+        </form>      
+        
+    }
+    @{
+        Html.RenderAction("_orderViewAddress", new { addressID = Model.address_id });
+        <br />
+        //render patialview for item
+        Html.RenderAction("_orderViewItem", new { orderID = Model.order_id });
+    }
+</div>
+
+<script>
+
+   
+
+
+    //radio button active
+    if(@Model.status==0){
+        document.getElementById('sts0').checked="true";
+    }
+    else if( @Model.status==1){
+        document.getElementById('sts1').checked="true";
+    }
+    else if(@Model.status==2){
+        document.getElementById('sts2').checked="true";
+    }
+    else if(@Model.status==3){
+        document.getElementById('sts3').checked="true";
+    }
+    ///////////////////////////////////////////////
+</script>

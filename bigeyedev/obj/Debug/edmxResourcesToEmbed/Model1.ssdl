@@ -188,10 +188,12 @@
     <Property Name="rate_300_vassen" Type="real" />
     <Property Name="rate_500_vassen" Type="real" />
     <Property Name="rate_1000_vassen" Type="real" />
+    <Property Name="theme_url" Type="text" />
     <Property Name="logo_menu_url" Type="text" />
     <Property Name="logo_top_url" Type="text" />
     <Property Name="meta_des" Type="varchar(max)" />
     <Property Name="meta_keyword" Type="varchar" MaxLength="200" />
+    <Property Name="favicon_url" Type="text" />
     <Property Name="tel" Type="varchar" MaxLength="50" />
     <Property Name="face_id" Type="varchar" MaxLength="50" />
     <Property Name="face_qr_url" Type="text" />
@@ -483,6 +485,28 @@
     <Property Name="pink_1000" Type="int" />
     <Property Name="choco_50" Type="int" />
   </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="nickname" Type="varchar" MaxLength="30" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="image" Type="varchar" MaxLength="200" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" />
+    <Property Name="gender" Type="varchar" MaxLength="10" />
+    <Property Name="birthday" Type="date" />
+    <Property Name="address" Type="varchar(max)" />
+    <Property Name="zip" Type="varchar" MaxLength="10" />
+    <Property Name="tel" Type="varchar" MaxLength="20" />
+    <Property Name="mobile" Type="varchar" MaxLength="20" />
+    <Property Name="line" Type="varchar" MaxLength="30" />
+    <Property Name="position" Type="varchar" MaxLength="50" />
+    <Property Name="contract" Type="varchar(max)" />
+  </EntityType>
   <EntityContainer Name="sugareyeModelStoreContainer">
     <EntitySet Name="bigeyedev_brand" EntityType="Self.bigeyedev_brand" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bigeyedev_free" EntityType="Self.bigeyedev_free" Schema="dbo" store:Type="Tables" />
@@ -494,5 +518,6 @@
     <EntitySet Name="bigeyedev_order_fashion_item" EntityType="Self.bigeyedev_order_fashion_item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bigeyedev_shop" EntityType="Self.bigeyedev_shop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
